@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
@@ -64,6 +65,9 @@
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upravitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sPTSPDataSet = new SystemProPodporuStudijnichPlanu.SPTSPDataSet();
+            this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.predmetTableAdapter = new SystemProPodporuStudijnichPlanu.SPTSPDataSetTableAdapters.PredmetTableAdapter();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem5)).BeginInit();
@@ -73,6 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             this.menuStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPTSPDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_max
@@ -441,7 +447,7 @@
             // konecToolStripMenuItem
             // 
             this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.konecToolStripMenuItem.Text = "&Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.UkonceniProgramu);
             // 
@@ -456,6 +462,20 @@
             this.nápovědaToolStripMenuItem.Name = "nápovědaToolStripMenuItem";
             this.nápovědaToolStripMenuItem.Size = new System.Drawing.Size(73, 19);
             this.nápovědaToolStripMenuItem.Text = "&Nápověda";
+            // 
+            // sPTSPDataSet
+            // 
+            this.sPTSPDataSet.DataSetName = "SPTSPDataSet";
+            this.sPTSPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // predmetBindingSource
+            // 
+            this.predmetBindingSource.DataMember = "Predmet";
+            this.predmetBindingSource.DataSource = this.sPTSPDataSet;
+            // 
+            // predmetTableAdapter
+            // 
+            this.predmetTableAdapter.ClearBeforeFill = true;
             // 
             // FormMain
             // 
@@ -482,6 +502,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).EndInit();
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPTSPDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,6 +546,9 @@
         private System.Windows.Forms.ListBox lb_semestr1;
         private System.Windows.Forms.ToolStripMenuItem upravitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
+        private SPTSPDataSet sPTSPDataSet;
+        private System.Windows.Forms.BindingSource predmetBindingSource;
+        private SPTSPDataSetTableAdapters.PredmetTableAdapter predmetTableAdapter;
     }
 }
 

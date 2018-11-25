@@ -35,6 +35,8 @@ namespace SystemProPodporuStudijnichPlanu
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            // TODO: Tento řádek načte data do tabulky 'sPTSPDataSet.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.predmetTableAdapter.Fill(this.sPTSPDataSet.Predmet);
             Obnov();
         }
 
