@@ -99,6 +99,9 @@
     <EmbeddedResource Include="Aplication\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormPridavani.resx">
+      <DependentUpon>FormPridavani.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -156,6 +159,9 @@
       <DependentUpon>SPTSP.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="graphics\ButtonR53.png" />
+    <None Include="graphics\ButtonL53.png" />
+    <None Include="graphics\ButtonL.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
