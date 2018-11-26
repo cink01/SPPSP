@@ -68,6 +68,7 @@
             this.sPTSPDataSet = new SystemProPodporuStudijnichPlanu.SPTSPDataSet();
             this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.predmetTableAdapter = new SystemProPodporuStudijnichPlanu.SPTSPDataSetTableAdapters.PredmetTableAdapter();
+            this.lb_popis = new System.Windows.Forms.Label();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem5)).BeginInit();
@@ -84,6 +85,7 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.lb_popis);
             this.gb_max.Controls.Add(this.lb_semestr1);
             this.gb_max.Controls.Add(this.radioButton11);
             this.gb_max.Controls.Add(this.rb_add1);
@@ -115,7 +117,7 @@
             this.gb_max.Controls.Add(this.lb_semestr2);
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
-            this.gb_max.Size = new System.Drawing.Size(577, 654);
+            this.gb_max.Size = new System.Drawing.Size(862, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
@@ -128,6 +130,7 @@
             this.lb_semestr1.Name = "lb_semestr1";
             this.lb_semestr1.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr1.TabIndex = 34;
+            this.lb_semestr1.SelectedIndexChanged += new System.EventHandler(this.lb_semestr1_SelectedIndexChanged);
             // 
             // radioButton11
             // 
@@ -433,7 +436,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(600, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(886, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -477,12 +480,20 @@
             // 
             this.predmetTableAdapter.ClearBeforeFill = true;
             // 
+            // lb_popis
+            // 
+            this.lb_popis.AutoSize = true;
+            this.lb_popis.Location = new System.Drawing.Point(475, 59);
+            this.lb_popis.Name = "lb_popis";
+            this.lb_popis.Size = new System.Drawing.Size(0, 13);
+            this.lb_popis.TabIndex = 35;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 684);
+            this.ClientSize = new System.Drawing.Size(886, 684);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -549,6 +560,7 @@
         private SPTSPDataSet sPTSPDataSet;
         private System.Windows.Forms.BindingSource predmetBindingSource;
         private SPTSPDataSetTableAdapters.PredmetTableAdapter predmetTableAdapter;
+        private System.Windows.Forms.Label lb_popis;
     }
 }
 

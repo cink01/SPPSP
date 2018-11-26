@@ -97,6 +97,10 @@ namespace SystemProPodporuStudijnichPlanu
             Pridani.Show();
         }
 
-        
+        private void lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            lb_popis.Text = "";
+        }
     }
 }
