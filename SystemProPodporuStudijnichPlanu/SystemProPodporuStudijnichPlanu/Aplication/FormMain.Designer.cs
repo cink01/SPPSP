@@ -441,7 +441,7 @@
             // konecToolStripMenuItem
             // 
             this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.konecToolStripMenuItem.Text = "&Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.UkonceniProgramu);
             // 
