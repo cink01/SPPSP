@@ -61,36 +61,6 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
-        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ButtonL {
-            get {
-                object obj = ResourceManager.GetObject("ButtonL", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ButtonL53 {
-            get {
-                object obj = ResourceManager.GetObject("ButtonL53", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ButtonR53 {
-            get {
-                object obj = ResourceManager.GetObject("ButtonR53", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete ukončit program? Veškerý neuložený postup bude ztracen!.
         /// </summary>
         internal static string EXIT_MESSAGE {

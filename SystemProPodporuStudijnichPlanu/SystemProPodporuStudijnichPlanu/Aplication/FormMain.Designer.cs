@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
@@ -65,10 +64,6 @@
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upravitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sPTSPDataSet = new SystemProPodporuStudijnichPlanu.SPTSPDataSet();
-            this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.predmetTableAdapter = new SystemProPodporuStudijnichPlanu.SPTSPDataSetTableAdapters.PredmetTableAdapter();
-            this.lb_popis = new System.Windows.Forms.Label();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem5)).BeginInit();
@@ -78,14 +73,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             this.menuStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sPTSPDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
-            this.gb_max.Controls.Add(this.lb_popis);
             this.gb_max.Controls.Add(this.lb_semestr1);
             this.gb_max.Controls.Add(this.radioButton11);
             this.gb_max.Controls.Add(this.rb_add1);
@@ -117,7 +109,7 @@
             this.gb_max.Controls.Add(this.lb_semestr2);
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
-            this.gb_max.Size = new System.Drawing.Size(862, 654);
+            this.gb_max.Size = new System.Drawing.Size(577, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
@@ -130,7 +122,6 @@
             this.lb_semestr1.Name = "lb_semestr1";
             this.lb_semestr1.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr1.TabIndex = 34;
-            this.lb_semestr1.SelectedIndexChanged += new System.EventHandler(this.lb_semestr1_SelectedIndexChanged);
             // 
             // radioButton11
             // 
@@ -436,7 +427,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(886, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(600, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -450,7 +441,7 @@
             // konecToolStripMenuItem
             // 
             this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.konecToolStripMenuItem.Text = "&Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.UkonceniProgramu);
             // 
@@ -466,34 +457,12 @@
             this.nápovědaToolStripMenuItem.Size = new System.Drawing.Size(73, 19);
             this.nápovědaToolStripMenuItem.Text = "&Nápověda";
             // 
-            // sPTSPDataSet
-            // 
-            this.sPTSPDataSet.DataSetName = "SPTSPDataSet";
-            this.sPTSPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // predmetBindingSource
-            // 
-            this.predmetBindingSource.DataMember = "Predmet";
-            this.predmetBindingSource.DataSource = this.sPTSPDataSet;
-            // 
-            // predmetTableAdapter
-            // 
-            this.predmetTableAdapter.ClearBeforeFill = true;
-            // 
-            // lb_popis
-            // 
-            this.lb_popis.AutoSize = true;
-            this.lb_popis.Location = new System.Drawing.Point(475, 59);
-            this.lb_popis.Name = "lb_popis";
-            this.lb_popis.Size = new System.Drawing.Size(0, 13);
-            this.lb_popis.TabIndex = 35;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(886, 684);
+            this.ClientSize = new System.Drawing.Size(600, 684);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -513,8 +482,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).EndInit();
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sPTSPDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,10 +524,6 @@
         private System.Windows.Forms.ListBox lb_semestr1;
         private System.Windows.Forms.ToolStripMenuItem upravitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
-        private SPTSPDataSet sPTSPDataSet;
-        private System.Windows.Forms.BindingSource predmetBindingSource;
-        private SPTSPDataSetTableAdapters.PredmetTableAdapter predmetTableAdapter;
-        private System.Windows.Forms.Label lb_popis;
     }
 }
 

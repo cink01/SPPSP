@@ -16,25 +16,5 @@ namespace SystemProPodporuStudijnichPlanu
         {
             InitializeComponent();
         }
-
-        private void bt_move_prid_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bt_move_odb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bt_pridat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bt_close_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
