@@ -64,6 +64,8 @@
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upravitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem5)).BeginInit();
@@ -458,7 +460,8 @@
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.souborToolStripMenuItem,
             this.upravitToolStripMenuItem,
-            this.nápovědaToolStripMenuItem});
+            this.nápovědaToolStripMenuItem,
+            this.správaToolStripMenuItem});
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
@@ -491,6 +494,21 @@
             this.nápovědaToolStripMenuItem.Name = "nápovědaToolStripMenuItem";
             this.nápovědaToolStripMenuItem.Size = new System.Drawing.Size(73, 19);
             this.nápovědaToolStripMenuItem.Text = "&Nápověda";
+            // 
+            // správaToolStripMenuItem
+            // 
+            this.správaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.naplnitDatabáziToolStripMenuItem});
+            this.správaToolStripMenuItem.Name = "správaToolStripMenuItem";
+            this.správaToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
+            this.správaToolStripMenuItem.Text = "Správa";
+            // 
+            // naplnitDatabáziToolStripMenuItem
+            // 
+            this.naplnitDatabáziToolStripMenuItem.Name = "naplnitDatabáziToolStripMenuItem";
+            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.naplnitDatabáziToolStripMenuItem.Text = "Naplnit databázi";
+            this.naplnitDatabáziToolStripMenuItem.Click += new System.EventHandler(this.NaplnitDatabáziToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -559,6 +577,8 @@
         private System.Windows.Forms.ListBox lb_semestr1;
         private System.Windows.Forms.ToolStripMenuItem upravitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem správaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
     }
 }
 

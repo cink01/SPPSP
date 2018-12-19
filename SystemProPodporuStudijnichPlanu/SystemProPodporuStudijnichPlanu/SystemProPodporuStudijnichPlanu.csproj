@@ -87,6 +87,7 @@
       <DependentUpon>FormPridavani.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\DataAccess.cs" />
+    <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Data\Helper.cs" />
     <Compile Include="Aplication\Program.cs" />
     <Compile Include="Data\SPTSPdataSet.Designer.cs">

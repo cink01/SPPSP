@@ -1,38 +1,34 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
-namespace SystemProPodporuStudijnichPlanu.Logic
+namespace SystemProPodporuStudijnichPlanu
 {
-    class NacteniDat
+    public class NacteniDat
     {
-        private ArrayList shromazdeni { get; set; }
-        NacteniDat(){
-            shromazdeni = new ArrayList();
-        }
-        void Proved(string path)
+        public void Proved(string path)
         {
-            shromazdeni.Clear();
-            //var File;
+            var line = "";
+            var reader = new StreamReader(path);//vytvorení čtení řádku ze souboru
+            DataCrud DC = new DataCrud();
             try
             {
-                while (true)
+                while (reader.Peek() >= 0)//testovavni zda je jeste dalsi radek
                 {
+                    //precteni radku
+                    line = reader.ReadLine();
+                    string[] fulldata = line.Split(';');//rozlozeni prvku v line do prvku pole fulldata k jednoduššímu přístupu 
+                    //vložení dat do insertu do databaze
+
+                    DC.InsertPredmet(fulldata[2], fulldata[1], fulldata[3], fulldata[6]);
 
                 }
-                MessageBox.Show("Informace", "Načtení dat do databéze proběhlo úspešně", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Chyba", "Načtení dat skončilo s chybou: "+ex, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            
         }
     }
 }
