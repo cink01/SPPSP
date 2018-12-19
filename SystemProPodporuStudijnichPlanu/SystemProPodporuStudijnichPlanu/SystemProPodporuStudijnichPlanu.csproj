@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SPTSPdataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Logic\NacteniDat.cs" />
     <Compile Include="Logic\Predmet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aplication\FormMain.resx">
