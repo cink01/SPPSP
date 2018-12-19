@@ -465,7 +465,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(600, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(611, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -506,7 +506,7 @@
             // naplnitDatabáziToolStripMenuItem
             // 
             this.naplnitDatabáziToolStripMenuItem.Name = "naplnitDatabáziToolStripMenuItem";
-            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.naplnitDatabáziToolStripMenuItem.Text = "Naplnit databázi";
             this.naplnitDatabáziToolStripMenuItem.Click += new System.EventHandler(this.NaplnitDatabáziToolStripMenuItem_Click);
             // 
@@ -515,7 +515,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 684);
+            this.ClientSize = new System.Drawing.Size(611, 684);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

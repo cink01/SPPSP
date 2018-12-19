@@ -17,22 +17,19 @@ namespace SystemProPodporuStudijnichPlanu
                 cmd.Parameters.AddWithValue("@b", b);
                 cmd.Parameters.AddWithValue("@c", c);
                 cmd.Parameters.AddWithValue("@d", d);
-                conn.Open();
                 try
                 {
+                    conn.Open();
                     cmd.ExecuteNonQuery();
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
         }
-        public void InsertVyuc(string a, string b, string c, string d)
+     /*   public void InsertVyuc(string a, string b, string c, string d)
         {
 
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
@@ -57,6 +54,6 @@ namespace SystemProPodporuStudijnichPlanu
                     conn.Close();
                 }
             }
-        }
+        }*/
     }
 }
