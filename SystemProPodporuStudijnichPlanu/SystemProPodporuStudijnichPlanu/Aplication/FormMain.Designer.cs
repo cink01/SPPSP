@@ -290,7 +290,7 @@
             this.nud_KredSem6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem6.Location = new System.Drawing.Point(301, 565);
             this.nud_KredSem6.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -306,7 +306,7 @@
             this.nud_KredSem5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem5.Location = new System.Drawing.Point(301, 464);
             this.nud_KredSem5.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -322,7 +322,7 @@
             this.nud_KredSem4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem4.Location = new System.Drawing.Point(301, 363);
             this.nud_KredSem4.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -338,7 +338,7 @@
             this.nud_KredSem3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem3.Location = new System.Drawing.Point(301, 261);
             this.nud_KredSem3.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -354,7 +354,7 @@
             this.nud_KredSem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem2.Location = new System.Drawing.Point(301, 160);
             this.nud_KredSem2.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -371,7 +371,7 @@
             this.nud_KredSem1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.nud_KredSem1.Location = new System.Drawing.Point(301, 59);
             this.nud_KredSem1.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -387,7 +387,7 @@
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_celkemKred.Location = new System.Drawing.Point(300, 18);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});

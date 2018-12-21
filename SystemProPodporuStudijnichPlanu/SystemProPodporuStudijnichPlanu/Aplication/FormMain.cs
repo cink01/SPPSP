@@ -37,12 +37,28 @@ namespace SystemProPodporuStudijnichPlanu
             lb_semestr1.DataSource = predmetyFull;
             lb_semestr1.DisplayMember = "NazInfo";
             KreditySum();
+            lb_semestr2.DataSource = predmetyFull;
+            lb_semestr2.DisplayMember = "NazInfo";
+            KreditySum();
+            lb_semestr3.DataSource = predmetyFull;
+            lb_semestr3.DisplayMember = "NazInfo";
+            KreditySum();
+            lb_semestr4.DataSource = predmetyFull;
+            lb_semestr4.DisplayMember = "NazInfo";
+            KreditySum();
+            lb_semestr5.DataSource = predmetyFull;
+            lb_semestr5.DisplayMember = "NazInfo";
+            KreditySum();
+            lb_semestr6.DataSource = predmetyFull;
+            lb_semestr6.DisplayMember = "NazInfo";
+            KreditySum();
         }
         private void ObnovFull()
         {
             lb_semestr1.DataSource = predmetyFull;
             lb_semestr1.DisplayMember = "FullInfo";
             KreditySum();
+
         }
         private void KreditySum()
         {
@@ -61,6 +77,33 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_KredSem1.BackColor = Color.LightCoral;
             else
                 nud_KredSem1.BackColor = Color.LightGreen;
+
+            if (nud_KredSem2.Value < 15)
+                nud_KredSem2.BackColor = Color.LightCoral;
+            else
+                nud_KredSem2.BackColor = Color.LightGreen;
+
+
+            if (nud_KredSem3.Value < 15)
+                nud_KredSem3.BackColor = Color.LightCoral;
+            else
+                nud_KredSem3.BackColor = Color.LightGreen;
+
+            if (nud_KredSem4.Value < 15)
+                nud_KredSem4.BackColor = Color.LightCoral;
+            else
+                nud_KredSem4.BackColor = Color.LightGreen;
+
+            if (nud_KredSem5.Value < 15)
+                nud_KredSem5.BackColor = Color.LightCoral;
+            else
+                nud_KredSem5.BackColor = Color.LightGreen;
+
+            if (nud_KredSem6.Value < 15)
+                nud_KredSem6.BackColor = Color.LightCoral;
+            else
+                nud_KredSem6.BackColor = Color.LightGreen;
+
             if (nud_celkemKred.Value < 180)
                 nud_celkemKred.BackColor = Color.LightCoral;
             else
@@ -83,6 +126,21 @@ namespace SystemProPodporuStudijnichPlanu
         {
             DataAccess db = new DataAccess();
             int IS=1;
+            predmetyFull = db.GetPredmetFull(IS);
+            ObnovFull();
+            IS = 2;
+            predmetyFull = db.GetPredmetFull(IS);
+            ObnovFull();
+            IS = 3;
+            predmetyFull = db.GetPredmetFull(IS);
+            ObnovFull();
+            IS = 4;
+            predmetyFull = db.GetPredmetFull(IS);
+            ObnovFull();
+            IS = 5;
+            predmetyFull = db.GetPredmetFull(IS);
+            ObnovFull();
+            IS = 6;
             predmetyFull = db.GetPredmetFull(IS);
             ObnovFull();
         }
