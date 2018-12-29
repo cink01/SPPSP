@@ -148,7 +148,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            string cesta = @"C:\Users\Tommi\Desktop\SPPSP\pomocné soubory\vspj_predmety_bez_anotace.txt";
+            string cesta = @"D:\VEJSKA\5 semestr\SPPSP\pomocné soubory\vspj_predmety_bez_anotace.txt";
             nd.Proved(cesta);
             DataAccess da = new DataAccess();
         }

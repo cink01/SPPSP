@@ -17,5 +17,14 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+
+        public int GetOborId(string obor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
+            {
+                int vystup = Convert.ToInt32(connection.Query($"Select * from Predmet where SemestrPredmet='{ obor }'"));
+                return vystup;
+            }
+        }
     }
 }

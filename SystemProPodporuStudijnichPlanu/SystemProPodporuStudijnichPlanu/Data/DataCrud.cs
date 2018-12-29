@@ -6,54 +6,67 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class DataCrud
     {
-        public void InsertPredmet(string a, string b, string c, string d)
+        public void InsertPredmet(string a, string b, string c, string d,string ob)
         {
-
-            using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
+            DataAccess da = new DataAccess();
+            using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                // connection.ExecuteScalar($"insert into Predmet(ZkratkaPredmet,NazevPredmet,KreditPredmet,SemestrPredmet) values('{a}{b}{c}{d}')");
-                SqlCommand cmd = new SqlCommand("insert into Predmet(ZkratkaPredmet,NazevPredmet,KreditPredmet,SemestrPredmet) values(@a,@b,@c,@d)",conn);
-                cmd.Parameters.AddWithValue("@a", a);
-                cmd.Parameters.AddWithValue("@b", b);
-                cmd.Parameters.AddWithValue("@c", c);
-                cmd.Parameters.AddWithValue("@d", d);
+                int obor = da.GetOborId(ob);
+                SqlCommand pred = new SqlCommand("insert into predmet(zkr_predmet,name_predmet,kredit_predmet,semestr_predmet,id_obor) values(@a,@b,@c,@d,@obor)", conn);
+                pred.Parameters.AddWithValue("@a", a);
+                pred.Parameters.AddWithValue("@b", b);
+                pred.Parameters.AddWithValue("@c", c);
+                pred.Parameters.AddWithValue("@d", d);
+                pred.Parameters.AddWithValue("@obor", obor);
                 try
                 {
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    pred.ExecuteNonQuery();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
         }
-     /*   public void InsertVyuc(string a, string b, string c, string d)
+        public void InsertKat(string a, string b)
         {
-
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
             {
-                // connection.ExecuteScalar($"insert into Predmet(ZkratkaPredmet,NazevPredmet,KreditPredmet,SemestrPredmet) values('{a}{b}{c}{d}')");
-                SqlCommand cmd = new SqlCommand("insert into Predmet(ZkratkaPredmet,NazevPredmet,KreditPredmet,SemestrPredmet) values(@a,@b,@c,@d)", conn);
-                cmd.Parameters.AddWithValue("@a", a);
-                cmd.Parameters.AddWithValue("@b", b);
-                cmd.Parameters.AddWithValue("@c", Convert.ToInt32( c));
-                cmd.Parameters.AddWithValue("@d", Convert.ToInt32(d));
-                conn.Open();
+                SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
+                kat.Parameters.AddWithValue("@a", a);
+                kat.Parameters.AddWithValue("@b", b);
                 try
                 {
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    kat.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
-        }*/
+        }
+        public void InsertObor(string a, string b)
+        {
+            using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
+            {
+                SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
+                kat.Parameters.AddWithValue("@a", a);
+                kat.Parameters.AddWithValue("@b", b);
+                try
+                {
+                    conn.Open();
+                    kat.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
     }
 }
