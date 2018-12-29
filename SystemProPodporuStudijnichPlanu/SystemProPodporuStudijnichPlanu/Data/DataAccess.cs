@@ -22,8 +22,14 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
             {
-                int vystup = Convert.ToInt32(connection.Query($"Select * from Predmet where SemestrPredmet='{ obor }'"));
-                return vystup;
+                return Convert.ToInt32(connection.Query($"Select id_obor from obor where name_obor='{ obor }'"));
+            }
+        }
+        public int GetKatedraId(string katedra)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString")))
+            {
+                return Convert.ToInt32(connection.Query($"Select id_k from katedra where naz_k='{ katedra }'"));;
             }
         }
     }
