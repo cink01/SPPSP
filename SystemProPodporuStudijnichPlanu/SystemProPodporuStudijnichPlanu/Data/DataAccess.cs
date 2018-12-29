@@ -32,5 +32,22 @@ namespace SystemProPodporuStudijnichPlanu
                 return Convert.ToInt32(connection.Query($"Select id_k from katedra where naz_k='{ katedra }'"));;
             }
         }
+        public int GetPredmetId(string p)
+        {
+            return Convert.ToInt32(connection.Query($"Select id_predmet from predmet where name_predmet='{ p }'"));
+        }
+        public int GetVyucujiciId(string v)
+        {
+            return Convert.ToInt32(connection.Query($"Select id_v from obor where jmeno_v='{ v }'"));
+        }
+        public int GetZaznamId(string z)
+        {
+            return Convert.ToInt32(connection.Query($"Select id_zaznam from zaznam where zkr_zaznam='{ z }'"));
+        }
+                public int GetPSId(string z, int s)
+        {
+            DataAccess a= new DataAccess();
+            return Convert.ToInt32(connection.Query($"Select id_ps from plansemestr where id_zaznam='{ a.GetZaznamID(z) }'& sem_ps='{s}'"));
+        }
     }
 }
