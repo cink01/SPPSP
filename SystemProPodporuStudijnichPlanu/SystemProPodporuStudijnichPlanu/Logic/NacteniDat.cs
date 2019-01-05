@@ -20,7 +20,7 @@ namespace SystemProPodporuStudijnichPlanu
                     string[] fulldata = line.Split(';');//rozlozeni prvku v line do prvku pole fulldata k jednoduššímu přístupu 
                     //vložení dat do insertu do databaze
 
-                    DC.InsertPredmet(fulldata[2], fulldata[1], fulldata[3], fulldata[6]);
+                 //   DC.InsertPredmet(fulldata[2], fulldata[1], fulldata[3], fulldata[6]);
 
                 }
                 MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -45,7 +45,7 @@ namespace SystemProPodporuStudijnichPlanu
                     string[] fulldata = line.Split(';');//rozlozeni prvku v line do prvku pole fulldata k jednoduššímu přístupu 
                     //vložení dat do insertu do databaze
 
-                    DC.InsertPredmet(fulldata[2], fulldata[1], fulldata[3], fulldata[6]);
+                 //   DC.InsertPredmet(fulldata[2], fulldata[1], fulldata[3], fulldata[6]);
 
                 }
                 MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);

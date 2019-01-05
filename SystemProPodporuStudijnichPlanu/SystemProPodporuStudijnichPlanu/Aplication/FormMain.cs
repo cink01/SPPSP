@@ -10,14 +10,14 @@ namespace SystemProPodporuStudijnichPlanu
     {
         List<Predmet> predmetyFull = new List<Predmet>();
         List<Predmet> predmetyS1 = new List<Predmet>();
-        List<Predmet> predmetyS2= new List<Predmet>();
-        List<Predmet> predmetyS3= new List<Predmet>();
+        List<Predmet> predmetyS2 = new List<Predmet>();
+        List<Predmet> predmetyS3 = new List<Predmet>();
         List<Predmet> predmetyS4 = new List<Predmet>();
-        List<Predmet> predmetyS5= new List<Predmet>();
-        List<Predmet> predmetyS6= new List<Predmet>();
-        List<Predmet> predmetyS7= new List<Predmet>();
-        List<Predmet> predmetyS8= new List<Predmet>();
-        List<Predmet> predmetyS9= new List<Predmet>();
+        List<Predmet> predmetyS5 = new List<Predmet>();
+        List<Predmet> predmetyS6 = new List<Predmet>();
+        List<Predmet> predmetyS7 = new List<Predmet>();
+        List<Predmet> predmetyS8 = new List<Predmet>();
+        List<Predmet> predmetyS9 = new List<Predmet>();
         List<Predmet> predmetyS10 = new List<Predmet>();
         public FormMain()
         {
@@ -73,7 +73,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value;
-            if (nud_KredSem1.Value < 15) 
+            if (nud_KredSem1.Value < 15)
                 nud_KredSem1.BackColor = Color.LightCoral;
             else
                 nud_KredSem1.BackColor = Color.LightGreen;
@@ -118,14 +118,14 @@ namespace SystemProPodporuStudijnichPlanu
 
         private void UkonceniProgramu(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Properties.Resources.EXIT_MESSAGE, Properties.Resources.EXIT_TITLE,MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Properties.Resources.EXIT_MESSAGE, Properties.Resources.EXIT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
         }
 
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
-            int IS=1;
+            int IS = 1;
             predmetyFull = db.GetPredmetFull(IS);
             ObnovFull();
             IS = 2;
@@ -152,5 +152,74 @@ namespace SystemProPodporuStudijnichPlanu
             nd.Proved(cesta);
             DataAccess da = new DataAccess();
         }
+
+        /* private void nud_pocty_ValueChanged(object sender, EventArgs e)
+         {
+             tabPage1.Visible = tabPage2.Visible = tabPage3.Visible = tabPage4.Visible = tabPage5.Visible = tabPage6.Visible = tabPage7.Visible = tabPage8.Visible = tabPage9.Visible = tabPage10.Visible = tabPage11.Visible = tabPage12.Visible = false;
+             switch (Convert.ToInt32(nud_pocty.Value))
+             {
+                 case 12:
+                     {
+                         tabPage12.Visible = true;
+                         goto case 11;
+                     }
+                 case 11:
+                     {
+
+                         tabPage11.Visible = true;
+                         goto case 10;
+                     }
+                 case 10:
+                     {
+                         tabPage10.Visible = true;
+                         goto case 9;
+                     }
+                 case 9:
+                     {
+                         tabPage9.Visible = true;
+                         goto case 8;
+                     }
+                 case 8:
+                     {
+                         tabPage8.Visible = true;
+                         goto case 7;
+                     }
+                 case 7:
+                     {
+                         tabPage7.Visible = true;
+                         goto case 6;
+                     }
+                 case 6:
+                     {
+                         tabPage6.Visible = true;
+                         goto case 5;
+                     }
+                 case 5:
+                     {
+                         tabPage5.Visible = true;
+                         goto case 4;
+                     }
+                 case 4:
+                     {
+                         tabPage4.Visible = true;
+                         goto case 3;
+                     }
+                 case 3:
+                     {
+                         tabPage3.Visible = true;
+                         goto case 2;
+                     }
+                 case 2:
+                     {
+                         tabPage2.Visible = true;
+                         goto case 1;
+                     }
+                 case 1:
+                     {
+                         tabPage1.Visible = true;
+                     }
+                     break;
+             }
+         }*/
     }
 }

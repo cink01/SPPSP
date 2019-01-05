@@ -66,6 +66,30 @@
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.radioButton18 = new System.Windows.Forms.RadioButton();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.listBox6 = new System.Windows.Forms.ListBox();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem5)).BeginInit();
@@ -75,11 +99,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             this.menuStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.listBox1);
+            this.gb_max.Controls.Add(this.radioButton1);
+            this.gb_max.Controls.Add(this.radioButton4);
+            this.gb_max.Controls.Add(this.radioButton6);
+            this.gb_max.Controls.Add(this.radioButton8);
+            this.gb_max.Controls.Add(this.radioButton10);
+            this.gb_max.Controls.Add(this.radioButton12);
+            this.gb_max.Controls.Add(this.radioButton13);
+            this.gb_max.Controls.Add(this.radioButton14);
+            this.gb_max.Controls.Add(this.radioButton15);
+            this.gb_max.Controls.Add(this.radioButton16);
+            this.gb_max.Controls.Add(this.radioButton17);
+            this.gb_max.Controls.Add(this.radioButton18);
+            this.gb_max.Controls.Add(this.numericUpDown1);
+            this.gb_max.Controls.Add(this.numericUpDown2);
+            this.gb_max.Controls.Add(this.numericUpDown3);
+            this.gb_max.Controls.Add(this.numericUpDown4);
+            this.gb_max.Controls.Add(this.numericUpDown5);
+            this.gb_max.Controls.Add(this.numericUpDown6);
+            this.gb_max.Controls.Add(this.listBox2);
+            this.gb_max.Controls.Add(this.listBox3);
+            this.gb_max.Controls.Add(this.listBox4);
+            this.gb_max.Controls.Add(this.listBox5);
+            this.gb_max.Controls.Add(this.listBox6);
             this.gb_max.Controls.Add(this.lb_semestr1);
             this.gb_max.Controls.Add(this.radioButton11);
             this.gb_max.Controls.Add(this.rb_add1);
@@ -111,7 +165,7 @@
             this.gb_max.Controls.Add(this.lb_semestr2);
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
-            this.gb_max.Size = new System.Drawing.Size(577, 654);
+            this.gb_max.Size = new System.Drawing.Size(1031, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
@@ -268,9 +322,9 @@
             // 
             // bt_proved
             // 
-            this.bt_proved.Location = new System.Drawing.Point(475, 18);
+            this.bt_proved.Location = new System.Drawing.Point(302, 15);
             this.bt_proved.Name = "bt_proved";
-            this.bt_proved.Size = new System.Drawing.Size(86, 23);
+            this.bt_proved.Size = new System.Drawing.Size(398, 23);
             this.bt_proved.TabIndex = 20;
             this.bt_proved.Text = "&Proveď akci";
             this.bt_proved.UseVisualStyleBackColor = true;
@@ -279,7 +333,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(363, 21);
+            this.lb_celkem.Location = new System.Drawing.Point(706, 16);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(78, 13);
             this.lb_celkem.TabIndex = 14;
@@ -385,7 +439,7 @@
             // nud_celkemKred
             // 
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(300, 18);
+            this.nud_celkemKred.Location = new System.Drawing.Point(790, 14);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -465,7 +519,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(625, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(1053, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -506,16 +560,299 @@
             // naplnitDatabáziToolStripMenuItem
             // 
             this.naplnitDatabáziToolStripMenuItem.Name = "naplnitDatabáziToolStripMenuItem";
-            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.naplnitDatabáziToolStripMenuItem.Text = "Naplnit databázi";
             this.naplnitDatabáziToolStripMenuItem.Click += new System.EventHandler(this.NaplnitDatabáziToolStripMenuItem_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(596, 44);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(189, 94);
+            this.listBox1.TabIndex = 58;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(790, 108);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(142, 17);
+            this.radioButton1.TabIndex = 57;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "odebrat zvolený předmět";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(791, 85);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(105, 17);
+            this.radioButton4.TabIndex = 56;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "přidat předmět(y)";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(791, 209);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(142, 17);
+            this.radioButton6.TabIndex = 55;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "odebrat zvolený předmět";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(792, 186);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(105, 17);
+            this.radioButton8.TabIndex = 54;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "přidat předmět(y)";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(791, 310);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(142, 17);
+            this.radioButton10.TabIndex = 53;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "odebrat zvolený předmět";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(792, 287);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(105, 17);
+            this.radioButton12.TabIndex = 52;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "přidat předmět(y)";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(790, 412);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(142, 17);
+            this.radioButton13.TabIndex = 51;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "odebrat zvolený předmět";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(791, 389);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(105, 17);
+            this.radioButton14.TabIndex = 50;
+            this.radioButton14.TabStop = true;
+            this.radioButton14.Text = "přidat předmět(y)";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Location = new System.Drawing.Point(791, 513);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(142, 17);
+            this.radioButton15.TabIndex = 49;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Text = "odebrat zvolený předmět";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            // 
+            // radioButton16
+            // 
+            this.radioButton16.AutoSize = true;
+            this.radioButton16.Location = new System.Drawing.Point(792, 490);
+            this.radioButton16.Name = "radioButton16";
+            this.radioButton16.Size = new System.Drawing.Size(105, 17);
+            this.radioButton16.TabIndex = 48;
+            this.radioButton16.TabStop = true;
+            this.radioButton16.Text = "přidat předmět(y)";
+            this.radioButton16.UseVisualStyleBackColor = true;
+            // 
+            // radioButton17
+            // 
+            this.radioButton17.AutoSize = true;
+            this.radioButton17.Location = new System.Drawing.Point(791, 615);
+            this.radioButton17.Name = "radioButton17";
+            this.radioButton17.Size = new System.Drawing.Size(142, 17);
+            this.radioButton17.TabIndex = 47;
+            this.radioButton17.TabStop = true;
+            this.radioButton17.Text = "odebrat zvolený předmět";
+            this.radioButton17.UseVisualStyleBackColor = true;
+            // 
+            // radioButton18
+            // 
+            this.radioButton18.AutoSize = true;
+            this.radioButton18.Location = new System.Drawing.Point(792, 592);
+            this.radioButton18.Name = "radioButton18";
+            this.radioButton18.Size = new System.Drawing.Size(105, 17);
+            this.radioButton18.TabIndex = 46;
+            this.radioButton18.TabStop = true;
+            this.radioButton18.Text = "přidat předmět(y)";
+            this.radioButton18.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown1.Location = new System.Drawing.Point(791, 565);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
+            this.numericUpDown1.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown1.TabIndex = 45;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown2.Location = new System.Drawing.Point(791, 464);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.ReadOnly = true;
+            this.numericUpDown2.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown2.TabIndex = 44;
+            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown3.Location = new System.Drawing.Point(791, 363);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.ReadOnly = true;
+            this.numericUpDown3.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown3.TabIndex = 43;
+            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown4.Location = new System.Drawing.Point(791, 261);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.ReadOnly = true;
+            this.numericUpDown4.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown4.TabIndex = 42;
+            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown5.Location = new System.Drawing.Point(791, 160);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.ReadOnly = true;
+            this.numericUpDown5.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown5.TabIndex = 41;
+            this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.numericUpDown6.Location = new System.Drawing.Point(791, 59);
+            this.numericUpDown6.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.ReadOnly = true;
+            this.numericUpDown6.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDown6.TabIndex = 40;
+            this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // listBox2
+            // 
+            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 15;
+            this.listBox2.Location = new System.Drawing.Point(596, 550);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(189, 94);
+            this.listBox2.TabIndex = 39;
+            // 
+            // listBox3
+            // 
+            this.listBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 15;
+            this.listBox3.Location = new System.Drawing.Point(596, 449);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(189, 94);
+            this.listBox3.TabIndex = 38;
+            // 
+            // listBox4
+            // 
+            this.listBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 15;
+            this.listBox4.Location = new System.Drawing.Point(596, 348);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(189, 94);
+            this.listBox4.TabIndex = 37;
+            // 
+            // listBox5
+            // 
+            this.listBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 15;
+            this.listBox5.Location = new System.Drawing.Point(596, 246);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(189, 94);
+            this.listBox5.TabIndex = 36;
+            // 
+            // listBox6
+            // 
+            this.listBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox6.FormattingEnabled = true;
+            this.listBox6.ItemHeight = 15;
+            this.listBox6.Location = new System.Drawing.Point(596, 145);
+            this.listBox6.Name = "listBox6";
+            this.listBox6.Size = new System.Drawing.Size(189, 94);
+            this.listBox6.TabIndex = 35;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(625, 684);
+            this.ClientSize = new System.Drawing.Size(1053, 684);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -535,6 +872,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).EndInit();
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,6 +922,30 @@
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem správaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radioButton16;
+        private System.Windows.Forms.RadioButton radioButton17;
+        private System.Windows.Forms.RadioButton radioButton18;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.ListBox listBox6;
     }
 }
 
