@@ -73,18 +73,26 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
-        public void InsertPredmet(string a, string b, string c, string d,string ob)
+        public void InsertPredmet(string zkr_predmet,string name_predmet,int kredit_predmet,int semestr_predmet, string ob,int id_orig,string povinnost, string jazyk, string zakonceni,int prednaska=0, int cviceni=0, int kombi=0,int lab=0)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 int obor = da.GetOborId(ob);
-                SqlCommand pred = new SqlCommand("insert into predmet(zkr_predmet,name_predmet,kredit_predmet,semestr_predmet,id_obor) values(@a,@b,@c,@d,@obor)", conn);
-                pred.Parameters.AddWithValue("@a", a);
-                pred.Parameters.AddWithValue("@b", b);
-                pred.Parameters.AddWithValue("@c", c);
-                pred.Parameters.AddWithValue("@d", d);
-                pred.Parameters.AddWithValue("@obor", obor);
+                SqlCommand pred = new SqlCommand("insert into predmet(zkr_predmet,name_predmet,kredit_predmet,semestr_predmet,id_obor,id_orig,povinnost,prednaska,cviceni,kombi,lab,jazyk,zakonceni) values(@zkr_predmet,@name_predmet,@kredit_predmet,@semestr_predmet,@id_obor,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                pred.Parameters.AddWithValue("@zkr_predmet", zkr_predmet);
+                pred.Parameters.AddWithValue("@name_predmet", name_predmet);
+                pred.Parameters.AddWithValue("@kredit_predmet", kredit_predmet);
+                pred.Parameters.AddWithValue("@semestr_predmet", semestr_predmet);
+                pred.Parameters.AddWithValue("@id_obor", obor);
+                pred.Parameters.AddWithValue("@id_orig", id_orig);
+                pred.Parameters.AddWithValue("@povinnost", povinnost);
+                pred.Parameters.AddWithValue("@prednaska", prednaska);
+                pred.Parameters.AddWithValue("@cviceni", cviceni);
+                pred.Parameters.AddWithValue("@kombi", kombi);
+                pred.Parameters.AddWithValue("@lab", lab);
+                pred.Parameters.AddWithValue("@jazyk", jazyk);
+                pred.Parameters.AddWithValue("@zakonceni", zakonceni);
                 try
                 {
                     conn.Open();
