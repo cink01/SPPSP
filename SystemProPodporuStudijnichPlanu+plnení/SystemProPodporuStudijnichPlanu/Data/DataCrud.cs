@@ -6,13 +6,13 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class DataCrud
     {
-        public void InsertKat(string a, string b)
+        public void InsertKat(string zkratka, string nazev)
         {
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
-                kat.Parameters.AddWithValue("@a", a);
-                kat.Parameters.AddWithValue("@b", b);
+                kat.Parameters.AddWithValue("@a", zkratka);
+                kat.Parameters.AddWithValue("@b", nazev);
                 try
                 {
                     conn.Open();
@@ -25,14 +25,14 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertObor(string zkr,string naz, string rok,int p,int pv,int v,int vs)
+        public void InsertObor(string zkr, string naz, string rok, int p, int pv, int v, int vs)
         {
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
                 obor.Parameters.AddWithValue("@zkr", zkr);
                 obor.Parameters.AddWithValue("@naz", naz);
-                obor.Parameters.AddWithValue("@rok",rok);
+                obor.Parameters.AddWithValue("@rok", rok);
                 obor.Parameters.AddWithValue("@p", p);
                 obor.Parameters.AddWithValue("@pv", pv);
                 obor.Parameters.AddWithValue("@v", v);
@@ -49,15 +49,15 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-         public void InsertVyuc(string jmeno_v, string email_v,string tel_v,string konz_v,string kat)
+        public void InsertVyuc(string jmeno_v, string email_v, string kat, string tel_v = "XXXX", string konz_v = "XXX")
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand vyuc = new SqlCommand("insert into vyucujici(jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
                 vyuc.Parameters.AddWithValue("@jmeno_v", jmeno_v);
                 vyuc.Parameters.AddWithValue("@email_v", email_v);
-                vyuc.Parameters.AddWithValue("@tel_v",tel_v);
+                vyuc.Parameters.AddWithValue("@tel_v", tel_v);
                 vyuc.Parameters.AddWithValue("@konz_v", konz_v);
                 vyuc.Parameters.AddWithValue("@id_k", da.GetKatedraId(kat));
                 try
@@ -73,18 +73,22 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
-        public void InsertPredmet(string zkr_predmet,string name_predmet,int kredit_predmet,int semestr_predmet, string ob,int id_orig,string povinnost, string jazyk, string zakonceni,int prednaska=0, int cviceni=0, int kombi=0,int lab=0)
+        public void InsertPredmet(string zkr_predmet, string name_predmet, int kredit_predmet, int semestr_predmet, string ob, int id_orig,
+            string povinnost, string jazyk, string zakonceni, int prednaska = 0, int cviceni = 0, int kombi = 0, int lab = 0)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                int obor = da.GetOborId(ob);
-                SqlCommand pred = new SqlCommand("insert into predmet(zkr_predmet,name_predmet,kredit_predmet,semestr_predmet,id_obor,id_orig,povinnost,prednaska,cviceni,kombi,lab,jazyk,zakonceni) values(@zkr_predmet,@name_predmet,@kredit_predmet,@semestr_predmet,@id_obor,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                SqlCommand pred = new SqlCommand("insert into predmet" +
+                    "(zkr_predmet,name_predmet,kredit_predmet,semestr_predmet,id_obor,id_orig,povinnost,prednaska,cviceni,kombi,lab,jazyk,zakonceni)" +
+                    "values" +
+                    "(@zkr_predmet,@name_predmet,@kredit_predmet,@semestr_predmet,@id_obor,@id_orig,@povinnost,@prednaska,cviceni,@kombi,@lab,@jazyk,@zakonceni)"
+                    , conn);
                 pred.Parameters.AddWithValue("@zkr_predmet", zkr_predmet);
                 pred.Parameters.AddWithValue("@name_predmet", name_predmet);
                 pred.Parameters.AddWithValue("@kredit_predmet", kredit_predmet);
                 pred.Parameters.AddWithValue("@semestr_predmet", semestr_predmet);
-                pred.Parameters.AddWithValue("@id_obor", obor);
+                pred.Parameters.AddWithValue("@id_obor", da.GetOborId(ob));
                 pred.Parameters.AddWithValue("@id_orig", id_orig);
                 pred.Parameters.AddWithValue("@povinnost", povinnost);
                 pred.Parameters.AddWithValue("@prednaska", prednaska);
@@ -106,14 +110,14 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
-        public void InsertUci(string p,string v)
+        public void InsertUci(string p, string rok, string v)
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand uc = new SqlCommand("insert into vyucuje(garant_vyuc,id_predmet,id_v) values(@g,@id_p,@id_v)", conn);
                 uc.Parameters.AddWithValue("@g", true);
-                uc.Parameters.AddWithValue("@id_p", da.GetPredmetId(p));
+                uc.Parameters.AddWithValue("@id_p", da.GetPredmetId(p, rok));
                 uc.Parameters.AddWithValue("@id_v", da.GetVyucujiciId(v));
                 try
                 {
@@ -127,21 +131,21 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertPopis(string nazev, string text, string p)
+        public void InsertPopis(string p, string text, string rok, string nazev = "popis")
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand pop = new SqlCommand("insert into popis(nazev_popis,text_popis,id_p) values(@np,@tp,@id_p)", conn);
                 pop.Parameters.AddWithValue("@np", nazev);
                 pop.Parameters.AddWithValue("@tp", text);
-                pop.Parameters.AddWithValue("@id_p", da.GetPredmetId(p));
-                try
+                pop.Parameters.AddWithValue("@id_p", da.GetPredmetId(p, rok));
+                try//zkouska zapisu
                 {
                     conn.Open();
                     pop.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception ex)//kdyz neprobehne tak se vypíše chyba
                 {
                     MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -150,7 +154,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void InsertZaznam(string nazev, string o)
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor) values(@zz,@id_o)", conn);
@@ -170,7 +174,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void InsertPS(int semestr, string z)
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand zaz = new SqlCommand("insert into plansemestr(zkr_zaznam,id_obor) values(@zz,@id_o)", conn);
@@ -188,18 +192,18 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertVyber(string predmet,int semestr, string zaz)
+        public void InsertVyber(string predmet, int semestr, string rok, string zaz)
         {
-        	DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand vyb = new SqlCommand("insert into vyber(id_predmet,id_ps) values(@id_p,@id_ps)", conn);
-                vyb.Parameters.AddWithValue("@id_p", da.GetPredmetId(predmet));
-                vyb.Parameters.AddWithValue("@id_ps", da.GetPSId(zaz,semestr));
+                vyb.Parameters.AddWithValue("@id_p", da.GetPredmetId(predmet, rok));
+                vyb.Parameters.AddWithValue("@id_ps", da.GetPSId(zaz, semestr));
                 try
                 {
                     conn.Open();
-                   vyb.ExecuteNonQuery();
+                    vyb.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {

@@ -22,7 +22,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_obor from obor where name_obor='{ obor }'"));
+                return Convert.ToInt32(connection.Query($"Select id_obor from obor where rok_obor='{ obor }'"));
             }
         }
         public int GetKatedraId(string katedra)
@@ -32,11 +32,12 @@ namespace SystemProPodporuStudijnichPlanu
                 return Convert.ToInt32(connection.Query($"Select id_k from katedra where naz_k='{ katedra }'")); ;
             }
         }
-        public int GetPredmetId(string p)
+        public int GetPredmetId(string p,string rok)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_predmet from predmet where name_predmet='{ p }'"));
+                DataAccess da = new DataAccess();
+                return Convert.ToInt32(connection.Query($"Select id_predmet from predmet where name_predmet='{ p }'AND id_obor='{da.GetOborId(rok)}'"));
             }
         }
         public int GetVyucujiciId(string v)
