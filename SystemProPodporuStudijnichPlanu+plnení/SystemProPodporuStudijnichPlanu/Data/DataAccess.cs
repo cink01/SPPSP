@@ -22,14 +22,14 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_obor from obor where rok_obor='{ obor }'"));
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_obor from obor where rok_obor='{ obor }'"));
             }
         }
         public int GetKatedraId(string katedra)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_k from katedra where naz_k='{ katedra }'")); ;
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_k from katedra where naz_k='{ katedra }'"));
             }
         }
         public int GetPredmetId(string p,string rok)
@@ -37,21 +37,32 @@ namespace SystemProPodporuStudijnichPlanu
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 DataAccess da = new DataAccess();
-                return Convert.ToInt32(connection.Query($"Select id_predmet from predmet where name_predmet='{ p }'AND id_obor='{da.GetOborId(rok)}'"));
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_predmet from predmet where name_predmet='{ p }'AND id_obor='{da.GetOborId(rok)}'"));
             }
         }
-        public int GetVyucujiciId(string v)
+        public int GetVyucujiciId(string v,string kat)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_v from obor where jmeno_v='{ v }'"));
+                DataAccess da = new DataAccess();
+                int x;
+                try { 
+                var a = connection.ExecuteScalar($"Select id_v from vyucujici where jmeno_v='{ v }'");
+                x = (int)a;
+                    return x;
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+                return x;
             }
         }
         public int GetZaznamId(string z)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.Query($"Select id_zaznam from zaznam where zkr_zaznam='{ z }'"));
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_zaznam from zaznam where zkr_zaznam='{ z }'"));
             }
         }
         public int GetPSId(string z, int s)
@@ -59,7 +70,7 @@ namespace SystemProPodporuStudijnichPlanu
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 DataAccess a = new DataAccess();
-                return Convert.ToInt32(connection.Query($"Select id_ps from plansemestr where id_zaznam='{ a.GetZaznamId(z) }'& sem_ps='{s}'"));
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_ps from plansemestr where id_zaznam='{ a.GetZaznamId(z) }'& sem_ps='{s}'"));
             }
         }
     }
