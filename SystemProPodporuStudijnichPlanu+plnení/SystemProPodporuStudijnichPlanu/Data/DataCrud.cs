@@ -10,71 +10,87 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
-                kat.Parameters.AddWithValue("@a", zkratka);
-                kat.Parameters.AddWithValue("@b", nazev);
-                try
+                //kontrola jestli neexistuje již existuje
+                DataAccess da = new DataAccess();
+                da.checkExistKatedra(nazev, out int exit);
+                if (exit <= 0)
                 {
-                    conn.Open();
-                    kat.ExecuteNonQuery();
+                    SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
+                    kat.Parameters.AddWithValue("@a", zkratka);
+                    kat.Parameters.AddWithValue("@b", nazev);
+                    try
+                    {
+                        conn.Open();
+                        kat.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conn.Close();
             }
         }
         public void InsertObor(string zkr, string naz, string rok, int p, int pv, int v, int vs)
         {
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
-                obor.Parameters.AddWithValue("@zkr", zkr);
-                obor.Parameters.AddWithValue("@naz", naz);
-                obor.Parameters.AddWithValue("@rok", rok);
-                obor.Parameters.AddWithValue("@p", p);
-                obor.Parameters.AddWithValue("@pv", pv);
-                obor.Parameters.AddWithValue("@v", v);
-                obor.Parameters.AddWithValue("@vs", vs);
-                try
+                DataAccess da = new DataAccess();
+                da.checkExistObor(naz, out int exit);
+                if (exit <= 0)
                 {
-                    conn.Open();
-                    obor.ExecuteNonQuery();
+                    //kontrola jestli neexistuje již existuje
+                    SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
+                    obor.Parameters.AddWithValue("@zkr", zkr);
+                    obor.Parameters.AddWithValue("@naz", naz);
+                    obor.Parameters.AddWithValue("@rok", rok);
+                    obor.Parameters.AddWithValue("@p", p);
+                    obor.Parameters.AddWithValue("@pv", pv);
+                    obor.Parameters.AddWithValue("@v", v);
+                    obor.Parameters.AddWithValue("@vs", vs);
+                    try
+                    {
+                        conn.Open();
+                        obor.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conn.Close();
             }
         }
-        public void InsertVyuc(string jmeno_v, string email_v, string kat, string tel_v = "XXXX", string konz_v = "XXX")
+        public void InsertGarant(string jmeno_v, string email_v, string kat, string tel_v = "XXXX", string konz_v = "XXX")
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand vyuc = new SqlCommand("insert into vyucujici(jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
-                int katedra = da.GetKatedraId(kat);
-                vyuc.Parameters.AddWithValue("@jmeno_v", jmeno_v);
-                vyuc.Parameters.AddWithValue("@email_v", email_v);
-                vyuc.Parameters.AddWithValue("@tel_v", tel_v);
-                vyuc.Parameters.AddWithValue("@konz_v", konz_v);
-                vyuc.Parameters.AddWithValue("@id_k", katedra );
-                try
+                da.checkExistGarant(jmeno_v, out int exit);
+                if (exit <= 0)
                 {
-                    conn.Open();
-                    vyuc.ExecuteNonQuery();
+                    //kontrola jestli neexistuje již existuje
+                    SqlCommand garant = new SqlCommand("insert into garant(jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
+                    int katedra = da.GetKatedraId(kat);
+                    garant.Parameters.AddWithValue("@jmeno_v", jmeno_v);
+                    garant.Parameters.AddWithValue("@email_v", email_v);
+                    garant.Parameters.AddWithValue("@tel_v", tel_v);
+                    garant.Parameters.AddWithValue("@konz_v", konz_v);
+                    garant.Parameters.AddWithValue("@id_k", katedra);
+                    try
+                    {
+                        conn.Open();
+                        garant.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conn.Close();
             }
         }
-
-        public void InsertPredmet(string zkr_predmet, string name_predmet, int kredit_predmet, int semestr_predmet, string ob, int id_orig,string povinnost, string jazyk, string zakonceni, int prednaska = 0, int cviceni = 0, int kombi = 0, int lab = 0)
+        public void InsertPredmet(string zkr_predmet, string name_predmet, int kredit_predmet, int semestr_predmet, string ob, string garant, int id_orig, string povinnost, string jazyk, string zakonceni, int prednaska = 0, int cviceni = 0, int kombi = 0, int lab = 0)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -86,6 +102,7 @@ namespace SystemProPodporuStudijnichPlanu
                 pred.Parameters.AddWithValue("@kredit_predmet", kredit_predmet);
                 pred.Parameters.AddWithValue("@semestr_predmet", semestr_predmet);
                 pred.Parameters.AddWithValue("@id_obor", da.GetOborId(ob));
+                pred.Parameters.AddWithValue("@id_v", da.GetGarantId(garant));
                 pred.Parameters.AddWithValue("@id_orig", id_orig);
                 pred.Parameters.AddWithValue("@povinnost", povinnost);
                 pred.Parameters.AddWithValue("@prednaska", prednaska);
@@ -107,37 +124,36 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
-        public void InsertUci(string p, string rok, string kat,string v)
+        /*   public void InsertUci(string p, string rok, string v)
+           {
+               DataAccess da = new DataAccess();
+               using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+               {
+                   SqlCommand uc = new SqlCommand("insert into vyucuje(id_predmet,id_v) values(@id_p,@id_v)", conn);
+                   int a = da.GetPredmetId(p, rok);
+                   int b = da.GetGarantId(v);
+                   uc.Parameters.AddWithValue("@id_p", a);
+                   uc.Parameters.AddWithValue("@id_v", b);
+                   try
+                   {
+                       conn.Open();
+                       uc.ExecuteNonQuery();
+                   }
+                   catch (Exception ex)
+                   {
+                       MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   }
+                   conn.Close();
+               }
+           }*/
+        public void InsertPopis(string p, string text, string rok)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand uc = new SqlCommand("insert into vyucuje(id_predmet,id_v) values(@id_p,@id_v)", conn);
-                int a = da.GetPredmetId(p, rok);
-                int b = da.GetVyucujiciId(v,kat);
-                uc.Parameters.AddWithValue("@id_p", a);
-                uc.Parameters.AddWithValue("@id_v", b);
-                try
-                {
-                    conn.Open();
-                    uc.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conn.Close();
-            }
-        }
-        public void InsertPopis(string p, string text, string rok, string nazev = "popis")
-        {
-            DataAccess da = new DataAccess();
-            using (SqlConnection conn = new SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                SqlCommand pop = new SqlCommand("insert into popis(nazev_popis,text_popis,id_p) values(@np,@tp,@id_p)", conn);
-                pop.Parameters.AddWithValue("@np", nazev);
-                pop.Parameters.AddWithValue("@tp", text);
-                pop.Parameters.AddWithValue("@id_p", da.GetPredmetId(p, rok));
+                SqlCommand pop = new SqlCommand("update predmet set popis=@popis where id_predmet=@id_predmet", conn);
+                pop.Parameters.AddWithValue("@popis", text);
+                pop.Parameters.AddWithValue("@id_predmet", da.GetPredmetId(p, rok));
                 try//zkouska zapisu
                 {
                     conn.Open();
@@ -210,6 +226,5 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-
     }
 }

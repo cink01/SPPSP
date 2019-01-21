@@ -70,7 +70,7 @@ namespace SystemProPodporuStudijnichPlanu
                     line = reader.ReadLine(); //precteni radku
                     string[] fulldata = line.Split(';');//rozlozeni prvku v line do prvku pole fulldata k jednoduššímu přístupu 
                                                         //vložení dat do insertu do databaze
-                    DC.InsertVyuc(fulldata[11], fulldata[15], fulldata[12]);//naplnění garantů //ctu spatny data na email
+                    DC.InsertGarant(fulldata[11], fulldata[15], fulldata[12]);//naplnění garantů //ctu spatny data na email
                 }
                 MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

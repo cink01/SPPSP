@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace SystemProPodporuStudijnichPlanu
@@ -17,12 +18,41 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-
-        public int GetOborId(string obor)
+        public void checkExistObor(string x, out int Exist)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                return Convert.ToInt32(connection.ExecuteScalar($"Select id_obor from obor where rok_obor='{ obor }'"));
+                SqlCommand checkObor = new SqlCommand( "SELECT COUNT(*) FROM [obor] WHERE ([name_obor] = @name_obor)");
+                checkObor.Parameters.AddWithValue("@name_obor", x);
+                //zaznamenani jestli probehl select
+                Exist = (int)checkObor.ExecuteScalar();
+            }
+        }
+        public void checkExistKatedra(string x, out int Exist)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand checkKat = new SqlCommand("SELECT COUNT(*) FROM [katedra] WHERE ([naz_k] = @naz_k)");
+                checkKat.Parameters.AddWithValue("@naz_k", x);
+                //zaznamenani jestli probehl select
+                Exist = (int)checkKat.ExecuteScalar();
+            }
+        }
+        public void checkExistGarant(string x, out int Exist)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand checkGarant = new SqlCommand("SELECT COUNT(*) FROM [garant] WHERE ([jmeno_v] = @x)");
+                checkGarant.Parameters.AddWithValue("@x", x);
+                //zaznamenani jestli probehl select
+                Exist = (int)checkGarant.ExecuteScalar();
+            }
+        }
+        public int GetOborId(string oborr)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return Convert.ToInt32(connection.ExecuteScalar($"Select id_obor from obor where rok_obor='{ oborr }'"));
             }
         }
         public int GetKatedraId(string katedra)
@@ -40,22 +70,22 @@ namespace SystemProPodporuStudijnichPlanu
                 return Convert.ToInt32(connection.ExecuteScalar($"Select id_predmet from predmet where name_predmet='{ p }'AND id_obor='{da.GetOborId(rok)}'"));
             }
         }
-        public int GetVyucujiciId(string v,string kat)
+        public int GetGarantId(string v)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 DataAccess da = new DataAccess();
                 int x;
-                try { 
-                var a = connection.ExecuteScalar($"Select id_v from vyucujici where jmeno_v='{ v }'");
-                x = (int)a;
+                try
+                {
+                    var a = connection.ExecuteScalar($"Select id_v from garant where jmeno_v='{ v }'");
+                    x = (int)a;
                     return x;
                 }
                 catch (Exception)
                 {
                     return 1;
                 }
-                return x;
             }
         }
         public int GetZaznamId(string z)
