@@ -144,11 +144,11 @@ namespace SystemProPodporuStudijnichPlanu
             predmetyFull = db.GetPredmetFull(IS);
             ObnovFull();*/
         }
-
+        string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+           // string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
             nd.Proved(cesta);
             DataAccess da = new DataAccess();
         }
@@ -156,7 +156,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void naplnitPredmetyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+            //string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
             nd.ProvedPredmety(cesta);
             DataAccess da = new DataAccess();
         }
@@ -164,7 +164,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void nalnitUciteleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+            //string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
             nd.ProvedUcitel(cesta);
             DataAccess da = new DataAccess();
         }
@@ -172,8 +172,8 @@ namespace SystemProPodporuStudijnichPlanu
         private void naplnitVyucujeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
-            nd.ProvedUci(cesta);
+          //  string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+           // nd.ProvedUci(cesta);
             DataAccess da = new DataAccess();
         }
 

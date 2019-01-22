@@ -101,7 +101,7 @@ namespace SystemProPodporuStudijnichPlanu
                         fulldata[19] = "0";
                     if (fulldata[20] == "")
                         fulldata[20] = "0";
-                    DC.InsertPredmet(fulldata[2], fulldata[1], Convert.ToInt32(fulldata[3]), Convert.ToInt32(fulldata[6]), fulldata[5], Convert.ToInt32(fulldata[0]), fulldata[10], fulldata[22], fulldata[4], Convert.ToInt32(fulldata[16]), Convert.ToInt32(fulldata[17]), Convert.ToInt32(fulldata[19]), Convert.ToInt32(fulldata[20]));//naplnění předmětů
+                    DC.InsertPredmet(fulldata[2], fulldata[1], Convert.ToInt32(fulldata[3]), Convert.ToInt32(fulldata[6]), fulldata[5], fulldata[11],Convert.ToInt32(fulldata[0]), fulldata[10], fulldata[22], fulldata[4], Convert.ToInt32(fulldata[16]), Convert.ToInt32(fulldata[17]), Convert.ToInt32(fulldata[19]), Convert.ToInt32(fulldata[20]));//naplnění předmětů
                 }
                 MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -110,7 +110,7 @@ namespace SystemProPodporuStudijnichPlanu
                 MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void ProvedUci(string path)
+       /* public void ProvedUci(string path)
         {
             string line = "";
             StreamReader reader = new StreamReader(path);//vytvorení čtení řádku ze souboru
@@ -130,7 +130,7 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
     }
 }
 
