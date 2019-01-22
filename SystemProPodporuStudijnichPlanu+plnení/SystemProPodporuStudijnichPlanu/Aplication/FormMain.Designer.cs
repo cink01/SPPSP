@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.popis = new System.Windows.Forms.Label();
             this.lb_semestr7 = new System.Windows.Forms.ListBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -53,7 +54,7 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.listBox5 = new System.Windows.Forms.ListBox();
-            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.lb_semestr8 = new System.Windows.Forms.ListBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.rb_add1 = new System.Windows.Forms.RadioButton();
@@ -91,7 +92,6 @@
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitPredmetyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.popis = new System.Windows.Forms.Label();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -136,7 +136,7 @@
             this.gb_max.Controls.Add(this.listBox3);
             this.gb_max.Controls.Add(this.listBox4);
             this.gb_max.Controls.Add(this.listBox5);
-            this.gb_max.Controls.Add(this.listBox6);
+            this.gb_max.Controls.Add(this.lb_semestr8);
             this.gb_max.Controls.Add(this.lb_semestr1);
             this.gb_max.Controls.Add(this.radioButton11);
             this.gb_max.Controls.Add(this.rb_add1);
@@ -171,6 +171,15 @@
             this.gb_max.Size = new System.Drawing.Size(1146, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
+            // 
+            // popis
+            // 
+            this.popis.AutoSize = true;
+            this.popis.Location = new System.Drawing.Point(796, 44);
+            this.popis.Name = "popis";
+            this.popis.Size = new System.Drawing.Size(36, 13);
+            this.popis.TabIndex = 59;
+            this.popis.Text = "Popis:";
             // 
             // lb_semestr7
             // 
@@ -445,15 +454,15 @@
             this.listBox5.Size = new System.Drawing.Size(189, 94);
             this.listBox5.TabIndex = 36;
             // 
-            // listBox6
+            // lb_semestr8
             // 
-            this.listBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox6.FormattingEnabled = true;
-            this.listBox6.ItemHeight = 15;
-            this.listBox6.Location = new System.Drawing.Point(451, 145);
-            this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(189, 94);
-            this.listBox6.TabIndex = 35;
+            this.lb_semestr8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_semestr8.FormattingEnabled = true;
+            this.lb_semestr8.ItemHeight = 15;
+            this.lb_semestr8.Location = new System.Drawing.Point(451, 145);
+            this.lb_semestr8.Name = "lb_semestr8";
+            this.lb_semestr8.Size = new System.Drawing.Size(189, 94);
+            this.lb_semestr8.TabIndex = 35;
             // 
             // lb_semestr1
             // 
@@ -858,15 +867,6 @@
             this.naplnitPredmetyToolStripMenuItem.Text = "Naplnit predmety";
             this.naplnitPredmetyToolStripMenuItem.Click += new System.EventHandler(this.NaplnitPredmetyToolStripMenuItem_Click);
             // 
-            // popis
-            // 
-            this.popis.AutoSize = true;
-            this.popis.Location = new System.Drawing.Point(796, 44);
-            this.popis.Name = "popis";
-            this.popis.Size = new System.Drawing.Size(36, 13);
-            this.popis.TabIndex = 59;
-            this.popis.Text = "Popis:";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,7 +965,7 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.ListBox listBox5;
-        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.ListBox lb_semestr8;
         private System.Windows.Forms.ToolStripMenuItem naplnitPredmetyToolStripMenuItem;
         private System.Windows.Forms.Label popis;
     }
