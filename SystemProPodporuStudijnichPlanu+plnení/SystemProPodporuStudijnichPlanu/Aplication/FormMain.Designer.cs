@@ -91,7 +91,6 @@
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitPredmetyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nalnitUciteleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -838,8 +837,7 @@
             // 
             this.správaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.naplnitDatabáziToolStripMenuItem,
-            this.naplnitPredmetyToolStripMenuItem,
-            this.nalnitUciteleToolStripMenuItem});
+            this.naplnitPredmetyToolStripMenuItem});
             this.správaToolStripMenuItem.Name = "správaToolStripMenuItem";
             this.správaToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
             this.správaToolStripMenuItem.Text = "Správa";
@@ -857,13 +855,6 @@
             this.naplnitPredmetyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.naplnitPredmetyToolStripMenuItem.Text = "Naplnit predmety";
             this.naplnitPredmetyToolStripMenuItem.Click += new System.EventHandler(this.naplnitPredmetyToolStripMenuItem_Click);
-            // 
-            // nalnitUciteleToolStripMenuItem
-            // 
-            this.nalnitUciteleToolStripMenuItem.Name = "nalnitUciteleToolStripMenuItem";
-            this.nalnitUciteleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nalnitUciteleToolStripMenuItem.Text = "Nalnit ucitele";
-            this.nalnitUciteleToolStripMenuItem.Click += new System.EventHandler(this.nalnitUciteleToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -965,7 +956,6 @@
         private System.Windows.Forms.ListBox listBox5;
         private System.Windows.Forms.ListBox listBox6;
         private System.Windows.Forms.ToolStripMenuItem naplnitPredmetyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nalnitUciteleToolStripMenuItem;
     }
 }
 
