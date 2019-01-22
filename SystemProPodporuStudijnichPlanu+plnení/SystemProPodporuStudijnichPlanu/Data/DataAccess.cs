@@ -40,14 +40,7 @@ namespace SystemProPodporuStudijnichPlanu
                 SqlCommand checkObor = new SqlCommand("SELECT COUNT(*) FROM [obor] WHERE ([name_obor] = @name_obor)", GetConnection());
                 checkObor.Parameters.AddWithValue("@name_obor", x);
                 //zaznamenani jestli probehl select
-                try
-                {
-                    Exist = (int)checkObor.ExecuteScalar();
-                }
-                catch
-                {
-                    Exist = -1;
-                }
+                Exist = (int)checkObor.ExecuteScalar();
             }
         }
         public void CheckExistKatedra(string x, out int Exist)
@@ -57,14 +50,7 @@ namespace SystemProPodporuStudijnichPlanu
                 SqlCommand checkKat = new SqlCommand("SELECT COUNT(*) FROM [katedra] WHERE ([naz_k] = @naz_k)", GetConnection());
                 checkKat.Parameters.AddWithValue("@naz_k", x);
                 //zaznamenani jestli probehl select
-                try
-                {
-                    Exist = (int)checkKat.ExecuteScalar();
-                }
-                catch
-                {
-                    Exist = 0;
-                }
+                Exist = (int)checkKat.ExecuteScalar();
             }
         }
         public void CheckExistGarant(string x, out int Exist)
@@ -74,14 +60,7 @@ namespace SystemProPodporuStudijnichPlanu
                 SqlCommand checkGarant = new SqlCommand("SELECT COUNT(*) FROM [garant] WHERE ([jmeno_v] = @x)", GetConnection());
                 checkGarant.Parameters.AddWithValue("@x", x);
                 //zaznamenani jestli probehl select
-                try
-                {
-                    Exist = (int)checkGarant.ExecuteScalar();
-                }
-                catch
-                {
-                    Exist = 0;
-                }
+                Exist = (int)checkGarant.ExecuteScalar();
             }
         }
         public int GetOborId(string o)

@@ -10,14 +10,13 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                //kontrola jestli neexistuje již existuje
                 DataAccess da = new DataAccess();
-                da.CheckExistKatedra(nazev, out int exit);
-                if (exit <= 0)
+                da.CheckExistKatedra(nazev, out int exist);
+                if (exist <= 0)
                 {
-                    SqlCommand kat = new SqlCommand("insert into katedra(zkr_k,naz_k) values(@a,@b)", conn);
-                    kat.Parameters.AddWithValue("@a", zkratka);
-                    kat.Parameters.AddWithValue("@b", nazev);
+                    SqlCommand kat = new SqlCommand("insert into [katedra]([zkr_k],[naz_k]) values(@zkr_k,@naz_k)", conn);
+                    kat.Parameters.AddWithValue("@zkr_k", zkratka);
+                    kat.Parameters.AddWithValue("@naz_k", nazev);
                     try
                     {
                         conn.Open();
@@ -36,10 +35,9 @@ namespace SystemProPodporuStudijnichPlanu
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 DataAccess da = new DataAccess();
-                da.CheckExistObor(naz, out int exit);
-                if (exit <= 0)
+                da.CheckExistObor(naz, out int exist);
+                if (exist <= 0)
                 {
-                    //kontrola jestli neexistuje již existuje
                     SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
                     obor.Parameters.AddWithValue("@zkr", zkr);
                     obor.Parameters.AddWithValue("@naz", naz);
@@ -89,20 +87,21 @@ namespace SystemProPodporuStudijnichPlanu
                     conn.Close();
                 }
             }
-        }
+        }               
         public void InsertPredmet(string zkr_predmet, string name_predmet, int kredit_predmet, int semestr_predmet, string ob, string garant, int id_orig, string povinnost, string jazyk, string zakonceni, int prednaska = 0, int cviceni = 0, int kombi = 0, int lab = 0)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand pred = new SqlCommand("insert into predmet(name_predmet,zkr_predmet,kredit_predmet,id_obor,semestr_predmet,id_orig,povinnost,prednaska,[cviceni],kombi,lab,jazyk,zakonceni)" +
-                    "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
-                pred.Parameters.AddWithValue("@zkr_predmet", zkr_predmet);
+                SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni])" +
+                    "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+               
                 pred.Parameters.AddWithValue("@name_predmet", name_predmet);
+                pred.Parameters.AddWithValue("@zkr_predmet", zkr_predmet);
                 pred.Parameters.AddWithValue("@kredit_predmet", kredit_predmet);
-                pred.Parameters.AddWithValue("@semestr_predmet", semestr_predmet);
                 pred.Parameters.AddWithValue("@id_obor", da.GetOborId(ob));
                 pred.Parameters.AddWithValue("@id_v", da.GetGarantId(garant));
+                pred.Parameters.AddWithValue("@semestr_predmet", semestr_predmet);
                 pred.Parameters.AddWithValue("@id_orig", id_orig);
                 pred.Parameters.AddWithValue("@povinnost", povinnost);
                 pred.Parameters.AddWithValue("@prednaska", prednaska);
