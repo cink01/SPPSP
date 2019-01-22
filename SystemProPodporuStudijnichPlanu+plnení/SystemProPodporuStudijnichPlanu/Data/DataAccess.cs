@@ -43,6 +43,17 @@ namespace SystemProPodporuStudijnichPlanu
                 Exist = (int)checkObor.ExecuteScalar();
             }
         }
+        public void CheckExistPredmet(string name_predmet, int id_obor, out int Exist)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand checkPredmet = new SqlCommand("SELECT COUNT(*) FROM [predmet] WHERE ([name_predmet] = @name_predmet)AND([id_obor]=@id_obor)", GetConnection());
+                checkPredmet.Parameters.AddWithValue("@name_predmet", name_predmet);
+                checkPredmet.Parameters.AddWithValue("@id_obor", id_obor);
+                //zaznamenani jestli probehl select
+                Exist = (int)checkPredmet.ExecuteScalar();
+            }
+        }
         public void CheckExistKatedra(string x, out int Exist)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -88,6 +99,9 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_Garant.Parameters.AddWithValue("@jmeno_v", v);
             return Convert.ToInt32(get_ID_Garant.ExecuteScalar());
         }
+
+
+
         public int GetZaznamId(string z)
         {
             SqlCommand get_ID_Zaznam = new SqlCommand("SELECT id_zaznam FROM [zaznam] WHERE ([zkr_zaznam] = @zkr_zaznam)", GetConnection());
