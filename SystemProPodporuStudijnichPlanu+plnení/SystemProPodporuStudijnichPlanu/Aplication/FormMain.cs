@@ -173,87 +173,171 @@ namespace SystemProPodporuStudijnichPlanu
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string fileContent = string.Empty;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "";
+                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    cesta = openFileDialog.FileName;
+                }
+            }
             NacteniDat nd = new NacteniDat();
-            // string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
             nd.Proved(cesta);
             DataAccess da = new DataAccess();
         }
-        //string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitPredmetyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
             cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci.txt";
+            string fileContent = string.Empty;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "";
+                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    cesta = openFileDialog.FileName;
+                }
+            }
             nd.ProvedPopis(cesta);
             DataAccess da = new DataAccess();
         }
-        /* 
-         private void nud_pocty_ValueChanged(object sender, EventArgs e)
-         {
-             tabPage1.Visible = tabPage2.Visible = tabPage3.Visible = tabPage4.Visible = tabPage5.Visible = tabPage6.Visible = tabPage7.Visible = tabPage8.Visible = tabPage9.Visible = tabPage10.Visible = tabPage11.Visible = tabPage12.Visible = false;
-             switch (Convert.ToInt32(nud_pocty.Value))
-             {
-                 case 12:
-                     {
-                         tabPage12.Visible = true;
-                         goto case 11;
-                     }
-                 case 11:
-                     {
 
-                         tabPage11.Visible = true;
-                         goto case 10;
-                     }
-                 case 10:
-                     {
-                         tabPage10.Visible = true;
-                         goto case 9;
-                     }
-                 case 9:
-                     {
-                         tabPage9.Visible = true;
-                         goto case 8;
-                     }
-                 case 8:
-                     {
-                         tabPage8.Visible = true;
-                         goto case 7;
-                     }
-                 case 7:
-                     {
-                         tabPage7.Visible = true;
-                         goto case 6;
-                     }
-                 case 6:
-                     {
-                         tabPage6.Visible = true;
-                         goto case 5;
-                     }
-                 case 5:
-                     {
-                         tabPage5.Visible = true;
-                         goto case 4;
-                     }
-                 case 4:
-                     {
-                         tabPage4.Visible = true;
-                         goto case 3;
-                     }
-                 case 3:
-                     {
-                         tabPage3.Visible = true;
-                         goto case 2;
-                     }
-                 case 2:
-                     {
-                         tabPage2.Visible = true;
-                         goto case 1;
-                     }
-                 case 1:
-                     {
-                         tabPage1.Visible = true;
-                     }
-                     break;
-             }
-         }*/
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            viditelnost(1);
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            viditelnost(2);
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            viditelnost(3);
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            viditelnost(4);
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            viditelnost(5);
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            viditelnost(6);
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            viditelnost(7);
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            viditelnost(8);
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            viditelnost(9);
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            viditelnost(10);
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            viditelnost(11);
+        }
+
+        private void ToolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            viditelnost(12);
+        }
+
+        private void viditelnost(int i)
+        {
+            lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible = lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible = lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+            switch (i)
+            {
+                case 12:
+                    {
+                        lb_semestr12.Visible = true;
+                        goto case 11;
+                    }
+                case 11:
+                    {
+
+                        lb_semestr11.Visible = true;
+                        goto case 10;
+                    }
+                case 10:
+                    {
+                        lb_semestr10.Visible = true;
+                        goto case 9;
+                    }
+                case 9:
+                    {
+                        lb_semestr9.Visible = true;
+                        goto case 8;
+                    }
+                case 8:
+                    {
+                        lb_semestr8.Visible = true;
+                        goto case 7;
+                    }
+                case 7:
+                    {
+                        lb_semestr7.Visible = true;
+                        goto case 6;
+                    }
+                case 6:
+                    {
+                        lb_semestr6.Visible = true;
+                        goto case 5;
+                    }
+                case 5:
+                    {
+                        lb_semestr5.Visible = true;
+                        goto case 4;
+                    }
+                case 4:
+                    {
+                        lb_semestr4.Visible = true;
+                        goto case 3;
+                    }
+                case 3:
+                    {
+                        lb_semestr3.Visible = true;
+                        goto case 2;
+                    }
+                case 2:
+                    {
+                        lb_semestr2.Visible = true;
+                        goto case 1;
+                    }
+                case 1:
+                    {
+                        lb_semestr1.Visible = true;
+                    }
+                    break;
+            }
+        }
     }
 }

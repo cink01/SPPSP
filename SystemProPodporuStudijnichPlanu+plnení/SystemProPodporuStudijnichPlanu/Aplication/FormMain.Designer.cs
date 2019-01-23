@@ -50,9 +50,9 @@
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.lb_semestr12 = new System.Windows.Forms.ListBox();
+            this.lb_semestr11 = new System.Windows.Forms.ListBox();
+            this.lb_semestr10 = new System.Windows.Forms.ListBox();
             this.lb_semestr9 = new System.Windows.Forms.ListBox();
             this.lb_semestr8 = new System.Windows.Forms.ListBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
@@ -88,6 +88,19 @@
             this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upravitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.početSemestrůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,9 +145,9 @@
             this.gb_max.Controls.Add(this.numericUpDown4);
             this.gb_max.Controls.Add(this.numericUpDown5);
             this.gb_max.Controls.Add(this.numericUpDown6);
-            this.gb_max.Controls.Add(this.listBox2);
-            this.gb_max.Controls.Add(this.listBox3);
-            this.gb_max.Controls.Add(this.listBox4);
+            this.gb_max.Controls.Add(this.lb_semestr12);
+            this.gb_max.Controls.Add(this.lb_semestr11);
+            this.gb_max.Controls.Add(this.lb_semestr10);
             this.gb_max.Controls.Add(this.lb_semestr9);
             this.gb_max.Controls.Add(this.lb_semestr8);
             this.gb_max.Controls.Add(this.lb_semestr1);
@@ -414,35 +427,35 @@
             this.numericUpDown6.TabIndex = 40;
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // listBox2
+            // lb_semestr12
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(451, 550);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(189, 94);
-            this.listBox2.TabIndex = 39;
+            this.lb_semestr12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_semestr12.FormattingEnabled = true;
+            this.lb_semestr12.ItemHeight = 15;
+            this.lb_semestr12.Location = new System.Drawing.Point(451, 550);
+            this.lb_semestr12.Name = "lb_semestr12";
+            this.lb_semestr12.Size = new System.Drawing.Size(189, 94);
+            this.lb_semestr12.TabIndex = 39;
             // 
-            // listBox3
+            // lb_semestr11
             // 
-            this.listBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 15;
-            this.listBox3.Location = new System.Drawing.Point(451, 449);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(189, 94);
-            this.listBox3.TabIndex = 38;
+            this.lb_semestr11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_semestr11.FormattingEnabled = true;
+            this.lb_semestr11.ItemHeight = 15;
+            this.lb_semestr11.Location = new System.Drawing.Point(451, 449);
+            this.lb_semestr11.Name = "lb_semestr11";
+            this.lb_semestr11.Size = new System.Drawing.Size(189, 94);
+            this.lb_semestr11.TabIndex = 38;
             // 
-            // listBox4
+            // lb_semestr10
             // 
-            this.listBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 15;
-            this.listBox4.Location = new System.Drawing.Point(451, 348);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(189, 94);
-            this.listBox4.TabIndex = 37;
+            this.lb_semestr10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_semestr10.FormattingEnabled = true;
+            this.lb_semestr10.ItemHeight = 15;
+            this.lb_semestr10.Location = new System.Drawing.Point(451, 348);
+            this.lb_semestr10.Name = "lb_semestr10";
+            this.lb_semestr10.Size = new System.Drawing.Size(189, 94);
+            this.lb_semestr10.TabIndex = 37;
             // 
             // lb_semestr9
             // 
@@ -834,9 +847,114 @@
             // 
             // upravitToolStripMenuItem
             // 
+            this.upravitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.početSemestrůToolStripMenuItem});
             this.upravitToolStripMenuItem.Name = "upravitToolStripMenuItem";
             this.upravitToolStripMenuItem.Size = new System.Drawing.Size(57, 19);
             this.upravitToolStripMenuItem.Text = "&Upravit";
+            // 
+            // početSemestrůToolStripMenuItem
+            // 
+            this.početSemestrůToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13});
+            this.početSemestrůToolStripMenuItem.Name = "početSemestrůToolStripMenuItem";
+            this.početSemestrůToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.početSemestrůToolStripMenuItem.Text = "Počet semestrů";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "1";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "2";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "3";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Text = "4";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Text = "5";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem7.Text = "6";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem8.Text = "7";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem9.Text = "8";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem10.Text = "9";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem11.Text = "10";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem12.Text = "11";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem13.Text = "12";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.ToolStripMenuItem13_Click);
             // 
             // nápovědaToolStripMenuItem
             // 
@@ -961,13 +1079,26 @@
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox lb_semestr12;
+        private System.Windows.Forms.ListBox lb_semestr11;
+        private System.Windows.Forms.ListBox lb_semestr10;
         private System.Windows.Forms.ListBox lb_semestr9;
         private System.Windows.Forms.ListBox lb_semestr8;
         private System.Windows.Forms.ToolStripMenuItem naplnitPredmetyToolStripMenuItem;
         private System.Windows.Forms.Label popis;
+        private System.Windows.Forms.ToolStripMenuItem početSemestrůToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
     }
 }
 
