@@ -53,7 +53,7 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.lb_semestr9 = new System.Windows.Forms.ListBox();
             this.lb_semestr8 = new System.Windows.Forms.ListBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
@@ -135,7 +135,7 @@
             this.gb_max.Controls.Add(this.listBox2);
             this.gb_max.Controls.Add(this.listBox3);
             this.gb_max.Controls.Add(this.listBox4);
-            this.gb_max.Controls.Add(this.listBox5);
+            this.gb_max.Controls.Add(this.lb_semestr9);
             this.gb_max.Controls.Add(this.lb_semestr8);
             this.gb_max.Controls.Add(this.lb_semestr1);
             this.gb_max.Controls.Add(this.radioButton11);
@@ -444,15 +444,15 @@
             this.listBox4.Size = new System.Drawing.Size(189, 94);
             this.listBox4.TabIndex = 37;
             // 
-            // listBox5
+            // lb_semestr9
             // 
-            this.listBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 15;
-            this.listBox5.Location = new System.Drawing.Point(451, 246);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(189, 94);
-            this.listBox5.TabIndex = 36;
+            this.lb_semestr9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_semestr9.FormattingEnabled = true;
+            this.lb_semestr9.ItemHeight = 15;
+            this.lb_semestr9.Location = new System.Drawing.Point(451, 246);
+            this.lb_semestr9.Name = "lb_semestr9";
+            this.lb_semestr9.Size = new System.Drawing.Size(189, 94);
+            this.lb_semestr9.TabIndex = 36;
             // 
             // lb_semestr8
             // 
@@ -964,7 +964,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.ListBox lb_semestr9;
         private System.Windows.Forms.ListBox lb_semestr8;
         private System.Windows.Forms.ToolStripMenuItem naplnitPredmetyToolStripMenuItem;
         private System.Windows.Forms.Label popis;

@@ -182,27 +182,12 @@ namespace SystemProPodporuStudijnichPlanu
         private void NaplnitPredmetyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NacteniDat nd = new NacteniDat();
-            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci";
+            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci.txt";
             nd.ProvedPopis(cesta);
             DataAccess da = new DataAccess();
         }
         /* 
-        private void nalnitUciteleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NacteniDat nd = new NacteniDat();
-            //string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
-            nd.ProvedUcitel(cesta);
-            DataAccess da = new DataAccess();
-        }
-                private void naplnitVyucujeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NacteniDat nd = new NacteniDat();
-          //  string cesta = @"D:\VEJSKA\5 semestr\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
-           // nd.ProvedUci(cesta);
-            DataAccess da = new DataAccess();
-        }
-         
-          private void nud_pocty_ValueChanged(object sender, EventArgs e)
+         private void nud_pocty_ValueChanged(object sender, EventArgs e)
          {
              tabPage1.Visible = tabPage2.Visible = tabPage3.Visible = tabPage4.Visible = tabPage5.Visible = tabPage6.Visible = tabPage7.Visible = tabPage8.Visible = tabPage9.Visible = tabPage10.Visible = tabPage11.Visible = tabPage12.Visible = false;
              switch (Convert.ToInt32(nud_pocty.Value))

@@ -131,7 +131,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand pop = new SqlCommand("update predmet set popis=@popis where id_predmet=@id_predmet", conn);
+                SqlCommand pop = new SqlCommand("update [predmet] set [popis]=@popis where [id_predmet]=@id_predmet", conn);
                 pop.Parameters.AddWithValue("@popis", text);
                 pop.Parameters.AddWithValue("@id_predmet", da.GetPredmetId(p, rok));
                 try//zkouska zapisu

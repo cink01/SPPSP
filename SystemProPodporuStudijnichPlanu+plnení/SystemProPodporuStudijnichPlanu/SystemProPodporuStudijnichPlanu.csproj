@@ -94,11 +94,6 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Aplication\Program.cs" />
-    <Compile Include="Data\SPTSPdataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SPTSPdataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Logic\NacteniDat.cs" />
     <Compile Include="Logic\Predmet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,17 +120,6 @@
     </None>
     <None Include="DatabaseAppDataSet.xss">
       <DependentUpon>DatabaseAppDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Data\SPTSPdataSet.xsc">
-      <DependentUpon>SPTSPdataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Data\SPTSPdataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SPTSPdataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Data\SPTSPdataSet.xss">
-      <DependentUpon>SPTSPdataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -172,13 +156,6 @@
     <Content Include="Data\DatabaseApp_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseApp.mdf</DependentUpon>
-    </Content>
-    <Content Include="Data\SPTSP.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\SPTSP_log.ldf">
-      <DependentUpon>SPTSP.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
