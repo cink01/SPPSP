@@ -38,7 +38,7 @@ namespace SystemProPodporuStudijnichPlanu
                 MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private const int PocetPrvku = 6;
+        private const int PocetPrvku = 5;
         public void ProvedPopis(string path)
         {
             DataCrud DC = new DataCrud();
