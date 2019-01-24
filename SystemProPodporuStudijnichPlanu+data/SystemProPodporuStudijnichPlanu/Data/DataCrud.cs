@@ -30,22 +30,22 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertObor(string zkr, string naz, string rok, int p, int pv, int v, int vs)
+        public void InsertObor(Obor o)
         {
             DataAccess da = new DataAccess();
-            da.CheckExistObor(naz, out int exist);
+            da.CheckExistObor(o.Name_obor, out int exist);
             if (exist <= 0)
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
                     SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
-                    obor.Parameters.AddWithValue("@zkr", zkr);
-                    obor.Parameters.AddWithValue("@naz", naz);
-                    obor.Parameters.AddWithValue("@rok", rok);
-                    obor.Parameters.AddWithValue("@p", p);
-                    obor.Parameters.AddWithValue("@pv", pv);
-                    obor.Parameters.AddWithValue("@v", v);
-                    obor.Parameters.AddWithValue("@vs", vs);
+                    obor.Parameters.AddWithValue("@zkr", o.Zkr_obor);
+                    obor.Parameters.AddWithValue("@naz", o.Name_obor);
+                    obor.Parameters.AddWithValue("@rok", o.Rok_obor);
+                    obor.Parameters.AddWithValue("@p", o.P_obor);
+                    obor.Parameters.AddWithValue("@pv",o.Pv_obor);
+                    obor.Parameters.AddWithValue("@v", o.V_obor);
+                    obor.Parameters.AddWithValue("@vs", o.Vs_obor);
                     try
                     {
                         conn.Open();
@@ -59,23 +59,21 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertGarant(string jmeno_v, string email_v, string kat, string tel_v = "XXXX", string konz_v = "XXX")
+        public void InsertGarant(Garant g)
         {
             DataAccess da = new DataAccess();
-            da.CheckExistGarant(jmeno_v, out int exit);
+            da.CheckExistGarant(g.Jmeno_v, out int exit);
             if (exit <= 0)
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
-
                     //kontrola jestli neexistuje již existuje
                     SqlCommand garant = new SqlCommand("insert into garant(jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
-                    int katedra = da.GetKatedraId(kat);
-                    garant.Parameters.AddWithValue("@jmeno_v", jmeno_v);
-                    garant.Parameters.AddWithValue("@email_v", email_v);
-                    garant.Parameters.AddWithValue("@tel_v", tel_v);
-                    garant.Parameters.AddWithValue("@konz_v", konz_v);
-                    garant.Parameters.AddWithValue("@id_k", katedra);
+                    garant.Parameters.AddWithValue("@jmeno_v", g.Jmeno_v);
+                    garant.Parameters.AddWithValue("@email_v", g.Email_V);
+                    garant.Parameters.AddWithValue("@tel_v", g.Tel_v);
+                    garant.Parameters.AddWithValue("@konz_v", g.Konz_v);
+                    garant.Parameters.AddWithValue("@id_k", g.Id_k);
                     try
                     {
                         conn.Open();
@@ -126,14 +124,14 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertPopis(string p, string text, string rok)
+        public void InsertPopis(Predmet p)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand pop = new SqlCommand("update [predmet] set [popis]=@popis where [id_predmet]=@id_predmet", conn);
-                pop.Parameters.AddWithValue("@popis", text);
-                pop.Parameters.AddWithValue("@id_predmet", da.GetPredmetId(p, rok));
+                pop.Parameters.AddWithValue("@popis", p.Popis);
+                pop.Parameters.AddWithValue("@id_predmet", p.Id_predmet);
                 try//zkouska zapisu
                 {
                     conn.Open();

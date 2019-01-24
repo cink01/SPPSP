@@ -198,6 +198,7 @@
             // 
             this.lb_semestr7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr7.FormattingEnabled = true;
+            this.lb_semestr7.HorizontalScrollbar = true;
             this.lb_semestr7.ItemHeight = 15;
             this.lb_semestr7.Location = new System.Drawing.Point(451, 44);
             this.lb_semestr7.Name = "lb_semestr7";
@@ -431,6 +432,7 @@
             // 
             this.lb_semestr12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr12.FormattingEnabled = true;
+            this.lb_semestr12.HorizontalScrollbar = true;
             this.lb_semestr12.ItemHeight = 15;
             this.lb_semestr12.Location = new System.Drawing.Point(451, 550);
             this.lb_semestr12.Name = "lb_semestr12";
@@ -441,6 +443,7 @@
             // 
             this.lb_semestr11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr11.FormattingEnabled = true;
+            this.lb_semestr11.HorizontalScrollbar = true;
             this.lb_semestr11.ItemHeight = 15;
             this.lb_semestr11.Location = new System.Drawing.Point(451, 449);
             this.lb_semestr11.Name = "lb_semestr11";
@@ -451,6 +454,7 @@
             // 
             this.lb_semestr10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr10.FormattingEnabled = true;
+            this.lb_semestr10.HorizontalScrollbar = true;
             this.lb_semestr10.ItemHeight = 15;
             this.lb_semestr10.Location = new System.Drawing.Point(451, 348);
             this.lb_semestr10.Name = "lb_semestr10";
@@ -461,6 +465,7 @@
             // 
             this.lb_semestr9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr9.FormattingEnabled = true;
+            this.lb_semestr9.HorizontalScrollbar = true;
             this.lb_semestr9.ItemHeight = 15;
             this.lb_semestr9.Location = new System.Drawing.Point(451, 246);
             this.lb_semestr9.Name = "lb_semestr9";
@@ -471,6 +476,7 @@
             // 
             this.lb_semestr8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr8.FormattingEnabled = true;
+            this.lb_semestr8.HorizontalScrollbar = true;
             this.lb_semestr8.ItemHeight = 15;
             this.lb_semestr8.Location = new System.Drawing.Point(451, 145);
             this.lb_semestr8.Name = "lb_semestr8";
@@ -481,6 +487,7 @@
             // 
             this.lb_semestr1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr1.FormattingEnabled = true;
+            this.lb_semestr1.HorizontalScrollbar = true;
             this.lb_semestr1.ItemHeight = 15;
             this.lb_semestr1.Location = new System.Drawing.Point(82, 44);
             this.lb_semestr1.Name = "lb_semestr1";
@@ -770,6 +777,7 @@
             // 
             this.lb_semestr6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr6.FormattingEnabled = true;
+            this.lb_semestr6.HorizontalScrollbar = true;
             this.lb_semestr6.ItemHeight = 15;
             this.lb_semestr6.Location = new System.Drawing.Point(82, 550);
             this.lb_semestr6.Name = "lb_semestr6";
@@ -780,6 +788,7 @@
             // 
             this.lb_semestr5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr5.FormattingEnabled = true;
+            this.lb_semestr5.HorizontalScrollbar = true;
             this.lb_semestr5.ItemHeight = 15;
             this.lb_semestr5.Location = new System.Drawing.Point(82, 449);
             this.lb_semestr5.Name = "lb_semestr5";
@@ -790,6 +799,7 @@
             // 
             this.lb_semestr4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr4.FormattingEnabled = true;
+            this.lb_semestr4.HorizontalScrollbar = true;
             this.lb_semestr4.ItemHeight = 15;
             this.lb_semestr4.Location = new System.Drawing.Point(82, 348);
             this.lb_semestr4.Name = "lb_semestr4";
@@ -800,6 +810,7 @@
             // 
             this.lb_semestr3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr3.FormattingEnabled = true;
+            this.lb_semestr3.HorizontalScrollbar = true;
             this.lb_semestr3.ItemHeight = 15;
             this.lb_semestr3.Location = new System.Drawing.Point(82, 246);
             this.lb_semestr3.Name = "lb_semestr3";
@@ -810,6 +821,7 @@
             // 
             this.lb_semestr2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_semestr2.FormattingEnabled = true;
+            this.lb_semestr2.HorizontalScrollbar = true;
             this.lb_semestr2.ItemHeight = 15;
             this.lb_semestr2.Location = new System.Drawing.Point(82, 144);
             this.lb_semestr2.Name = "lb_semestr2";
@@ -869,90 +881,90 @@
             this.toolStripMenuItem12,
             this.toolStripMenuItem13});
             this.početSemestrůToolStripMenuItem.Name = "početSemestrůToolStripMenuItem";
-            this.početSemestrůToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.početSemestrůToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.početSemestrůToolStripMenuItem.Text = "Počet semestrů";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem2.Text = "1";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem3.Text = "2";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem4.Text = "3";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem5.Text = "4";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem6.Text = "5";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem7.Text = "6";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem8.Text = "7";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem9.Text = "8";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem10.Text = "9";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem11.Text = "10";
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem12.Text = "11";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(86, 22);
             this.toolStripMenuItem13.Text = "12";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.ToolStripMenuItem13_Click);
             // 

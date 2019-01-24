@@ -33,51 +33,27 @@ namespace SystemProPodporuStudijnichPlanu
             Jazyk = jazyk;
             Zakonceni = zakonceni;
             if (semestr_predmet == "")
-            {
                 Semestr_predmet = 0;
-            }
             else
-            {
                 Semestr_predmet = Convert.ToInt32(semestr_predmet);
-            }
-
             Id_orig = Convert.ToInt32(id_orig);
             Povinnost = povinnost;
             if (prednaska == "")
-            {
                 Prednaska = 0;
-            }
             else
-            {
                 Prednaska = Convert.ToInt32(prednaska);
-            }
-
             if (cviceni == "")
-            {
                 Cviceni = 0;
-            }
             else
-            {
                 Cviceni = Convert.ToInt32(cviceni);
-            }
-
             if (kombi == "")
-            {
                 Kombi = 0;
-            }
             else
-            {
                 Kombi = Convert.ToInt32(kombi);
-            }
-
             if (lab == "")
-            {
                 Lab = 0;
-            }
             else
-            {
                 Lab = Convert.ToInt32(lab);
-            }
         }
         //full constructor
         public Predmet(int id_predmet, string name_predmet, string zkr_predmet, int kredit_predmet, int id_obor, int id_v, int semestr_predmet, int id_orig, string povinnost, int prednaska, int cviceni, int kombi, int lab, string jazyk, string zakonceni, string popis)
@@ -97,6 +73,12 @@ namespace SystemProPodporuStudijnichPlanu
             Lab = lab;
             Jazyk = jazyk;
             Zakonceni = zakonceni;
+            Popis = popis;
+        }
+        public Predmet(string name_predmet,string popis, string obor)
+        {
+            DataAccess da = new DataAccess();
+            Id_predmet = da.GetPredmetId(name_predmet, obor);
             Popis = popis;
         }
         public override string ToString()

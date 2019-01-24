@@ -94,7 +94,9 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Aplication\Program.cs" />
+    <Compile Include="Logic\Garant.cs" />
     <Compile Include="Logic\NacteniDat.cs" />
+    <Compile Include="Logic\Obor.cs" />
     <Compile Include="Logic\Predmet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aplication\FormMain.resx">
