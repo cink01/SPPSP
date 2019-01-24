@@ -32,17 +32,17 @@
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.popis = new System.Windows.Forms.Label();
             this.lb_semestr7 = new System.Windows.Forms.ListBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_del7 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.rb_del8 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.rb_del9 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.rb_del10 = new System.Windows.Forms.RadioButton();
             this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.rb_del11 = new System.Windows.Forms.RadioButton();
             this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.rb_del12 = new System.Windows.Forms.RadioButton();
             this.radioButton18 = new System.Windows.Forms.RadioButton();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -56,17 +56,17 @@
             this.lb_semestr9 = new System.Windows.Forms.ListBox();
             this.lb_semestr8 = new System.Windows.Forms.ListBox();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.rb_del1 = new System.Windows.Forms.RadioButton();
             this.rb_add1 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.rb_del2 = new System.Windows.Forms.RadioButton();
             this.rb_add2 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.rb_del3 = new System.Windows.Forms.RadioButton();
             this.rb_add3 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rb_del4 = new System.Windows.Forms.RadioButton();
             this.rb_add4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rb_del5 = new System.Windows.Forms.RadioButton();
             this.rb_add5 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rb_del6 = new System.Windows.Forms.RadioButton();
             this.rb_add6 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_proved = new System.Windows.Forms.Button();
@@ -127,17 +127,17 @@
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
             this.gb_max.Controls.Add(this.popis);
             this.gb_max.Controls.Add(this.lb_semestr7);
-            this.gb_max.Controls.Add(this.radioButton1);
+            this.gb_max.Controls.Add(this.rb_del7);
             this.gb_max.Controls.Add(this.radioButton4);
-            this.gb_max.Controls.Add(this.radioButton6);
+            this.gb_max.Controls.Add(this.rb_del8);
             this.gb_max.Controls.Add(this.radioButton8);
-            this.gb_max.Controls.Add(this.radioButton10);
+            this.gb_max.Controls.Add(this.rb_del9);
             this.gb_max.Controls.Add(this.radioButton12);
-            this.gb_max.Controls.Add(this.radioButton13);
+            this.gb_max.Controls.Add(this.rb_del10);
             this.gb_max.Controls.Add(this.radioButton14);
-            this.gb_max.Controls.Add(this.radioButton15);
+            this.gb_max.Controls.Add(this.rb_del11);
             this.gb_max.Controls.Add(this.radioButton16);
-            this.gb_max.Controls.Add(this.radioButton17);
+            this.gb_max.Controls.Add(this.rb_del12);
             this.gb_max.Controls.Add(this.radioButton18);
             this.gb_max.Controls.Add(this.numericUpDown1);
             this.gb_max.Controls.Add(this.numericUpDown2);
@@ -151,17 +151,17 @@
             this.gb_max.Controls.Add(this.lb_semestr9);
             this.gb_max.Controls.Add(this.lb_semestr8);
             this.gb_max.Controls.Add(this.lb_semestr1);
-            this.gb_max.Controls.Add(this.radioButton11);
+            this.gb_max.Controls.Add(this.rb_del1);
             this.gb_max.Controls.Add(this.rb_add1);
-            this.gb_max.Controls.Add(this.radioButton9);
+            this.gb_max.Controls.Add(this.rb_del2);
             this.gb_max.Controls.Add(this.rb_add2);
-            this.gb_max.Controls.Add(this.radioButton7);
+            this.gb_max.Controls.Add(this.rb_del3);
             this.gb_max.Controls.Add(this.rb_add3);
-            this.gb_max.Controls.Add(this.radioButton5);
+            this.gb_max.Controls.Add(this.rb_del4);
             this.gb_max.Controls.Add(this.rb_add4);
-            this.gb_max.Controls.Add(this.radioButton3);
+            this.gb_max.Controls.Add(this.rb_del5);
             this.gb_max.Controls.Add(this.rb_add5);
-            this.gb_max.Controls.Add(this.radioButton2);
+            this.gb_max.Controls.Add(this.rb_del6);
             this.gb_max.Controls.Add(this.rb_add6);
             this.gb_max.Controls.Add(this.label1);
             this.gb_max.Controls.Add(this.bt_proved);
@@ -205,16 +205,16 @@
             this.lb_semestr7.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr7.TabIndex = 58;
             // 
-            // radioButton1
+            // rb_del7
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(645, 108);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(142, 17);
-            this.radioButton1.TabIndex = 57;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "odebrat zvolený předmět";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_del7.AutoSize = true;
+            this.rb_del7.Location = new System.Drawing.Point(645, 108);
+            this.rb_del7.Name = "rb_del7";
+            this.rb_del7.Size = new System.Drawing.Size(142, 17);
+            this.rb_del7.TabIndex = 57;
+            this.rb_del7.TabStop = true;
+            this.rb_del7.Text = "odebrat zvolený předmět";
+            this.rb_del7.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
@@ -227,16 +227,16 @@
             this.radioButton4.Text = "přidat předmět(y)";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rb_del8
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(646, 209);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(142, 17);
-            this.radioButton6.TabIndex = 55;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "odebrat zvolený předmět";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rb_del8.AutoSize = true;
+            this.rb_del8.Location = new System.Drawing.Point(646, 209);
+            this.rb_del8.Name = "rb_del8";
+            this.rb_del8.Size = new System.Drawing.Size(142, 17);
+            this.rb_del8.TabIndex = 55;
+            this.rb_del8.TabStop = true;
+            this.rb_del8.Text = "odebrat zvolený předmět";
+            this.rb_del8.UseVisualStyleBackColor = true;
             // 
             // radioButton8
             // 
@@ -249,16 +249,16 @@
             this.radioButton8.Text = "přidat předmět(y)";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // rb_del9
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(646, 310);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(142, 17);
-            this.radioButton10.TabIndex = 53;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "odebrat zvolený předmět";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.rb_del9.AutoSize = true;
+            this.rb_del9.Location = new System.Drawing.Point(646, 310);
+            this.rb_del9.Name = "rb_del9";
+            this.rb_del9.Size = new System.Drawing.Size(142, 17);
+            this.rb_del9.TabIndex = 53;
+            this.rb_del9.TabStop = true;
+            this.rb_del9.Text = "odebrat zvolený předmět";
+            this.rb_del9.UseVisualStyleBackColor = true;
             // 
             // radioButton12
             // 
@@ -271,16 +271,16 @@
             this.radioButton12.Text = "přidat předmět(y)";
             this.radioButton12.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
+            // rb_del10
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(645, 412);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(142, 17);
-            this.radioButton13.TabIndex = 51;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "odebrat zvolený předmět";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.rb_del10.AutoSize = true;
+            this.rb_del10.Location = new System.Drawing.Point(645, 412);
+            this.rb_del10.Name = "rb_del10";
+            this.rb_del10.Size = new System.Drawing.Size(142, 17);
+            this.rb_del10.TabIndex = 51;
+            this.rb_del10.TabStop = true;
+            this.rb_del10.Text = "odebrat zvolený předmět";
+            this.rb_del10.UseVisualStyleBackColor = true;
             // 
             // radioButton14
             // 
@@ -293,16 +293,16 @@
             this.radioButton14.Text = "přidat předmět(y)";
             this.radioButton14.UseVisualStyleBackColor = true;
             // 
-            // radioButton15
+            // rb_del11
             // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(646, 513);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(142, 17);
-            this.radioButton15.TabIndex = 49;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "odebrat zvolený předmět";
-            this.radioButton15.UseVisualStyleBackColor = true;
+            this.rb_del11.AutoSize = true;
+            this.rb_del11.Location = new System.Drawing.Point(646, 513);
+            this.rb_del11.Name = "rb_del11";
+            this.rb_del11.Size = new System.Drawing.Size(142, 17);
+            this.rb_del11.TabIndex = 49;
+            this.rb_del11.TabStop = true;
+            this.rb_del11.Text = "odebrat zvolený předmět";
+            this.rb_del11.UseVisualStyleBackColor = true;
             // 
             // radioButton16
             // 
@@ -315,16 +315,16 @@
             this.radioButton16.Text = "přidat předmět(y)";
             this.radioButton16.UseVisualStyleBackColor = true;
             // 
-            // radioButton17
+            // rb_del12
             // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Location = new System.Drawing.Point(646, 615);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(142, 17);
-            this.radioButton17.TabIndex = 47;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "odebrat zvolený předmět";
-            this.radioButton17.UseVisualStyleBackColor = true;
+            this.rb_del12.AutoSize = true;
+            this.rb_del12.Location = new System.Drawing.Point(646, 615);
+            this.rb_del12.Name = "rb_del12";
+            this.rb_del12.Size = new System.Drawing.Size(142, 17);
+            this.rb_del12.TabIndex = 47;
+            this.rb_del12.TabStop = true;
+            this.rb_del12.Text = "odebrat zvolený předmět";
+            this.rb_del12.UseVisualStyleBackColor = true;
             // 
             // radioButton18
             // 
@@ -494,16 +494,16 @@
             this.lb_semestr1.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr1.TabIndex = 34;
             // 
-            // radioButton11
+            // rb_del1
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(276, 108);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(142, 17);
-            this.radioButton11.TabIndex = 33;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "odebrat zvolený předmět";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.rb_del1.AutoSize = true;
+            this.rb_del1.Location = new System.Drawing.Point(276, 108);
+            this.rb_del1.Name = "rb_del1";
+            this.rb_del1.Size = new System.Drawing.Size(142, 17);
+            this.rb_del1.TabIndex = 33;
+            this.rb_del1.TabStop = true;
+            this.rb_del1.Text = "odebrat zvolený předmět";
+            this.rb_del1.UseVisualStyleBackColor = true;
             // 
             // rb_add1
             // 
@@ -516,16 +516,16 @@
             this.rb_add1.Text = "přidat předmět(y)";
             this.rb_add1.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rb_del2
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(277, 209);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(142, 17);
-            this.radioButton9.TabIndex = 31;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "odebrat zvolený předmět";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rb_del2.AutoSize = true;
+            this.rb_del2.Location = new System.Drawing.Point(277, 209);
+            this.rb_del2.Name = "rb_del2";
+            this.rb_del2.Size = new System.Drawing.Size(142, 17);
+            this.rb_del2.TabIndex = 31;
+            this.rb_del2.TabStop = true;
+            this.rb_del2.Text = "odebrat zvolený předmět";
+            this.rb_del2.UseVisualStyleBackColor = true;
             // 
             // rb_add2
             // 
@@ -538,16 +538,16 @@
             this.rb_add2.Text = "přidat předmět(y)";
             this.rb_add2.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // rb_del3
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(277, 310);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(142, 17);
-            this.radioButton7.TabIndex = 29;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "odebrat zvolený předmět";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.rb_del3.AutoSize = true;
+            this.rb_del3.Location = new System.Drawing.Point(277, 310);
+            this.rb_del3.Name = "rb_del3";
+            this.rb_del3.Size = new System.Drawing.Size(142, 17);
+            this.rb_del3.TabIndex = 29;
+            this.rb_del3.TabStop = true;
+            this.rb_del3.Text = "odebrat zvolený předmět";
+            this.rb_del3.UseVisualStyleBackColor = true;
             // 
             // rb_add3
             // 
@@ -560,16 +560,16 @@
             this.rb_add3.Text = "přidat předmět(y)";
             this.rb_add3.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rb_del4
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(276, 412);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(142, 17);
-            this.radioButton5.TabIndex = 27;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "odebrat zvolený předmět";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rb_del4.AutoSize = true;
+            this.rb_del4.Location = new System.Drawing.Point(276, 412);
+            this.rb_del4.Name = "rb_del4";
+            this.rb_del4.Size = new System.Drawing.Size(142, 17);
+            this.rb_del4.TabIndex = 27;
+            this.rb_del4.TabStop = true;
+            this.rb_del4.Text = "odebrat zvolený předmět";
+            this.rb_del4.UseVisualStyleBackColor = true;
             // 
             // rb_add4
             // 
@@ -582,16 +582,16 @@
             this.rb_add4.Text = "přidat předmět(y)";
             this.rb_add4.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rb_del5
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(277, 513);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(142, 17);
-            this.radioButton3.TabIndex = 25;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "odebrat zvolený předmět";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb_del5.AutoSize = true;
+            this.rb_del5.Location = new System.Drawing.Point(277, 513);
+            this.rb_del5.Name = "rb_del5";
+            this.rb_del5.Size = new System.Drawing.Size(142, 17);
+            this.rb_del5.TabIndex = 25;
+            this.rb_del5.TabStop = true;
+            this.rb_del5.Text = "odebrat zvolený předmět";
+            this.rb_del5.UseVisualStyleBackColor = true;
             // 
             // rb_add5
             // 
@@ -604,16 +604,16 @@
             this.rb_add5.Text = "přidat předmět(y)";
             this.rb_add5.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb_del6
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(277, 615);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(142, 17);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "odebrat zvolený předmět";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_del6.AutoSize = true;
+            this.rb_del6.Location = new System.Drawing.Point(277, 615);
+            this.rb_del6.Name = "rb_del6";
+            this.rb_del6.Size = new System.Drawing.Size(142, 17);
+            this.rb_del6.TabIndex = 23;
+            this.rb_del6.TabStop = true;
+            this.rb_del6.Text = "odebrat zvolený předmět";
+            this.rb_del6.UseVisualStyleBackColor = true;
             // 
             // rb_add6
             // 
@@ -1055,17 +1055,17 @@
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem souborToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem konecToolStripMenuItem;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton rb_del1;
         private System.Windows.Forms.RadioButton rb_add1;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton rb_del2;
         private System.Windows.Forms.RadioButton rb_add2;
-        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton rb_del3;
         private System.Windows.Forms.RadioButton rb_add3;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rb_del4;
         private System.Windows.Forms.RadioButton rb_add4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rb_del5;
         private System.Windows.Forms.RadioButton rb_add5;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rb_del6;
         private System.Windows.Forms.RadioButton rb_add6;
         private System.Windows.Forms.ListBox lb_semestr1;
         private System.Windows.Forms.ToolStripMenuItem upravitToolStripMenuItem;
@@ -1073,17 +1073,17 @@
         private System.Windows.Forms.ToolStripMenuItem správaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
         private System.Windows.Forms.ListBox lb_semestr7;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rb_del7;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton rb_del8;
         private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton rb_del9;
         private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton rb_del10;
         private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton rb_del11;
         private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.RadioButton radioButton17;
+        private System.Windows.Forms.RadioButton rb_del12;
         private System.Windows.Forms.RadioButton radioButton18;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
