@@ -173,7 +173,6 @@ namespace SystemProPodporuStudijnichPlanu
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string fileContent = string.Empty;
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "";
@@ -184,17 +183,15 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     //Get the path of specified file
                     cesta = openFileDialog.FileName;
+
                 }
             }
             NacteniDat nd = new NacteniDat();
             nd.Proved(cesta);
-            DataAccess da = new DataAccess();
         }
         private void NaplnitPredmetyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NacteniDat nd = new NacteniDat();
-            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci.txt";
-            string fileContent = string.Empty;
+            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci_tilda.txt";
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "";
@@ -207,137 +204,110 @@ namespace SystemProPodporuStudijnichPlanu
                     cesta = openFileDialog.FileName;
                 }
             }
+            NacteniDat nd = new NacteniDat();
             nd.ProvedPopis(cesta);
-            DataAccess da = new DataAccess();
         }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem2_Click(object sender, EventArgs e) => Viditelnost(1);
+        private void ToolStripMenuItem3_Click(object sender, EventArgs e) => Viditelnost(2);
+        private void ToolStripMenuItem4_Click(object sender, EventArgs e) => Viditelnost(3);
+        private void ToolStripMenuItem5_Click(object sender, EventArgs e) => Viditelnost(4);
+        private void ToolStripMenuItem6_Click(object sender, EventArgs e) => Viditelnost(5);
+        private void ToolStripMenuItem7_Click(object sender, EventArgs e) => Viditelnost(6);
+        private void ToolStripMenuItem8_Click(object sender, EventArgs e) => Viditelnost(7);
+        private void ToolStripMenuItem9_Click(object sender, EventArgs e) => Viditelnost(8);
+        private void ToolStripMenuItem10_Click(object sender, EventArgs e) => Viditelnost(9);
+        private void ToolStripMenuItem11_Click(object sender, EventArgs e) => Viditelnost(10);
+        private void ToolStripMenuItem12_Click(object sender, EventArgs e) => Viditelnost(11);
+        private void ToolStripMenuItem13_Click(object sender, EventArgs e) => Viditelnost(12);
+        private void Viditelnost(int i)
         {
-            viditelnost(1);
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            viditelnost(2);
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            viditelnost(3);
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            viditelnost(4);
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
-            viditelnost(5);
-        }
-
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-            viditelnost(6);
-        }
-
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
-        {
-            viditelnost(7);
-        }
-
-        private void toolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            viditelnost(8);
-        }
-
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
-        {
-            viditelnost(9);
-        }
-
-        private void toolStripMenuItem11_Click(object sender, EventArgs e)
-        {
-            viditelnost(10);
-        }
-
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            viditelnost(11);
-        }
-
-        private void ToolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-            viditelnost(12);
-        }
-
-        private void viditelnost(int i)
-        {
-            lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible = lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible = lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+            if (i > 6)
+                label_popis.Left = 766;
+            else
+                label_popis.Left = 451;
+            Tma();
             switch (i)
             {
                 case 12:
                     {
-                        lb_semestr12.Visible = true;
+                        nud_KredSem12.Visible = rb_add12.Visible = rb_del12.Visible = lb_semestr12.Visible = true;
                         goto case 11;
                     }
                 case 11:
                     {
-
-                        lb_semestr11.Visible = true;
+                        nud_KredSem11.Visible = rb_add11.Visible = rb_del11.Visible = lb_semestr11.Visible = true;
                         goto case 10;
                     }
                 case 10:
                     {
-                        lb_semestr10.Visible = true;
+                        nud_KredSem10.Visible = rb_add10.Visible = rb_del10.Visible = lb_semestr10.Visible = true;
                         goto case 9;
                     }
                 case 9:
                     {
-                        lb_semestr9.Visible = true;
+                        nud_KredSem9.Visible = rb_add9.Visible = rb_del9.Visible = lb_semestr9.Visible = true;
                         goto case 8;
                     }
                 case 8:
                     {
-                        lb_semestr8.Visible = true;
+                        nud_KredSem8.Visible = rb_add8.Visible = rb_del8.Visible = lb_semestr8.Visible = true;
                         goto case 7;
                     }
                 case 7:
                     {
-                        lb_semestr7.Visible = true;
+                        nud_KredSem7.Visible = rb_add7.Visible = rb_del7.Visible = lb_semestr7.Visible = true;
                         goto case 6;
                     }
                 case 6:
                     {
-                        lb_semestr6.Visible = true;
+                        nud_KredSem6.Visible = rb_add6.Visible = rb_del6.Visible = lb_semestr6.Visible = true;
                         goto case 5;
                     }
                 case 5:
                     {
-                        lb_semestr5.Visible = true;
+                        nud_KredSem5.Visible = rb_add5.Visible = rb_del5.Visible = lb_semestr5.Visible = true;
                         goto case 4;
                     }
                 case 4:
                     {
-                        lb_semestr4.Visible = true;
+                        nud_KredSem4.Visible = rb_add4.Visible = rb_del4.Visible = lb_semestr4.Visible = true;
                         goto case 3;
                     }
                 case 3:
                     {
-                        lb_semestr3.Visible = true;
+                        nud_KredSem3.Visible = rb_add3.Visible = rb_del3.Visible = lb_semestr3.Visible = true;
                         goto case 2;
                     }
                 case 2:
                     {
-                        lb_semestr2.Visible = true;
+                        nud_KredSem2.Visible = rb_add2.Visible = rb_del2.Visible = lb_semestr2.Visible = true;
                         goto case 1;
                     }
                 case 1:
                     {
-                        lb_semestr1.Visible = true;
+                        nud_KredSem1.Visible = rb_add1.Visible = rb_del1.Visible = lb_semestr1.Visible = true;
                     }
                     break;
+                default:
+                    break;
             }
+        }
+
+        public void Tma()
+        {
+            nud_KredSem12.Visible = nud_KredSem11.Visible = nud_KredSem10.Visible = nud_KredSem9.Visible = nud_KredSem8.Visible =
+                nud_KredSem7.Visible = nud_KredSem6.Visible = nud_KredSem5.Visible = nud_KredSem4.Visible = nud_KredSem3.Visible =
+                nud_KredSem2.Visible = nud_KredSem1.Visible = rb_add2.Visible = rb_del2.Visible = rb_add3.Visible = rb_del3.Visible =
+                rb_add4.Visible = rb_del4.Visible = rb_add5.Visible = rb_del5.Visible = rb_add6.Visible = rb_del6.Visible =
+                rb_add7.Visible = rb_del7.Visible = rb_add8.Visible = rb_del8.Visible = rb_add9.Visible = rb_del9.Visible =
+                rb_add10.Visible = rb_del10.Visible = rb_add11.Visible = rb_del11.Visible = rb_add12.Visible = rb_del12.Visible =
+                rb_add1.Visible = rb_del1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
+                lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
+                lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+        }
+        private void Bt_smaz_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
