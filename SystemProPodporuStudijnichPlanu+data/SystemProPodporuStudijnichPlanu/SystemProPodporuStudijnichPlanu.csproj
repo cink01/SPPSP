@@ -74,6 +74,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplication\FormCRUDmidstage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCRUDmidstage.Designer.cs">
+      <DependentUpon>FormCRUDmidstage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplication\FormCUGarant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCUGarant.Designer.cs">
+      <DependentUpon>FormCUGarant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplication\FormCUKatedra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCUKatedra.Designer.cs">
+      <DependentUpon>FormCUKatedra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplication\FormCUObor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCUObor.Designer.cs">
+      <DependentUpon>FormCUObor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplication\FormCUPredmet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCUPredmet.Designer.cs">
+      <DependentUpon>FormCUPredmet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplication\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,8 +130,26 @@
     <Compile Include="Logic\Obor.cs" />
     <Compile Include="Logic\Predmet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Aplication\FormCRUDmidstage.resx">
+      <DependentUpon>FormCRUDmidstage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormCUGarant.resx">
+      <DependentUpon>FormCUGarant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormCUKatedra.resx">
+      <DependentUpon>FormCUKatedra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormCUObor.resx">
+      <DependentUpon>FormCUObor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormCUPredmet.resx">
+      <DependentUpon>FormCUPredmet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplication\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormPridavani.resx">
+      <DependentUpon>FormPridavani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,6 +208,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseApp.mdf</DependentUpon>
     </Content>
+    <None Include="Icons\ButtonR53.png" />
+    <None Include="Icons\ButtonL53.png" />
+    <None Include="Icons\ButtonL.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
