@@ -16,5 +16,25 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             InitializeComponent();
         }
+
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lb_kredity_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
