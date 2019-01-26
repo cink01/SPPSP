@@ -112,15 +112,13 @@
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.naplnitPredmetyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upravyPředmětůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upravyOborůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upravyKatederToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upravyGarantůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAplikaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.povolitSprávceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hromadnéNačteníDatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.naplnitDatabáziToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.přidatPopisyKPředmětůmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.správaDatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
@@ -1088,7 +1086,7 @@
             this.toolStripMenuItem12,
             this.toolStripMenuItem13});
             this.početSemestrůToolStripMenuItem.Name = "početSemestrůToolStripMenuItem";
-            this.početSemestrůToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.početSemestrůToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.početSemestrůToolStripMenuItem.Text = "Počet semestrů";
             // 
             // toolStripMenuItem2
@@ -1178,53 +1176,11 @@
             // správaToolStripMenuItem
             // 
             this.správaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.naplnitDatabáziToolStripMenuItem,
-            this.naplnitPredmetyToolStripMenuItem,
-            this.upravyPředmětůToolStripMenuItem,
-            this.upravyOborůToolStripMenuItem,
-            this.upravyKatederToolStripMenuItem,
-            this.upravyGarantůToolStripMenuItem});
+            this.hromadnéNačteníDatToolStripMenuItem,
+            this.správaDatToolStripMenuItem});
             this.správaToolStripMenuItem.Name = "správaToolStripMenuItem";
             this.správaToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
             this.správaToolStripMenuItem.Text = "Správa";
-            // 
-            // naplnitDatabáziToolStripMenuItem
-            // 
-            this.naplnitDatabáziToolStripMenuItem.Name = "naplnitDatabáziToolStripMenuItem";
-            this.naplnitDatabáziToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.naplnitDatabáziToolStripMenuItem.Text = "Naplnit databázi";
-            this.naplnitDatabáziToolStripMenuItem.Click += new System.EventHandler(this.NaplnitDatabáziToolStripMenuItem_Click);
-            // 
-            // naplnitPredmetyToolStripMenuItem
-            // 
-            this.naplnitPredmetyToolStripMenuItem.Name = "naplnitPredmetyToolStripMenuItem";
-            this.naplnitPredmetyToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.naplnitPredmetyToolStripMenuItem.Text = "Naplnit popisy k předmětům";
-            this.naplnitPredmetyToolStripMenuItem.Click += new System.EventHandler(this.NaplnitPredmetyToolStripMenuItem_Click);
-            // 
-            // upravyPředmětůToolStripMenuItem
-            // 
-            this.upravyPředmětůToolStripMenuItem.Name = "upravyPředmětůToolStripMenuItem";
-            this.upravyPředmětůToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.upravyPředmětůToolStripMenuItem.Text = "Upravy předmětů";
-            // 
-            // upravyOborůToolStripMenuItem
-            // 
-            this.upravyOborůToolStripMenuItem.Name = "upravyOborůToolStripMenuItem";
-            this.upravyOborůToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.upravyOborůToolStripMenuItem.Text = "Upravy oborů";
-            // 
-            // upravyKatederToolStripMenuItem
-            // 
-            this.upravyKatederToolStripMenuItem.Name = "upravyKatederToolStripMenuItem";
-            this.upravyKatederToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.upravyKatederToolStripMenuItem.Text = "Upravy kateder";
-            // 
-            // upravyGarantůToolStripMenuItem
-            // 
-            this.upravyGarantůToolStripMenuItem.Name = "upravyGarantůToolStripMenuItem";
-            this.upravyGarantůToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.upravyGarantůToolStripMenuItem.Text = "Upravy garantů";
             // 
             // nápovědaToolStripMenuItem
             // 
@@ -1246,6 +1202,36 @@
             this.povolitSprávceToolStripMenuItem.Name = "povolitSprávceToolStripMenuItem";
             this.povolitSprávceToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.povolitSprávceToolStripMenuItem.Text = "Povolit správce";
+            // 
+            // hromadnéNačteníDatToolStripMenuItem
+            // 
+            this.hromadnéNačteníDatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.naplnitDatabáziToolStripMenuItem1,
+            this.přidatPopisyKPředmětůmToolStripMenuItem});
+            this.hromadnéNačteníDatToolStripMenuItem.Name = "hromadnéNačteníDatToolStripMenuItem";
+            this.hromadnéNačteníDatToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.hromadnéNačteníDatToolStripMenuItem.Text = "Hromadné načtení dat";
+            // 
+            // naplnitDatabáziToolStripMenuItem1
+            // 
+            this.naplnitDatabáziToolStripMenuItem1.Name = "naplnitDatabáziToolStripMenuItem1";
+            this.naplnitDatabáziToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
+            this.naplnitDatabáziToolStripMenuItem1.Text = "Naplnit databázi";
+            this.naplnitDatabáziToolStripMenuItem1.Click += new System.EventHandler(this.NaplnitDatabáziToolStripMenuItem_Click);
+            // 
+            // přidatPopisyKPředmětůmToolStripMenuItem
+            // 
+            this.přidatPopisyKPředmětůmToolStripMenuItem.Name = "přidatPopisyKPředmětůmToolStripMenuItem";
+            this.přidatPopisyKPředmětůmToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.přidatPopisyKPředmětůmToolStripMenuItem.Text = "Přidat popisy k předmětům";
+            this.přidatPopisyKPředmětůmToolStripMenuItem.Click += new System.EventHandler(this.NaplnitPredmetyToolStripMenuItem_Click);
+            // 
+            // správaDatToolStripMenuItem
+            // 
+            this.správaDatToolStripMenuItem.Name = "správaDatToolStripMenuItem";
+            this.správaDatToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.správaDatToolStripMenuItem.Text = "Správa dat";
+            this.správaDatToolStripMenuItem.Click += new System.EventHandler(this.SprávaDatToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1331,7 +1317,6 @@
         private System.Windows.Forms.ToolStripMenuItem upravitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem správaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
         private System.Windows.Forms.ListBox lb_semestr7;
         private System.Windows.Forms.RadioButton rb_del7;
         private System.Windows.Forms.RadioButton rb_add7;
@@ -1356,7 +1341,6 @@
         private System.Windows.Forms.ListBox lb_semestr10;
         private System.Windows.Forms.ListBox lb_semestr9;
         private System.Windows.Forms.ListBox lb_semestr8;
-        private System.Windows.Forms.ToolStripMenuItem naplnitPredmetyToolStripMenuItem;
         private System.Windows.Forms.Label label_popis;
         private System.Windows.Forms.ToolStripMenuItem početSemestrůToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -1372,10 +1356,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.Button bt_smaz;
-        private System.Windows.Forms.ToolStripMenuItem upravyPředmětůToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upravyOborůToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upravyKatederToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upravyGarantůToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAplikaciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem povolitSprávceToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
@@ -1387,6 +1367,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ToolStripMenuItem hromadnéNačteníDatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem přidatPopisyKPředmětůmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem správaDatToolStripMenuItem;
     }
 }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
+using SystemProPodporuStudijnichPlanu.Aplication;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -308,6 +308,12 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_smaz_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SprávaDatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCRUDmidstage x = new FormCRUDmidstage();
+            x.Show();
         }
     }
 }

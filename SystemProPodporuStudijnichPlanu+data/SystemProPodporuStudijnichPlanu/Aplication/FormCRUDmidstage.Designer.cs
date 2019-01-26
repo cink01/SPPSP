@@ -35,10 +35,12 @@
             this.bt_upravit = new System.Windows.Forms.Button();
             this.cb_katedra = new System.Windows.Forms.ComboBox();
             this.cb_obor = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rb_predmet = new System.Windows.Forms.RadioButton();
+            this.rb_obor = new System.Windows.Forms.RadioButton();
+            this.rb_katedra = new System.Windows.Forms.RadioButton();
+            this.rb_garant = new System.Windows.Forms.RadioButton();
+            this.gb_vyber = new System.Windows.Forms.GroupBox();
+            this.gb_vyber.SuspendLayout();
             this.SuspendLayout();
             // 
             // bt_close
@@ -56,6 +58,7 @@
             // 
             // bt_smazat
             // 
+            this.bt_smazat.BackColor = System.Drawing.Color.Linen;
             this.bt_smazat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smazat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_smazat.Location = new System.Drawing.Point(174, 12);
@@ -63,10 +66,11 @@
             this.bt_smazat.Size = new System.Drawing.Size(75, 23);
             this.bt_smazat.TabIndex = 4;
             this.bt_smazat.Text = "Smazat";
-            this.bt_smazat.UseVisualStyleBackColor = true;
+            this.bt_smazat.UseVisualStyleBackColor = false;
             // 
             // bt_novy
             // 
+            this.bt_novy.BackColor = System.Drawing.Color.Honeydew;
             this.bt_novy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_novy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_novy.Location = new System.Drawing.Point(12, 12);
@@ -74,10 +78,12 @@
             this.bt_novy.Size = new System.Drawing.Size(75, 23);
             this.bt_novy.TabIndex = 5;
             this.bt_novy.Text = "Nový";
-            this.bt_novy.UseVisualStyleBackColor = true;
+            this.bt_novy.UseVisualStyleBackColor = false;
+            this.bt_novy.Click += new System.EventHandler(this.Bt_novy_Click);
             // 
             // bt_upravit
             // 
+            this.bt_upravit.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.bt_upravit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_upravit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_upravit.Location = new System.Drawing.Point(93, 12);
@@ -85,12 +91,12 @@
             this.bt_upravit.Size = new System.Drawing.Size(75, 23);
             this.bt_upravit.TabIndex = 6;
             this.bt_upravit.Text = "Upravit";
-            this.bt_upravit.UseVisualStyleBackColor = true;
+            this.bt_upravit.UseVisualStyleBackColor = false;
             // 
             // cb_katedra
             // 
             this.cb_katedra.FormattingEnabled = true;
-            this.cb_katedra.Location = new System.Drawing.Point(12, 86);
+            this.cb_katedra.Location = new System.Drawing.Point(22, 312);
             this.cb_katedra.Name = "cb_katedra";
             this.cb_katedra.Size = new System.Drawing.Size(121, 21);
             this.cb_katedra.TabIndex = 7;
@@ -98,66 +104,76 @@
             // cb_obor
             // 
             this.cb_obor.FormattingEnabled = true;
-            this.cb_obor.Location = new System.Drawing.Point(12, 113);
+            this.cb_obor.Location = new System.Drawing.Point(22, 339);
             this.cb_obor.Name = "cb_obor";
             this.cb_obor.Size = new System.Drawing.Size(121, 21);
             this.cb_obor.TabIndex = 8;
             // 
-            // radioButton1
+            // rb_predmet
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(139, 90);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_predmet.AutoSize = true;
+            this.rb_predmet.Location = new System.Drawing.Point(18, 65);
+            this.rb_predmet.Name = "rb_predmet";
+            this.rb_predmet.Size = new System.Drawing.Size(65, 17);
+            this.rb_predmet.TabIndex = 9;
+            this.rb_predmet.TabStop = true;
+            this.rb_predmet.Text = "Předmět";
+            this.rb_predmet.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb_obor
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(139, 117);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_obor.AutoSize = true;
+            this.rb_obor.Location = new System.Drawing.Point(18, 19);
+            this.rb_obor.Name = "rb_obor";
+            this.rb_obor.Size = new System.Drawing.Size(48, 17);
+            this.rb_obor.TabIndex = 10;
+            this.rb_obor.TabStop = true;
+            this.rb_obor.Text = "Obor";
+            this.rb_obor.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rb_katedra
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(139, 140);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 11;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb_katedra.AutoSize = true;
+            this.rb_katedra.Location = new System.Drawing.Point(18, 42);
+            this.rb_katedra.Name = "rb_katedra";
+            this.rb_katedra.Size = new System.Drawing.Size(62, 17);
+            this.rb_katedra.TabIndex = 11;
+            this.rb_katedra.TabStop = true;
+            this.rb_katedra.Text = "Katedra";
+            this.rb_katedra.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rb_garant
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(139, 163);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 12;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rb_garant.AutoSize = true;
+            this.rb_garant.Location = new System.Drawing.Point(18, 88);
+            this.rb_garant.Name = "rb_garant";
+            this.rb_garant.Size = new System.Drawing.Size(57, 17);
+            this.rb_garant.TabIndex = 12;
+            this.rb_garant.TabStop = true;
+            this.rb_garant.Text = "Garant";
+            this.rb_garant.UseVisualStyleBackColor = true;
+            // 
+            // gb_vyber
+            // 
+            this.gb_vyber.Controls.Add(this.rb_obor);
+            this.gb_vyber.Controls.Add(this.rb_garant);
+            this.gb_vyber.Controls.Add(this.rb_predmet);
+            this.gb_vyber.Controls.Add(this.rb_katedra);
+            this.gb_vyber.Location = new System.Drawing.Point(12, 41);
+            this.gb_vyber.Name = "gb_vyber";
+            this.gb_vyber.Size = new System.Drawing.Size(169, 119);
+            this.gb_vyber.TabIndex = 13;
+            this.gb_vyber.TabStop = false;
+            this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.gb_vyber);
             this.Controls.Add(this.cb_obor);
             this.Controls.Add(this.cb_katedra);
             this.Controls.Add(this.bt_upravit);
@@ -167,8 +183,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCRUDmidstage";
             this.Text = "FormCRUDmidstage";
+            this.gb_vyber.ResumeLayout(false);
+            this.gb_vyber.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -180,9 +197,10 @@
         private System.Windows.Forms.Button bt_upravit;
         private System.Windows.Forms.ComboBox cb_katedra;
         private System.Windows.Forms.ComboBox cb_obor;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton rb_predmet;
+        private System.Windows.Forms.RadioButton rb_obor;
+        private System.Windows.Forms.RadioButton rb_katedra;
+        private System.Windows.Forms.RadioButton rb_garant;
+        private System.Windows.Forms.GroupBox gb_vyber;
     }
 }
