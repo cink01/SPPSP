@@ -21,31 +21,23 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (rb_garant.Checked == true)
             {
-                using (FormCUGarant g = new FormCUGarant())
-                {
-                    g.Show();
-                }
+                FormCUGarant g = new FormCUGarant();
+                g.Show();
             }
             if (rb_predmet.Checked == true)
             {
-                using (FormCUPredmet p = new FormCUPredmet())
-                {
-                    p.Show();
-                }
+                FormCUPredmet p = new FormCUPredmet();
+                p.Show();
             }
             if (rb_obor.Checked == true)
             {
-                using (FormCUObor o = new FormCUObor())
-                {
-                    o.Show();
-                }
+                FormCUObor o = new FormCUObor();
+                o.Show();
             }
             if (rb_katedra.Checked == true)
             {
-                using (FormCUKatedra k = new FormCUKatedra())
-                {
-                    k.Show();
-                }
+                FormCUKatedra k = new FormCUKatedra();
+                k.Show();
             }
         }
     }
