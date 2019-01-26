@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCUKatedra));
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.tb_zkr = new System.Windows.Forms.TextBox();
@@ -42,22 +43,32 @@
             // 
             // bt_close
             // 
+            this.bt_close.BackColor = System.Drawing.Color.Red;
+            this.bt_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_close.Location = new System.Drawing.Point(168, 58);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 3;
             this.bt_close.Text = "Zavřít";
-            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.UseVisualStyleBackColor = false;
             // 
             // bt_ok
             // 
+            this.bt_ok.BackColor = System.Drawing.Color.Lime;
+            this.bt_ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(87, 58);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
             this.bt_ok.TabIndex = 2;
             this.bt_ok.Text = "Ok";
-            this.bt_ok.UseVisualStyleBackColor = true;
+            this.bt_ok.UseVisualStyleBackColor = false;
+            this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // tb_zkr
             // 
@@ -75,6 +86,7 @@
             // 
             // tb_id
             // 
+            this.tb_id.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tb_id.Location = new System.Drawing.Point(6, 32);
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
@@ -110,6 +122,7 @@
             // 
             // gb_katedra
             // 
+            this.gb_katedra.BackColor = System.Drawing.Color.Transparent;
             this.gb_katedra.Controls.Add(this.tb_id);
             this.gb_katedra.Controls.Add(this.l_nazev);
             this.gb_katedra.Controls.Add(this.bt_ok);
@@ -130,10 +143,12 @@
             this.AcceptButton = this.bt_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(351, 102);
             this.Controls.Add(this.gb_katedra);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUKatedra";
             this.Text = "FormCUKatedra";
             this.gb_katedra.ResumeLayout(false);

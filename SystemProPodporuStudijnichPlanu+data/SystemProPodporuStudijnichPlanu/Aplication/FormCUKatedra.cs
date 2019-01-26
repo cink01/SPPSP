@@ -16,5 +16,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             InitializeComponent();
         }
+
+        private void Bt_ok_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

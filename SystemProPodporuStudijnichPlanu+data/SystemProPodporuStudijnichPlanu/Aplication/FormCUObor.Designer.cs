@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCUObor));
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_obor = new System.Windows.Forms.GroupBox();
+            this.nud_vs = new System.Windows.Forms.NumericUpDown();
+            this.nud_v = new System.Windows.Forms.NumericUpDown();
+            this.nud_pv = new System.Windows.Forms.NumericUpDown();
+            this.nud_p = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_rok = new System.Windows.Forms.TextBox();
             this.tb_id = new System.Windows.Forms.TextBox();
@@ -39,40 +48,41 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.tb_nazev = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nud_p = new System.Windows.Forms.NumericUpDown();
-            this.nud_pv = new System.Windows.Forms.NumericUpDown();
-            this.nud_vs = new System.Windows.Forms.NumericUpDown();
-            this.nud_v = new System.Windows.Forms.NumericUpDown();
             this.gb_obor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_p)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_vs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_v)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_p)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_close
             // 
+            this.bt_close.BackColor = System.Drawing.Color.Red;
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt_close.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_close.Location = new System.Drawing.Point(266, 123);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(69, 23);
             this.bt_close.TabIndex = 3;
             this.bt_close.Text = "Zavřít";
-            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
             // 
             // bt_ok
             // 
+            this.bt_ok.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt_ok.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(142, 123);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(63, 23);
             this.bt_ok.TabIndex = 2;
             this.bt_ok.Text = "Ok";
-            this.bt_ok.UseVisualStyleBackColor = true;
+            this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // gb_obor
@@ -102,6 +112,78 @@
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Obor";
             this.gb_obor.Enter += new System.EventHandler(this.Gb_obor_Enter);
+            // 
+            // nud_vs
+            // 
+            this.nud_vs.Location = new System.Drawing.Point(395, 97);
+            this.nud_vs.Name = "nud_vs";
+            this.nud_vs.Size = new System.Drawing.Size(59, 20);
+            this.nud_vs.TabIndex = 20;
+            this.nud_vs.ValueChanged += new System.EventHandler(this.Nud_vs_ValueChanged);
+            // 
+            // nud_v
+            // 
+            this.nud_v.Location = new System.Drawing.Point(395, 71);
+            this.nud_v.Name = "nud_v";
+            this.nud_v.Size = new System.Drawing.Size(59, 20);
+            this.nud_v.TabIndex = 19;
+            this.nud_v.ValueChanged += new System.EventHandler(this.Nud_v_ValueChanged);
+            // 
+            // nud_pv
+            // 
+            this.nud_pv.Location = new System.Drawing.Point(395, 45);
+            this.nud_pv.Name = "nud_pv";
+            this.nud_pv.Size = new System.Drawing.Size(59, 20);
+            this.nud_pv.TabIndex = 18;
+            this.nud_pv.ValueChanged += new System.EventHandler(this.Nud_pv_ValueChanged);
+            // 
+            // nud_p
+            // 
+            this.nud_p.Location = new System.Drawing.Point(395, 19);
+            this.nud_p.Name = "nud_p";
+            this.nud_p.Size = new System.Drawing.Size(59, 20);
+            this.nud_p.TabIndex = 17;
+            this.nud_p.ValueChanged += new System.EventHandler(this.Nud_p_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(296, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Volitelných sportů:";
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(280, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Volitelných předmětů:";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(239, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Povinně-volitelných předmětů:";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(281, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Povinných předmětů:";
+            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // label2
             // 
@@ -176,94 +258,24 @@
             this.tb_nazev.TabIndex = 5;
             this.tb_nazev.TextChanged += new System.EventHandler(this.Tb_nazev_TextChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(281, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Povinných předmětů:";
-            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(239, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Povinně-volitelných předmětů:";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(280, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Volitelných předmětů:";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(296, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Volitelných sportů:";
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
-            // 
-            // nud_p
-            // 
-            this.nud_p.Location = new System.Drawing.Point(395, 19);
-            this.nud_p.Name = "nud_p";
-            this.nud_p.Size = new System.Drawing.Size(59, 20);
-            this.nud_p.TabIndex = 17;
-            this.nud_p.ValueChanged += new System.EventHandler(this.Nud_p_ValueChanged);
-            // 
-            // nud_pv
-            // 
-            this.nud_pv.Location = new System.Drawing.Point(395, 45);
-            this.nud_pv.Name = "nud_pv";
-            this.nud_pv.Size = new System.Drawing.Size(59, 20);
-            this.nud_pv.TabIndex = 18;
-            this.nud_pv.ValueChanged += new System.EventHandler(this.Nud_pv_ValueChanged);
-            // 
-            // nud_vs
-            // 
-            this.nud_vs.Location = new System.Drawing.Point(395, 97);
-            this.nud_vs.Name = "nud_vs";
-            this.nud_vs.Size = new System.Drawing.Size(59, 20);
-            this.nud_vs.TabIndex = 20;
-            this.nud_vs.ValueChanged += new System.EventHandler(this.Nud_vs_ValueChanged);
-            // 
-            // nud_v
-            // 
-            this.nud_v.Location = new System.Drawing.Point(395, 71);
-            this.nud_v.Name = "nud_v";
-            this.nud_v.Size = new System.Drawing.Size(59, 20);
-            this.nud_v.TabIndex = 19;
-            this.nud_v.ValueChanged += new System.EventHandler(this.Nud_v_ValueChanged);
-            // 
             // FormCUObor
             // 
             this.AcceptButton = this.bt_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(476, 163);
             this.Controls.Add(this.gb_obor);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUObor";
             this.Text = "FormCUObor";
             this.gb_obor.ResumeLayout(false);
             this.gb_obor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_p)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_vs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_v)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_p)).EndInit();
             this.ResumeLayout(false);
 
         }

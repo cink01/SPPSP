@@ -38,42 +38,50 @@
             // 
             // bt_ok
             // 
+            this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(74, 347);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
             this.bt_ok.TabIndex = 0;
             this.bt_ok.Text = "Ok";
-            this.bt_ok.UseVisualStyleBackColor = true;
+            this.bt_ok.UseVisualStyleBackColor = false;
             // 
             // bt_close
             // 
+            this.bt_close.BackColor = System.Drawing.Color.Red;
+            this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_close.Location = new System.Drawing.Point(352, 347);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 1;
             this.bt_close.Text = "Zavřít";
-            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.UseVisualStyleBackColor = false;
             // 
             // bt_add
             // 
+            this.bt_add.BackColor = System.Drawing.Color.Chartreuse;
             this.bt_add.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.ButtonL53;
             this.bt_add.Location = new System.Drawing.Point(226, 108);
             this.bt_add.Name = "bt_add";
             this.bt_add.Size = new System.Drawing.Size(53, 53);
             this.bt_add.TabIndex = 2;
             this.bt_add.Text = "button1";
-            this.bt_add.UseVisualStyleBackColor = true;
+            this.bt_add.UseVisualStyleBackColor = false;
             // 
             // bt_rem
             // 
+            this.bt_rem.BackColor = System.Drawing.Color.Red;
             this.bt_rem.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.ButtonR53;
             this.bt_rem.Location = new System.Drawing.Point(226, 194);
             this.bt_rem.Name = "bt_rem";
             this.bt_rem.Size = new System.Drawing.Size(53, 53);
             this.bt_rem.TabIndex = 3;
             this.bt_rem.Text = "button2";
-            this.bt_rem.UseVisualStyleBackColor = true;
+            this.bt_rem.UseVisualStyleBackColor = false;
             // 
             // lb_vypis
             // 
@@ -98,6 +106,7 @@
             this.AcceptButton = this.bt_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_ok;
             this.ClientSize = new System.Drawing.Size(504, 378);
             this.Controls.Add(this.lb_chci);

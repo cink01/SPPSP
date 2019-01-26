@@ -28,42 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCUGarant));
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_garant = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_katedra = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tb_id = new System.Windows.Forms.TextBox();
             this.l_email = new System.Windows.Forms.Label();
             this.l_zkr = new System.Windows.Forms.Label();
             this.l_id = new System.Windows.Forms.Label();
             this.tb_jm = new System.Windows.Forms.TextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cmb_katedra = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gb_garant.SuspendLayout();
             this.SuspendLayout();
             // 
             // bt_close
             // 
+            this.bt_close.BackColor = System.Drawing.Color.Red;
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_close.Location = new System.Drawing.Point(372, 58);
+            this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_close.Location = new System.Drawing.Point(367, 58);
             this.bt_close.Name = "bt_close";
-            this.bt_close.Size = new System.Drawing.Size(75, 23);
+            this.bt_close.Size = new System.Drawing.Size(80, 23);
             this.bt_close.TabIndex = 3;
             this.bt_close.Text = "Zavřít";
-            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.UseVisualStyleBackColor = false;
             // 
             // bt_ok
             // 
+            this.bt_ok.BackColor = System.Drawing.Color.Lime;
+            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(291, 58);
             this.bt_ok.Name = "bt_ok";
-            this.bt_ok.Size = new System.Drawing.Size(75, 23);
+            this.bt_ok.Size = new System.Drawing.Size(84, 23);
             this.bt_ok.TabIndex = 2;
             this.bt_ok.Text = "Ok";
-            this.bt_ok.UseVisualStyleBackColor = true;
+            this.bt_ok.UseVisualStyleBackColor = false;
             // 
             // gb_garant
             // 
@@ -87,6 +95,55 @@
             this.gb_garant.TabIndex = 11;
             this.gb_garant.TabStop = false;
             this.gb_garant.Text = "Garant";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(683, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Katedra";
+            // 
+            // cmb_katedra
+            // 
+            this.cmb_katedra.FormattingEnabled = true;
+            this.cmb_katedra.Location = new System.Drawing.Point(636, 31);
+            this.cmb_katedra.Name = "cmb_katedra";
+            this.cmb_katedra.Size = new System.Drawing.Size(134, 21);
+            this.cmb_katedra.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(542, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "email";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(392, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "jméno";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(348, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(138, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(492, 32);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(138, 20);
+            this.textBox2.TabIndex = 11;
             // 
             // tb_id
             // 
@@ -137,65 +194,17 @@
             this.tb_email.Size = new System.Drawing.Size(138, 20);
             this.tb_email.TabIndex = 5;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(542, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "email";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(392, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "jméno";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(348, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(492, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(138, 20);
-            this.textBox2.TabIndex = 11;
-            // 
-            // cmb_katedra
-            // 
-            this.cmb_katedra.FormattingEnabled = true;
-            this.cmb_katedra.Location = new System.Drawing.Point(636, 31);
-            this.cmb_katedra.Name = "cmb_katedra";
-            this.cmb_katedra.Size = new System.Drawing.Size(134, 21);
-            this.cmb_katedra.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(683, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Katedra";
-            // 
             // FormCUGarant
             // 
             this.AcceptButton = this.bt_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(780, 101);
             this.Controls.Add(this.gb_garant);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUGarant";
             this.Text = "FormCUGarant";
             this.gb_garant.ResumeLayout(false);
