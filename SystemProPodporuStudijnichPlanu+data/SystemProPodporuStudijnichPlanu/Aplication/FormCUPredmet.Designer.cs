@@ -62,6 +62,7 @@
             this.cb_garant = new System.Windows.Forms.ComboBox();
             this.nud_kredit = new System.Windows.Forms.NumericUpDown();
             this.tb_nazev = new System.Windows.Forms.TextBox();
+            this.databaseAppDataSet = new SystemProPodporuStudijnichPlanu.DatabaseAppDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_lab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cv)).BeginInit();
@@ -69,6 +70,7 @@
             this.gb_predmet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseAppDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // nud_cvk
@@ -141,7 +143,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(559, 229);
+            this.bt_close.Location = new System.Drawing.Point(546, 230);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(70, 23);
             this.bt_close.TabIndex = 3;
@@ -154,9 +156,9 @@
             this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(470, 229);
+            this.bt_ok.Location = new System.Drawing.Point(478, 230);
             this.bt_ok.Name = "bt_ok";
-            this.bt_ok.Size = new System.Drawing.Size(64, 23);
+            this.bt_ok.Size = new System.Drawing.Size(70, 23);
             this.bt_ok.TabIndex = 2;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
@@ -282,6 +284,9 @@
             // cb_zakončení
             // 
             this.cb_zakončení.FormattingEnabled = true;
+            this.cb_zakončení.Items.AddRange(new object[] {
+            "Zkouška",
+            "Zápočet"});
             this.cb_zakončení.Location = new System.Drawing.Point(75, 204);
             this.cb_zakončení.Name = "cb_zakončení";
             this.cb_zakončení.Size = new System.Drawing.Size(139, 21);
@@ -299,6 +304,11 @@
             // cb_povinnost
             // 
             this.cb_povinnost.FormattingEnabled = true;
+            this.cb_povinnost.Items.AddRange(new object[] {
+            "Povinný předmět",
+            "Volitelný předmět",
+            "Povinně volitelný",
+            "Cizí jazyk"});
             this.cb_povinnost.Location = new System.Drawing.Point(75, 177);
             this.cb_povinnost.Name = "cb_povinnost";
             this.cb_povinnost.Size = new System.Drawing.Size(139, 21);
@@ -388,6 +398,11 @@
             this.tb_nazev.Size = new System.Drawing.Size(139, 20);
             this.tb_nazev.TabIndex = 5;
             // 
+            // databaseAppDataSet
+            // 
+            this.databaseAppDataSet.DataSetName = "DatabaseAppDataSet";
+            this.databaseAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // FormCUPredmet
             // 
             this.AcceptButton = this.bt_ok;
@@ -408,6 +423,7 @@
             this.gb_predmet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseAppDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,5 +463,6 @@
         private System.Windows.Forms.ComboBox cb_zakončení;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cb_povinnost;
+        private DatabaseAppDataSet databaseAppDataSet;
     }
 }
