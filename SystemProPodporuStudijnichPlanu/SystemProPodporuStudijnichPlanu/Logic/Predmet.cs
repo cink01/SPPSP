@@ -1,88 +1,116 @@
-﻿namespace SystemProPodporuStudijnichPlanu
+﻿using System;
+
+namespace SystemProPodporuStudijnichPlanu
 {
-    public class Predmet
+    public class Predmet//přepravka
     {
-        private int idPredmet;
-        private string zkratkaPredmet;
-        private string nazevPredmet;
-        private int kreditPredmet;
-        private int semestrPredmet;
-        private string popisPredmet;
-
-        /* public Predmet()
-         {
-             this.idPredmet = 0;
-             this.zkratkaPredmet = "-1";
-             this.nazevPredmet = "-1";
-             this.kreditPredmet = 0;
-             this.semestrPredmet = 0;
-         }*/
-
-        public Predmet(int idPredmet, string zkratkaPredmet, string nazevPredmet, int kreditPredmet, int semestrPredmet, string popisPredmet)
+        public int Id_predmet { get; set; }
+        public string Name_predmet { get; set; }
+        public string Zkr_predmet { get; set; }
+        public int Kredit_predmet { get; set; }
+        public int Id_obor { get; set; }
+        public int Id_v { get; set; }
+        public int Semestr_predmet { get; set; }
+        public int Id_orig { get; set; }
+        public string Povinnost { get; set; }
+        public int Prednaska { get; set; }
+        public int Cviceni { get; set; }
+        public int Kombi { get; set; }
+        public int Lab { get; set; }
+        public string Jazyk { get; set; }
+        public string Zakonceni { get; set; }
+        public string Popis { get; set; }
+        public Predmet() { }//prazdný constructor
+        //constructor bez umělého klíče id_predmet jako přepravka pro vkladaní do db hleda cizí klíče takže funkce neptřebuje
+        public Predmet(string name_predmet, string zkr_predmet, string kredit_predmet, string obor, string garant, string semestr_predmet, string id_orig, string povinnost, string prednaska, string cviceni, string kombi, string lab, string jazyk, string zakonceni)
         {
-            this.idPredmet = idPredmet;
-            this.zkratkaPredmet = zkratkaPredmet;
-            this.nazevPredmet = nazevPredmet;
-            this.kreditPredmet = kreditPredmet;
-            this.PopisPredmet = popisPredmet;
-            this.semestrPredmet = semestrPredmet;
+            DataAccess da = new DataAccess();
+            Name_predmet = name_predmet;
+            Zkr_predmet = zkr_predmet;
+            Kredit_predmet = Convert.ToInt32(kredit_predmet);
+            Id_obor = da.GetOborId(obor);
+            Id_v = da.GetGarantId(garant);
+            Jazyk = jazyk;
+            Zakonceni = zakonceni;
+            if (semestr_predmet == "")
+            {
+                Semestr_predmet = 0;
+            }
+            else
+            {
+                Semestr_predmet = Convert.ToInt32(semestr_predmet);
+            }
+
+            Id_orig = Convert.ToInt32(id_orig);
+            Povinnost = povinnost;
+            if (prednaska == "")
+            {
+                Prednaska = 0;
+            }
+            else
+            {
+                Prednaska = Convert.ToInt32(prednaska);
+            }
+
+            if (cviceni == "")
+            {
+                Cviceni = 0;
+            }
+            else
+            {
+                Cviceni = Convert.ToInt32(cviceni);
+            }
+
+            if (kombi == "")
+            {
+                Kombi = 0;
+            }
+            else
+            {
+                Kombi = Convert.ToInt32(kombi);
+            }
+
+            if (lab == "")
+            {
+                Lab = 0;
+            }
+            else
+            {
+                Lab = Convert.ToInt32(lab);
+            }
         }
-
-        public string NazevPredmet { get => nazevPredmet; set => nazevPredmet = value; }
-        public string ZkratkaPredmet { get => zkratkaPredmet; set => zkratkaPredmet = value; }
-        public int IdPredmet { get => idPredmet; set => idPredmet = value; }
-        public int KreditPredmet { get => kreditPredmet; set => kreditPredmet = value; }
-        public int SemestrPredmet { get => semestrPredmet; set => semestrPredmet = value; }
-        public string PopisPredmet { get => popisPredmet; set => popisPredmet = value; }
-
+        //full constructor
+        public Predmet(int id_predmet, string name_predmet, string zkr_predmet, int kredit_predmet, int id_obor, int id_v, int semestr_predmet, int id_orig, string povinnost, int prednaska, int cviceni, int kombi, int lab, string jazyk, string zakonceni, string popis)
+        {
+            Id_predmet = id_predmet;
+            Name_predmet = name_predmet;
+            Zkr_predmet = zkr_predmet;
+            Kredit_predmet = kredit_predmet;
+            Id_obor = id_obor;
+            Id_v = id_v;
+            Semestr_predmet = semestr_predmet;
+            Id_orig = id_orig;
+            Povinnost = povinnost;
+            Prednaska = prednaska;
+            Cviceni = cviceni;
+            Kombi = kombi;
+            Lab = lab;
+            Jazyk = jazyk;
+            Zakonceni = zakonceni;
+            Popis = popis;
+        }
         public override string ToString()
         {
-            return zkratkaPredmet + " - " + nazevPredmet + " - " + "Kredity: " + kreditPredmet;
+            return Name_predmet + " - " + Zkr_predmet + " - " + "Kredity: " + Kredit_predmet;
         }
-
-        public string FullInfo
+        public string FullInfo => $"{Name_predmet} - {Zkr_predmet} - {Id_predmet} - {Semestr_predmet} - {Kredit_predmet} ";
+        public string GetNazInfo()
         {
-            get
-            {
-                return $"{zkratkaPredmet} - {nazevPredmet} - {idPredmet} - {SemestrPredmet} - {kreditPredmet} ";
-            }
+            return $"{Name_predmet} - {Zkr_predmet}";
         }
-
-        public string KrInfo
+        public string GetPredmetPopis()
         {
-            get
-            {
-                return $"{kreditPredmet} ";
-            }
+            return $"{Name_predmet}\nNěco:{Kredit_predmet}\nPopis:{Popis}";
         }
-
-        public string SemInfo
-        {
-            get
-            {
-                return $"{SemestrPredmet}";
-            }
-        }
-
-        public string NazInfo
-        {
-            get
-            {
-                return $"{zkratkaPredmet} - {nazevPredmet}";
-            }
-        }
-    }/*
-
-    public class FullPredmet : Predmet
-    {
-        string popisPredmet;
-
-        public FullPredmet(string popisPredmet,int idPredmet, string zkratkaPredmet, string nazevPredmet, int kreditPredmet, int semestrPredmet)
-            : base(idPredmet, zkratkaPredmet, nazevPredmet, kreditPredmet, semestrPredmet)
-        {
-            this.PopisPredmet = popisPredmet;
-        }
-
-        public string PopisPredmet { get => popisPredmet; set => popisPredmet = value; }
-    }*/
+    }
 }
