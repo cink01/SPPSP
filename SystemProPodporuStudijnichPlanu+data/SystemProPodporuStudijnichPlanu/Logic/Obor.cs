@@ -8,7 +8,7 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class Obor
     {
-        public Obor(string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor)
+        public Obor(string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="")
         {
             Zkr_obor = zkr_obor;
             Name_obor = name_obor;
@@ -17,6 +17,8 @@ namespace SystemProPodporuStudijnichPlanu
             Pv_obor = pv_obor;
             V_obor = v_obor;
             Vs_obor = vs_obor;
+            Praxe = praxe;
+
         }
         public string Zkr_obor { get; set; }
         public string Name_obor { get; set; }
@@ -25,5 +27,6 @@ namespace SystemProPodporuStudijnichPlanu
         public int Pv_obor { get; set; }
         public int V_obor { get; set; }
         public int Vs_obor { get; set; }
+        public string Praxe { get; set; }
     }
 }

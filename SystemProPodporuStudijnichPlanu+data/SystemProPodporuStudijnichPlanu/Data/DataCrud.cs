@@ -38,7 +38,7 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
-                    SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor) values(@zkr,@naz,@rok,@p,@pv,@v,@vs)", conn);
+                    SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor,praxe) values(@zkr,@naz,@rok,@p,@pv,@v,@vs,@praxe)", conn);
                     obor.Parameters.AddWithValue("@zkr", o.Zkr_obor);
                     obor.Parameters.AddWithValue("@naz", o.Name_obor);
                     obor.Parameters.AddWithValue("@rok", o.Rok_obor);
@@ -46,6 +46,7 @@ namespace SystemProPodporuStudijnichPlanu
                     obor.Parameters.AddWithValue("@pv",o.Pv_obor);
                     obor.Parameters.AddWithValue("@v", o.V_obor);
                     obor.Parameters.AddWithValue("@vs", o.Vs_obor);
+                    obor.Parameters.AddWithValue("@praxe", o.Praxe);
                     try
                     {
                         conn.Open();

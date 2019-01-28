@@ -16,5 +16,10 @@ namespace SystemProPodporuStudijnichPlanu
         {
             InitializeComponent();
         }
+
+        private void Bt_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

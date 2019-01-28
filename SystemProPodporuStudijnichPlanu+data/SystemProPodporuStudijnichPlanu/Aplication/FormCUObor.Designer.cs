@@ -48,6 +48,8 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.tb_nazev = new System.Windows.Forms.TextBox();
+            this.rtb_praxe = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.gb_obor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_vs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_v)).BeginInit();
@@ -62,7 +64,7 @@
             this.bt_close.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(266, 123);
+            this.bt_close.Location = new System.Drawing.Point(230, 189);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(69, 23);
             this.bt_close.TabIndex = 3;
@@ -77,7 +79,7 @@
             this.bt_ok.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(142, 123);
+            this.bt_ok.Location = new System.Drawing.Point(169, 189);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(63, 23);
             this.bt_ok.TabIndex = 2;
@@ -87,6 +89,8 @@
             // 
             // gb_obor
             // 
+            this.gb_obor.Controls.Add(this.label6);
+            this.gb_obor.Controls.Add(this.rtb_praxe);
             this.gb_obor.Controls.Add(this.nud_vs);
             this.gb_obor.Controls.Add(this.nud_v);
             this.gb_obor.Controls.Add(this.nud_pv);
@@ -107,7 +111,7 @@
             this.gb_obor.Controls.Add(this.tb_nazev);
             this.gb_obor.Location = new System.Drawing.Point(4, 2);
             this.gb_obor.Name = "gb_obor";
-            this.gb_obor.Size = new System.Drawing.Size(469, 155);
+            this.gb_obor.Size = new System.Drawing.Size(469, 218);
             this.gb_obor.TabIndex = 12;
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Obor";
@@ -258,6 +262,23 @@
             this.tb_nazev.TabIndex = 5;
             this.tb_nazev.TextChanged += new System.EventHandler(this.Tb_nazev_TextChanged);
             // 
+            // rtb_praxe
+            // 
+            this.rtb_praxe.Location = new System.Drawing.Point(67, 142);
+            this.rtb_praxe.Name = "rtb_praxe";
+            this.rtb_praxe.Size = new System.Drawing.Size(386, 41);
+            this.rtb_praxe.TabIndex = 21;
+            this.rtb_praxe.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Informace o praxi";
+            // 
             // FormCUObor
             // 
             this.AcceptButton = this.bt_ok;
@@ -265,7 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(476, 163);
+            this.ClientSize = new System.Drawing.Size(476, 232);
             this.Controls.Add(this.gb_obor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUObor";
@@ -301,5 +322,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RichTextBox rtb_praxe;
     }
 }

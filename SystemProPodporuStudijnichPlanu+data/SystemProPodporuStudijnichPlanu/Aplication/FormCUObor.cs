@@ -29,12 +29,42 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Bt_close_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void Bt_ok_Click(object sender, EventArgs e)
         {
 
+            if (tb_nazev.Text == "" || tb_zkr.Text == "")
+                MessageBox.Show("Musíte zadat název i zkratku katedry", "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                DataCrud x = new DataCrud();
+                DataAccess a = new DataAccess();
+                a.CheckExistObor(tb_nazev.Text, out int i);
+                if (i == 0)
+                {
+                    try
+                    {
+                        x.InsertObor(new Obor(tb_zkr.Text,
+                                              tb_nazev.Text,
+                                              tb_rok.Text,
+                                              Convert.ToInt32(nud_p.Value),
+                                              Convert.ToInt32(nud_pv.Value),
+                                              Convert.ToInt32(nud_v.Value),
+                                              Convert.ToInt32(nud_vs.Value),
+                                              rtb_praxe.Text));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                    MessageBox.Show("Zadaná katedra již existuje!", "Existence záznamu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Label2_Click(object sender, EventArgs e)

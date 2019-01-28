@@ -59,6 +59,7 @@
             this.bt_close.TabIndex = 3;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
+            this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
             // 
             // bt_ok
             // 

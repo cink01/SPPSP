@@ -40,5 +40,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 k.Show();
             }
         }
+
+        private void Bt_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
