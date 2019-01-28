@@ -32,6 +32,8 @@
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_obor = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.rtb_praxe = new System.Windows.Forms.RichTextBox();
             this.nud_vs = new System.Windows.Forms.NumericUpDown();
             this.nud_v = new System.Windows.Forms.NumericUpDown();
             this.nud_pv = new System.Windows.Forms.NumericUpDown();
@@ -48,8 +50,6 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.tb_nazev = new System.Windows.Forms.TextBox();
-            this.rtb_praxe = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.gb_obor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_vs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_v)).BeginInit();
@@ -116,6 +116,23 @@
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Obor";
             this.gb_obor.Enter += new System.EventHandler(this.Gb_obor_Enter);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Informace o praxi";
+            // 
+            // rtb_praxe
+            // 
+            this.rtb_praxe.Location = new System.Drawing.Point(17, 142);
+            this.rtb_praxe.Name = "rtb_praxe";
+            this.rtb_praxe.Size = new System.Drawing.Size(436, 41);
+            this.rtb_praxe.TabIndex = 21;
+            this.rtb_praxe.Text = "";
             // 
             // nud_vs
             // 
@@ -261,23 +278,6 @@
             this.tb_nazev.Size = new System.Drawing.Size(138, 20);
             this.tb_nazev.TabIndex = 5;
             this.tb_nazev.TextChanged += new System.EventHandler(this.Tb_nazev_TextChanged);
-            // 
-            // rtb_praxe
-            // 
-            this.rtb_praxe.Location = new System.Drawing.Point(67, 142);
-            this.rtb_praxe.Name = "rtb_praxe";
-            this.rtb_praxe.Size = new System.Drawing.Size(386, 41);
-            this.rtb_praxe.TabIndex = 21;
-            this.rtb_praxe.Text = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Informace o praxi";
             // 
             // FormCUObor
             // 

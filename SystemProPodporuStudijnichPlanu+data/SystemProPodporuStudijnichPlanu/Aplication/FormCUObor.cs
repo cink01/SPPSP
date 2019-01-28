@@ -41,7 +41,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 DataCrud x = new DataCrud();
                 DataAccess a = new DataAccess();
-                a.CheckExistObor(tb_nazev.Text, out int i);
+                a.CheckExistObor(tb_rok.Text, out int i);
                 if (i == 0)
                 {
                     try
