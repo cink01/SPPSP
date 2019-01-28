@@ -12,6 +12,52 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUObor : Form
     {
+        public string Rok
+        {
+            get => tb_rok.Text;
+            set => tb_rok.Text = value;
+        }
+        public string Zkr
+        {
+            get => tb_zkr.Text;
+            set => tb_zkr.Text = value;
+        }
+        public string Nazev
+        {
+            get => tb_nazev.Text;
+            set => tb_nazev.Text = value;
+        }
+        public string Id
+        {
+            get => tb_id.Text;
+            set => tb_id.Text = value;
+        }
+        public int Pp
+        {
+            get => (int)nud_p.Value;
+            set => nud_p.Value = value;
+        }
+        public int Pvp
+        {
+            get => (int)nud_pv.Value;
+            set => nud_pv.Value = value;
+        }
+        public int Vp
+        {
+            get => (int)nud_v.Value;
+            set => nud_v.Value = value;
+        }
+        public int Vs
+        {
+            get => (int)nud_vs.Value;
+            set => nud_vs.Value = value;
+        }
+        public string Praxe
+        {
+            get => rtb_praxe.Text;
+            set => rtb_praxe.Text = value;
+        }
+
         public FormCUObor()
         {
             InitializeComponent();
@@ -34,37 +80,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Bt_ok_Click(object sender, EventArgs e)
         {
-
             if (tb_nazev.Text == "" || tb_zkr.Text == "")
                 MessageBox.Show("Musíte zadat název i zkratku katedry", "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                DataCrud x = new DataCrud();
-                DataAccess a = new DataAccess();
-                a.CheckExistObor(tb_rok.Text, out int i);
-                if (i == 0)
-                {
-                    try
-                    {
-                        x.InsertObor(new Obor(tb_zkr.Text,
-                                              tb_nazev.Text,
-                                              tb_rok.Text,
-                                              Convert.ToInt32(nud_p.Value),
-                                              Convert.ToInt32(nud_pv.Value),
-                                              Convert.ToInt32(nud_v.Value),
-                                              Convert.ToInt32(nud_vs.Value),
-                                              rtb_praxe.Text));
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                else
-                    MessageBox.Show("Zadaná katedra již existuje!", "Existence záznamu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void Label2_Click(object sender, EventArgs e)
