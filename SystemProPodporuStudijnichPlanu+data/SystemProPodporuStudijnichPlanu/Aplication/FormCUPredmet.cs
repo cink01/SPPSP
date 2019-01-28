@@ -42,54 +42,59 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => rtb_popis.Text;
             set => rtb_popis.Text = value;
         }
-        public int Kredit
+        public string Kredit
         {
-            get => (int)nud_kredit.Value;
-            set => nud_kredit.Value = value;
+            get => nud_kredit.Value.ToString();
+            set => nud_kredit.Value = Convert.ToDecimal(value);
         }
-        public int Semestr
+        public string Jazyk
         {
-            get => (int)nud_semestr.Value;
-            set => nud_semestr.Value = value;
+            get => tb_jazyk.Text;
+            set => tb_jazyk.Text = value;
         }
-        public int Prednaska
+        public string Semestr
         {
-            get => (int)nud_p.Value;
-            set => nud_p.Value = value;
+            get => nud_semestr.Value.ToString();
+            set => nud_semestr.Value = Convert.ToDecimal(value);
         }
-        public int Cv 
+        public string Prednaska
         {
-            get => (int)nud_cv.Value;
-            set => nud_cv.Value = value;
+            get => nud_p.Value.ToString();
+            set => nud_p.Value = Convert.ToDecimal(value);
         }
-        public int Cvk
+        public string Cv 
         {
-            get => (int)nud_cvk.Value;
-            set => nud_cvk.Value = value;
+            get => nud_cv.Value.ToString();
+            set => nud_cv.Value = Convert.ToDecimal(value);
         }
-        public int Lab 
+        public string Cvk
         {
-            get => (int)nud_lab.Value;
-            set => nud_lab.Value = value;
+            get => nud_cvk.Value.ToString();
+            set => nud_cvk.Value = Convert.ToDecimal(value);
+        }
+        public string Lab 
+        {
+            get => nud_lab.Value.ToString();
+            set => nud_lab.Value = Convert.ToDecimal(value);
         }
         public string Zakonceni
         {
-            get => cb_zakončení.SelectedItem;
-            set => cb_.SelectedItem = value;
+            get => cb_zakončení.SelectedItem.ToString();
+            set => cb_zakončení.SelectedItem = value;
         }
         public string Povinnost 
         {
-            get => cb_povinnost.SelectedItem;
+            get => cb_povinnost.SelectedItem.ToString();
             set => cb_povinnost.SelectedItem = value;
         }
-        public int Obor 
+        public string Obor 
         {
-            get => cb_.SelectedItem.Value;
-            set => cb_.SelectedItem.Value = value;
+            get => cb_obor.SelectedItem.ToString();
+            set => cb_obor.SelectedItem = value;
         }
         public string Garant
         {
-            get => cb_garant.SelectedItem;
+            get => cb_garant.SelectedItem.ToString();
             set => cb_garant.SelectedItem = value;
         }
 

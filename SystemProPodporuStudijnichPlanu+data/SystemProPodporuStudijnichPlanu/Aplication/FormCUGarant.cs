@@ -41,10 +41,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => tb_konz.Text;
             set => tb_konz.Text = value;
         }
-        public int Kat
+        public string Kat
         {
-            get => cmb_katedra.SelectedItem.Value;
-            set => cmb_katedra.SelectedItem.Value = value;
+            get => cmb_katedra.SelectedItem.ToString();
+            set => cmb_katedra.SelectedItem = value;
         }
 
         private void Bt_close_Click(object sender, EventArgs e)

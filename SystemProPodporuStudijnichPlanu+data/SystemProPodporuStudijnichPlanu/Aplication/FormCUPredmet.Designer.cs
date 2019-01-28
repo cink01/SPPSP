@@ -63,6 +63,8 @@
             this.nud_kredit = new System.Windows.Forms.NumericUpDown();
             this.tb_nazev = new System.Windows.Forms.TextBox();
             this.databaseAppDataSet = new SystemProPodporuStudijnichPlanu.DatabaseAppDataSet();
+            this.tb_jazyk = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_lab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cv)).BeginInit();
@@ -217,6 +219,8 @@
             // 
             // gb_predmet
             // 
+            this.gb_predmet.Controls.Add(this.label12);
+            this.gb_predmet.Controls.Add(this.tb_jazyk);
             this.gb_predmet.Controls.Add(this.label11);
             this.gb_predmet.Controls.Add(this.rtb_popis);
             this.gb_predmet.Controls.Add(this.label10);
@@ -404,6 +408,22 @@
             this.databaseAppDataSet.DataSetName = "DatabaseAppDataSet";
             this.databaseAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tb_jazyk
+            // 
+            this.tb_jazyk.Location = new System.Drawing.Point(75, 230);
+            this.tb_jazyk.Name = "tb_jazyk";
+            this.tb_jazyk.Size = new System.Drawing.Size(139, 20);
+            this.tb_jazyk.TabIndex = 36;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 233);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Jazyk:";
+            // 
             // FormCUPredmet
             // 
             this.AcceptButton = this.bt_ok;
@@ -465,5 +485,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cb_povinnost;
         private DatabaseAppDataSet databaseAppDataSet;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tb_jazyk;
     }
 }

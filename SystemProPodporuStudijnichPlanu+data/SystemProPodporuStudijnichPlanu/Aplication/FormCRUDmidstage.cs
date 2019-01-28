@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
@@ -20,21 +13,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Bt_novy_Click(object sender, EventArgs e)
         {
             if (rb_garant.Checked == true)
-            {
                 NewGarant();
-            }
             if (rb_predmet.Checked == true)
-            {
                 NewPredmet();
-            }
             if (rb_obor.Checked == true)
-            {
                 NewObor();
-            }
             if (rb_katedra.Checked == true)
-            {
                 NewKatedra();
-            }
         }
         private void NewGarant()
         {
@@ -42,7 +27,21 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DialogResult potvrzeni = g.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
-
+                DataCrud x = new DataCrud();
+                try
+                {
+                    x.InsertGarant(new Garant(g.Jmeno,
+                                              g.Email,
+                                              g.Kat,
+                                              g.Tel,
+                                              g.Konz));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
         private void NewPredmet()
@@ -51,7 +50,30 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DialogResult potvrzeni = p.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
-
+                DataCrud x = new DataCrud();
+                try
+                {
+                    x.InsertPredmet(new Predmet(p.Nazev,
+                                                p.Zkr,
+                                                p.Kredit,
+                                                p.Obor,
+                                                p.Garant,
+                                                p.Semestr,
+                                                p.Orig,
+                                                p.Povinnost,
+                                                p.Prednaska,
+                                                p.Cv,
+                                                p.Cvk,
+                                                p.Lab,
+                                                p.Jazyk,
+                                                p.Zakonceni));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
         private void NewObor()
@@ -63,28 +85,23 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 DataCrud x = new DataCrud();
                 DataAccess check = new DataAccess();
                 check.CheckExistObor(o.Rok, out int test);
-                if (test == 0)
+                try
                 {
-                    try
-                    {
-                        x.InsertObor(new Obor(o.Zkr,
-                                              o.Nazev,
-                                              o.Rok,
-                                              o.Pp,
-                                              o.Pvp,
-                                              o.Vp,
-                                              o.Vs,
-                                              o.Praxe));
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    x.InsertObor(new Obor(o.Zkr,
+                                          o.Nazev,
+                                          o.Rok,
+                                          o.Pp,
+                                          o.Pvp,
+                                          o.Vp,
+                                          o.Vs,
+                                          o.Praxe));
                 }
-                else
-                    MessageBox.Show("Zadaná katedra již existuje!", "Existence záznamu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
         private void NewKatedra()
@@ -95,28 +112,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 DataCrud x = new DataCrud();
                 DataAccess check = new DataAccess();
-                check.CheckExistKatedra(k.Nazev, out int test);
-                if (test == 0)
+                try
                 {
-                    try
-                    {
-                        x.InsertKat(k.Zkr, k.Nazev);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    x.InsertKat(k.Zkr,
+                                k.Nazev);
                 }
-                else
-                    MessageBox.Show("Zadaná katedra již existuje!", "Existence záznamu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
-
-        private void Bt_close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Bt_close_Click(object sender, EventArgs e) => Close();
     }
 }
