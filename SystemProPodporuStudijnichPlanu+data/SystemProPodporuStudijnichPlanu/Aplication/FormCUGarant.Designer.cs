@@ -206,6 +206,8 @@
             this.Controls.Add(this.gb_garant);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MaximizeBox = false;
             this.Name = "FormCUGarant";
             this.Text = "FormCUGarant";
             this.gb_garant.ResumeLayout(false);

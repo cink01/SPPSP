@@ -77,7 +77,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public string Zakonceni
         {
-            get => cb_zakončení.GetItemText(cb_povinnost.SelectedItem);
+            get => cb_zakončení.GetItemText(cb_zakončení.SelectedItem);
             set => cb_zakončení.SelectedIndex = cb_zakončení.FindStringExact(value);
         }
         public string Povinnost 

@@ -46,6 +46,8 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.gb_predmet = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_jazyk = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.rtb_popis = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -63,8 +65,6 @@
             this.nud_kredit = new System.Windows.Forms.NumericUpDown();
             this.tb_nazev = new System.Windows.Forms.TextBox();
             this.databaseAppDataSet = new SystemProPodporuStudijnichPlanu.DatabaseAppDataSet();
-            this.tb_jazyk = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_lab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cv)).BeginInit();
@@ -260,6 +260,22 @@
             this.gb_predmet.TabStop = false;
             this.gb_predmet.Text = "Předmět";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 233);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Jazyk:";
+            // 
+            // tb_jazyk
+            // 
+            this.tb_jazyk.Location = new System.Drawing.Point(75, 230);
+            this.tb_jazyk.Name = "tb_jazyk";
+            this.tb_jazyk.Size = new System.Drawing.Size(139, 20);
+            this.tb_jazyk.TabIndex = 36;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -408,22 +424,6 @@
             this.databaseAppDataSet.DataSetName = "DatabaseAppDataSet";
             this.databaseAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tb_jazyk
-            // 
-            this.tb_jazyk.Location = new System.Drawing.Point(75, 230);
-            this.tb_jazyk.Name = "tb_jazyk";
-            this.tb_jazyk.Size = new System.Drawing.Size(139, 20);
-            this.tb_jazyk.TabIndex = 36;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(32, 233);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "Jazyk:";
-            // 
             // FormCUPredmet
             // 
             this.AcceptButton = this.bt_ok;
@@ -433,7 +433,9 @@
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(703, 264);
             this.Controls.Add(this.gb_predmet);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormCUPredmet";
             this.Text = "FormCUPredmet";
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).EndInit();

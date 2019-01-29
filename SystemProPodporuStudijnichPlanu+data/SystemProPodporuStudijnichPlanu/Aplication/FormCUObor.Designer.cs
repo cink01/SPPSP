@@ -288,7 +288,9 @@
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(476, 232);
             this.Controls.Add(this.gb_obor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormCUObor";
             this.Text = "FormCUObor";
             this.gb_obor.ResumeLayout(false);

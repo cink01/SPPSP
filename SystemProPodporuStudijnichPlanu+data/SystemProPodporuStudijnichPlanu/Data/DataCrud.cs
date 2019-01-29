@@ -145,14 +145,15 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertZaznam(string nazev, string o)
+        public void InsertZaznam(string nazev, string o,int PS)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor) values(@zz,@id_o)", conn);
+                SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor,pocetSem) values(@zz,@id_o,@pocetSem)", conn);
                 zaz.Parameters.AddWithValue("@zz", nazev);
                 zaz.Parameters.AddWithValue("@id_o", da.GetOborId(o));
+                zaz.Parameters.AddWithValue("@pocetSem", PS);
                 try
                 {
                     conn.Open();

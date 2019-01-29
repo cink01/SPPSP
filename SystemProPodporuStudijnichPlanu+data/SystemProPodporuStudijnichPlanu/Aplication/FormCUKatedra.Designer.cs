@@ -150,6 +150,7 @@
             this.Controls.Add(this.gb_katedra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormCUKatedra";
             this.Text = "FormCUKatedra";
             this.gb_katedra.ResumeLayout(false);

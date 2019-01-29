@@ -26,9 +26,25 @@ namespace SystemProPodporuStudijnichPlanu
             }
             return conn;
         }
+        public List<Predmet> GetPredmetSudy()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 OR semestr_predmet=0").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullLichy()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6 OR semestr_predmet=0").ToList();
+                return vystup;
+            }
+        }
         public List<Predmet> GetPredmetFull(int semestr_predmet)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet='{ semestr_predmet }'").ToList();
                 return vystup;
@@ -36,7 +52,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistObor(string x, out int Exist)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand checkObor = new SqlCommand("SELECT COUNT(*) FROM [obor] WHERE ([name_obor] = @name_obor)", GetConnection());
                 checkObor.Parameters.AddWithValue("@name_obor", x);
@@ -46,7 +62,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistPredmet(string name_predmet, int id_obor, out int Exist)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand checkPredmet = new SqlCommand("SELECT COUNT(*) FROM [predmet] WHERE ([name_predmet] = @name_predmet)AND([id_obor]=@id_obor)", GetConnection());
                 checkPredmet.Parameters.AddWithValue("@name_predmet", name_predmet);
@@ -57,7 +73,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistKatedra(string x, out int Exist)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand checkKat = new SqlCommand("SELECT COUNT(*) FROM [katedra] WHERE ([naz_k] = @naz_k)", GetConnection());
                 checkKat.Parameters.AddWithValue("@naz_k", x);
@@ -67,7 +83,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistGarant(string x, out int Exist)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand checkGarant = new SqlCommand("SELECT COUNT(*) FROM [garant] WHERE ([jmeno_v] = @x)", GetConnection());
                 checkGarant.Parameters.AddWithValue("@x", x);
@@ -119,7 +135,7 @@ namespace SystemProPodporuStudijnichPlanu
 
         public void FillOborCB(ComboBox x)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 try
                 {
@@ -133,14 +149,13 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    // write exception info to log or anything else
                     MessageBox.Show("Error occured!" + ex);
                 }
             }
         }
         public void FillGarantCB(ComboBox x)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 try
                 {
@@ -154,14 +169,13 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    // write exception info to log or anything else
                     MessageBox.Show("Error occured!" + ex);
                 }
             }
         }
         public void FillKatedraCB(ComboBox x)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 try
                 {
@@ -175,7 +189,26 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
+        public void FillZaznamCB(ComboBox x)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT id_zaznam,zkr_zaznam FROM zaznam";
+                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Zaznam");
+                    x.DisplayMember = "zkr_zaznam";
+                    x.ValueMember = "id_zaznam";
+                    x.DataSource = ds.Tables["Zaznam"];
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show("Error occured!" + ex);
                 }
             }

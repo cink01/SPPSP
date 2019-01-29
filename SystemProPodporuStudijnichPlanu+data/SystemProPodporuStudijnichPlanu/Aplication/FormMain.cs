@@ -24,9 +24,11 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
-            Color c = System.Drawing.ColorTranslator.FromHtml("#e8212e");
-            menuStripMain.BackColor = c;
-            menuStripMain.ForeColor = Color.White;
+            DataAccess dataaccess = new DataAccess();
+            RefreshZaznamy();
+            dataaccess.FillOborCB(cmb_obor);
+            menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e"); 
+            Viditelnost(6);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -319,6 +321,28 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label_popis.Text = lb_semestr1.SelectedItem.ToString();
+        }
+
+        private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tb_login.Text = cmb_zaznam.GetItemText(cmb_zaznam.SelectedItem);//musi se pridat nastaveni oboru a poctu semestru a taky potom aby listboxy brali spravny Plan-Semestr
+        }
+
+        private void Bt_save_Click(object sender, EventArgs e)
+        {
+            DataCrud dx = new DataCrud();
+            dx.InsertZaznam(tb_login.Text, cmb_obor.GetItemText(cmb_obor.SelectedItem),(int)nud_pocetSem.Value);
+            RefreshZaznamy();
+        }
+        private void Nud_pocetSem_ValueChanged(object sender, EventArgs e)
+        {
+            Viditelnost((int)nud_pocetSem.Value);
+        }
+        private void RefreshZaznamy()
+        {
+            cmb_zaznam.DataSource = null;
+            DataAccess dataaccess = new DataAccess();
+            dataaccess.FillZaznamCB(cmb_zaznam);
         }
     }
 }
