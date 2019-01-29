@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -115,5 +116,70 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_Zaznam.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(get_ID_Zaznam.ExecuteScalar());
         }
+
+        public void FillOborCB(ComboBox x)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT rok_obor,id_obor FROM obor";
+                    SqlDataAdapter da = new SqlDataAdapter(query,GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Obor");
+                    x.DisplayMember = "rok_obor";
+                    x.ValueMember = "id_obor";
+                    x.DataSource = ds.Tables["Obor"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
+        public void FillGarantCB(ComboBox x)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT jmeno_v,id_v FROM garant";
+                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Garant");
+                    x.DisplayMember = "jmeno_v";
+                    x.ValueMember = "id_v";
+                    x.DataSource = ds.Tables["Garant"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
+        public void FillKatedraCB(ComboBox x)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT id_k,naz_k FROM katedra";
+                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Katedra");
+                    x.DisplayMember = "naz_k";
+                    x.ValueMember = "id_k";
+                    x.DataSource = ds.Tables["Katedra"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
+
     }
 }

@@ -40,6 +40,7 @@
             this.rb_katedra = new System.Windows.Forms.RadioButton();
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
+            this.cb_garant = new System.Windows.Forms.ComboBox();
             this.gb_vyber.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,6 +170,14 @@
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
+            // cb_garant
+            // 
+            this.cb_garant.FormattingEnabled = true;
+            this.cb_garant.Location = new System.Drawing.Point(12, 220);
+            this.cb_garant.Name = "cb_garant";
+            this.cb_garant.Size = new System.Drawing.Size(169, 21);
+            this.cb_garant.TabIndex = 14;
+            // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +185,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_garant);
             this.Controls.Add(this.gb_vyber);
             this.Controls.Add(this.cb_obor);
             this.Controls.Add(this.cb_katedra);
@@ -205,5 +215,6 @@
         private System.Windows.Forms.RadioButton rb_katedra;
         private System.Windows.Forms.RadioButton rb_garant;
         private System.Windows.Forms.GroupBox gb_vyber;
+        private System.Windows.Forms.ComboBox cb_garant;
     }
 }

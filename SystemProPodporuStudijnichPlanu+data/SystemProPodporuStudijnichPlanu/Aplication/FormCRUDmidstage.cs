@@ -11,8 +11,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCRUDmidstage()
         {
             InitializeComponent();
-            FillOborCB();
-            FillKatedraCB();
+            DataAccess a = new DataAccess();
+            a.FillOborCB(cb_obor);
+            a.FillKatedraCB(cb_katedra);
+            a.FillGarantCB(cb_garant);
         }
 
         private void Bt_novy_Click(object sender, EventArgs e)
@@ -46,7 +48,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
         }
         private void NewPredmet()
@@ -78,7 +79,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
         }
         private void NewObor()
@@ -104,7 +104,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
         }
         private void NewKatedra()
@@ -124,53 +123,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        private void FillOborCB()
-        {
-            DataAccess A = new DataAccess();
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                try
-                {
-                    string query = "SELECT rok_obor,id_obor FROM obor";
-                    SqlDataAdapter da = new SqlDataAdapter(query, A.GetConnection());
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "Obor");
-                    cb_obor.DisplayMember = "rok_obor";
-                    cb_obor.ValueMember = "id_obor";
-                    cb_obor.DataSource = ds.Tables["Obor"];
-                }
-                catch (Exception ex)
-                {
-                    // write exception info to log or anything else
-                    MessageBox.Show("Error occured!"+ex);
-                }
-            }
-        }
-        private void FillKatedraCB()
-        {
-            DataAccess A = new DataAccess();
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                try
-                {
-                    string query = "SELECT id_k,naz_k FROM katedra";
-                    SqlDataAdapter da = new SqlDataAdapter(query, A.GetConnection());
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "Katedra");
-                    cb_katedra.DisplayMember = "naz_k";
-                    cb_katedra.ValueMember = "id_k";
-                    cb_katedra.DataSource = ds.Tables["Katedra"];
-                }
-                catch (Exception ex)
-                {
-                    // write exception info to log or anything else
-                    MessageBox.Show("Error occured!" + ex);
-                }
-            }
-        }
     }
 }

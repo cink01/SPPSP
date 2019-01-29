@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
@@ -15,6 +10,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCUPredmet()
         {
             InitializeComponent();
+            DataAccess a = new DataAccess();
+            a.FillOborCB(cb_obor);
+            a.FillGarantCB(cb_garant);
         }
 
         public string Nazev
@@ -79,23 +77,31 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public string Zakonceni
         {
-            get => cb_zakončení.SelectedItem.ToString();
-            set => cb_zakončení.SelectedItem = value;
+            get => cb_zakončení.GetItemText(cb_povinnost.SelectedItem);
+            set => cb_zakončení.SelectedIndex = cb_zakončení.FindStringExact(value);
         }
         public string Povinnost 
         {
-            get => cb_povinnost.SelectedItem.ToString();
-            set => cb_povinnost.SelectedItem = value;
+            get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
+            set => cb_povinnost.SelectedIndex = cb_povinnost.FindStringExact(value);
         }
         public string Obor 
         {
-            get => cb_obor.SelectedItem.ToString();
-            set => cb_obor.SelectedItem = value;
+            get
+            {
+                DataRowView DV = cb_obor.SelectedItem as DataRowView;
+                return DV.Row["rok_obor"].ToString();
+            }
+            set => cb_obor.SelectedIndex = cb_obor.FindStringExact(value);
         }
         public string Garant
         {
-            get => cb_garant.SelectedItem.ToString();
-            set => cb_garant.SelectedItem = value;
+            get
+            {
+                DataRowView DV = cb_garant.SelectedItem as DataRowView;
+                return DV.Row["jmeno_v"].ToString();
+            }
+            set => cb_garant.SelectedIndex = cb_garant.FindStringExact(value);
         }
 
 

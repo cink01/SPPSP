@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
@@ -15,6 +9,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCUGarant()
         {
             InitializeComponent();
+            DataAccess a = new DataAccess();
+            a.FillKatedraCB(cmb_katedra);
         }
         public string Id
         {
@@ -43,13 +39,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public string Kat
         {
-            get => cmb_katedra.SelectedItem.ToString();
-            set => cmb_katedra.SelectedItem = value;
+            get
+            {
+                DataRowView DV = cmb_katedra.SelectedItem as DataRowView;
+                return DV.Row["naz_k"].ToString();
+            }
+
+            set => cmb_katedra.SelectedIndex = cmb_katedra.FindStringExact(value);
         }
 
         private void Bt_close_Click(object sender, EventArgs e)
         {
             Close();
         }
+        
     }
 }
