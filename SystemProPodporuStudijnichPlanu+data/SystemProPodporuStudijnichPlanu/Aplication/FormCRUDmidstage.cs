@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data.Common;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -8,6 +11,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCRUDmidstage()
         {
             InitializeComponent();
+            FillOborCB();
+            FillKatedraCB();
         }
 
         private void Bt_novy_Click(object sender, EventArgs e)
@@ -83,8 +88,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (potvrzeni == DialogResult.OK)
             {
                 DataCrud x = new DataCrud();
-                DataAccess check = new DataAccess();
-                check.CheckExistObor(o.Rok, out int test);
                 try
                 {
                     x.InsertObor(new Obor(o.Zkr,
@@ -111,7 +114,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (potvrzeni == DialogResult.OK)
             {
                 DataCrud x = new DataCrud();
-                DataAccess check = new DataAccess();
                 try
                 {
                     x.InsertKat(k.Zkr,
@@ -126,5 +128,49 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
+        private void FillOborCB()
+        {
+            DataAccess A = new DataAccess();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT rok_obor,id_obor FROM obor";
+                    SqlDataAdapter da = new SqlDataAdapter(query, A.GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Obor");
+                    cb_obor.DisplayMember = "rok_obor";
+                    cb_obor.ValueMember = "id_obor";
+                    cb_obor.DataSource = ds.Tables["Obor"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!"+ex);
+                }
+            }
+        }
+        private void FillKatedraCB()
+        {
+            DataAccess A = new DataAccess();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    string query = "SELECT id_k,naz_k FROM katedra";
+                    SqlDataAdapter da = new SqlDataAdapter(query, A.GetConnection());
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Katedra");
+                    cb_katedra.DisplayMember = "naz_k";
+                    cb_katedra.ValueMember = "id_k";
+                    cb_katedra.DataSource = ds.Tables["Katedra"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
     }
 }

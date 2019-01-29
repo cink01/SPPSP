@@ -315,5 +315,10 @@ namespace SystemProPodporuStudijnichPlanu
             FormCRUDmidstage x = new FormCRUDmidstage();
             x.Show();
         }
+
+        private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label_popis.Text = lb_semestr1.SelectedItem.ToString();
+        }
     }
 }

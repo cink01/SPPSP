@@ -97,17 +97,19 @@
             // cb_katedra
             // 
             this.cb_katedra.FormattingEnabled = true;
-            this.cb_katedra.Location = new System.Drawing.Point(22, 312);
+            this.cb_katedra.Location = new System.Drawing.Point(12, 166);
             this.cb_katedra.Name = "cb_katedra";
-            this.cb_katedra.Size = new System.Drawing.Size(121, 21);
+            this.cb_katedra.Size = new System.Drawing.Size(169, 21);
+            this.cb_katedra.Sorted = true;
             this.cb_katedra.TabIndex = 7;
             // 
             // cb_obor
             // 
             this.cb_obor.FormattingEnabled = true;
-            this.cb_obor.Location = new System.Drawing.Point(22, 339);
+            this.cb_obor.Location = new System.Drawing.Point(12, 193);
             this.cb_obor.Name = "cb_obor";
-            this.cb_obor.Size = new System.Drawing.Size(121, 21);
+            this.cb_obor.Size = new System.Drawing.Size(169, 21);
+            this.cb_obor.Sorted = true;
             this.cb_obor.TabIndex = 8;
             // 
             // rb_predmet
