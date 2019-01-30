@@ -116,7 +116,8 @@
             this.Controls.Add(this.bt_add);
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.bt_ok);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormPridavani";
             this.Text = "FormPridavani";
             this.ResumeLayout(false);

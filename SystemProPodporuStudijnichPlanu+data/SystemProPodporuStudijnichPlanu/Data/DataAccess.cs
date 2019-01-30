@@ -26,23 +26,23 @@ namespace SystemProPodporuStudijnichPlanu
             }
             return conn;
         }
-        public List<Predmet> GetPredmetSudy()
+        public List<Predmet> GetPredmetFullSudy(string obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 OR semestr_predmet=0").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 OR semestr_predmet=0)").ToList();
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetFullLichy()
+        public List<Predmet> GetPredmetFullLichy(string obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6 OR semestr_predmet=0").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6 OR semestr_predmet=0)").ToList();
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetFull(int semestr_predmet)
+        public List<Predmet> GetPredmetBySemestr(int semestr_predmet)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
@@ -50,11 +50,27 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+
+        public List<Predmet> GetPredmetZVyberu(int semestr,string zaznam,string rok)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* " +
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] NATURAL JOIN [obor]" +
+                    $" WHERE [obor].rok_obor='{ rok }'AND [zaznam].zkr_zaznam='{zaznam}'AND [plansemestr].sem_ps='{semestr}'").ToList();
+                return vystup;
+            }
+        }
+
         public void CheckExistObor(string x, out int Exist)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand checkObor = new SqlCommand("SELECT COUNT(*) FROM [obor] WHERE ([name_obor] = @name_obor)", GetConnection());
+                SqlCommand checkObor = new SqlCommand("" +
+                    "SELECT COUNT(*) " +
+                    "FROM [obor] " +
+                    "WHERE ([name_obor] = @name_obor)", GetConnection());
                 checkObor.Parameters.AddWithValue("@name_obor", x);
                 //zaznamenani jestli probehl select
                 Exist = (int)checkObor.ExecuteScalar();
