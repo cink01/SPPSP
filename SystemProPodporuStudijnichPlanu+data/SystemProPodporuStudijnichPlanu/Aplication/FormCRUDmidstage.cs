@@ -30,29 +30,33 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void NewGarant()
         {
-            FormCUGarant g = new FormCUGarant();
-            DialogResult potvrzeni = g.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
+            using (FormCUGarant g = new FormCUGarant())
             {
-                DataCrud x = new DataCrud();
-                try
+                g.Text = "Založit nového garanta";
+                DialogResult potvrzeni = g.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
                 {
-                    x.InsertGarant(new Garant(g.Jmeno,
-                                              g.Email,
-                                              g.Kat,
-                                              g.Tel,
-                                              g.Konz));
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.InsertGarant(new Garant(g.Jmeno,
+                                                  g.Email,
+                                                  g.Kat,
+                                                  g.Tel,
+                                                  g.Konz));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void NewPredmet()
         {
             FormCUPredmet p = new FormCUPredmet();
+            p.Text = "Založit nový předmět";
             DialogResult potvrzeni = p.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
@@ -84,6 +88,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void NewObor()
         {
             FormCUObor o = new FormCUObor();
+            o.Text = "Založit nový obor";
             DialogResult potvrzeni = o.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
@@ -109,6 +114,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void NewKatedra()
         {
             FormCUKatedra k = new FormCUKatedra();
+            k.Text = "Založit novou katedru";
             DialogResult potvrzeni = k.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {

@@ -42,6 +42,22 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+        public List<Predmet> GetPredmetFullSudy(int id_obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 OR semestr_predmet=0)").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullLichy(int id_obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6 OR semestr_predmet=0)").ToList();
+                return vystup;
+            }
+        }
         public List<Predmet> GetPredmetBySemestr(int semestr_predmet)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -51,7 +67,7 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
-        public List<Predmet> GetPredmetZVyberu(int semestr,string zaznam,string rok)
+        public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, string rok)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
@@ -156,7 +172,7 @@ namespace SystemProPodporuStudijnichPlanu
                 try
                 {
                     string query = "SELECT rok_obor,id_obor FROM obor";
-                    SqlDataAdapter da = new SqlDataAdapter(query,GetConnection());
+                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
                     DataSet ds = new DataSet();
                     da.Fill(ds, "Obor");
                     x.DisplayMember = "rok_obor";
@@ -229,6 +245,23 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-
+        public void GetZaznamFull(int id, out int obor, out int PocetSem)
+        {
+            SqlCommand SelectZaz = new SqlCommand("SELECT [zaznam].[id_obor], [zaznam].[pocetSem] FROM [zaznam] WHERE [zaznam].[id_zaznam] =@id_zaznam", GetConnection());
+            SelectZaz.Parameters.AddWithValue("@id_zaznam", id);
+            using (var reader = SelectZaz.ExecuteReader())
+            {
+                if (reader.Read()) // Don't assume we have any rows.
+                {
+                    obor = reader.GetInt32(reader.GetOrdinal("id_obor"));
+                    PocetSem = reader.GetInt32(reader.GetOrdinal("pocetSem"));
+                }
+                else
+                {
+                    obor = -1;
+                    PocetSem = -1;
+                }
+            }
+        }
     }
 }

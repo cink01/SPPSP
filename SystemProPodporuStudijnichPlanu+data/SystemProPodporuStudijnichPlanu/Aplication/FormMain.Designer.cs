@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vytvořitNovýZáznamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.upravitZáznamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upravitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.správaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +48,6 @@
             this.lb_semestr4 = new System.Windows.Forms.ListBox();
             this.lb_semestr5 = new System.Windows.Forms.ListBox();
             this.lb_semestr6 = new System.Windows.Forms.ListBox();
-            this.tb_login = new System.Windows.Forms.TextBox();
             this.nud_celkemKred = new System.Windows.Forms.NumericUpDown();
             this.nud_KredSem1 = new System.Windows.Forms.NumericUpDown();
             this.nud_KredSem2 = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +61,6 @@
             this.nud_KredSem6 = new System.Windows.Forms.NumericUpDown();
             this.lb_celkem = new System.Windows.Forms.Label();
             this.btn_pridat = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lb_semestr1 = new System.Windows.Forms.ListBox();
             this.lb_semestr8 = new System.Windows.Forms.ListBox();
             this.lb_semestr9 = new System.Windows.Forms.ListBox();
@@ -76,17 +76,13 @@
             this.lb_semestr7 = new System.Windows.Forms.ListBox();
             this.label_popis = new System.Windows.Forms.Label();
             this.bt_smaz = new System.Windows.Forms.Button();
-            this.bt_save = new System.Windows.Forms.Button();
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_obor = new System.Windows.Forms.ComboBox();
-            this.nud_pocetSem = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.vytvořitNovýZáznamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tb_obor = new System.Windows.Forms.TextBox();
+            this.tb_semest = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -107,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             this.gb_max.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pocetSem)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -127,11 +122,26 @@
             // souborToolStripMenuItem
             // 
             this.souborToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.konecToolStripMenuItem,
-            this.vytvořitNovýZáznamToolStripMenuItem});
+            this.vytvořitNovýZáznamToolStripMenuItem,
+            this.upravitZáznamToolStripMenuItem,
+            this.konecToolStripMenuItem});
             this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
             this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 19);
             this.souborToolStripMenuItem.Text = "&Soubor";
+            // 
+            // vytvořitNovýZáznamToolStripMenuItem
+            // 
+            this.vytvořitNovýZáznamToolStripMenuItem.Name = "vytvořitNovýZáznamToolStripMenuItem";
+            this.vytvořitNovýZáznamToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.vytvořitNovýZáznamToolStripMenuItem.Text = "Vytvořit nový záznam";
+            this.vytvořitNovýZáznamToolStripMenuItem.Click += new System.EventHandler(this.VytvořitNovýZáznamToolStripMenuItem_Click);
+            // 
+            // upravitZáznamToolStripMenuItem
+            // 
+            this.upravitZáznamToolStripMenuItem.Name = "upravitZáznamToolStripMenuItem";
+            this.upravitZáznamToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.upravitZáznamToolStripMenuItem.Text = "Upravit záznam";
+            this.upravitZáznamToolStripMenuItem.Click += new System.EventHandler(this.UpravitZáznamToolStripMenuItem_Click);
             // 
             // konecToolStripMenuItem
             // 
@@ -266,19 +276,11 @@
             this.lb_semestr6.TabIndex = 5;
             this.lb_semestr6.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr6_SelectedIndexChanged);
             // 
-            // tb_login
-            // 
-            this.tb_login.Location = new System.Drawing.Point(82, 16);
-            this.tb_login.Name = "tb_login";
-            this.tb_login.Size = new System.Drawing.Size(113, 20);
-            this.tb_login.TabIndex = 6;
-            this.tb_login.TextChanged += new System.EventHandler(this.Tb_login_TextChanged);
-            // 
             // nud_celkemKred
             // 
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(1085, 16);
+            this.nud_celkemKred.Location = new System.Drawing.Point(646, 16);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -294,7 +296,7 @@
             // 
             this.nud_KredSem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nud_KredSem1.Location = new System.Drawing.Point(277, 59);
+            this.nud_KredSem1.Location = new System.Drawing.Point(276, 44);
             this.nud_KredSem1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -310,7 +312,7 @@
             // nud_KredSem2
             // 
             this.nud_KredSem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem2.Location = new System.Drawing.Point(277, 160);
+            this.nud_KredSem2.Location = new System.Drawing.Point(276, 145);
             this.nud_KredSem2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -328,7 +330,7 @@
             this.numericUpDown1.BackColor = System.Drawing.Color.White;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.numericUpDown1.Location = new System.Drawing.Point(278, 59);
+            this.numericUpDown1.Location = new System.Drawing.Point(277, 44);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -344,7 +346,7 @@
             // nud_KredSem3
             // 
             this.nud_KredSem3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem3.Location = new System.Drawing.Point(277, 261);
+            this.nud_KredSem3.Location = new System.Drawing.Point(276, 246);
             this.nud_KredSem3.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -361,7 +363,7 @@
             // 
             this.numericUpDown2.BackColor = System.Drawing.Color.White;
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown2.Location = new System.Drawing.Point(278, 160);
+            this.numericUpDown2.Location = new System.Drawing.Point(277, 145);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -377,7 +379,7 @@
             // nud_KredSem4
             // 
             this.nud_KredSem4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem4.Location = new System.Drawing.Point(277, 363);
+            this.nud_KredSem4.Location = new System.Drawing.Point(276, 348);
             this.nud_KredSem4.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -394,7 +396,7 @@
             // 
             this.numericUpDown3.BackColor = System.Drawing.Color.White;
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown3.Location = new System.Drawing.Point(278, 261);
+            this.numericUpDown3.Location = new System.Drawing.Point(277, 246);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -411,7 +413,7 @@
             // 
             this.nud_KredSem5.BackColor = System.Drawing.Color.White;
             this.nud_KredSem5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem5.Location = new System.Drawing.Point(277, 464);
+            this.nud_KredSem5.Location = new System.Drawing.Point(276, 449);
             this.nud_KredSem5.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -428,7 +430,7 @@
             // 
             this.numericUpDown4.BackColor = System.Drawing.Color.White;
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown4.Location = new System.Drawing.Point(278, 363);
+            this.numericUpDown4.Location = new System.Drawing.Point(277, 348);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -445,7 +447,7 @@
             // 
             this.nud_KredSem6.BackColor = System.Drawing.Color.White;
             this.nud_KredSem6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem6.Location = new System.Drawing.Point(277, 565);
+            this.nud_KredSem6.Location = new System.Drawing.Point(276, 550);
             this.nud_KredSem6.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -461,7 +463,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(1001, 20);
+            this.lb_celkem.Location = new System.Drawing.Point(562, 19);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(78, 13);
             this.lb_celkem.TabIndex = 14;
@@ -479,15 +481,6 @@
             this.btn_pridat.Text = "&Přidat";
             this.btn_pridat.UseVisualStyleBackColor = false;
             this.btn_pridat.Click += new System.EventHandler(this.Bt_proved_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Název plánu:";
             // 
             // lb_semestr1
             // 
@@ -566,7 +559,7 @@
             this.nud_KredSem7.BackColor = System.Drawing.Color.White;
             this.nud_KredSem7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nud_KredSem7.Location = new System.Drawing.Point(646, 59);
+            this.nud_KredSem7.Location = new System.Drawing.Point(646, 44);
             this.nud_KredSem7.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -574,7 +567,7 @@
             0});
             this.nud_KredSem7.Name = "nud_KredSem7";
             this.nud_KredSem7.ReadOnly = true;
-            this.nud_KredSem7.Size = new System.Drawing.Size(56, 20);
+            this.nud_KredSem7.Size = new System.Drawing.Size(55, 20);
             this.nud_KredSem7.TabIndex = 40;
             this.nud_KredSem7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -582,7 +575,7 @@
             // 
             this.nud_KredSem8.BackColor = System.Drawing.Color.White;
             this.nud_KredSem8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem8.Location = new System.Drawing.Point(646, 160);
+            this.nud_KredSem8.Location = new System.Drawing.Point(646, 145);
             this.nud_KredSem8.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -590,7 +583,7 @@
             0});
             this.nud_KredSem8.Name = "nud_KredSem8";
             this.nud_KredSem8.ReadOnly = true;
-            this.nud_KredSem8.Size = new System.Drawing.Size(55, 20);
+            this.nud_KredSem8.Size = new System.Drawing.Size(54, 20);
             this.nud_KredSem8.TabIndex = 41;
             this.nud_KredSem8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -598,7 +591,7 @@
             // 
             this.nud_KredSem9.BackColor = System.Drawing.Color.White;
             this.nud_KredSem9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem9.Location = new System.Drawing.Point(646, 261);
+            this.nud_KredSem9.Location = new System.Drawing.Point(646, 246);
             this.nud_KredSem9.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -606,7 +599,7 @@
             0});
             this.nud_KredSem9.Name = "nud_KredSem9";
             this.nud_KredSem9.ReadOnly = true;
-            this.nud_KredSem9.Size = new System.Drawing.Size(55, 20);
+            this.nud_KredSem9.Size = new System.Drawing.Size(54, 20);
             this.nud_KredSem9.TabIndex = 42;
             this.nud_KredSem9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -614,7 +607,7 @@
             // 
             this.nud_KredSem10.BackColor = System.Drawing.Color.White;
             this.nud_KredSem10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem10.Location = new System.Drawing.Point(646, 363);
+            this.nud_KredSem10.Location = new System.Drawing.Point(646, 348);
             this.nud_KredSem10.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -622,7 +615,7 @@
             0});
             this.nud_KredSem10.Name = "nud_KredSem10";
             this.nud_KredSem10.ReadOnly = true;
-            this.nud_KredSem10.Size = new System.Drawing.Size(55, 20);
+            this.nud_KredSem10.Size = new System.Drawing.Size(54, 20);
             this.nud_KredSem10.TabIndex = 43;
             this.nud_KredSem10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -630,7 +623,7 @@
             // 
             this.nud_KredSem11.BackColor = System.Drawing.Color.White;
             this.nud_KredSem11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem11.Location = new System.Drawing.Point(646, 464);
+            this.nud_KredSem11.Location = new System.Drawing.Point(646, 449);
             this.nud_KredSem11.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -638,7 +631,7 @@
             0});
             this.nud_KredSem11.Name = "nud_KredSem11";
             this.nud_KredSem11.ReadOnly = true;
-            this.nud_KredSem11.Size = new System.Drawing.Size(55, 20);
+            this.nud_KredSem11.Size = new System.Drawing.Size(54, 20);
             this.nud_KredSem11.TabIndex = 44;
             this.nud_KredSem11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -646,7 +639,7 @@
             // 
             this.nud_KredSem12.BackColor = System.Drawing.Color.White;
             this.nud_KredSem12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem12.Location = new System.Drawing.Point(647, 565);
+            this.nud_KredSem12.Location = new System.Drawing.Point(647, 550);
             this.nud_KredSem12.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -654,7 +647,7 @@
             0});
             this.nud_KredSem12.Name = "nud_KredSem12";
             this.nud_KredSem12.ReadOnly = true;
-            this.nud_KredSem12.Size = new System.Drawing.Size(55, 20);
+            this.nud_KredSem12.Size = new System.Drawing.Size(54, 20);
             this.nud_KredSem12.TabIndex = 45;
             this.nud_KredSem12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -692,23 +685,10 @@
             this.bt_smaz.UseVisualStyleBackColor = false;
             this.bt_smaz.Click += new System.EventHandler(this.Bt_smaz_Click);
             // 
-            // bt_save
-            // 
-            this.bt_save.BackColor = System.Drawing.Color.PaleGreen;
-            this.bt_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_save.Location = new System.Drawing.Point(735, 17);
-            this.bt_save.Name = "bt_save";
-            this.bt_save.Size = new System.Drawing.Size(94, 20);
-            this.bt_save.TabIndex = 61;
-            this.bt_save.Text = "Uložit";
-            this.bt_save.UseVisualStyleBackColor = false;
-            this.bt_save.Click += new System.EventHandler(this.Bt_save_Click);
-            // 
             // cmb_zaznam
             // 
             this.cmb_zaznam.FormattingEnabled = true;
-            this.cmb_zaznam.Location = new System.Drawing.Point(273, 15);
+            this.cmb_zaznam.Location = new System.Drawing.Point(158, 15);
             this.cmb_zaznam.Name = "cmb_zaznam";
             this.cmb_zaznam.Size = new System.Drawing.Size(113, 21);
             this.cmb_zaznam.TabIndex = 62;
@@ -717,7 +697,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 19);
+            this.label2.Location = new System.Drawing.Point(79, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 63;
@@ -726,15 +706,12 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.tb_semest);
+            this.gb_max.Controls.Add(this.tb_obor);
             this.gb_max.Controls.Add(this.lb_vyber);
             this.gb_max.Controls.Add(this.nud_PridatDoSem);
-            this.gb_max.Controls.Add(this.label4);
-            this.gb_max.Controls.Add(this.cmb_obor);
-            this.gb_max.Controls.Add(this.nud_pocetSem);
-            this.gb_max.Controls.Add(this.label3);
             this.gb_max.Controls.Add(this.label2);
             this.gb_max.Controls.Add(this.cmb_zaznam);
-            this.gb_max.Controls.Add(this.bt_save);
             this.gb_max.Controls.Add(this.bt_smaz);
             this.gb_max.Controls.Add(this.label_popis);
             this.gb_max.Controls.Add(this.lb_semestr7);
@@ -750,7 +727,6 @@
             this.gb_max.Controls.Add(this.lb_semestr9);
             this.gb_max.Controls.Add(this.lb_semestr8);
             this.gb_max.Controls.Add(this.lb_semestr1);
-            this.gb_max.Controls.Add(this.label1);
             this.gb_max.Controls.Add(this.btn_pridat);
             this.gb_max.Controls.Add(this.lb_celkem);
             this.gb_max.Controls.Add(this.nud_KredSem6);
@@ -764,7 +740,6 @@
             this.gb_max.Controls.Add(this.nud_KredSem2);
             this.gb_max.Controls.Add(this.nud_KredSem1);
             this.gb_max.Controls.Add(this.nud_celkemKred);
-            this.gb_max.Controls.Add(this.tb_login);
             this.gb_max.Controls.Add(this.lb_semestr6);
             this.gb_max.Controls.Add(this.lb_semestr5);
             this.gb_max.Controls.Add(this.lb_semestr4);
@@ -809,66 +784,19 @@
             0,
             0});
             // 
-            // label4
+            // tb_obor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(543, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 68;
-            this.label4.Text = "Výběr oboru:";
+            this.tb_obor.Location = new System.Drawing.Point(961, 66);
+            this.tb_obor.Name = "tb_obor";
+            this.tb_obor.Size = new System.Drawing.Size(100, 20);
+            this.tb_obor.TabIndex = 71;
             // 
-            // cmb_obor
+            // tb_semest
             // 
-            this.cmb_obor.FormattingEnabled = true;
-            this.cmb_obor.Location = new System.Drawing.Point(616, 16);
-            this.cmb_obor.Name = "cmb_obor";
-            this.cmb_obor.Size = new System.Drawing.Size(113, 21);
-            this.cmb_obor.TabIndex = 67;
-            this.cmb_obor.SelectedIndexChanged += new System.EventHandler(this.Cmb_obor_SelectedIndexChanged);
-            // 
-            // nud_pocetSem
-            // 
-            this.nud_pocetSem.BackColor = System.Drawing.Color.White;
-            this.nud_pocetSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pocetSem.Location = new System.Drawing.Point(481, 17);
-            this.nud_pocetSem.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nud_pocetSem.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nud_pocetSem.Name = "nud_pocetSem";
-            this.nud_pocetSem.ReadOnly = true;
-            this.nud_pocetSem.Size = new System.Drawing.Size(56, 20);
-            this.nud_pocetSem.TabIndex = 66;
-            this.nud_pocetSem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nud_pocetSem.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.nud_pocetSem.ValueChanged += new System.EventHandler(this.Nud_pocetSem_ValueChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(392, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Počet semestrů:";
-            // 
-            // vytvořitNovýZáznamToolStripMenuItem
-            // 
-            this.vytvořitNovýZáznamToolStripMenuItem.Name = "vytvořitNovýZáznamToolStripMenuItem";
-            this.vytvořitNovýZáznamToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.vytvořitNovýZáznamToolStripMenuItem.Text = "Vytvořit nový záznam";
-            this.vytvořitNovýZáznamToolStripMenuItem.Click += new System.EventHandler(this.VytvořitNovýZáznamToolStripMenuItem_Click);
+            this.tb_semest.Location = new System.Drawing.Point(961, 92);
+            this.tb_semest.Name = "tb_semest";
+            this.tb_semest.Size = new System.Drawing.Size(100, 20);
+            this.tb_semest.TabIndex = 72;
             // 
             // FormMain
             // 
@@ -907,7 +835,6 @@
             this.gb_max.ResumeLayout(false);
             this.gb_max.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pocetSem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -931,7 +858,6 @@
         private System.Windows.Forms.ListBox lb_semestr4;
         private System.Windows.Forms.ListBox lb_semestr5;
         private System.Windows.Forms.ListBox lb_semestr6;
-        private System.Windows.Forms.TextBox tb_login;
         private System.Windows.Forms.NumericUpDown nud_celkemKred;
         private System.Windows.Forms.NumericUpDown nud_KredSem1;
         private System.Windows.Forms.NumericUpDown nud_KredSem2;
@@ -945,7 +871,6 @@
         private System.Windows.Forms.NumericUpDown nud_KredSem6;
         private System.Windows.Forms.Label lb_celkem;
         private System.Windows.Forms.Button btn_pridat;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lb_semestr1;
         private System.Windows.Forms.ListBox lb_semestr8;
         private System.Windows.Forms.ListBox lb_semestr9;
@@ -961,17 +886,15 @@
         private System.Windows.Forms.ListBox lb_semestr7;
         private System.Windows.Forms.Label label_popis;
         private System.Windows.Forms.Button bt_smaz;
-        private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.ComboBox cmb_zaznam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gb_max;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmb_obor;
-        private System.Windows.Forms.NumericUpDown nud_pocetSem;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nud_PridatDoSem;
         private System.Windows.Forms.Label lb_vyber;
         private System.Windows.Forms.ToolStripMenuItem vytvořitNovýZáznamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem upravitZáznamToolStripMenuItem;
+        private System.Windows.Forms.TextBox tb_semest;
+        private System.Windows.Forms.TextBox tb_obor;
     }
 }
 

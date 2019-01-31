@@ -104,6 +104,12 @@
     <Compile Include="Aplication\FormCUPredmet.Designer.cs">
       <DependentUpon>FormCUPredmet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplication\FormCUZaznam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplication\FormCUZaznam.Designer.cs">
+      <DependentUpon>FormCUZaznam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplication\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplication\FormCUPredmet.resx">
       <DependentUpon>FormCUPredmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplication\FormCUZaznam.resx">
+      <DependentUpon>FormCUZaznam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplication\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

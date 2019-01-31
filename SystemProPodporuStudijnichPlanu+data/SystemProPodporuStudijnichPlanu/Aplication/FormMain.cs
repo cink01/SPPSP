@@ -28,11 +28,10 @@ namespace SystemProPodporuStudijnichPlanu
             InitializeComponent();
             DataAccess dataaccess = new DataAccess();
             RefreshZaznamy();
-            dataaccess.FillOborCB(cmb_obor);
+            //dataaccess.FillOborCB(cmb_obor);
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
-            Viditelnost(6);
-            nud_PridatDoSem.Maximum = 6;
-            FillHlavniListy();
+            VyplnPotrebnyZeZaznamu();
+          //  FillHlavniListy();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -413,25 +412,36 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tb_login.Text = cmb_zaznam.GetItemText(cmb_zaznam.SelectedItem);//musi se pridat nastaveni oboru a poctu semestru a taky potom aby listboxy brali spravny Plan-Semestr
-        }
+            // RefreshZaznamy();
 
-        private void Bt_save_Click(object sender, EventArgs e)
-        {
-            DataCrud dx = new DataCrud();
-            dx.InsertZaznam(tb_login.Text, cmb_obor.GetItemText(cmb_obor.SelectedItem), (int)nud_pocetSem.Value);
-            RefreshZaznamy();
+            //  FillHlavniListy();
+            VyplnPotrebnyZeZaznamu();
+            if(cmb_zaznam.SelectedIndex>=0)
+                FillHlavniListy();
+
         }
-        private void Nud_pocetSem_ValueChanged(object sender, EventArgs e)
+        private void VyplnPotrebnyZeZaznamu()
         {
-            Viditelnost((int)nud_pocetSem.Value);
-            nud_PridatDoSem.Maximum = nud_pocetSem.Value;
+            DataAccess db = new DataAccess();
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            if (DZ != null)
+            {
+                int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+                db.GetZaznamFull(id_zaznam, out int obor, out int semestry);
+                tb_obor.Text = obor.ToString();
+                tb_semest.Text = semestry.ToString();
+                Viditelnost(semestry);
+                nud_PridatDoSem.Maximum = semestry;
+            }
         }
         private void RefreshZaznamy()
         {
             cmb_zaznam.DataSource = null;
-            DataAccess dataaccess = new DataAccess();
-            dataaccess.FillZaznamCB(cmb_zaznam);
+            DataAccess db = new DataAccess();
+            db.FillZaznamCB(cmb_zaznam);
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+//            string zaznam = DZ.Row["zkr_zaznam"].ToString();
+
         }
         private void DeselectnutiListu(int i)
         {
@@ -687,72 +697,77 @@ namespace SystemProPodporuStudijnichPlanu
         {
             ClearListy();
             DataAccess db = new DataAccess();
-            DataRowView DV = cmb_obor.SelectedItem as DataRowView;
-            string obor = DV.Row["rok_obor"].ToString();
-            string zaznam = tb_login.Text;
-            int semestry = (int)nud_pocetSem.Value;
-            /*
-            if (1 <= semestry)
-            {
-                predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
-            }
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            string zaznam = DZ.Row["zkr_zaznam"].ToString();
+            int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            int semestry;
+            db.GetZaznamFull(id_zaznam,out int obor,out semestry);
+            tb_obor.Text = obor.ToString();
+            tb_semest.Text = semestry.ToString();
+            Viditelnost(semestry);
+            nud_PridatDoSem.Maximum = semestry;
+/*
+if (1 <= semestry)
+{
+    predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
+}
 
-            if (2 <= semestry)
-            {
-                predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
-            }
+if (2 <= semestry)
+{
+    predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
+}
 
-            if (3 <= semestry)
-            {
-                predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
-            }
+if (3 <= semestry)
+{
+    predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
+}
 
-            if (4 <= semestry)
-            {
-                predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
-            }
+if (4 <= semestry)
+{
+    predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
+}
 
-            if (5 <= semestry)
-            {
-                predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
-            }
+if (5 <= semestry)
+{
+    predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
+}
 
-            if (6 <= semestry)
-            {
-                predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
-            }
+if (6 <= semestry)
+{
+    predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
+}
 
-            if (7 <= semestry)
-            {
-                predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
-            }
+if (7 <= semestry)
+{
+    predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
+}
 
-            if (8 <= semestry)
-            {
-                predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
-            }
+if (8 <= semestry)
+{
+    predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
+}
 
-            if (9 <= semestry)
-            {
-                predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
-            }
+if (9 <= semestry)
+{
+    predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
+}
 
-            if (10 <= semestry)
-            {
-                predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
-            }
+if (10 <= semestry)
+{
+    predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
+}
 
-            if (11 <= semestry)
-            {
-                predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
-            }
+if (11 <= semestry)
+{
+    predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
+}
 
-            if (12 <= semestry)
-            {
-                predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
-            }
-            */
-            predmetyLichy = db.GetPredmetFullLichy(obor);
+if (12 <= semestry)
+{
+    predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
+}
+*/
+predmetyLichy = db.GetPredmetFullLichy(obor);
             predmetySudy = db.GetPredmetFullSudy(obor);
         }
         private void ClearListy()
@@ -772,21 +787,38 @@ namespace SystemProPodporuStudijnichPlanu
             predmetySudy.Clear();
             predmetyLichy.Clear();
         }
-
-        private void Tb_login_TextChanged(object sender, EventArgs e)
-        {
-            if (tb_login.Text != cmb_zaznam.Text)
-            {
-                cmb_zaznam.SelectedIndex = -1;
-            }
-        }
-
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
             FillHlavniListy();
         }
 
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCUZaznam Zaznam = new FormCUZaznam();
+            DataAccess da = new DataAccess();
+            Zaznam.Text = "Vytvořit nový záznam";
+            DialogResult potvrzeni = Zaznam.ShowDialog();
+            if (potvrzeni == DialogResult.OK)
+            {
+                DataCrud x = new DataCrud();
+                try
+                {
+                    x.InsertZaznam(Zaznam.Zkr,
+                                   Zaznam.Obor,
+                                   Zaznam.Semestr);
+                    for (int i = 1; i <= Zaznam.Semestr; i++)
+                        x.InsertPS(Zaznam.Zkr,Zaznam.Semestr);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            RefreshZaznamy();
+        }
+
+        private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

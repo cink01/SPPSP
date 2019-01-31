@@ -166,14 +166,14 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertPS(int semestr, string z)
+        public void InsertPS(string zaznam, int PocSem)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand zaz = new SqlCommand("insert into plansemestr(zkr_zaznam,id_obor) values(@zz,@id_o)", conn);
-                zaz.Parameters.AddWithValue("@zz", semestr);
-                zaz.Parameters.AddWithValue("@id_o", da.GetZaznamId(z));
+                SqlCommand zaz = new SqlCommand("insert into plansemestr(sem_ps,id_zaznam) values(@sem_ps,@id_zaznam)", conn);
+                zaz.Parameters.AddWithValue("@sem_ps", PocSem);
+                zaz.Parameters.AddWithValue("@id_zaznam", da.GetZaznamId(zaznam));
                 try
                 {
                     conn.Open();
