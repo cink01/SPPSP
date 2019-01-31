@@ -129,6 +129,12 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_obor.Parameters.AddWithValue("@obor", o);
             return Convert.ToInt32(get_ID_obor.ExecuteScalar());
         }
+        public string GetOborRok(int o)
+        {
+            SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());
+            get_ID_obor.Parameters.AddWithValue("@obor", o);
+            return get_ID_obor.ExecuteScalar().ToString();
+        }
         public int GetKatedraId(string katedra)
         {
             SqlCommand get_ID_Katedra = new SqlCommand("SELECT id_k FROM [katedra] WHERE ([naz_k] = @naz_k)", GetConnection());
@@ -148,21 +154,24 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_Garant.Parameters.AddWithValue("@jmeno_v", v);
             return Convert.ToInt32(get_ID_Garant.ExecuteScalar());
         }
-
-
-
         public int GetZaznamId(string z)
         {
             SqlCommand get_ID_Zaznam = new SqlCommand("SELECT id_zaznam FROM [zaznam] WHERE ([zkr_zaznam] = @zkr_zaznam)", GetConnection());
             get_ID_Zaznam.Parameters.AddWithValue("@zkr_zaznam", z);
             return Convert.ToInt32(get_ID_Zaznam.ExecuteScalar());
         }
-        public int GetPSId(string z, int s)
+        public int GetZaznamSemestr(int z)
         {
-            SqlCommand get_ID_Zaznam = new SqlCommand("SELECT id_ps FROM [plansemestr] WHERE ([id_zaznam] = @id_zaznam)AND([sem_ps]=@sem_ps)", GetConnection());
+            SqlCommand get_ID_Zaznam = new SqlCommand("SELECT pocetSem FROM [zaznam] WHERE ([id_zaznam] = @id_zaznam)", GetConnection());
             get_ID_Zaznam.Parameters.AddWithValue("@id_zaznam", z);
-            get_ID_Zaznam.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(get_ID_Zaznam.ExecuteScalar());
+        }
+        public int GetPSId(int z, int s)
+        {
+            SqlCommand getIdPS = new SqlCommand("SELECT [id_ps] FROM [plansemestr] WHERE ([id_zaznam] = @id_zaznam)AND([sem_ps]=@sem_ps)", GetConnection());
+            getIdPS.Parameters.AddWithValue("@id_zaznam", z);
+            getIdPS.Parameters.AddWithValue("@sem_ps", s);
+            return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
 
         public void FillOborCB(ComboBox x)

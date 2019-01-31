@@ -26,12 +26,12 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
-            DataAccess dataaccess = new DataAccess();
+          //  DataAccess dataaccess = new DataAccess();
             RefreshZaznamy();
             //dataaccess.FillOborCB(cmb_obor);
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
-          //  FillHlavniListy();
+            //  FillHlavniListy();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace SystemProPodporuStudijnichPlanu
 
             }
         }
-         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+        private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -416,7 +416,7 @@ namespace SystemProPodporuStudijnichPlanu
 
             //  FillHlavniListy();
             VyplnPotrebnyZeZaznamu();
-            if(cmb_zaznam.SelectedIndex>=0)
+            if (cmb_zaznam.SelectedIndex >= 0)
                 FillHlavniListy();
 
         }
@@ -439,9 +439,6 @@ namespace SystemProPodporuStudijnichPlanu
             cmb_zaznam.DataSource = null;
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-//            string zaznam = DZ.Row["zkr_zaznam"].ToString();
-
         }
         private void DeselectnutiListu(int i)
         {
@@ -693,81 +690,88 @@ namespace SystemProPodporuStudijnichPlanu
             }
         }
 
+        private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
+        {
+            DataAccess db = new DataAccess();
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            zkr = DZ.Row["zkr_zaznam"].ToString();
+            id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            db.GetZaznamFull(id_z, out id_o, out PocSem);
+            rok_o = db.GetOborRok(id_o);
+        }
+
         private void FillHlavniListy()
         {
             ClearListy();
-            DataAccess db = new DataAccess();
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            string zaznam = DZ.Row["zkr_zaznam"].ToString();
-            int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-            int semestry;
-            db.GetZaznamFull(id_zaznam,out int obor,out semestry);
+            VratZaznamData(out int id_zaznam, out string zaznam, out int obor, out string roko, out int semestry);
             tb_obor.Text = obor.ToString();
             tb_semest.Text = semestry.ToString();
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
-/*
-if (1 <= semestry)
-{
-    predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
-}
+            DataAccess db = new DataAccess();
+            /*
+            if (1 <= semestry)
+            {
+                predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
+            }
 
-if (2 <= semestry)
-{
-    predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
-}
+            if (2 <= semestry)
+            {
+                predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
+            }
 
-if (3 <= semestry)
-{
-    predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
-}
+            if (3 <= semestry)
+            {
+                predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
+            }
 
-if (4 <= semestry)
-{
-    predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
-}
+            if (4 <= semestry)
+            {
+                predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
+            }
 
-if (5 <= semestry)
-{
-    predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
-}
+            if (5 <= semestry)
+            {
+                predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
+            }
 
-if (6 <= semestry)
-{
-    predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
-}
+            if (6 <= semestry)
+            {
+                predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
+            }
 
-if (7 <= semestry)
-{
-    predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
-}
+            if (7 <= semestry)
+            {
+                predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
+            }
 
-if (8 <= semestry)
-{
-    predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
-}
+            if (8 <= semestry)
+            {
+                predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
+            }
 
-if (9 <= semestry)
-{
-    predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
-}
+            if (9 <= semestry)
+            {
+                predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
+            }
 
-if (10 <= semestry)
-{
-    predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
-}
+            if (10 <= semestry)
+            {
+                predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
+            }
 
-if (11 <= semestry)
-{
-    predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
-}
+            if (11 <= semestry)
+            {
+                predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
+            }
 
-if (12 <= semestry)
-{
-    predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
-}
-*/
-predmetyLichy = db.GetPredmetFullLichy(obor);
+            if (12 <= semestry)
+            {
+                predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
+            }
+            */
+
+            predmetyLichy = db.GetPredmetFullLichy(obor);
             predmetySudy = db.GetPredmetFullSudy(obor);
         }
         private void ClearListy()
@@ -794,34 +798,78 @@ predmetyLichy = db.GetPredmetFullLichy(obor);
 
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCUZaznam Zaznam = new FormCUZaznam();
-            DataAccess da = new DataAccess();
-            Zaznam.Text = "Vytvořit nový záznam";
-            DialogResult potvrzeni = Zaznam.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
+            using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
-                DataCrud x = new DataCrud();
-                try
+                Zaznam.Text = "Vytvořit nový záznam";
+                DialogResult potvrzeni = Zaznam.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
                 {
-                    x.InsertZaznam(Zaznam.Zkr,
-                                   Zaznam.Obor,
-                                   Zaznam.Semestr);
-                    for (int i = 1; i <= Zaznam.Semestr; i++)
-                        x.InsertPS(Zaznam.Zkr,Zaznam.Semestr);
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.InsertZaznam(Zaznam.Zkr,
+                                       Zaznam.Obor,
+                                       Zaznam.Semestr);
+                        for (int i = 1; i <= Zaznam.Semestr; i++)
+                            x.InsertPS(Zaznam.Zkr, i);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             RefreshZaznamy();
         }
 
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem);
+            using (FormCUZaznam Zaznam = new FormCUZaznam())
+            {
+                Zaznam.Text = "Upravit záznam";
+                Zaznam.Id = id_z.ToString();
+                Zaznam.Zkr = zkr;
+                Zaznam.Obor = rok_o;
+                Zaznam.Semestr = PocSem;
+                DataAccess a = new DataAccess();
+                DialogResult potvrzeni = Zaznam.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
+                {
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        id_z = Convert.ToInt32(Zaznam.Id);
+                        PocSem = Zaznam.Semestr;
+                        int stare = a.GetZaznamSemestr(id_z);
+                        x.UpdateZaznam(id_z,
+                                       Zaznam.Zkr,
+                                       PocSem);
+                        if (stare > PocSem)
+                            while (stare > PocSem)
+                            {
+                                x.DeletePlanSemestr(id_z, stare);
+                                stare--;
+                            }
+                        if (stare < PocSem)
+                            while (stare < PocSem)
+                            {
+                                x.InsertPS(Zaznam.Zkr, stare);
+                                stare++;
+                            }
 
+
+                        //potreba pridat neco co bude pridavat odebirat zaznamy z Plansemestr, kdyz Semestr je > jak predesly tak se to pridat jestli mensi tak se odebere
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            RefreshZaznamy();
         }
     }
-
 }

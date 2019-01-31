@@ -43,7 +43,7 @@ namespace SystemProPodporuStudijnichPlanu
                     obor.Parameters.AddWithValue("@naz", o.Name_obor);
                     obor.Parameters.AddWithValue("@rok", o.Rok_obor);
                     obor.Parameters.AddWithValue("@p", o.P_obor);
-                    obor.Parameters.AddWithValue("@pv",o.Pv_obor);
+                    obor.Parameters.AddWithValue("@pv", o.Pv_obor);
                     obor.Parameters.AddWithValue("@v", o.V_obor);
                     obor.Parameters.AddWithValue("@vs", o.Vs_obor);
                     obor.Parameters.AddWithValue("@praxe", o.Praxe);
@@ -91,7 +91,7 @@ namespace SystemProPodporuStudijnichPlanu
         public void InsertPredmet(Predmet p)
         {
             DataAccess da = new DataAccess();
-            da.CheckExistPredmet(p.Name_predmet,p.Id_obor, out int exist);
+            da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
             if (exist <= 0)
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -127,7 +127,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void InsertPopis(Predmet p)
         {
-            DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand pop = new SqlCommand("update [predmet] set [popis]=@popis where [id_predmet]=@id_predmet", conn);
@@ -145,7 +144,7 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertZaznam(string nazev, string o,int PS)
+        public void InsertZaznam(string nazev, string o, int PS)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -166,13 +165,35 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertPS(string zaznam, int PocSem)
+        public void UpdateZaznam(int id_z, string nazev, int PS)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand zaz = new SqlCommand("UPDATE zaznam " +
+                    "SET zkr_zaznam=@zz, pocetSem=@pocetSem " +
+                    "WHERE id_zaznam=@id_zaznam", conn);
+                zaz.Parameters.AddWithValue("@zz", nazev);
+                zaz.Parameters.AddWithValue("@pocetSem", PS);
+                zaz.Parameters.AddWithValue("@id_zaznam", id_z);
+                try
+                {
+                    conn.Open();
+                    zaz.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void InsertPS(string zaznam, int Semestr)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand zaz = new SqlCommand("insert into plansemestr(sem_ps,id_zaznam) values(@sem_ps,@id_zaznam)", conn);
-                zaz.Parameters.AddWithValue("@sem_ps", PocSem);
+                zaz.Parameters.AddWithValue("@sem_ps", Semestr);
                 zaz.Parameters.AddWithValue("@id_zaznam", da.GetZaznamId(zaznam));
                 try
                 {
@@ -186,7 +207,27 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void InsertVyber(string predmet, int semestr, string rok, string zaz)
+        public void DeletePlanSemestr(int id_z, int Semestr)
+        {
+            DataAccess da = new DataAccess();
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand zazD = new SqlCommand("DELETE FROM [plansemestr] WHERE [plansemestr].[id_ps]=@id_ps)", conn);
+                zazD.Parameters.AddWithValue("@id_ps",da.GetPSId(id_z,Semestr));
+                try
+                {
+                    conn.Open();
+                    zazD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+
+        public void InsertVyber(string predmet, int semestr, string rok, int zaz)
         {
             DataAccess da = new DataAccess();
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
