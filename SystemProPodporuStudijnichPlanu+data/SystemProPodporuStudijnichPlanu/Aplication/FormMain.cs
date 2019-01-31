@@ -33,12 +33,10 @@ namespace SystemProPodporuStudijnichPlanu
             VyplnPotrebnyZeZaznamu();
             //  FillHlavniListy();
         }
-
         private void FormMain_Load(object sender, EventArgs e)
         {
             Obnov();
         }
-
         private void Obnov()
         {
             KreditySum();
@@ -47,7 +45,6 @@ namespace SystemProPodporuStudijnichPlanu
         {
             lb_semestr1.DisplayMember = "FullInfo";
             KreditySum();
-
         }
         private void KreditySum()
         {
@@ -58,7 +55,6 @@ namespace SystemProPodporuStudijnichPlanu
             }
             nud_KredSem1.Value = sum;
         }
-
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value;
@@ -125,7 +121,6 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_celkemKred.BackColor = Color.LightGreen;
             }
         }
-
         private void UkonceniProgramu(object sender, EventArgs e)
         {
             if (MessageBox.Show(Properties.Resources.EXIT_MESSAGE, Properties.Resources.EXIT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -133,7 +128,6 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
-
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             int vyber = (int)nud_PridatDoSem.Value;
@@ -508,7 +502,6 @@ namespace SystemProPodporuStudijnichPlanu
                     break;
             }
         }
-
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(1);
@@ -519,59 +512,48 @@ namespace SystemProPodporuStudijnichPlanu
             DeselectnutiListu(2);
             label_popis.Text = lb_semestr2.SelectedItem.ToString();
         }
-
         private void Lb_semestr3_SelectedIndexChanged(object sender, EventArgs e)
         {
             label_popis.Text = lb_semestr3.SelectedItem.ToString();
             DeselectnutiListu(3);
         }
-
         private void Lb_semestr4_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(4);
         }
-
         private void Lb_semestr5_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(5);
         }
-
         private void Lb_semestr6_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(6);
         }
-
         private void Lb_semestr7_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(7);
         }
-
         private void Lb_semestr8_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(8);
 
         }
-
         private void Lb_semestr9_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(9);
         }
-
         private void Lb_semestr10_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(10);
         }
-
         private void Lb_semestr11_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(11);
         }
-
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(12);
         }
-
         private List<Predmet> VyberListu(int i)
         {
             switch (i)
@@ -699,7 +681,6 @@ namespace SystemProPodporuStudijnichPlanu
             db.GetZaznamFull(id_z, out id_o, out PocSem);
             rok_o = db.GetOborRok(id_o);
         }
-
         private void FillHlavniListy()
         {
             ClearListy();
@@ -709,6 +690,8 @@ namespace SystemProPodporuStudijnichPlanu
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             DataAccess db = new DataAccess();
+            predmetyLichy = db.GetPredmetFullLichy(obor);
+            predmetySudy = db.GetPredmetFullSudy(obor);
             /*
             if (1 <= semestry)
             {
@@ -770,9 +753,6 @@ namespace SystemProPodporuStudijnichPlanu
                 predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
             }
             */
-
-            predmetyLichy = db.GetPredmetFullLichy(obor);
-            predmetySudy = db.GetPredmetFullSudy(obor);
         }
         private void ClearListy()
         {
@@ -795,7 +775,6 @@ namespace SystemProPodporuStudijnichPlanu
         {
             FillHlavniListy();
         }
-
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FormCUZaznam Zaznam = new FormCUZaznam())
@@ -822,7 +801,6 @@ namespace SystemProPodporuStudijnichPlanu
             }
             RefreshZaznamy();
         }
-
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem);
@@ -862,7 +840,6 @@ namespace SystemProPodporuStudijnichPlanu
                                     x.InsertPS(Zaznam.Zkr, stare);
                                     stare++;
                                 }
-
                         }
                         else
                         {

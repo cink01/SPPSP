@@ -231,7 +231,7 @@ namespace SystemProPodporuStudijnichPlanu
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand zazD = new SqlCommand("DELETE FROM [plansemestr] WHERE [id_ps]=@id_ps", conn);
-                zazD.Parameters.AddWithValue("@id_ps",da.GetPSId(id_z,Semestr));
+                zazD.Parameters.AddWithValue("@id_ps", da.GetPSId(id_z, Semestr));
                 try
                 {
                     conn.Open();
