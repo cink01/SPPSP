@@ -26,7 +26,7 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
-          //  DataAccess dataaccess = new DataAccess();
+            //  DataAccess dataaccess = new DataAccess();
             RefreshZaznamy();
             //dataaccess.FillOborCB(cmb_obor);
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
@@ -833,34 +833,54 @@ namespace SystemProPodporuStudijnichPlanu
                 Zaznam.Zkr = zkr;
                 Zaznam.Obor = rok_o;
                 Zaznam.Semestr = PocSem;
+                string rok_oborOld = rok_o;
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Zaznam.ShowDialog();
                 if (potvrzeni == DialogResult.OK)
                 {
                     DataCrud x = new DataCrud();
+                    string rok_oborNew = Zaznam.Obor;
                     try
                     {
                         id_z = Convert.ToInt32(Zaznam.Id);
-                        PocSem = Zaznam.Semestr;
-                        int stare = a.GetZaznamSemestr(id_z);
-                        x.UpdateZaznam(id_z,
-                                       Zaznam.Zkr,
-                                       PocSem);
-                        if (stare > PocSem)
-                            while (stare > PocSem)
-                            {
-                                x.DeletePlanSemestr(id_z, stare);
-                                stare--;
-                            }
-                        if (stare < PocSem)
-                            while (stare < PocSem)
-                            {
-                                x.InsertPS(Zaznam.Zkr, stare);
-                                stare++;
-                            }
+                        if (rok_oborNew == rok_oborOld)
+                        {
+                            PocSem = Zaznam.Semestr;
+                            int stare = a.GetZaznamSemestr(id_z);
+                            x.UpdateZaznam(id_z,
+                                           Zaznam.Zkr,
+                                           PocSem);
+                            if (stare > PocSem)
+                                while (stare > PocSem)
+                                {
+                                    x.DeletePlanSemestr(id_z, stare);
+                                    stare--;
+                                }
+                            if (stare < PocSem)
+                                while (stare < PocSem)
+                                {
+                                    x.InsertPS(Zaznam.Zkr, stare);
+                                    stare++;
+                                }
 
-
-                        //potreba pridat neco co bude pridavat odebirat zaznamy z Plansemestr, kdyz Semestr je > jak predesly tak se to pridat jestli mensi tak se odebere
+                        }
+                        else
+                        {
+                            try
+                            {
+                                x.DeleteZaznam(id_z);
+                                x.InsertZaznam(Zaznam.Zkr,
+                                               Zaznam.Obor,
+                                               Zaznam.Semestr);
+                                for (int i = 1; i <= Zaznam.Semestr; i++)
+                                    x.InsertPS(Zaznam.Zkr, i);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                     catch (Exception ex)
                     {

@@ -55,80 +55,86 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void NewPredmet()
         {
-            FormCUPredmet p = new FormCUPredmet();
-            p.Text = "Založit nový předmět";
-            DialogResult potvrzeni = p.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
+            using (FormCUPredmet p = new FormCUPredmet())
             {
-                DataCrud x = new DataCrud();
-                try
+                p.Text = "Založit nový předmět";
+                DialogResult potvrzeni = p.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
                 {
-                    x.InsertPredmet(new Predmet(p.Nazev,
-                                                p.Zkr,
-                                                p.Kredit,
-                                                p.Obor,
-                                                p.Garant,
-                                                p.Semestr,
-                                                p.Orig,
-                                                p.Povinnost,
-                                                p.Prednaska,
-                                                p.Cv,
-                                                p.Cvk,
-                                                p.Lab,
-                                                p.Jazyk,
-                                                p.Zakonceni));
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.InsertPredmet(new Predmet(p.Nazev,
+                                                    p.Zkr,
+                                                    p.Kredit,
+                                                    p.Obor,
+                                                    p.Garant,
+                                                    p.Semestr,
+                                                    p.Orig,
+                                                    p.Povinnost,
+                                                    p.Prednaska,
+                                                    p.Cv,
+                                                    p.Cvk,
+                                                    p.Lab,
+                                                    p.Jazyk,
+                                                    p.Zakonceni));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void NewObor()
         {
-            FormCUObor o = new FormCUObor();
-            o.Text = "Založit nový obor";
-            DialogResult potvrzeni = o.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
+            using (FormCUObor o = new FormCUObor())
             {
-                DataCrud x = new DataCrud();
-                try
+                o.Text = "Založit nový obor";
+                DialogResult potvrzeni = o.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
                 {
-                    x.InsertObor(new Obor(o.Zkr,
-                                          o.Nazev,
-                                          o.Rok,
-                                          o.Pp,
-                                          o.Pvp,
-                                          o.Vp,
-                                          o.Vs,
-                                          o.Praxe));
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.InsertObor(new Obor(o.Zkr,
+                                              o.Nazev,
+                                              o.Rok,
+                                              o.Pp,
+                                              o.Pvp,
+                                              o.Vp,
+                                              o.Vs,
+                                              o.Praxe));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void NewKatedra()
         {
-            FormCUKatedra k = new FormCUKatedra();
-            k.Text = "Založit novou katedru";
-            DialogResult potvrzeni = k.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
+            using (FormCUKatedra k = new FormCUKatedra())
             {
-                DataCrud x = new DataCrud();
-                try
+                k.Text = "Založit novou katedru";
+                DialogResult potvrzeni = k.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
                 {
-                    x.InsertKat(k.Zkr,
-                                k.Nazev);
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.InsertKat(k.Zkr,
+                                    k.Nazev);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();

@@ -165,6 +165,24 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void DeleteZaznam(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand zaz = new SqlCommand("DELETE FROM [zaznam] WHERE [id_zaznam]=@id_zaznam", conn);
+                zaz.Parameters.AddWithValue("@id_zaznam", id);
+                try
+                {
+                    conn.Open();
+                    zaz.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
         public void UpdateZaznam(int id_z, string nazev, int PS)
         {
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
