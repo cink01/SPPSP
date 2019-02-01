@@ -26,12 +26,9 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
-            //  DataAccess dataaccess = new DataAccess();
             RefreshZaznamy();
-            //dataaccess.FillOborCB(cmb_obor);
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
-            //  FillHlavniListy();
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -58,19 +55,12 @@ namespace SystemProPodporuStudijnichPlanu
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value + nud_KredSem7.Value + nud_KredSem8.Value + nud_KredSem9.Value + nud_KredSem10.Value + nud_KredSem11.Value + nud_KredSem12.Value;
-
             nud_KredSem1.BackColor = nud_KredSem1.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_KredSem2.BackColor = nud_KredSem2.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_KredSem3.BackColor = nud_KredSem3.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_KredSem4.BackColor = nud_KredSem4.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_KredSem5.BackColor = nud_KredSem5.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_KredSem6.BackColor = nud_KredSem6.Value < 15 ? Color.LightCoral : Color.LightGreen;
-
             nud_celkemKred.BackColor = nud_celkemKred.Value < 180 ? Color.LightCoral : Color.LightGreen;
         }
         private void UkonceniProgramu(object sender, EventArgs e)
@@ -94,8 +84,6 @@ namespace SystemProPodporuStudijnichPlanu
             if (potvrzeni == DialogResult.OK)
             {
                 NaplnVybranyList(vyber, FP.PredmetyAdd);
-
-
             }
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
@@ -109,7 +97,6 @@ namespace SystemProPodporuStudijnichPlanu
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     cesta = openFileDialog.FileName;
 
                 }
@@ -128,8 +115,8 @@ namespace SystemProPodporuStudijnichPlanu
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     cesta = openFileDialog.FileName;
+
                 }
             }
             NacteniDat nd = new NacteniDat();
@@ -137,10 +124,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Viditelnost(int i)
         {
-            if (i > 6)
-                gb_popis.Left = 738;
-            else
-                gb_popis.Left = 355;
+            gb_popis.Left = i > 6 ? 715 : 428;
             Tma();
             switch (i)
             {
@@ -358,9 +342,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // RefreshZaznamy();
-
-            //  FillHlavniListy();
             VyplnPotrebnyZeZaznamu();
             if (cmb_zaznam.SelectedIndex >= 0)
                 FillHlavniListy();
@@ -369,8 +350,10 @@ namespace SystemProPodporuStudijnichPlanu
         private void VyplnPotrebnyZeZaznamu()
         {
             DataAccess db = new DataAccess();
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            if (DZ != null)
+            /* DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+               if (DZ != null)
+             */
+            if (cmb_zaznam.SelectedItem is DataRowView DZ)
             {
                 int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
                 db.GetZaznamFull(id_zaznam, out int obor, out int semestry);
@@ -388,6 +371,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void DeselectnutiListu(int i)
         {
+            bt_smaz.Visible = true;
             switch (i)
             {
                 case 12:
@@ -623,13 +607,12 @@ namespace SystemProPodporuStudijnichPlanu
                 default: break;
             }
         }
-
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
-            DataAccess db = new DataAccess();
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
             zkr = DZ.Row["zkr_zaznam"].ToString();
             id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            DataAccess db = new DataAccess();
             db.GetZaznamFull(id_z, out id_o, out PocSem);
             rok_o = db.GetOborRok(id_o);
         }
@@ -820,10 +803,6 @@ namespace SystemProPodporuStudijnichPlanu
             }
             RefreshZaznamy();
         }
-
-        private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
-        }
+        private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
     }
 }

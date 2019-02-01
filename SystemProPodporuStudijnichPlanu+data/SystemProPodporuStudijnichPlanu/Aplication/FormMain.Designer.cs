@@ -74,11 +74,11 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.gb_popis = new System.Windows.Forms.GroupBox();
             this.tb_semest = new System.Windows.Forms.TextBox();
             this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.gb_popis = new System.Windows.Forms.GroupBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             this.gb_max.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             this.gb_popis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -108,7 +108,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1170, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(1153, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -194,13 +194,13 @@
             // oAplikaciToolStripMenuItem
             // 
             this.oAplikaciToolStripMenuItem.Name = "oAplikaciToolStripMenuItem";
-            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.oAplikaciToolStripMenuItem.Text = "O aplikaci";
             // 
             // povolitSprávceToolStripMenuItem
             // 
             this.povolitSprávceToolStripMenuItem.Name = "povolitSprávceToolStripMenuItem";
-            this.povolitSprávceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.povolitSprávceToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.povolitSprávceToolStripMenuItem.Text = "Povolit správce";
             this.povolitSprávceToolStripMenuItem.Click += new System.EventHandler(this.PovolitSprávceToolStripMenuItem_Click);
             // 
@@ -268,7 +268,7 @@
             // 
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(646, 16);
+            this.nud_celkemKred.Location = new System.Drawing.Point(623, 15);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -386,7 +386,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(562, 19);
+            this.lb_celkem.Location = new System.Drawing.Point(539, 18);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(78, 13);
             this.lb_celkem.TabIndex = 14;
@@ -397,7 +397,7 @@
             this.btn_pridat.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_pridat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_pridat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_pridat.Location = new System.Drawing.Point(1036, 624);
+            this.btn_pridat.Location = new System.Drawing.Point(1013, 16);
             this.btn_pridat.Name = "btn_pridat";
             this.btn_pridat.Size = new System.Drawing.Size(104, 20);
             this.btn_pridat.TabIndex = 20;
@@ -423,7 +423,7 @@
             this.lb_semestr8.FormattingEnabled = true;
             this.lb_semestr8.HorizontalScrollbar = true;
             this.lb_semestr8.ItemHeight = 15;
-            this.lb_semestr8.Location = new System.Drawing.Point(451, 144);
+            this.lb_semestr8.Location = new System.Drawing.Point(428, 143);
             this.lb_semestr8.Name = "lb_semestr8";
             this.lb_semestr8.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr8.TabIndex = 35;
@@ -435,7 +435,7 @@
             this.lb_semestr9.FormattingEnabled = true;
             this.lb_semestr9.HorizontalScrollbar = true;
             this.lb_semestr9.ItemHeight = 15;
-            this.lb_semestr9.Location = new System.Drawing.Point(452, 246);
+            this.lb_semestr9.Location = new System.Drawing.Point(429, 245);
             this.lb_semestr9.Name = "lb_semestr9";
             this.lb_semestr9.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr9.TabIndex = 36;
@@ -447,7 +447,7 @@
             this.lb_semestr10.FormattingEnabled = true;
             this.lb_semestr10.HorizontalScrollbar = true;
             this.lb_semestr10.ItemHeight = 15;
-            this.lb_semestr10.Location = new System.Drawing.Point(451, 348);
+            this.lb_semestr10.Location = new System.Drawing.Point(428, 347);
             this.lb_semestr10.Name = "lb_semestr10";
             this.lb_semestr10.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr10.TabIndex = 37;
@@ -459,7 +459,7 @@
             this.lb_semestr11.FormattingEnabled = true;
             this.lb_semestr11.HorizontalScrollbar = true;
             this.lb_semestr11.ItemHeight = 15;
-            this.lb_semestr11.Location = new System.Drawing.Point(451, 449);
+            this.lb_semestr11.Location = new System.Drawing.Point(428, 448);
             this.lb_semestr11.Name = "lb_semestr11";
             this.lb_semestr11.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr11.TabIndex = 38;
@@ -471,7 +471,7 @@
             this.lb_semestr12.FormattingEnabled = true;
             this.lb_semestr12.HorizontalScrollbar = true;
             this.lb_semestr12.ItemHeight = 15;
-            this.lb_semestr12.Location = new System.Drawing.Point(451, 550);
+            this.lb_semestr12.Location = new System.Drawing.Point(428, 549);
             this.lb_semestr12.Name = "lb_semestr12";
             this.lb_semestr12.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr12.TabIndex = 39;
@@ -482,7 +482,7 @@
             this.nud_KredSem7.BackColor = System.Drawing.Color.White;
             this.nud_KredSem7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_KredSem7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nud_KredSem7.Location = new System.Drawing.Point(646, 44);
+            this.nud_KredSem7.Location = new System.Drawing.Point(623, 43);
             this.nud_KredSem7.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -499,7 +499,7 @@
             // 
             this.nud_KredSem8.BackColor = System.Drawing.Color.White;
             this.nud_KredSem8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem8.Location = new System.Drawing.Point(646, 145);
+            this.nud_KredSem8.Location = new System.Drawing.Point(623, 144);
             this.nud_KredSem8.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -516,7 +516,7 @@
             // 
             this.nud_KredSem9.BackColor = System.Drawing.Color.White;
             this.nud_KredSem9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem9.Location = new System.Drawing.Point(646, 246);
+            this.nud_KredSem9.Location = new System.Drawing.Point(623, 245);
             this.nud_KredSem9.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -533,7 +533,7 @@
             // 
             this.nud_KredSem10.BackColor = System.Drawing.Color.White;
             this.nud_KredSem10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem10.Location = new System.Drawing.Point(646, 348);
+            this.nud_KredSem10.Location = new System.Drawing.Point(623, 347);
             this.nud_KredSem10.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -550,7 +550,7 @@
             // 
             this.nud_KredSem11.BackColor = System.Drawing.Color.White;
             this.nud_KredSem11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem11.Location = new System.Drawing.Point(646, 449);
+            this.nud_KredSem11.Location = new System.Drawing.Point(623, 448);
             this.nud_KredSem11.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -567,7 +567,7 @@
             // 
             this.nud_KredSem12.BackColor = System.Drawing.Color.White;
             this.nud_KredSem12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_KredSem12.Location = new System.Drawing.Point(647, 550);
+            this.nud_KredSem12.Location = new System.Drawing.Point(624, 549);
             this.nud_KredSem12.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -586,7 +586,7 @@
             this.lb_semestr7.FormattingEnabled = true;
             this.lb_semestr7.HorizontalScrollbar = true;
             this.lb_semestr7.ItemHeight = 15;
-            this.lb_semestr7.Location = new System.Drawing.Point(451, 44);
+            this.lb_semestr7.Location = new System.Drawing.Point(428, 43);
             this.lb_semestr7.Name = "lb_semestr7";
             this.lb_semestr7.Size = new System.Drawing.Size(189, 94);
             this.lb_semestr7.TabIndex = 58;
@@ -606,12 +606,13 @@
             this.bt_smaz.BackColor = System.Drawing.Color.LightCoral;
             this.bt_smaz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smaz.Location = new System.Drawing.Point(1036, 598);
+            this.bt_smaz.Location = new System.Drawing.Point(1013, 597);
             this.bt_smaz.Name = "bt_smaz";
             this.bt_smaz.Size = new System.Drawing.Size(104, 20);
             this.bt_smaz.TabIndex = 60;
             this.bt_smaz.Text = "Smaž vybraný";
             this.bt_smaz.UseVisualStyleBackColor = false;
+            this.bt_smaz.Visible = false;
             this.bt_smaz.Click += new System.EventHandler(this.Bt_smaz_Click);
             // 
             // cmb_zaznam
@@ -670,9 +671,21 @@
             this.gb_max.Controls.Add(this.lb_semestr2);
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
-            this.gb_max.Size = new System.Drawing.Size(1146, 654);
+            this.gb_max.Size = new System.Drawing.Size(1132, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
+            // 
+            // gb_popis
+            // 
+            this.gb_popis.Controls.Add(this.tb_semest);
+            this.gb_popis.Controls.Add(this.tb_obor);
+            this.gb_popis.Controls.Add(this.label_popis);
+            this.gb_popis.Location = new System.Drawing.Point(715, 43);
+            this.gb_popis.Name = "gb_popis";
+            this.gb_popis.Size = new System.Drawing.Size(402, 548);
+            this.gb_popis.TabIndex = 73;
+            this.gb_popis.TabStop = false;
+            this.gb_popis.Text = "Popis";
             // 
             // tb_semest
             // 
@@ -691,7 +704,7 @@
             // lb_vyber
             // 
             this.lb_vyber.AutoSize = true;
-            this.lb_vyber.Location = new System.Drawing.Point(893, 628);
+            this.lb_vyber.Location = new System.Drawing.Point(870, 20);
             this.lb_vyber.Name = "lb_vyber";
             this.lb_vyber.Size = new System.Drawing.Size(76, 13);
             this.lb_vyber.TabIndex = 70;
@@ -700,7 +713,7 @@
             // nud_PridatDoSem
             // 
             this.nud_PridatDoSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_PridatDoSem.Location = new System.Drawing.Point(975, 624);
+            this.nud_PridatDoSem.Location = new System.Drawing.Point(952, 16);
             this.nud_PridatDoSem.Maximum = new decimal(new int[] {
             12,
             0,
@@ -721,24 +734,12 @@
             0,
             0});
             // 
-            // gb_popis
-            // 
-            this.gb_popis.Controls.Add(this.tb_semest);
-            this.gb_popis.Controls.Add(this.tb_obor);
-            this.gb_popis.Controls.Add(this.label_popis);
-            this.gb_popis.Location = new System.Drawing.Point(738, 44);
-            this.gb_popis.Name = "gb_popis";
-            this.gb_popis.Size = new System.Drawing.Size(402, 548);
-            this.gb_popis.TabIndex = 73;
-            this.gb_popis.TabStop = false;
-            this.gb_popis.Text = "Popis";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1170, 684);
+            this.ClientSize = new System.Drawing.Size(1153, 684);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -765,9 +766,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).EndInit();
             this.gb_max.ResumeLayout(false);
             this.gb_max.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             this.gb_popis.ResumeLayout(false);
             this.gb_popis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
