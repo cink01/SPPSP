@@ -47,5 +47,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
 
         }
+
+        private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tb_id.Text!="")
+            {
+                bt_info.Visible = true;
+            }
+        }
+
+        private void Bt_info_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Změna oboru povede k smazání zadaných předmětů v semestrech.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

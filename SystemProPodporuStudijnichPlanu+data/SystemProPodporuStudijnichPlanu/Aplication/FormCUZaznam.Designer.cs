@@ -40,6 +40,7 @@
             this.l_zkr = new System.Windows.Forms.Label();
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
+            this.bt_info = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).BeginInit();
             this.gb_Zaznam.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             this.cmb_obor.Name = "cmb_obor";
             this.cmb_obor.Size = new System.Drawing.Size(138, 21);
             this.cmb_obor.TabIndex = 3;
+            this.cmb_obor.SelectedIndexChanged += new System.EventHandler(this.Cmb_obor_SelectedIndexChanged);
             // 
             // bt_close
             // 
@@ -104,6 +106,7 @@
             // 
             // gb_Zaznam
             // 
+            this.gb_Zaznam.Controls.Add(this.bt_info);
             this.gb_Zaznam.Controls.Add(this.bt_close);
             this.gb_Zaznam.Controls.Add(this.cmb_obor);
             this.gb_Zaznam.Controls.Add(this.bt_ok);
@@ -114,6 +117,7 @@
             this.gb_Zaznam.Controls.Add(this.l_zkr);
             this.gb_Zaznam.Controls.Add(this.l_id);
             this.gb_Zaznam.Controls.Add(this.tb_zkr);
+            this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gb_Zaznam.Location = new System.Drawing.Point(5, 2);
             this.gb_Zaznam.Name = "gb_Zaznam";
             this.gb_Zaznam.Size = new System.Drawing.Size(239, 159);
@@ -174,6 +178,20 @@
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
             this.tb_zkr.TabIndex = 4;
             // 
+            // bt_info
+            // 
+            this.bt_info.BackColor = System.Drawing.Color.Azure;
+            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_info.Location = new System.Drawing.Point(98, 123);
+            this.bt_info.Name = "bt_info";
+            this.bt_info.Size = new System.Drawing.Size(19, 23);
+            this.bt_info.TabIndex = 13;
+            this.bt_info.Text = "?";
+            this.bt_info.UseVisualStyleBackColor = false;
+            this.bt_info.Visible = false;
+            this.bt_info.Click += new System.EventHandler(this.Bt_info_Click);
+            // 
             // FormCUZaznam
             // 
             this.AcceptButton = this.bt_ok;
@@ -206,5 +224,6 @@
         private System.Windows.Forms.Label l_zkr;
         private System.Windows.Forms.Label l_id;
         private System.Windows.Forms.TextBox tb_zkr;
+        private System.Windows.Forms.Button bt_info;
     }
 }
