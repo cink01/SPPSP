@@ -45,7 +45,7 @@
             this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(250, 347);
+            this.bt_ok.Location = new System.Drawing.Point(43, 343);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
             this.bt_ok.TabIndex = 0;
@@ -57,7 +57,7 @@
             this.bt_close.BackColor = System.Drawing.Color.Red;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(331, 347);
+            this.bt_close.Location = new System.Drawing.Point(124, 343);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.bt_add.BackColor = System.Drawing.Color.Chartreuse;
             this.bt_add.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.ButtonL53;
-            this.bt_add.Location = new System.Drawing.Point(304, 124);
+            this.bt_add.Location = new System.Drawing.Point(577, 149);
             this.bt_add.Name = "bt_add";
             this.bt_add.Size = new System.Drawing.Size(53, 53);
             this.bt_add.TabIndex = 2;
@@ -80,7 +80,7 @@
             // 
             this.bt_rem.BackColor = System.Drawing.Color.Red;
             this.bt_rem.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.ButtonR53;
-            this.bt_rem.Location = new System.Drawing.Point(304, 183);
+            this.bt_rem.Location = new System.Drawing.Point(577, 208);
             this.bt_rem.Name = "bt_rem";
             this.bt_rem.Size = new System.Drawing.Size(53, 53);
             this.bt_rem.TabIndex = 3;
@@ -91,23 +91,25 @@
             // 
             this.lb_vypis.FormattingEnabled = true;
             this.lb_vypis.HorizontalScrollbar = true;
-            this.lb_vypis.Location = new System.Drawing.Point(90, 12);
+            this.lb_vypis.Location = new System.Drawing.Point(12, 12);
             this.lb_vypis.Name = "lb_vypis";
             this.lb_vypis.Size = new System.Drawing.Size(208, 329);
             this.lb_vypis.TabIndex = 4;
+            this.lb_vypis.SelectedIndexChanged += new System.EventHandler(this.Lb_vypis_SelectedIndexChanged);
             // 
             // lb_chci
             // 
             this.lb_chci.FormattingEnabled = true;
             this.lb_chci.HorizontalScrollbar = true;
-            this.lb_chci.Location = new System.Drawing.Point(363, 12);
+            this.lb_chci.Location = new System.Drawing.Point(226, 12);
             this.lb_chci.Name = "lb_chci";
             this.lb_chci.Size = new System.Drawing.Size(208, 329);
             this.lb_chci.TabIndex = 5;
+            this.lb_chci.SelectedIndexChanged += new System.EventHandler(this.Lb_chci_SelectedIndexChanged);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(577, 28);
+            this.numericUpDown1.Location = new System.Drawing.Point(365, 346);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(69, 20);
             this.numericUpDown1.TabIndex = 6;
@@ -115,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(577, 12);
+            this.label1.Location = new System.Drawing.Point(320, 348);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 7;
@@ -128,7 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_ok;
-            this.ClientSize = new System.Drawing.Size(658, 378);
+            this.ClientSize = new System.Drawing.Size(446, 378);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lb_chci);
