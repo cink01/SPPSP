@@ -89,7 +89,8 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 List<Predmet> vystup = connection.Query<Predmet>(
                     $"SELECT [predmet].* " +
-                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] WHERE [predmet].id_obor='{ iobor }'AND [zaznam].zkr_zaznam='{zazn}'AND [plansemestr].sem_ps='{seme}'").ToList();
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] WHERE [predmet].id_obor='{ iobor }'AND [zaznam].zkr_zaznam='{zazn}'AND [plansemestr].sem_ps='{seme}'" +
+                    $"ORDER BY [predmet].semestr_predmet").ToList();
                 return vystup;
             }
         }

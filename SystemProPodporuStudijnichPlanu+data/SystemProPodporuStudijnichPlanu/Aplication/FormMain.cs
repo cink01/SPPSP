@@ -27,7 +27,24 @@ namespace SystemProPodporuStudijnichPlanu
         {
             x.DataSource = null;
             x.Items.Clear();
-            //i = GetVyber();
+            /*
+            try{
+                decimal sum = 0;
+                DataAccess da = new DataAccess();
+                VratZaznamData(out _, out string zaz, out int o, out _, out _);
+                x.DataSource = null;
+                x.Items.Clear();
+                List<Predmet> i = new List<Predmet>();
+                i=da.GetPredmetZVyberu(vyber, zaz, o);
+                foreach (Predmet n in i)
+                {
+                    x.Items.Add(n.FullInfo);
+                    sum += n.Kredit_predmet;
+                }
+                VyberNudVal(sum, vyber);
+            }
+            catch { }
+            */
             KreditySum(i, vyber);
             foreach (Predmet n in i)
             {
