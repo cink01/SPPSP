@@ -12,18 +12,6 @@ namespace SystemProPodporuStudijnichPlanu
         public List<Predmet> predmetyLichy = new List<Predmet>();
         public List<Predmet> predmetySudy = new List<Predmet>();
         public List<Predmet> Sporty = new List<Predmet>();
-        List<Predmet> predmetyS1 = new List<Predmet>();
-        List<Predmet> predmetyS2 = new List<Predmet>();
-        List<Predmet> predmetyS3 = new List<Predmet>();
-        List<Predmet> predmetyS4 = new List<Predmet>();
-        List<Predmet> predmetyS5 = new List<Predmet>();
-        List<Predmet> predmetyS6 = new List<Predmet>();
-        List<Predmet> predmetyS7 = new List<Predmet>();
-        List<Predmet> predmetyS8 = new List<Predmet>();
-        List<Predmet> predmetyS9 = new List<Predmet>();
-        List<Predmet> predmetyS10 = new List<Predmet>();
-        List<Predmet> predmetyS11 = new List<Predmet>();
-        List<Predmet> predmetyS12 = new List<Predmet>();
         public FormMain()
         {
             InitializeComponent();
@@ -33,25 +21,16 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            Obnov();
+
         }
-        private void Obnov()
-        {
-            KreditySum();
-        }
-        private void ObnovFull()
-        {
-            lb_semestr1.DisplayMember = "FullInfo";
-            KreditySum();
-        }
-        private void KreditySum()
+        private void KreditySum(List<Predmet> x,int vyber)
         {
             decimal sum = 0;
-            foreach (Predmet a in predmetyS1)
+            foreach (Predmet a in x)
             {
                 sum += a.Kredit_predmet;
             }
-            nud_KredSem1.Value = sum;
+            VyberNudVal(sum, vyber);
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
@@ -73,6 +52,8 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_proved_Click(object sender, EventArgs e)
         {
+            DataCrud data = new DataCrud();
+            VratZaznamData(out int id_z, out string zkr, out int id_o, out string roko, out int pocesem);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
@@ -80,11 +61,15 @@ namespace SystemProPodporuStudijnichPlanu
             else
                 FP.PredmetySeznam = predmetySudy;
             FP.RefreshSeznam();
-            FP.PredmetyAdd = VyberListu(vyber);
             DialogResult potvrzeni = FP.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
-                NaplnVybranyList(vyber, FP.PredmetyAdd);
+                List<Predmet> x = FP.PredmetyAdd;
+                foreach (Predmet p in x)
+                {
+                    data.InsertVyber(p.Id_predmet, vyber, id_z);
+                }
+                RefreshList(VratListBox(vyber), x,vyber);
             }
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
@@ -117,7 +102,6 @@ namespace SystemProPodporuStudijnichPlanu
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     cesta = openFileDialog.FileName;
-
                 }
             }
             NacteniDat nd = new NacteniDat();
@@ -351,9 +335,6 @@ namespace SystemProPodporuStudijnichPlanu
         private void VyplnPotrebnyZeZaznamu()
         {
             DataAccess db = new DataAccess();
-            /* DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-               if (DZ != null)
-             */
             if (cmb_zaznam.SelectedItem is DataRowView DZ)
             {
                 int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
@@ -442,12 +423,20 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(1);
-            label_popis.Text = lb_semestr1.SelectedItem.ToString();
+            try
+            {
+                label_popis.Text = lb_semestr1.SelectedItem.ToString();
+        }
+            catch { }
         }
         private void Lb_semestr2_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(2);
-            label_popis.Text = lb_semestr2.SelectedItem.ToString();
+            try
+            {
+                label_popis.Text = lb_semestr2.SelectedItem.ToString();
+            }
+            catch { }
         }
         private void Lb_semestr3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -491,121 +480,126 @@ namespace SystemProPodporuStudijnichPlanu
         {
             DeselectnutiListu(12);
         }
-        private List<Predmet> VyberListu(int i)
+        private ListBox VratListBox(int i)
         {
             switch (i)
             {
                 case 12:
                     {
-                        return predmetyS12;
+                        return lb_semestr12;
                     }
                 case 11:
                     {
-                        return predmetyS11;
+                        return lb_semestr11;
                     }
                 case 10:
                     {
-                        return predmetyS10;
+                        return lb_semestr10;
                     }
                 case 9:
                     {
-                        return predmetyS9;
+                        return lb_semestr9;
                     }
                 case 8:
                     {
-                        return predmetyS8;
+                        return lb_semestr8;
                     }
                 case 7:
                     {
-                        return predmetyS7;
+                        return lb_semestr7;
                     }
                 case 6:
                     {
-                        return predmetyS6;
+                        return lb_semestr6;
                     }
                 case 5:
                     {
-                        return predmetyS5;
+                        return lb_semestr5;
 
                     }
                 case 4:
                     {
-                        return predmetyS4;
+                        return lb_semestr4;
 
                     }
                 case 3:
                     {
-                        return predmetyS3;
+                        return lb_semestr3;
 
                     }
                 case 2:
                     {
-                        return predmetyS2;
+                        return lb_semestr2;
                     }
                 case 1:
                     {
-                        return predmetyS1;
+                        return lb_semestr1;
                     }
             }
             return null;
-
         }
-        private void NaplnVybranyList(int i, List<Predmet> p)
+        private void VyberNudVal(decimal sum, int vyber)
         {
-            switch (i)
+            switch (vyber)
             {
                 case 12:
                     {
-                        predmetyS12 = p; break;
+                        nud_KredSem12.Value = sum; break;
                     }
                 case 11:
                     {
-                        predmetyS11 = p; break;
+                        nud_KredSem11.Value = sum; break;
                     }
                 case 10:
                     {
-                        predmetyS10 = p; break;
+                        nud_KredSem10.Value = sum; break;
                     }
                 case 9:
                     {
-                        predmetyS9 = p; break;
+                        nud_KredSem9.Value = sum; break;
                     }
                 case 8:
                     {
-                        predmetyS8 = p; break;
+                        nud_KredSem8.Value = sum; break;
                     }
                 case 7:
                     {
-                        predmetyS7 = p; break;
+                        nud_KredSem7.Value = sum; break;
                     }
                 case 6:
                     {
-                        predmetyS6 = p; break;
+                        nud_KredSem6.Value = sum; break;
                     }
                 case 5:
                     {
-                        predmetyS5 = p; break;
-
+                        nud_KredSem5.Value = sum; break;
                     }
                 case 4:
                     {
-                        predmetyS4 = p; break;
-
+                        nud_KredSem4.Value = sum; break;
                     }
                 case 3:
                     {
-                        predmetyS3 = p; break;
-
+                        nud_KredSem3.Value = sum; break;
                     }
                 case 2:
                     {
-                        predmetyS2 = p; break;
+                        nud_KredSem2.Value = sum; break;
                     }
                 case 1:
                     {
-                        predmetyS1 = p; break;
+                        nud_KredSem1.Value = sum; break;
                     }
-                default: break;
+            }
+        }
+        private void RefreshList(ListBox x, List<Predmet> i,int vyber)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            KreditySum(i,vyber);
+            foreach (Predmet n in i)
+            {
+                x.Items.Add(n.FullInfo);
             }
         }
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
@@ -639,84 +633,64 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             try
             {
+                var test = new List<Predmet>();
                 if (1 <= semestry)
                 {
-                    predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(1, zaznam, obor), semestry);
                 }
-
                 if (2 <= semestry)
                 {
-                    predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(2, zaznam, obor), semestry);
                 }
-
                 if (3 <= semestry)
                 {
-                    predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(3, zaznam, obor), semestry);
                 }
-
                 if (4 <= semestry)
                 {
-                    predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(4, zaznam, obor), semestry);
                 }
-
                 if (5 <= semestry)
                 {
-                    predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(5, zaznam, obor), semestry);
                 }
-
                 if (6 <= semestry)
                 {
-                    predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(6, zaznam, obor), semestry);
                 }
-
                 if (7 <= semestry)
                 {
-                    predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(7, zaznam, obor), semestry);
                 }
-
                 if (8 <= semestry)
                 {
-                    predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(8, zaznam, obor), semestry);
                 }
-
                 if (9 <= semestry)
                 {
-                    predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(9, zaznam, obor), semestry);
                 }
-
                 if (10 <= semestry)
                 {
-                    predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(10, zaznam, obor), semestry);
                 }
-
                 if (11 <= semestry)
                 {
-                    predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(11, zaznam, obor), semestry);
                 }
-
                 if (12 <= semestry)
                 {
-                    predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
+                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(12, zaznam, obor), semestry);
                 }
             }
             catch { }
         }
         private void ClearListy()
         {
-            predmetyS1.Clear();
-            predmetyS2.Clear();
-            predmetyS3.Clear();
-            predmetyS4.Clear();
-            predmetyS5.Clear();
-            predmetyS6.Clear();
-            predmetyS7.Clear();
-            predmetyS8.Clear();
-            predmetyS9.Clear();
-            predmetyS10.Clear();
-            predmetyS11.Clear();
-            predmetyS12.Clear();
+            Sporty.Clear();
             predmetySudy.Clear();
             predmetyLichy.Clear();
+            
         }
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {

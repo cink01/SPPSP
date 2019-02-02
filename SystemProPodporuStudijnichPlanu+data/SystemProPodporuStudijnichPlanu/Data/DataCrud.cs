@@ -265,5 +265,25 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void InsertVyber( int ipredmet, int semestr, int zaz)
+        {
+            DataAccess da = new DataAccess();
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vyb = new SqlCommand("insert into vyber(id_predmet,id_ps) values(@id_p,@id_ps)", conn);
+                vyb.Parameters.AddWithValue("@id_p", ipredmet);
+                vyb.Parameters.AddWithValue("@id_ps", da.GetPSId(zaz, semestr));
+                try
+                {
+                    conn.Open();
+                    vyb.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
     }
 }
