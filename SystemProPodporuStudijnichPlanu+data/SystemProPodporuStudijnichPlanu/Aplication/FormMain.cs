@@ -11,6 +11,7 @@ namespace SystemProPodporuStudijnichPlanu
     {
         public List<Predmet> predmetyLichy = new List<Predmet>();
         public List<Predmet> predmetySudy = new List<Predmet>();
+        public List<Predmet> Sporty = new List<Predmet>();
         List<Predmet> predmetyS1 = new List<Predmet>();
         List<Predmet> predmetyS2 = new List<Predmet>();
         List<Predmet> predmetyS3 = new List<Predmet>();
@@ -627,7 +628,13 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             predmetyLichy = db.GetPredmetFullLichy(obor);
             predmetySudy = db.GetPredmetFullSudy(obor);
-            /*
+            Sporty = db.GetPredmetBySemestr(0);
+            for(int i =1;i<=semestry; i++)
+                NaplnitIndividualy(zaznam, obor,i);
+        }
+        private void NaplnitIndividualy(string zaznam, int obor,int semestry=0)
+        {
+            DataAccess db = new DataAccess();
             if (1 <= semestry)
             {
                 predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
@@ -687,7 +694,6 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
             }
-            */
         }
         private void ClearListy()
         {

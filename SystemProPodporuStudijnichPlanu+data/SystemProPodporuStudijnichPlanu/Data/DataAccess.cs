@@ -83,6 +83,17 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+        public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, int obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* " +
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] NATURAL JOIN [obor]" +
+                    $" WHERE [predmet].id_obor='{ obor }'AND [zaznam].zkr_zaznam='{zaznam}'AND [plansemestr].sem_ps='{semestr}'").ToList();
+                return vystup;
+            }
+        }
 
         public void CheckExistObor(string x, out int Exist)
         {
