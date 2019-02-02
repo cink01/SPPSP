@@ -23,6 +23,17 @@ namespace SystemProPodporuStudijnichPlanu
         {
 
         }
+        private void RefreshList(ListBox x, List<Predmet> i, int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            //i = GetVyber();
+            KreditySum(i, vyber);
+            foreach (Predmet n in i)
+            {
+                x.Items.Add(n.FullInfo);
+            }
+        }
         private void KreditySum(List<Predmet> x,int vyber)
         {
             decimal sum = 0;
@@ -107,219 +118,7 @@ namespace SystemProPodporuStudijnichPlanu
             NacteniDat nd = new NacteniDat();
             nd.ProvedPopis(cesta);
         }
-        private void Viditelnost(int i)
-        {
-            gb_popis.Left = i > 6 ? 715 : 428;
-            Tma();
-            switch (i)
-            {
-                case 12:
-                    {
-                        nud_KredSem12.Visible = lb_semestr12.Visible = true;
-                        goto case 11;
-                    }
-                case 11:
-                    {
-                        nud_KredSem11.Visible = lb_semestr11.Visible = true;
-                        goto case 10;
-                    }
-                case 10:
-                    {
-                        nud_KredSem10.Visible = lb_semestr10.Visible = true;
-                        goto case 9;
-                    }
-                case 9:
-                    {
-                        nud_KredSem9.Visible = lb_semestr9.Visible = true;
-                        goto case 8;
-                    }
-                case 8:
-                    {
-                        nud_KredSem8.Visible = lb_semestr8.Visible = true;
-                        goto case 7;
-                    }
-                case 7:
-                    {
-                        nud_KredSem7.Visible = lb_semestr7.Visible = true;
-                        goto case 6;
-                    }
-                case 6:
-                    {
-                        nud_KredSem6.Visible = lb_semestr6.Visible = true;
-                        goto case 5;
-                    }
-                case 5:
-                    {
-                        nud_KredSem5.Visible = lb_semestr5.Visible = true;
-                        goto case 4;
-                    }
-                case 4:
-                    {
-                        nud_KredSem4.Visible = lb_semestr4.Visible = true;
-                        goto case 3;
-                    }
-                case 3:
-                    {
-                        nud_KredSem3.Visible = lb_semestr3.Visible = true;
-                        goto case 2;
-                    }
-                case 2:
-                    {
-                        nud_KredSem2.Visible = lb_semestr2.Visible = true;
-                        goto case 1;
-                    }
-                case 1:
-                    {
-                        nud_KredSem1.Visible = lb_semestr1.Visible = true;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-        public void Tma()
-        {
-            nud_KredSem12.Visible = nud_KredSem11.Visible = nud_KredSem10.Visible = nud_KredSem9.Visible = nud_KredSem8.Visible =
-                nud_KredSem7.Visible = nud_KredSem6.Visible = nud_KredSem5.Visible = nud_KredSem4.Visible = nud_KredSem3.Visible =
-                nud_KredSem2.Visible = nud_KredSem1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
-                lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
-                lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
-        }
-        private void Bt_smaz_Click(object sender, EventArgs e)
-        {
-            if (lb_semestr1.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr1.Items.Remove(lb_semestr1.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr2.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr2.Items.Remove(lb_semestr2.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr3.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr3.Items.Remove(lb_semestr3.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr4.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr5.Items.Remove(lb_semestr4.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr5.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr5.Items.Remove(lb_semestr5.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr6.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr6.Items.Remove(lb_semestr6.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr7.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr7.Items.Remove(lb_semestr7.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr8.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr9.Items.Remove(lb_semestr8.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr9.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr9.Items.Remove(lb_semestr9.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr10.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr10.Items.Remove(lb_semestr10.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr11.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr11.Items.Remove(lb_semestr11.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr12.SelectedIndex != -1)
-            {
-                try
-                {
-                    lb_semestr12.Items.Remove(lb_semestr12.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-        }
+       
         private void SprávaDatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCRUDmidstage x = new FormCRUDmidstage();
@@ -343,6 +142,10 @@ namespace SystemProPodporuStudijnichPlanu
                 tb_semest.Text = semestry.ToString();
                 Viditelnost(semestry);
                 nud_PridatDoSem.Maximum = semestry;
+                for(int i=1;i<semestry;i++)
+                {
+
+                }
             }
         }
         private void RefreshZaznamy()
@@ -592,16 +395,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
             }
         }
-        private void RefreshList(ListBox x, List<Predmet> i,int vyber)
-        {
-            x.DataSource = null;
-            x.Items.Clear();
-            KreditySum(i,vyber);
-            foreach (Predmet n in i)
-            {
-                x.Items.Add(n.FullInfo);
-            }
-        }
+
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
@@ -790,5 +584,218 @@ namespace SystemProPodporuStudijnichPlanu
             RefreshZaznamy();
         }
         private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
+        private void Viditelnost(int i)
+        {
+            gb_popis.Left = i > 6 ? 715 : 428;
+            Tma();
+            switch (i)
+            {
+                case 12:
+                    {
+                        nud_KredSem12.Visible = lb_semestr12.Visible = true;
+                        goto case 11;
+                    }
+                case 11:
+                    {
+                        nud_KredSem11.Visible = lb_semestr11.Visible = true;
+                        goto case 10;
+                    }
+                case 10:
+                    {
+                        nud_KredSem10.Visible = lb_semestr10.Visible = true;
+                        goto case 9;
+                    }
+                case 9:
+                    {
+                        nud_KredSem9.Visible = lb_semestr9.Visible = true;
+                        goto case 8;
+                    }
+                case 8:
+                    {
+                        nud_KredSem8.Visible = lb_semestr8.Visible = true;
+                        goto case 7;
+                    }
+                case 7:
+                    {
+                        nud_KredSem7.Visible = lb_semestr7.Visible = true;
+                        goto case 6;
+                    }
+                case 6:
+                    {
+                        nud_KredSem6.Visible = lb_semestr6.Visible = true;
+                        goto case 5;
+                    }
+                case 5:
+                    {
+                        nud_KredSem5.Visible = lb_semestr5.Visible = true;
+                        goto case 4;
+                    }
+                case 4:
+                    {
+                        nud_KredSem4.Visible = lb_semestr4.Visible = true;
+                        goto case 3;
+                    }
+                case 3:
+                    {
+                        nud_KredSem3.Visible = lb_semestr3.Visible = true;
+                        goto case 2;
+                    }
+                case 2:
+                    {
+                        nud_KredSem2.Visible = lb_semestr2.Visible = true;
+                        goto case 1;
+                    }
+                case 1:
+                    {
+                        nud_KredSem1.Visible = lb_semestr1.Visible = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void Tma()
+        {
+            nud_KredSem12.Visible = nud_KredSem11.Visible = nud_KredSem10.Visible = nud_KredSem9.Visible = nud_KredSem8.Visible =
+                nud_KredSem7.Visible = nud_KredSem6.Visible = nud_KredSem5.Visible = nud_KredSem4.Visible = nud_KredSem3.Visible =
+                nud_KredSem2.Visible = nud_KredSem1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
+                lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
+                lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+        }
+        private void Bt_smaz_Click(object sender, EventArgs e)
+        {
+            if (lb_semestr1.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr1.Items.Remove(lb_semestr1.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr2.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr2.Items.Remove(lb_semestr2.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr3.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr3.Items.Remove(lb_semestr3.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr4.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr5.Items.Remove(lb_semestr4.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr5.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr5.Items.Remove(lb_semestr5.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr6.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr6.Items.Remove(lb_semestr6.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr7.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr7.Items.Remove(lb_semestr7.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr8.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr9.Items.Remove(lb_semestr8.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr9.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr9.Items.Remove(lb_semestr9.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr10.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr10.Items.Remove(lb_semestr10.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr11.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr11.Items.Remove(lb_semestr11.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+            if (lb_semestr12.SelectedIndex != -1)
+            {
+                try
+                {
+                    lb_semestr12.Items.Remove(lb_semestr12.SelectedItem);
+                }
+                catch
+                {
+                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
+                }
+            }
+        }
     }
 }
