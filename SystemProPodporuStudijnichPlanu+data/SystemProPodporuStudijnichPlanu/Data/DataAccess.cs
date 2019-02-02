@@ -63,11 +63,11 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetBySemestr(int semestr_predmet)
+        public List<Predmet> GetPredmetBySemestr(int semestr_predmet,int id_obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where semestr_predmet='{ semestr_predmet }'").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND semestr_predmet='{ semestr_predmet }'").ToList();
                 return vystup;
             }
         }
@@ -83,14 +83,13 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, int obor)
+        public List<Predmet> GetPredmetZVyberu(int seme, string zazn, int iobor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 List<Predmet> vystup = connection.Query<Predmet>(
                     $"SELECT [predmet].* " +
-                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] NATURAL JOIN [obor]" +
-                    $" WHERE [predmet].id_obor='{ obor }'AND [zaznam].zkr_zaznam='{zaznam}'AND [plansemestr].sem_ps='{semestr}'").ToList();
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] WHERE [predmet].id_obor='{ iobor }'AND [zaznam].zkr_zaznam='{zazn}'AND [plansemestr].sem_ps='{seme}'").ToList();
                 return vystup;
             }
         }

@@ -628,72 +628,78 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             predmetyLichy = db.GetPredmetFullLichy(obor);
             predmetySudy = db.GetPredmetFullSudy(obor);
-            Sporty = db.GetPredmetBySemestr(0);
-            for(int i =1;i<=semestry; i++)
-                NaplnitIndividualy(zaznam, obor,i);
+            Sporty = db.GetPredmetBySemestr(0,obor);
+            predmetyLichy.AddRange(Sporty);
+            predmetySudy.AddRange(Sporty);
+             for(int i =1;i<=semestry; i++)
+                 NaplnitIndividualy(zaznam, obor,i);
         }
-        private void NaplnitIndividualy(string zaznam, int obor,int semestry=0)
+        private void NaplnitIndividualy(string zaznam, int obor, int semestry = 0)
         {
             DataAccess db = new DataAccess();
-            if (1 <= semestry)
+            try
             {
-                predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
-            }
+                if (1 <= semestry)
+                {
+                    predmetyS1 = db.GetPredmetZVyberu(1, zaznam, obor);
+                }
 
-            if (2 <= semestry)
-            {
-                predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
-            }
+                if (2 <= semestry)
+                {
+                    predmetyS2 = db.GetPredmetZVyberu(2, zaznam, obor);
+                }
 
-            if (3 <= semestry)
-            {
-                predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
-            }
+                if (3 <= semestry)
+                {
+                    predmetyS3 = db.GetPredmetZVyberu(3, zaznam, obor);
+                }
 
-            if (4 <= semestry)
-            {
-                predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
-            }
+                if (4 <= semestry)
+                {
+                    predmetyS4 = db.GetPredmetZVyberu(4, zaznam, obor);
+                }
 
-            if (5 <= semestry)
-            {
-                predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
-            }
+                if (5 <= semestry)
+                {
+                    predmetyS5 = db.GetPredmetZVyberu(5, zaznam, obor);
+                }
 
-            if (6 <= semestry)
-            {
-                predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
-            }
+                if (6 <= semestry)
+                {
+                    predmetyS6 = db.GetPredmetZVyberu(6, zaznam, obor);
+                }
 
-            if (7 <= semestry)
-            {
-                predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
-            }
+                if (7 <= semestry)
+                {
+                    predmetyS7 = db.GetPredmetZVyberu(7, zaznam, obor);
+                }
 
-            if (8 <= semestry)
-            {
-                predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
-            }
+                if (8 <= semestry)
+                {
+                    predmetyS8 = db.GetPredmetZVyberu(8, zaznam, obor);
+                }
 
-            if (9 <= semestry)
-            {
-                predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
-            }
+                if (9 <= semestry)
+                {
+                    predmetyS9 = db.GetPredmetZVyberu(9, zaznam, obor);
+                }
 
-            if (10 <= semestry)
-            {
-                predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
-            }
+                if (10 <= semestry)
+                {
+                    predmetyS10 = db.GetPredmetZVyberu(10, zaznam, obor);
+                }
 
-            if (11 <= semestry)
-            {
-                predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
-            }
+                if (11 <= semestry)
+                {
+                    predmetyS11 = db.GetPredmetZVyberu(11, zaznam, obor);
+                }
 
-            if (12 <= semestry)
-            {
-                predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
+                if (12 <= semestry)
+                {
+                    predmetyS12 = db.GetPredmetZVyberu(12, zaznam, obor);
+                }
             }
+            catch { }
         }
         private void ClearListy()
         {
