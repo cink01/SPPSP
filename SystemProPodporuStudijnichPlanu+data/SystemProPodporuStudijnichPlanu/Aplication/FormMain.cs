@@ -19,39 +19,12 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
         }
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
         private void RefreshList(ListBox x, /*List<Predmet> i,*/ int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
         {
             VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
             DataAccess da = new DataAccess();
             da.FillSemestrLB(x,izaz, vyber, out decimal sum);
             VyberNudVal(sum, vyber);
-            /*
-            try{
-                decimal sum = 0;
-                DataAccess da = new DataAccess();
-                VratZaznamData(out _, out string zaz, out int o, out _, out _);
-                x.DataSource = null;
-                x.Items.Clear();
-                List<Predmet> i = new List<Predmet>();
-                i=da.GetPredmetZVyberu(vyber, zaz, o);
-                foreach (Predmet n in i)
-                {
-                    x.Items.Add(n.FullInfo);
-                    sum += n.Kredit_predmet;
-                }
-                VyberNudVal(sum, vyber);
-            }
-            catch { }
-            
-            KreditySum(i, vyber);
-            foreach (Predmet n in i)
-            {
-                x.Items.Add(n.FullInfo);
-            }*/
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
@@ -128,7 +101,6 @@ namespace SystemProPodporuStudijnichPlanu
             NacteniDat nd = new NacteniDat();
             nd.ProvedPopis(cesta);
         }
-       
         private void SprávaDatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCRUDmidstage x = new FormCRUDmidstage();
@@ -139,7 +111,6 @@ namespace SystemProPodporuStudijnichPlanu
             VyplnPotrebnyZeZaznamu();
             if (cmb_zaznam.SelectedIndex >= 0)
                 FillHlavniListy();
-
         }
         private void VyplnPotrebnyZeZaznamu()
         {
@@ -152,10 +123,6 @@ namespace SystemProPodporuStudijnichPlanu
                 tb_semest.Text = semestry.ToString();
                 Viditelnost(semestry);
                 nud_PridatDoSem.Maximum = semestry;
-                for(int i=1;i<semestry;i++)
-                {
-
-                }
             }
         }
         private void RefreshZaznamy()

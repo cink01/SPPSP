@@ -105,7 +105,6 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-
         public void CheckExistObor(string x, out int Exist)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -220,7 +219,6 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
-
         public void FillOborCB(ComboBox x)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -301,7 +299,6 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-
         public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum)
         {
             x.DataSource = null;
