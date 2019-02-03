@@ -30,7 +30,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 OR semestr_predmet=0)").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 )").ToList();
                 return vystup;
             }
         }
@@ -40,7 +40,7 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"Select * " +
                     $"from predmet " +
-                    $"where id_obor='{GetOborId(obor)}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6 OR semestr_predmet=0)" +
+                    $"where id_obor='{GetOborId(obor)}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
                     $"ORDER BY semestr_predmet,povinnost").ToList();
                 return vystup;
             }
@@ -102,6 +102,16 @@ namespace SystemProPodporuStudijnichPlanu
                     $"SELECT [predmet].* " +
                     $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  WHERE [plansemestr].id_zaznam='{izaz}'AND [plansemestr].sem_ps='{seme}'" +
                     $"ORDER BY [predmet].semestr_predmet").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetyVyberFull(int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}'").ToList();
                 return vystup;
             }
         }
@@ -305,7 +315,7 @@ namespace SystemProPodporuStudijnichPlanu
             x.Items.Clear();
             sum = 0;
             CheckExistVyber(sem, izaz, out int Exist);
-            if (Exist > 1)
+            if (Exist > 0)
             {
                 using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {

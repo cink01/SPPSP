@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Aplication;
 
@@ -47,24 +48,42 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
+            DataAccess da = new DataAccess();
+            int count = 0;
+            //temp.Clear();
             VratZaznamData(out int id_z, out string _, out int _, out string _, out int _);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
+            {
+                /*List<Predmet> x = predmetyLichy;
+                x = x.Except(da.GetPredmetyVyberFull(id_z)).ToList();
+                FP.PredmetySeznam = x;*/
+                count = 1;
                 FP.PredmetySeznam = predmetyLichy;
+            }
             else
+            {
+                count = 2;
                 FP.PredmetySeznam = predmetySudy;
+   //             FP.PredmetySeznam = predmetySudy.Except(da.GetPredmetyVyberFull(id_z)).ToList();
+            }
             FP.RefreshSeznam();
             DialogResult potvrzeni = FP.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
-                List<Predmet> x = FP.PredmetyAdd;
-                foreach (Predmet p in x)
+                if (count == 1)
+                    predmetyLichy = FP.PredmetySeznam;
+                if (count == 2)
+                    predmetySudy = FP.PredmetySeznam;
+                //List<Predmet> x = FP.PredmetyAdd;
+                foreach (Predmet p in FP.PredmetyAdd)
                 {
                     data.InsertVyber(p.Id_predmet, vyber, id_z);
                 }
-                RefreshList(VratListBox(vyber),/* x,*/vyber);
+                RefreshList(VratListBox(vyber), vyber);
             }
+
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
@@ -385,14 +404,14 @@ namespace SystemProPodporuStudijnichPlanu
         private void FillHlavniListy()
         {
             ClearListy();
-            VratZaznamData(out int _, out string _, out int obor, out string _, out int semestry);
+            VratZaznamData(out int idz, out string _, out int obor, out string _, out int semestry);
             tb_obor.Text = obor.ToString();
             tb_semest.Text = semestry.ToString();
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             DataAccess db = new DataAccess();
-            predmetyLichy = db.GetPredmetFullLichy(obor);
-            predmetySudy = db.GetPredmetFullSudy(obor);
+            predmetyLichy = db.GetPredmetFullLichy(obor).Except(db.GetPredmetyVyberFull(idz)).ToList();//nefunguje
+            predmetySudy = db.GetPredmetFullSudy(obor).Except(db.GetPredmetyVyberFull(idz)).ToList();//nefunguje mozna napsat novej select
             Sporty = db.GetPredmetBySemestr(0,obor);
             predmetyLichy.AddRange(Sporty);
             predmetySudy.AddRange(Sporty);
