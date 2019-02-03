@@ -94,6 +94,17 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+        public List<Predmet> GetPredmetZVyberu(int seme, int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  WHERE [plansemestr].id_zaznam='{izaz}'AND [plansemestr].sem_ps='{seme}'" +
+                    $"ORDER BY [predmet].semestr_predmet").ToList();
+                return vystup;
+            }
+        }
 
         public void CheckExistObor(string x, out int Exist)
         {
@@ -106,6 +117,26 @@ namespace SystemProPodporuStudijnichPlanu
                 checkObor.Parameters.AddWithValue("@name_obor", x);
                 //zaznamenani jestli probehl select
                 Exist = (int)checkObor.ExecuteScalar();
+            }
+        }
+        public void CheckExistVyber(int seme, int izaz, out int Exist)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                try
+                {
+                    //chyba kolem where
+                    SqlCommand checkVyber = new SqlCommand("SELECT COUNT(id_vyber) FROM [vyber] JOIN [plansemestr] ON [vyber].id_ps =[plansemestr].id_ps WHERE (id_zaznam=@izaz) AND (sem_ps=@seme)", GetConnection());
+                    checkVyber.Parameters.AddWithValue("@izaz", izaz);
+                    checkVyber.Parameters.AddWithValue("@seme", seme);
+                    //zaznamenani jestli probehl select
+                    Exist = (int)checkVyber.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Chyba"+ex);
+                    Exist = -1;
+                }
             }
         }
         public void CheckExistPredmet(string name_predmet, int id_obor, out int Exist)
@@ -267,6 +298,33 @@ namespace SystemProPodporuStudijnichPlanu
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error occured!" + ex);
+                }
+            }
+        }
+
+        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            sum = 0;
+            CheckExistVyber(sem, izaz, out int Exist);
+            if (Exist > 1)
+            {
+                using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                {
+                    try
+                    {
+                        List<Predmet> predmets = GetPredmetZVyberu(sem, izaz);
+                        foreach (Predmet n in predmets)
+                        {
+                            x.Items.Add(n.FullInfo);
+                            sum += n.Kredit_predmet;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error occured!" + ex);
+                    }
                 }
             }
         }

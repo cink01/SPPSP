@@ -23,10 +23,12 @@ namespace SystemProPodporuStudijnichPlanu
         {
 
         }
-        private void RefreshList(ListBox x, List<Predmet> i, int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
+        private void RefreshList(ListBox x, /*List<Predmet> i,*/ int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
         {
-            x.DataSource = null;
-            x.Items.Clear();
+            VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
+            DataAccess da = new DataAccess();
+            da.FillSemestrLB(x,izaz, vyber, out decimal sum);
+            VyberNudVal(sum, vyber);
             /*
             try{
                 decimal sum = 0;
@@ -44,21 +46,12 @@ namespace SystemProPodporuStudijnichPlanu
                 VyberNudVal(sum, vyber);
             }
             catch { }
-            */
+            
             KreditySum(i, vyber);
             foreach (Predmet n in i)
             {
                 x.Items.Add(n.FullInfo);
-            }
-        }
-        private void KreditySum(List<Predmet> x,int vyber)
-        {
-            decimal sum = 0;
-            foreach (Predmet a in x)
-            {
-                sum += a.Kredit_predmet;
-            }
-            VyberNudVal(sum, vyber);
+            }*/
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
@@ -81,7 +74,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
-            VratZaznamData(out int id_z, out string zkr, out int id_o, out string roko, out int pocesem);
+            VratZaznamData(out int id_z, out string _, out int _, out string _, out int _);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
@@ -97,7 +90,7 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     data.InsertVyber(p.Id_predmet, vyber, id_z);
                 }
-                RefreshList(VratListBox(vyber), x,vyber);
+                RefreshList(VratListBox(vyber),/* x,*/vyber);
             }
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
@@ -425,7 +418,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void FillHlavniListy()
         {
             ClearListy();
-            VratZaznamData(out int id_zaznam, out string zaznam, out int obor, out string roko, out int semestry);
+            VratZaznamData(out int _, out string _, out int obor, out string _, out int semestry);
             tb_obor.Text = obor.ToString();
             tb_semest.Text = semestry.ToString();
             Viditelnost(semestry);
@@ -437,61 +430,60 @@ namespace SystemProPodporuStudijnichPlanu
             predmetyLichy.AddRange(Sporty);
             predmetySudy.AddRange(Sporty);
              for(int i =1;i<=semestry; i++)
-                 NaplnitIndividualy(zaznam, obor,i);
+                 NaplnitIndividualy(i);
         }
-        private void NaplnitIndividualy(string zaznam, int obor, int semestry = 0)
+        private void NaplnitIndividualy(int semestry = 0)
         {
-            DataAccess db = new DataAccess();
             try
             {
                 var test = new List<Predmet>();
                 if (1 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(1, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (2 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(2, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (3 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(3, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (4 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(4, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (5 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(5, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (6 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(6, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (7 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(7, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (8 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(8, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (9 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(9, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (10 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(10, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (11 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(11, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
                 if (12 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry), test = db.GetPredmetZVyberu(12, zaznam, obor), semestry);
+                    RefreshList(VratListBox(semestry),semestry);
                 }
             }
             catch { }
@@ -535,7 +527,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem);
+            VratZaznamData(out int id_z, out string zkr, out int _, out string rok_o, out int PocSem);
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
                 Zaznam.Text = "Upravit záznam";
