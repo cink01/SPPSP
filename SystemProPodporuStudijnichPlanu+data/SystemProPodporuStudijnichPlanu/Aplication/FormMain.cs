@@ -48,17 +48,13 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
-            DataAccess da = new DataAccess();
-            int count = 0;
             //temp.Clear();
-            VratZaznamData(out int id_z, out string _, out int _, out string _, out int _);
+            VratZaznamData(out int id_z, out _, out _, out _, out _);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
+            int count;
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
             {
-                /*List<Predmet> x = predmetyLichy;
-                x = x.Except(da.GetPredmetyVyberFull(id_z)).ToList();
-                FP.PredmetySeznam = x;*/
                 count = 1;
                 FP.PredmetySeznam = predmetyLichy;
             }
@@ -66,7 +62,6 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 count = 2;
                 FP.PredmetySeznam = predmetySudy;
-   //             FP.PredmetySeznam = predmetySudy.Except(da.GetPredmetyVyberFull(id_z)).ToList();
             }
             FP.RefreshSeznam();
             DialogResult potvrzeni = FP.ShowDialog();
@@ -76,14 +71,12 @@ namespace SystemProPodporuStudijnichPlanu
                     predmetyLichy = FP.PredmetySeznam;
                 if (count == 2)
                     predmetySudy = FP.PredmetySeznam;
-                //List<Predmet> x = FP.PredmetyAdd;
                 foreach (Predmet p in FP.PredmetyAdd)
                 {
                     data.InsertVyber(p.Id_predmet, vyber, id_z);
                 }
                 RefreshList(VratListBox(vyber), vyber);
             }
-
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +90,6 @@ namespace SystemProPodporuStudijnichPlanu
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     cesta = openFileDialog.FileName;
-
                 }
             }
             NacteniDat nd = new NacteniDat();
@@ -149,75 +141,6 @@ namespace SystemProPodporuStudijnichPlanu
             cmb_zaznam.DataSource = null;
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
-        }
-        private void DeselectnutiListu(int i)
-        {
-            bt_smaz.Visible = true;
-            switch (i)
-            {
-                case 12:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 11:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
-                        break;
-                    }
-                case 10:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 9:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 8:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 7:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 6:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 5:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 4:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 3:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 2:
-                    {
-                        lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                case 1:
-                    {
-                        lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
-                    }
-                default:
-                    break;
-            }
         }
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -410,8 +333,8 @@ namespace SystemProPodporuStudijnichPlanu
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             DataAccess db = new DataAccess();
-            predmetyLichy = db.GetPredmetFullLichy(obor).Except(db.GetPredmetyVyberFull(idz)).ToList();//nefunguje
-            predmetySudy = db.GetPredmetFullSudy(obor).Except(db.GetPredmetyVyberFull(idz)).ToList();//nefunguje mozna napsat novej select
+            predmetyLichy = db.GetPredmetFullLichyVyber(obor, idz);
+            predmetySudy = db.GetPredmetFullSudyVyber(obor, idz);
             Sporty = db.GetPredmetBySemestr(0,obor);
             predmetyLichy.AddRange(Sporty);
             predmetySudy.AddRange(Sporty);
@@ -656,6 +579,75 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_KredSem2.Visible = nud_KredSem1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
                 lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
                 lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+        }
+        private void DeselectnutiListu(int i)
+        {
+            bt_smaz.Visible = true;
+            switch (i)
+            {
+                case 12:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 11:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
+                        break;
+                    }
+                case 10:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 9:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 8:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 7:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 6:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 5:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 4:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 3:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 2:
+                    {
+                        lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                case 1:
+                    {
+                        lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        break;
+                    }
+                default:
+                    break;
+            }
         }
         private void Bt_smaz_Click(object sender, EventArgs e)
         {

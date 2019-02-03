@@ -115,6 +115,32 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+        public List<Predmet> GetPredmetFullLichyVyber(int id_obor, int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}')" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullSudyVyber(int id_obor,int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}')" + 
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
         public void CheckExistObor(string x, out int Exist)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
