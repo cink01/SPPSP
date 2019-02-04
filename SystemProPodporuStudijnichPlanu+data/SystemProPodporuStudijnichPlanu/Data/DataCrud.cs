@@ -244,7 +244,6 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-
         public void InsertVyber(string predmet, int semestr, string rok, int zaz)
         {
             DataAccess da = new DataAccess();
@@ -277,6 +276,24 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     conn.Open();
                     vyb.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void DeleteVyber(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vybD = new SqlCommand("DELETE FROM [vyber] WHERE [id_vyber]=@id_vyber", conn);
+                vybD.Parameters.AddWithValue("@id_vyber", id);
+                try
+                {
+                    conn.Open();
+                    vybD.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {

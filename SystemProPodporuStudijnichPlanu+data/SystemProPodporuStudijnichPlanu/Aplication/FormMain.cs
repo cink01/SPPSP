@@ -24,7 +24,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
             DataAccess da = new DataAccess();
-            da.FillSemestrLB(x,izaz, vyber, out decimal sum);
+            da.FillSemestrLB(x, izaz, vyber, out decimal sum);
             VyberNudVal(sum, vyber);
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
@@ -148,7 +148,7 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                 label_popis.Text = lb_semestr1.SelectedItem.ToString();
-        }
+            }
             catch { }
         }
         private void Lb_semestr2_SelectedIndexChanged(object sender, EventArgs e)
@@ -335,11 +335,11 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             predmetyLichy = db.GetPredmetFullLichyVyber(obor, idz);
             predmetySudy = db.GetPredmetFullSudyVyber(obor, idz);
-            Sporty = db.GetPredmetBySemestr(0,obor);
+            Sporty = db.GetPredmetBySemestr(0, obor);
             predmetyLichy.AddRange(Sporty);
             predmetySudy.AddRange(Sporty);
-             for(int i =1;i<=semestry; i++)
-                 NaplnitIndividualy(i);
+            for (int i = 1; i <= semestry; i++)
+                NaplnitIndividualy(i);
         }
         private void NaplnitIndividualy(int semestry = 0)
         {
@@ -352,7 +352,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 if (2 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (3 <= semestry)
                 {
@@ -368,31 +368,31 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 if (6 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (7 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (8 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (9 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (10 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (11 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
                 if (12 <= semestry)
                 {
-                    RefreshList(VratListBox(semestry),semestry);
+                    RefreshList(VratListBox(semestry), semestry);
                 }
             }
             catch { }
@@ -402,7 +402,7 @@ namespace SystemProPodporuStudijnichPlanu
             Sporty.Clear();
             predmetySudy.Clear();
             predmetyLichy.Clear();
-            
+
         }
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -651,6 +651,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_smaz_Click(object sender, EventArgs e)
         {
+            int id = 0;
             if (lb_semestr1.SelectedIndex != -1)
             {
                 try
@@ -782,7 +783,9 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
                 }
-            }
+            }/*
+            DataCrud dc = new DataCrud();
+            dc.DeleteVyber(id);*/
         }
     }
 }
