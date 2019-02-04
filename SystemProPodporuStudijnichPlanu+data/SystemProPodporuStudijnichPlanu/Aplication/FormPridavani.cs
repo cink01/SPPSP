@@ -32,10 +32,13 @@ namespace SystemProPodporuStudijnichPlanu
         {
             lb_chci.DataSource = null;
             lb_chci.Items.Clear();
+            decimal sum = 0;
             foreach (Predmet n in predmetyAdd)
             {
+                sum += n.Kredit_predmet;
                 lb_chci.Items.Add(n.Name_predmet);
             }
+            nud_kredity.Value = sum;
         }
         public void RefreshSeznam()
         {

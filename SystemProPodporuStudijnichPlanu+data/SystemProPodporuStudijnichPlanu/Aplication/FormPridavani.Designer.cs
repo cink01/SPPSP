@@ -34,9 +34,9 @@
             this.bt_rem = new System.Windows.Forms.Button();
             this.lb_vypis = new System.Windows.Forms.ListBox();
             this.lb_chci = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nud_kredity = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_ok
@@ -110,13 +110,21 @@
             this.lb_chci.TabIndex = 5;
             this.lb_chci.SelectedIndexChanged += new System.EventHandler(this.Lb_chci_SelectedIndexChanged);
             // 
-            // numericUpDown1
+            // nud_kredity
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(633, 347);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(40, 23);
-            this.numericUpDown1.TabIndex = 6;
+            this.nud_kredity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_kredity.Location = new System.Drawing.Point(633, 347);
+            this.nud_kredity.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_kredity.Name = "nud_kredity";
+            this.nud_kredity.ReadOnly = true;
+            this.nud_kredity.Size = new System.Drawing.Size(40, 23);
+            this.nud_kredity.TabIndex = 6;
+            this.nud_kredity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_kredity.ThousandsSeparator = true;
             // 
             // label1
             // 
@@ -136,7 +144,7 @@
             this.CancelButton = this.bt_ok;
             this.ClientSize = new System.Drawing.Size(864, 378);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nud_kredity);
             this.Controls.Add(this.lb_chci);
             this.Controls.Add(this.lb_vypis);
             this.Controls.Add(this.bt_rem);
@@ -147,7 +155,7 @@
             this.MaximizeBox = false;
             this.Name = "FormPridavani";
             this.Text = "FormPridavani";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +169,7 @@
         private System.Windows.Forms.Button bt_rem;
         private System.Windows.Forms.ListBox lb_vypis;
         private System.Windows.Forms.ListBox lb_chci;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nud_kredity;
         private System.Windows.Forms.Label label1;
     }
 }
