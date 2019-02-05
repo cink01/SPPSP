@@ -656,24 +656,17 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess da = new DataAccess();
             if (lb_semestr1.SelectedIndex != -1)
             {
-                try
-                {
                     List<Predmet> p = da.GetPredmetZVyberu(1, id_z);
                     int x = 0;
                     foreach (Predmet n in p)
                     {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        if ((string)lb_semestr1.SelectedItem == (string)(n.Name_predmet))
                         {
                             x = n.Id_predmet;
                         }
                     }
                     id = da.GetVyberId(id_z, x, 1);
                     lb_semestr1.Items.Remove(lb_semestr1.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
             }
             if (lb_semestr2.SelectedIndex != -1)
             {

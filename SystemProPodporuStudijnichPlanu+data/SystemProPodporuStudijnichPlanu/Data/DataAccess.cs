@@ -213,7 +213,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public int GetVyberId(int izaz,int ipred,int sem)
         {
-            SqlCommand get_ID_vyber = new SqlCommand("SELECT id_vyber FROM [vyber] NATURAL JOIN [plansemestr] WHERE ([plansemestr].id_zaznam = @id_zaznam) AND [vyber].id_predmet = @id_predmet AND [plansemestr].sem_ps=@sem_ps", GetConnection());
+            SqlCommand get_ID_vyber = new SqlCommand("SELECT id_vyber FROM [vyber] JOIN [plansemestr] ON ([vyber].id_ps=[plansemestr].id_ps) WHERE ([plansemestr].id_zaznam = @id_zaznam) AND [vyber].id_predmet = @id_predmet AND [plansemestr].sem_ps=@sem_ps", GetConnection());
             get_ID_vyber.Parameters.AddWithValue("@id_zaznam", izaz);
             get_ID_vyber.Parameters.AddWithValue("@id_predmet", ipred);
             get_ID_vyber.Parameters.AddWithValue("@sem_ps", sem);
@@ -358,7 +358,7 @@ namespace SystemProPodporuStudijnichPlanu
                         List<Predmet> predmets = GetPredmetZVyberu(sem, izaz);
                         foreach (Predmet n in predmets)
                         {
-                            x.Items.Add(n.FullInfo);
+                            x.Items.Add(n.Name_predmet);
                             sum += n.Kredit_predmet;
                         }
                     }
