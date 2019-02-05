@@ -314,7 +314,6 @@ namespace SystemProPodporuStudijnichPlanu
                     }
             }
         }
-
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
@@ -436,7 +435,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VratZaznamData(out int id_z, out string zkr, out int _, out string rok_o, out int PocSem);
+            VratZaznamData(out int id_z, out string zkr, out _, out string rok_o, out int PocSem);
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
                 Zaznam.Text = "Upravit záznam";
@@ -651,11 +650,24 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_smaz_Click(object sender, EventArgs e)
         {
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
             int id = 0;
+            DataAccess da = new DataAccess();
             if (lb_semestr1.SelectedIndex != -1)
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(1, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 1);
                     lb_semestr1.Items.Remove(lb_semestr1.SelectedItem);
                 }
                 catch
@@ -667,6 +679,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(2, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 2);
                     lb_semestr2.Items.Remove(lb_semestr2.SelectedItem);
                 }
                 catch
@@ -678,6 +700,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(3, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 3);
                     lb_semestr3.Items.Remove(lb_semestr3.SelectedItem);
                 }
                 catch
@@ -689,6 +721,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(4, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 4);
                     lb_semestr5.Items.Remove(lb_semestr4.SelectedItem);
                 }
                 catch
@@ -700,6 +742,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(5, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 5);
                     lb_semestr5.Items.Remove(lb_semestr5.SelectedItem);
                 }
                 catch
@@ -711,6 +763,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(6, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 6);
                     lb_semestr6.Items.Remove(lb_semestr6.SelectedItem);
                 }
                 catch
@@ -722,6 +784,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(7, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 7);
                     lb_semestr7.Items.Remove(lb_semestr7.SelectedItem);
                 }
                 catch
@@ -733,6 +805,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(8, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 8);
                     lb_semestr9.Items.Remove(lb_semestr8.SelectedItem);
                 }
                 catch
@@ -744,6 +826,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(9, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 9);
                     lb_semestr9.Items.Remove(lb_semestr9.SelectedItem);
                 }
                 catch
@@ -755,6 +847,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(10, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 10);
                     lb_semestr10.Items.Remove(lb_semestr10.SelectedItem);
                 }
                 catch
@@ -766,6 +868,16 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(11, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 11);
                     lb_semestr11.Items.Remove(lb_semestr11.SelectedItem);
                 }
                 catch
@@ -777,15 +889,25 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 try
                 {
+                    List<Predmet> p = da.GetPredmetZVyberu(12, id_z);
+                    int x = 0;
+                    foreach (Predmet n in p)
+                    {
+                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
+                        {
+                            x = n.Id_predmet;
+                        }
+                    }
+                    id = da.GetVyberId(id_z, x, 12);
                     lb_semestr12.Items.Remove(lb_semestr12.SelectedItem);
                 }
                 catch
                 {
                     MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
                 }
-            }/*
+            }
             DataCrud dc = new DataCrud();
-            dc.DeleteVyber(id);*/
+            dc.DeleteVyber(id);
         }
     }
 }
