@@ -401,5 +401,22 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
+        public void MazatZVyberu(List<Predmet> p,ListBox LB, int id_z)
+        {
+            /*DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());*/
+            int x = 0;
+            foreach (Predmet n in p)
+            {
+                if ((object)LB.SelectedItem == (object)(n.Name_predmet))
+                {
+                    x = n.Id_predmet;
+                }
+            }
+            int id = GetVyberId(id_z, x, 7);
+            LB.Items.Remove(LB.SelectedItem);
+            DataCrud dc = new DataCrud();
+            dc.DeleteVyber(id);
+        }
     }
 }
