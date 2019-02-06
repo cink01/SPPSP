@@ -211,7 +211,7 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_obor.Parameters.AddWithValue("@obor", o);
             return Convert.ToInt32(get_ID_obor.ExecuteScalar());
         }
-        public int GetVyberId(int izaz,int ipred,int sem)
+        public int GetVyberId(int izaz, int ipred, int sem)
         {
             SqlCommand get_ID_vyber = new SqlCommand("SELECT id_vyber FROM [vyber] JOIN [plansemestr] ON ([vyber].id_ps=[plansemestr].id_ps) WHERE ([plansemestr].id_zaznam = @id_zaznam) AND [vyber].id_predmet = @id_predmet AND [plansemestr].sem_ps=@sem_ps", GetConnection());
             get_ID_vyber.Parameters.AddWithValue("@id_zaznam", izaz);
@@ -351,22 +351,22 @@ namespace SystemProPodporuStudijnichPlanu
             CheckExistVyber(sem, izaz, out int Exist);
             if (Exist > 0)
             {
-               /* using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-                {*/
-                    try
+                /* using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                 {*/
+                try
+                {
+                    List<Predmet> predmets = GetPredmetZVyberu(sem, izaz);
+                    foreach (Predmet n in predmets)
                     {
-                        List<Predmet> predmets = GetPredmetZVyberu(sem, izaz);
-                        foreach (Predmet n in predmets)
-                        {
-                            x.Items.Add(n.Name_predmet);
-                            sum += n.Kredit_predmet;
-                        }
+                        x.Items.Add(n.Name_predmet);
+                        sum += n.Kredit_predmet;
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Chyba" + ex);
-                    }
-               // }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Chyba" + ex);
+                }
+                // }
             }
         }
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
@@ -384,6 +384,20 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     obor = -1;
                     PocetSem = -1;
+                }
+            }
+        }
+        public void GetDetail(ListBox LB, List<Predmet> p, out string popis,out decimal kredity,out string povin)
+        {
+            kredity = 0;
+            povin=popis = "";
+            foreach (Predmet x in p)
+            {
+                if ((object)x.Name_predmet == (object)LB.SelectedItem)
+                {
+                    popis = x.Popis;
+                    kredity = x.Kredit_predmet;
+                    povin = x.Povinnost;
                 }
             }
         }
