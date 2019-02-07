@@ -19,11 +19,13 @@ namespace SystemProPodporuStudijnichPlanu
             RefreshZaznamy();
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
+            urceniZvolenehoListu = 0;
         }
         private void RefreshList(ListBox x, /*List<Predmet> i,*/ int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
         {
             VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
             DataAccess da = new DataAccess();
+            urceniZvolenehoListu = 0;
             da.FillSemestrLB(x, izaz, vyber, out decimal sum,out List<Predmet> p);
             NaplnVybranyList(vyber, p);
             VyberNudVal(sum, vyber);
@@ -143,11 +145,8 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
         }
-        private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
+        private void FillPopisyDoFormu(string popis,  decimal kredity,  string povin)
         {
-            DataAccess da = new DataAccess();
-            DeselectnutiListu(1);
-            da.GetDetail(lb_semestr1, predmetyS1, out string popis, out decimal kredity, out string povin);
             try
             {
                 label_popis.Text = popis;
@@ -157,56 +156,100 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch { }
         }
+        private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeselectnutiListu(1);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+        }
         private void Lb_semestr2_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(2);
-            try
-            {
-                label_popis.Text = lb_semestr2.SelectedItem.ToString();
-            }
-            catch { }
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
         }
         private void Lb_semestr3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label_popis.Text = lb_semestr3.SelectedItem.ToString();
             DeselectnutiListu(3);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
         }
         private void Lb_semestr4_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(4);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr5_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(5);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr6_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             DeselectnutiListu(6);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr7_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(7);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr8_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(8);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
 
         }
         private void Lb_semestr9_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(9);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr10_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(10);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr11_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(11);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(12);
+            DataAccess da = new DataAccess();
+            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+            FillPopisyDoFormu(popis, kredity, povin);
+
         }
         private ListBox VratListBox(int i)
         {
@@ -402,12 +445,18 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch { }
         }
+        private void Bt_smaz_Click(object sender, EventArgs e)
+        {
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            DataAccess da = new DataAccess();
+            da.MazatZVyberu( VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+        }
         private void ClearListy()
         {
             Sporty.Clear();
             predmetySudy.Clear();
             predmetyLichy.Clear();
-
         }
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -585,6 +634,8 @@ namespace SystemProPodporuStudijnichPlanu
                 lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
                 lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
         }
+
+        private int urceniZvolenehoListu;
         private void DeselectnutiListu(int i)
         {
             bt_smaz.Visible = true;
@@ -592,312 +643,82 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 case 12:
                     {
+                        urceniZvolenehoListu = 12;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 11:
                     {
+                        urceniZvolenehoListu = 11;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
                         break;
                     }
                 case 10:
                     {
+                        urceniZvolenehoListu = 10;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 9:
                     {
+                        urceniZvolenehoListu = 9;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 8:
                     {
+                        urceniZvolenehoListu = 8;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 7:
                     {
+                        urceniZvolenehoListu = 7;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 6:
                     {
+                        urceniZvolenehoListu =6 ;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 5:
                     {
+                        urceniZvolenehoListu = 5;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 4:
                     {
+                        urceniZvolenehoListu = 4;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 3:
                     {
+                        urceniZvolenehoListu = 3;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 2:
                     {
+                        urceniZvolenehoListu = 2;
                         lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 case 1:
                     {
+                        urceniZvolenehoListu = 1;
                         lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         break;
                     }
                 default:
+                    urceniZvolenehoListu = -1;
                     break;
             }
         }
-        private void Bt_smaz_Click(object sender, EventArgs e)//sel by asi predelat na switch kde ve funkci delesect by se naplnila promenna ktera by pak udavala jaky lb je zvolen nahradilo by to rucni zapsani lb, listu a semestru
-        {
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-            int id = 0;
-            DataAccess da = new DataAccess();
-            if (lb_semestr1.SelectedIndex != -1)
-            {
-                da.MazatZVyberu(predmetyS1, lb_semestr1, id_z,1);
-            }
-            if (lb_semestr2.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(2, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 2);
-                    lb_semestr2.Items.Remove(lb_semestr2.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr3.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(3, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 3);
-                    lb_semestr3.Items.Remove(lb_semestr3.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr4.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(4, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 4);
-                    lb_semestr5.Items.Remove(lb_semestr4.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr5.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(5, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 5);
-                    lb_semestr5.Items.Remove(lb_semestr5.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr6.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(6, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 6);
-                    lb_semestr6.Items.Remove(lb_semestr6.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr7.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(7, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 7);
-                    lb_semestr7.Items.Remove(lb_semestr7.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr8.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(8, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 8);
-                    lb_semestr9.Items.Remove(lb_semestr8.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr9.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(9, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 9);
-                    lb_semestr9.Items.Remove(lb_semestr9.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr10.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(10, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 10);
-                    lb_semestr10.Items.Remove(lb_semestr10.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr11.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(11, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 11);
-                    lb_semestr11.Items.Remove(lb_semestr11.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            if (lb_semestr12.SelectedIndex != -1)
-            {
-                try
-                {
-                    List<Predmet> p = da.GetPredmetZVyberu(12, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((object)lb_semestr1.SelectedItem == (object)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 12);
-                    lb_semestr12.Items.Remove(lb_semestr12.SelectedItem);
-                }
-                catch
-                {
-                    MessageBox.Show("Není vybrán žádný předmět s daného semestru!");
-                }
-            }
-            DataCrud dc = new DataCrud();
-            dc.DeleteVyber(id);
-        }
+
         List<Predmet> predmetyS1 = new List<Predmet>();
         List<Predmet> predmetyS2 = new List<Predmet>();
         List<Predmet> predmetyS3 = new List<Predmet>();

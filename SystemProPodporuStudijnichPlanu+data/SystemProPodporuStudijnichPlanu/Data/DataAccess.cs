@@ -405,7 +405,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void MazatZVyberu(List<Predmet> p,ListBox LB, int id_z,int sem)
+        public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z,int sem)
         {
             /*DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
 int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());*/
