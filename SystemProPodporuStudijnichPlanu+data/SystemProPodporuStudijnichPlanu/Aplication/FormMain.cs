@@ -159,97 +159,51 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(1);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
         }
         private void Lb_semestr2_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(2);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
         }
         private void Lb_semestr3_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(3);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
         }
         private void Lb_semestr4_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(4);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr5_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(5);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr6_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             DeselectnutiListu(6);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr7_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(7);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
 
         }
         private void Lb_semestr8_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(8);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
-
         }
         private void Lb_semestr9_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(9);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr10_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(10);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr11_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(11);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(12);
-            DataAccess da = new DataAccess();
-            da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-            FillPopisyDoFormu(popis, kredity, povin);
-
         }
         private ListBox VratListBox(int i)
         {
@@ -641,77 +595,84 @@ namespace SystemProPodporuStudijnichPlanu
             bt_smaz.Visible = true;
             switch (i)
             {
+                case 55:
+                    {
+                        DataAccess da = new DataAccess();
+                        da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+                        FillPopisyDoFormu(popis, kredity, povin);
+                        break;
+                    }
                 case 12:
                     {
                         urceniZvolenehoListu = 12;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 11:
                     {
                         urceniZvolenehoListu = 11;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
-                        break;
+                        goto case 55; 
                     }
                 case 10:
                     {
                         urceniZvolenehoListu = 10;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 9:
                     {
                         urceniZvolenehoListu = 9;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 8:
                     {
                         urceniZvolenehoListu = 8;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 7:
                     {
                         urceniZvolenehoListu = 7;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 6:
                     {
                         urceniZvolenehoListu =6 ;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 5:
                     {
                         urceniZvolenehoListu = 5;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 4:
                     {
                         urceniZvolenehoListu = 4;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 3:
                     {
                         urceniZvolenehoListu = 3;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 2:
                     {
                         urceniZvolenehoListu = 2;
                         lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 case 1:
                     {
                         urceniZvolenehoListu = 1;
                         lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        break;
+                        goto case 55;
                     }
                 default:
                     urceniZvolenehoListu = -1;

@@ -351,7 +351,6 @@ namespace SystemProPodporuStudijnichPlanu
             List<Predmet> tmp = new List<Predmet>();
             CheckExistVyber(sem, izaz, out int Exist);
             if (Exist > 0)
-            {
                 try
                 {
                     tmp = GetPredmetZVyberu(sem, izaz);
@@ -366,11 +365,8 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     MessageBox.Show("Chyba" + ex);
                 }
-            }
             else
-            {
                 tmp = null;
-            }
             predmets = tmp;
         }
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
@@ -396,27 +392,19 @@ namespace SystemProPodporuStudijnichPlanu
             kredity = 0;
             povin=popis = "";
             foreach (Predmet x in p)
-            {
                 if ((object)x.Name_predmet == (object)LB.SelectedItem)
                 {
                     popis = x.Popis;
                     kredity = x.Kredit_predmet;
                     povin = x.Povinnost;
                 }
-            }
         }
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z,int sem)
         {
-            /*DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());*/
             int x = 0;
             foreach (Predmet n in p)
-            {
                 if ((object)LB.SelectedItem == (object)(n.Name_predmet))
-                {
                     x = n.Id_predmet;
-                }
-            }
             int id = GetVyberId(id_z, x, sem);
             LB.Items.Remove(LB.SelectedItem);
             DataCrud dc = new DataCrud();
