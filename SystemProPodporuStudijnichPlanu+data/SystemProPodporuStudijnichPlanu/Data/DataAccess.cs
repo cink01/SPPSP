@@ -343,31 +343,35 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum)
+        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)
         {
             x.DataSource = null;
             x.Items.Clear();
             sum = 0;
+            List<Predmet> tmp = new List<Predmet>();
             CheckExistVyber(sem, izaz, out int Exist);
             if (Exist > 0)
             {
-                /* using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-                 {*/
                 try
                 {
-                    List<Predmet> predmets = GetPredmetZVyberu(sem, izaz);
-                    foreach (Predmet n in predmets)
+                    tmp = GetPredmetZVyberu(sem, izaz);
+                    foreach (Predmet n in tmp)
                     {
                         x.Items.Add(n.Name_predmet);
                         sum += n.Kredit_predmet;
                     }
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Chyba" + ex);
                 }
-                // }
             }
+            else
+            {
+                tmp = null;
+            }
+            predmets = tmp;
         }
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
         {
@@ -401,7 +405,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void MazatZVyberu(List<Predmet> p,ListBox LB, int id_z)
+        public void MazatZVyberu(List<Predmet> p,ListBox LB, int id_z,int sem)
         {
             /*DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
 int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());*/
@@ -413,7 +417,7 @@ int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());*/
                     x = n.Id_predmet;
                 }
             }
-            int id = GetVyberId(id_z, x, 7);
+            int id = GetVyberId(id_z, x, sem);
             LB.Items.Remove(LB.SelectedItem);
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);

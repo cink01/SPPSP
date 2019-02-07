@@ -79,6 +79,9 @@
             this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -96,6 +99,7 @@
             this.gb_max.SuspendLayout();
             this.gb_popis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -595,7 +599,7 @@
             // label_popis
             // 
             this.label_popis.AutoSize = true;
-            this.label_popis.Location = new System.Drawing.Point(6, 16);
+            this.label_popis.Location = new System.Drawing.Point(16, 224);
             this.label_popis.Name = "label_popis";
             this.label_popis.Size = new System.Drawing.Size(36, 13);
             this.label_popis.TabIndex = 59;
@@ -677,6 +681,9 @@
             // 
             // gb_popis
             // 
+            this.gb_popis.Controls.Add(this.richTextBox1);
+            this.gb_popis.Controls.Add(this.textBox1);
+            this.gb_popis.Controls.Add(this.numericUpDown1);
             this.gb_popis.Controls.Add(this.tb_semest);
             this.gb_popis.Controls.Add(this.tb_obor);
             this.gb_popis.Controls.Add(this.label_popis);
@@ -734,6 +741,28 @@
             0,
             0});
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(158, 20);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 73;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(158, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 74;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(19, 84);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(352, 137);
+            this.richTextBox1.TabIndex = 75;
+            this.richTextBox1.Text = "";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,6 +797,7 @@
             this.gb_popis.ResumeLayout(false);
             this.gb_popis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -824,6 +854,9 @@
         private System.Windows.Forms.TextBox tb_semest;
         private System.Windows.Forms.TextBox tb_obor;
         private System.Windows.Forms.GroupBox gb_popis;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 

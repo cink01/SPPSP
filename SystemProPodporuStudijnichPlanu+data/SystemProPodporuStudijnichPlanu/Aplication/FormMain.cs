@@ -24,7 +24,8 @@ namespace SystemProPodporuStudijnichPlanu
         {
             VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
             DataAccess da = new DataAccess();
-            da.FillSemestrLB(x, izaz, vyber, out decimal sum);
+            da.FillSemestrLB(x, izaz, vyber, out decimal sum,out List<Predmet> p);
+            NaplnVybranyList(vyber, p);
             VyberNudVal(sum, vyber);
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
@@ -144,10 +145,15 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DataAccess da = new DataAccess();
             DeselectnutiListu(1);
+            da.GetDetail(lb_semestr1, predmetyS1, out string popis, out decimal kredity, out string povin);
             try
             {
-                label_popis.Text = lb_semestr1.SelectedItem.ToString();
+                label_popis.Text = popis;
+                numericUpDown1.Value = kredity;
+                richTextBox1.Text = popis;
+                textBox1.Text = povin;
             }
             catch { }
         }
@@ -648,7 +654,7 @@ namespace SystemProPodporuStudijnichPlanu
                     break;
             }
         }
-        private void Bt_smaz_Click(object sender, EventArgs e)
+        private void Bt_smaz_Click(object sender, EventArgs e)//sel by asi predelat na switch kde ve funkci delesect by se naplnila promenna ktera by pak udavala jaky lb je zvolen nahradilo by to rucni zapsani lb, listu a semestru
         {
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
@@ -656,17 +662,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess da = new DataAccess();
             if (lb_semestr1.SelectedIndex != -1)
             {
-                    List<Predmet> p = da.GetPredmetZVyberu(1, id_z);
-                    int x = 0;
-                    foreach (Predmet n in p)
-                    {
-                        if ((string)lb_semestr1.SelectedItem == (string)(n.Name_predmet))
-                        {
-                            x = n.Id_predmet;
-                        }
-                    }
-                    id = da.GetVyberId(id_z, x, 1);
-                    lb_semestr1.Items.Remove(lb_semestr1.SelectedItem);
+                da.MazatZVyberu(predmetyS1, lb_semestr1, id_z,1);
             }
             if (lb_semestr2.SelectedIndex != -1)
             {
@@ -901,6 +897,135 @@ namespace SystemProPodporuStudijnichPlanu
             }
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);
+        }
+        List<Predmet> predmetyS1 = new List<Predmet>();
+        List<Predmet> predmetyS2 = new List<Predmet>();
+        List<Predmet> predmetyS3 = new List<Predmet>();
+        List<Predmet> predmetyS4 = new List<Predmet>();
+        List<Predmet> predmetyS5 = new List<Predmet>();
+        List<Predmet> predmetyS6 = new List<Predmet>();
+        List<Predmet> predmetyS7 = new List<Predmet>();
+        List<Predmet> predmetyS8 = new List<Predmet>();
+        List<Predmet> predmetyS9 = new List<Predmet>();
+        List<Predmet> predmetyS10 = new List<Predmet>();
+        List<Predmet> predmetyS11 = new List<Predmet>();
+        List<Predmet> predmetyS12 = new List<Predmet>();
+        private List<Predmet> VyberListu(int i)
+        {
+            switch (i)
+            {
+                case 12:
+                    {
+                        return predmetyS12;
+                    }
+                case 11:
+                    {
+                        return predmetyS11;
+                    }
+                case 10:
+                    {
+                        return predmetyS10;
+                    }
+                case 9:
+                    {
+                        return predmetyS9;
+                    }
+                case 8:
+                    {
+                        return predmetyS8;
+                    }
+                case 7:
+                    {
+                        return predmetyS7;
+                    }
+                case 6:
+                    {
+                        return predmetyS6;
+                    }
+                case 5:
+                    {
+                        return predmetyS5;
+
+                    }
+                case 4:
+                    {
+                        return predmetyS4;
+
+                    }
+                case 3:
+                    {
+                        return predmetyS3;
+
+                    }
+                case 2:
+                    {
+                        return predmetyS2;
+                    }
+                case 1:
+                    {
+                        return predmetyS1;
+                    }
+            }
+            return null;
+
+        }
+        private void NaplnVybranyList(int i, List<Predmet> p)
+        {
+            switch (i)
+            {
+                case 12:
+                    {
+                        predmetyS12 = p; break;
+                    }
+                case 11:
+                    {
+                        predmetyS11 = p; break;
+                    }
+                case 10:
+                    {
+                        predmetyS10 = p; break;
+                    }
+                case 9:
+                    {
+                        predmetyS9 = p; break;
+                    }
+                case 8:
+                    {
+                        predmetyS8 = p; break;
+                    }
+                case 7:
+                    {
+                        predmetyS7 = p; break;
+                    }
+                case 6:
+                    {
+                        predmetyS6 = p; break;
+                    }
+                case 5:
+                    {
+                        predmetyS5 = p; break;
+
+                    }
+                case 4:
+                    {
+                        predmetyS4 = p; break;
+
+                    }
+                case 3:
+                    {
+                        predmetyS3 = p; break;
+
+                    }
+                case 2:
+                    {
+                        predmetyS2 = p; break;
+                    }
+                case 1:
+                    {
+                        predmetyS1 = p; break;
+                    }
+                default: break;
+            }
         }
     }
 }
