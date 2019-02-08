@@ -76,7 +76,7 @@
             this.gb_popis = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.nud_kredity_popis = new System.Windows.Forms.NumericUpDown();
+            this.nud_kredpop = new System.Windows.Forms.NumericUpDown();
             this.tb_semest = new System.Windows.Forms.TextBox();
             this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             this.gb_max.SuspendLayout();
             this.gb_popis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_kredity_popis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -673,7 +673,7 @@
             // 
             this.gb_popis.Controls.Add(this.richTextBox1);
             this.gb_popis.Controls.Add(this.textBox1);
-            this.gb_popis.Controls.Add(this.nud_kredity_popis);
+            this.gb_popis.Controls.Add(this.nud_kredpop);
             this.gb_popis.Controls.Add(this.tb_semest);
             this.gb_popis.Controls.Add(this.tb_obor);
             this.gb_popis.Location = new System.Drawing.Point(715, 43);
@@ -698,12 +698,17 @@
             this.textBox1.Size = new System.Drawing.Size(134, 20);
             this.textBox1.TabIndex = 74;
             // 
-            // nud_kredity_popis
+            // nud_kredpop
             // 
-            this.nud_kredity_popis.Location = new System.Drawing.Point(312, 19);
-            this.nud_kredity_popis.Name = "nud_kredity_popis";
-            this.nud_kredity_popis.Size = new System.Drawing.Size(53, 20);
-            this.nud_kredity_popis.TabIndex = 73;
+            this.nud_kredpop.Location = new System.Drawing.Point(267, 20);
+            this.nud_kredpop.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_kredpop.Name = "nud_kredpop";
+            this.nud_kredpop.Size = new System.Drawing.Size(53, 20);
+            this.nud_kredpop.TabIndex = 73;
             // 
             // tb_semest
             // 
@@ -785,7 +790,7 @@
             this.gb_max.PerformLayout();
             this.gb_popis.ResumeLayout(false);
             this.gb_popis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_kredity_popis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -844,7 +849,7 @@
         private System.Windows.Forms.GroupBox gb_popis;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown nud_kredity_popis;
+        private System.Windows.Forms.NumericUpDown nud_kredpop;
     }
 }
 

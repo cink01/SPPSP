@@ -20,7 +20,7 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
-            if (cmb_zaznam.Items.Count == 0)
+            if (cmb_zaznam.Items.Count <= 1)
             {
                 var text = "Není založen žádný plán. Chcete vytvořit nový?";
                 var titul = "Prázný záznam";
@@ -157,7 +157,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                nud_kredity_popis.Value = kredity;
+                nud_kredpop.Value = kredity;
                 richTextBox1.Text = popis;
                 textBox1.Text = povin;
             }
@@ -297,9 +297,9 @@ namespace SystemProPodporuStudijnichPlanu
         {
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
             DataAccess da = new DataAccess();
             da.MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
-            var sum = VratNudVal(urceniZvolenehoListu) - nud_kredity_popis.Value;
             VyberNudVal(sum, urceniZvolenehoListu);
         }
         private void ClearListy()
