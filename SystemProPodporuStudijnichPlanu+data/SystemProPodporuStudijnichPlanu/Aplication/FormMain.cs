@@ -157,7 +157,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                numericUpDown1.Value = kredity;
+                nud_kredity_popis.Value = kredity;
                 richTextBox1.Text = popis;
                 textBox1.Text = povin;
             }
@@ -211,118 +211,6 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(12);
-        }
-        private ListBox VratListBox(int i)
-        {
-            switch (i)
-            {
-                case 12:
-                    {
-                        return lb_semestr12;
-                    }
-                case 11:
-                    {
-                        return lb_semestr11;
-                    }
-                case 10:
-                    {
-                        return lb_semestr10;
-                    }
-                case 9:
-                    {
-                        return lb_semestr9;
-                    }
-                case 8:
-                    {
-                        return lb_semestr8;
-                    }
-                case 7:
-                    {
-                        return lb_semestr7;
-                    }
-                case 6:
-                    {
-                        return lb_semestr6;
-                    }
-                case 5:
-                    {
-                        return lb_semestr5;
-
-                    }
-                case 4:
-                    {
-                        return lb_semestr4;
-
-                    }
-                case 3:
-                    {
-                        return lb_semestr3;
-
-                    }
-                case 2:
-                    {
-                        return lb_semestr2;
-                    }
-                case 1:
-                    {
-                        return lb_semestr1;
-                    }
-            }
-            return null;
-        }
-        private void VyberNudVal(decimal sum, int vyber)
-        {
-            switch (vyber)
-            {
-                case 12:
-                    {
-                        nud_KredSem12.Value = sum; break;
-                    }
-                case 11:
-                    {
-                        nud_KredSem11.Value = sum; break;
-                    }
-                case 10:
-                    {
-                        nud_KredSem10.Value = sum; break;
-                    }
-                case 9:
-                    {
-                        nud_KredSem9.Value = sum; break;
-                    }
-                case 8:
-                    {
-                        nud_KredSem8.Value = sum; break;
-                    }
-                case 7:
-                    {
-                        nud_KredSem7.Value = sum; break;
-                    }
-                case 6:
-                    {
-                        nud_KredSem6.Value = sum; break;
-                    }
-                case 5:
-                    {
-                        nud_KredSem5.Value = sum; break;
-                    }
-                case 4:
-                    {
-                        nud_KredSem4.Value = sum; break;
-                    }
-                case 3:
-                    {
-                        nud_KredSem3.Value = sum; break;
-                    }
-                case 2:
-                    {
-                        nud_KredSem2.Value = sum; break;
-                    }
-                case 1:
-                    {
-                        nud_KredSem1.Value = sum; break;
-                    }
-            }
         }
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
@@ -412,6 +300,8 @@ namespace SystemProPodporuStudijnichPlanu
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
             DataAccess da = new DataAccess();
             da.MazatZVyberu( VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+            var sum = VratNudVal(urceniZvolenehoListu) - nud_kredity_popis.Value;
+            VyberNudVal(sum, urceniZvolenehoListu);
         }
         private void ClearListy()
         {
@@ -820,6 +710,174 @@ namespace SystemProPodporuStudijnichPlanu
                         predmetyS1 = p; break;
                     }
                 default: break;
+            }
+        }
+        private ListBox VratListBox(int i)
+        {
+            switch (i)
+            {
+                case 12:
+                    {
+                        return lb_semestr12;
+                    }
+                case 11:
+                    {
+                        return lb_semestr11;
+                    }
+                case 10:
+                    {
+                        return lb_semestr10;
+                    }
+                case 9:
+                    {
+                        return lb_semestr9;
+                    }
+                case 8:
+                    {
+                        return lb_semestr8;
+                    }
+                case 7:
+                    {
+                        return lb_semestr7;
+                    }
+                case 6:
+                    {
+                        return lb_semestr6;
+                    }
+                case 5:
+                    {
+                        return lb_semestr5;
+
+                    }
+                case 4:
+                    {
+                        return lb_semestr4;
+
+                    }
+                case 3:
+                    {
+                        return lb_semestr3;
+
+                    }
+                case 2:
+                    {
+                        return lb_semestr2;
+                    }
+                case 1:
+                    {
+                        return lb_semestr1;
+                    }
+            }
+            return null;
+        }
+        private void VyberNudVal(decimal sum, int vyber)
+        {
+            switch (vyber)
+            {
+                case 12:
+                    {
+                        nud_KredSem12.Value = sum; break;
+                    }
+                case 11:
+                    {
+                        nud_KredSem11.Value = sum; break;
+                    }
+                case 10:
+                    {
+                        nud_KredSem10.Value = sum; break;
+                    }
+                case 9:
+                    {
+                        nud_KredSem9.Value = sum; break;
+                    }
+                case 8:
+                    {
+                        nud_KredSem8.Value = sum; break;
+                    }
+                case 7:
+                    {
+                        nud_KredSem7.Value = sum; break;
+                    }
+                case 6:
+                    {
+                        nud_KredSem6.Value = sum; break;
+                    }
+                case 5:
+                    {
+                        nud_KredSem5.Value = sum; break;
+                    }
+                case 4:
+                    {
+                        nud_KredSem4.Value = sum; break;
+                    }
+                case 3:
+                    {
+                        nud_KredSem3.Value = sum; break;
+                    }
+                case 2:
+                    {
+                        nud_KredSem2.Value = sum; break;
+                    }
+                case 1:
+                    {
+                        nud_KredSem1.Value = sum; break;
+                    }
+            }
+        }
+        private decimal VratNudVal(int vyber)
+        {
+            switch (vyber)
+            {
+                case 12:
+                    {
+                        return nud_KredSem12.Value;
+                    }
+                case 11:
+                    {
+                        return nud_KredSem11.Value;
+                    }
+                case 10:
+                    {
+                        return nud_KredSem10.Value;
+                    }
+                case 9:
+                    {
+                        return nud_KredSem9.Value;
+                    }
+                case 8:
+                    {
+                        return nud_KredSem8.Value;
+                    }
+                case 7:
+                    {
+                        return nud_KredSem7.Value;
+                    }
+                case 6:
+                    {
+                        return nud_KredSem6.Value;
+                    }
+                case 5:
+                    {
+                        return nud_KredSem5.Value;
+                    }
+                case 4:
+                    {
+                        return nud_KredSem4.Value;
+                    }
+                case 3:
+                    {
+                        return nud_KredSem3.Value;
+                    }
+                case 2:
+                    {
+                        return nud_KredSem2.Value;
+                    }
+                case 1:
+                    {
+                        return nud_KredSem1.Value;
+                    }
+                default:
+                    return -1;
             }
         }
     }
