@@ -69,19 +69,18 @@
             this.nud_KredSem11 = new System.Windows.Forms.NumericUpDown();
             this.nud_KredSem12 = new System.Windows.Forms.NumericUpDown();
             this.lb_semestr7 = new System.Windows.Forms.ListBox();
-            this.label_popis = new System.Windows.Forms.Label();
             this.bt_smaz = new System.Windows.Forms.Button();
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.gb_popis = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tb_semest = new System.Windows.Forms.TextBox();
             this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -98,8 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             this.gb_max.SuspendLayout();
             this.gb_popis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -596,15 +595,6 @@
             this.lb_semestr7.TabIndex = 58;
             this.lb_semestr7.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr7_SelectedIndexChanged);
             // 
-            // label_popis
-            // 
-            this.label_popis.AutoSize = true;
-            this.label_popis.Location = new System.Drawing.Point(16, 224);
-            this.label_popis.Name = "label_popis";
-            this.label_popis.Size = new System.Drawing.Size(36, 13);
-            this.label_popis.TabIndex = 59;
-            this.label_popis.Text = "Popis:";
-            // 
             // bt_smaz
             // 
             this.bt_smaz.BackColor = System.Drawing.Color.LightCoral;
@@ -686,7 +676,6 @@
             this.gb_popis.Controls.Add(this.numericUpDown1);
             this.gb_popis.Controls.Add(this.tb_semest);
             this.gb_popis.Controls.Add(this.tb_obor);
-            this.gb_popis.Controls.Add(this.label_popis);
             this.gb_popis.Location = new System.Drawing.Point(715, 43);
             this.gb_popis.Name = "gb_popis";
             this.gb_popis.Size = new System.Drawing.Size(402, 548);
@@ -694,16 +683,38 @@
             this.gb_popis.TabStop = false;
             this.gb_popis.Text = "Popis";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 72);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(390, 151);
+            this.richTextBox1.TabIndex = 75;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(231, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.TabIndex = 74;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(312, 19);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(53, 20);
+            this.numericUpDown1.TabIndex = 73;
+            // 
             // tb_semest
             // 
-            this.tb_semest.Location = new System.Drawing.Point(357, 39);
+            this.tb_semest.Location = new System.Drawing.Point(371, 46);
             this.tb_semest.Name = "tb_semest";
             this.tb_semest.Size = new System.Drawing.Size(25, 20);
             this.tb_semest.TabIndex = 72;
             // 
             // tb_obor
             // 
-            this.tb_obor.Location = new System.Drawing.Point(357, 13);
+            this.tb_obor.Location = new System.Drawing.Point(371, 19);
             this.tb_obor.Name = "tb_obor";
             this.tb_obor.Size = new System.Drawing.Size(25, 20);
             this.tb_obor.TabIndex = 71;
@@ -741,28 +752,6 @@
             0,
             0});
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(158, 20);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 73;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(158, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 74;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(19, 84);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(352, 137);
-            this.richTextBox1.TabIndex = 75;
-            this.richTextBox1.Text = "";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,8 +785,8 @@
             this.gb_max.PerformLayout();
             this.gb_popis.ResumeLayout(false);
             this.gb_popis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -842,7 +831,6 @@
         private System.Windows.Forms.NumericUpDown nud_KredSem11;
         private System.Windows.Forms.NumericUpDown nud_KredSem12;
         private System.Windows.Forms.ListBox lb_semestr7;
-        private System.Windows.Forms.Label label_popis;
         private System.Windows.Forms.Button bt_smaz;
         private System.Windows.Forms.ComboBox cmb_zaznam;
         private System.Windows.Forms.Label label2;

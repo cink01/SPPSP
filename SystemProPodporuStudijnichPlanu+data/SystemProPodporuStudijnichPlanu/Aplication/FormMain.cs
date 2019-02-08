@@ -149,7 +149,6 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                label_popis.Text = popis;
                 numericUpDown1.Value = kredity;
                 richTextBox1.Text = popis;
                 textBox1.Text = povin;
@@ -747,6 +746,8 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         return predmetyS1;
                     }
+                default:
+                    break;
             }
             return null;
 
