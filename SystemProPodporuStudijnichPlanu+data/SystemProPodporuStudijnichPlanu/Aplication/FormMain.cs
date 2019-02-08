@@ -20,6 +20,14 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
+            if (cmb_zaznam.Items.Count == 0)
+            {
+                var text = "Není založen žádný plán. Chcete vytvořit nový?";
+                var titul = "Prázný záznam";
+                var res = MessageBox.Show(text, titul, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                    VytvorZaznam();
+            }
         }
         private void RefreshList(ListBox x, /*List<Predmet> i,*/ int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
         {
@@ -416,6 +424,10 @@ namespace SystemProPodporuStudijnichPlanu
             FillHlavniListy();
         }
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VytvorZaznam();
+        }
+        private void VytvorZaznam()
         {
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
