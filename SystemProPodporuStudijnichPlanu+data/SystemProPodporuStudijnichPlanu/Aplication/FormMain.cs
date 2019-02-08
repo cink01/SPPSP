@@ -29,12 +29,12 @@ namespace SystemProPodporuStudijnichPlanu
                     VytvorZaznam();
             }
         }
-        private void RefreshList(ListBox x, /*List<Predmet> i,*/ int vyber)//nacist z getVyberBySemestrPs a kredity Sum pocitat po tom
+        private void RefreshList(ListBox x, int vyber)
         {
-            VratZaznamData(out int izaz, out string _, out int _, out string _, out int _);
+            VratZaznamData(out int izaz, out _, out _, out _, out _);
             DataAccess da = new DataAccess();
             urceniZvolenehoListu = 0;
-            da.FillSemestrLB(x, izaz, vyber, out decimal sum,out List<Predmet> p);
+            da.FillSemestrLB(x, izaz, vyber, out decimal sum, out List<Predmet> p);
             NaplnVybranyList(vyber, p);
             VyberNudVal(sum, vyber);
         }
@@ -153,7 +153,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
         }
-        private void FillPopisyDoFormu(string popis,  decimal kredity,  string povin)
+        private void FillPopisyDoFormu(string popis, decimal kredity, string povin)
         {
             try
             {
@@ -162,6 +162,32 @@ namespace SystemProPodporuStudijnichPlanu
                 textBox1.Text = povin;
             }
             catch { }
+        }
+        private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
+        {
+            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+            zkr = DZ.Row["zkr_zaznam"].ToString();
+            id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+            DataAccess db = new DataAccess();
+            db.GetZaznamFull(id_z, out id_o, out PocSem);
+            rok_o = db.GetOborRok(id_o);
+        }
+        private void FillHlavniListy()
+        {
+            ClearListy();
+            VratZaznamData(out int idz, out string _, out int obor, out string _, out int semestry);
+            tb_obor.Text = obor.ToString();
+            tb_semest.Text = semestry.ToString();
+            Viditelnost(semestry);
+            nud_PridatDoSem.Maximum = semestry;
+            DataAccess db = new DataAccess();
+            predmetyLichy = db.GetPredmetFullLichyVyber(obor, idz);
+            predmetySudy = db.GetPredmetFullSudyVyber(obor, idz);
+            Sporty = db.GetPredmetBySemestr(0, obor);
+            predmetyLichy.AddRange(Sporty);
+            predmetySudy.AddRange(Sporty);
+            for (int i = 1; i <= semestry; i++)
+                NaplnitIndividualy(i);
         }
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -190,7 +216,6 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr7_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(7);
-
         }
         private void Lb_semestr8_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -211,32 +236,6 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeselectnutiListu(12);
-        }
-        private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
-        {
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            zkr = DZ.Row["zkr_zaznam"].ToString();
-            id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-            DataAccess db = new DataAccess();
-            db.GetZaznamFull(id_z, out id_o, out PocSem);
-            rok_o = db.GetOborRok(id_o);
-        }
-        private void FillHlavniListy()
-        {
-            ClearListy();
-            VratZaznamData(out int idz, out string _, out int obor, out string _, out int semestry);
-            tb_obor.Text = obor.ToString();
-            tb_semest.Text = semestry.ToString();
-            Viditelnost(semestry);
-            nud_PridatDoSem.Maximum = semestry;
-            DataAccess db = new DataAccess();
-            predmetyLichy = db.GetPredmetFullLichyVyber(obor, idz);
-            predmetySudy = db.GetPredmetFullSudyVyber(obor, idz);
-            Sporty = db.GetPredmetBySemestr(0, obor);
-            predmetyLichy.AddRange(Sporty);
-            predmetySudy.AddRange(Sporty);
-            for (int i = 1; i <= semestry; i++)
-                NaplnitIndividualy(i);
         }
         private void NaplnitIndividualy(int semestry = 0)
         {
@@ -299,7 +298,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
             DataAccess da = new DataAccess();
-            da.MazatZVyberu( VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+            da.MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
             var sum = VratNudVal(urceniZvolenehoListu) - nud_kredity_popis.Value;
             VyberNudVal(sum, urceniZvolenehoListu);
         }
@@ -513,7 +512,7 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         urceniZvolenehoListu = 11;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
-                        goto case 55; 
+                        goto case 55;
                     }
                 case 10:
                     {
@@ -541,7 +540,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                 case 6:
                     {
-                        urceniZvolenehoListu =6 ;
+                        urceniZvolenehoListu = 6;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
@@ -580,7 +579,7 @@ namespace SystemProPodporuStudijnichPlanu
                     break;
             }
         }
-
+        //listy na plnění listboxu a praci kolem něch(mazání a vypis popisu)
         List<Predmet> predmetyS1 = new List<Predmet>();
         List<Predmet> predmetyS2 = new List<Predmet>();
         List<Predmet> predmetyS3 = new List<Predmet>();
