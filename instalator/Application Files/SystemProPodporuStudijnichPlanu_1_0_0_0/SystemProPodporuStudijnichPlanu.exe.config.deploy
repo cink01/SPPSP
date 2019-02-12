@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+     <!--     <add name="SystemProPodporuStudijnichPlanu.Properties.Settings.SPTSPConnectionString"
+            connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Data\SPTSP.mdf;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        
+        <add name="SystemProPodporuStudijnichPlanu.Properties.Settings.StudPlanDBConnectionString"
+            connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Data\StudPlanDB.mdf;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+
+        <add name="SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString"
+            connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Data\DatabaseApp.mdf;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        -->
+        <add name="SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString" 
+        	connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Data\DatabaseApp.mdf;Integrated Security=True;Connect Timeout=30"
+        	providerName="System.Data.SqlClient" />
+
+    </connectionStrings>
+  <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+</configuration>
+
+
