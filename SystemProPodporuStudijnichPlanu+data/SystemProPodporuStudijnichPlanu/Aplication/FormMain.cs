@@ -147,11 +147,13 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_PridatDoSem.Maximum = semestry;
             }
         }
-        private void RefreshZaznamy()
+        private void RefreshZaznamy(string zkratka="")
         {
             cmb_zaznam.DataSource = null;
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
+            cmb_zaznam.SelectedIndex = cmb_zaznam.FindStringExact(zkratka);
+
         }
         private void FillPopisyDoFormu(string popis, decimal kredity, string povin)
         {
@@ -331,6 +333,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VytvorZaznam()
         {
+            string zkratka = "";
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
                 Zaznam.Text = "Vytvořit nový záznam";
@@ -350,10 +353,11 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    zkratka = Zaznam.Zkr;
                     MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            RefreshZaznamy();
+            RefreshZaznamy(zkratka);
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -891,6 +895,11 @@ namespace SystemProPodporuStudijnichPlanu
                 default:
                     return -1;
             }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
