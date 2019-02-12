@@ -47,23 +47,22 @@
             this.tb_garantN = new System.Windows.Forms.TextBox();
             this.tb_predmetN = new System.Windows.Forms.TextBox();
             this.gb_k = new System.Windows.Forms.GroupBox();
-            this.gb_o = new System.Windows.Forms.GroupBox();
-            this.gb_g = new System.Windows.Forms.GroupBox();
-            this.gb_p = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.gb_o = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.gb_g = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.gb_p = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cb_semestry = new System.Windows.Forms.ComboBox();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
             this.gb_g.SuspendLayout();
             this.gb_p.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_close
@@ -252,6 +251,15 @@
             this.gb_k.TabStop = false;
             this.gb_k.Text = "Výběr a vyhledávání kateder";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Název:";
+            // 
             // gb_o
             // 
             this.gb_o.Controls.Add(this.label2);
@@ -263,6 +271,15 @@
             this.gb_o.TabIndex = 21;
             this.gb_o.TabStop = false;
             this.gb_o.Text = "Výběr a vyhledávání oborů";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Název:";
             // 
             // gb_g
             // 
@@ -276,9 +293,18 @@
             this.gb_g.TabStop = false;
             this.gb_g.Text = "Výběr a vyhledávání garantů";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Jméno:";
+            // 
             // gb_p
             // 
-            this.gb_p.Controls.Add(this.numericUpDown1);
+            this.gb_p.Controls.Add(this.cb_semestry);
             this.gb_p.Controls.Add(this.label6);
             this.gb_p.Controls.Add(this.label5);
             this.gb_p.Controls.Add(this.label4);
@@ -292,32 +318,23 @@
             this.gb_p.TabStop = false;
             this.gb_p.Text = "Výběr a vyhledávání předmětů";
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Název:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 101);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Semestr:";
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Název:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Jméno:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Povinnost:";
             // 
             // label4
             // 
@@ -336,35 +353,22 @@
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
             // 
-            // label5
+            // cb_semestry
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Povinnost:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Semestr:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(64, 99);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(111, 20);
-            this.numericUpDown1.TabIndex = 23;
+            this.cb_semestry.FormattingEnabled = true;
+            this.cb_semestry.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "Nezařazené",
+            "Všechny"});
+            this.cb_semestry.Location = new System.Drawing.Point(64, 98);
+            this.cb_semestry.Name = "cb_semestry";
+            this.cb_semestry.Size = new System.Drawing.Size(111, 21);
+            this.cb_semestry.TabIndex = 23;
             // 
             // FormCRUDmidstage
             // 
@@ -396,7 +400,6 @@
             this.gb_g.PerformLayout();
             this.gb_p.ResumeLayout(false);
             this.gb_p.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,10 +430,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_povin;
+        private System.Windows.Forms.ComboBox cb_semestry;
     }
 }

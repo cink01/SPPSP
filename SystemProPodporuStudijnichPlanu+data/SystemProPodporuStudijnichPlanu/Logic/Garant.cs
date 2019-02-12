@@ -28,6 +28,16 @@ namespace SystemProPodporuStudijnichPlanu
             Id_k = da.GetKatedraId(kat);
         }
 
+        public Garant(int id_v, string jmeno_v, string email_V, string tel_v, string konz_v, int id_k)
+        {
+            Id_v = id_v;
+            Jmeno_v = jmeno_v;
+            Email_V = email_V;
+            Tel_v = tel_v;
+            Konz_v = konz_v;
+            Id_k = id_k;
+        }
+
         public int Id_v{get;set;}
         public string Jmeno_v{ get; set; }
         public string Email_V { get; set; }

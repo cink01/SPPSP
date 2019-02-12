@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -30,7 +31,6 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-               // List<Katedra> vystup = connection.Query<Katedra>($"Select * from katedra").ToList();
                 return connection.Query<Katedra>($"Select * from [katedra]").ToList();
             }
         }
@@ -398,6 +398,63 @@ namespace SystemProPodporuStudijnichPlanu
                 tmp = null;
             predmets = tmp;
         }
+        public void FillCbKatFList(ComboBox x, List<Katedra> kat)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            try
+            {
+               foreach (Katedra k in kat)
+                    x.Items.Add(k.Naz_k);
+           }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba" + ex);
+            }
+        }
+        public void FillCbOborFList(ComboBox x, List<Obor> obory)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            try
+            {
+               foreach (Obor o in obory)
+                    x.Items.Add(o.Name_obor);
+           }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba" + ex);
+            }
+        }
+        public void FillCbGarantFList(ComboBox x, List<Garant> gara)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            try
+            {
+               foreach (Garant g in gara)
+                    x.Items.Add(g.Jmeno_v);
+           }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba" + ex);
+            }
+        }
+        public void FillCbPredmetFList(ComboBox x, List<Predmet> pred)
+        {
+            x.DataSource = null;
+            x.Items.Clear();
+            try
+            {
+                foreach (Predmet p in pred)
+                    x.Items.Add(p.Name_predmet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba" + ex);
+            }
+        }
+
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
         {
             SqlCommand SelectZaz = new SqlCommand("SELECT [zaznam].[id_obor], [zaznam].[pocetSem] FROM [zaznam] WHERE [zaznam].[id_zaznam] =@id_zaznam", GetConnection());

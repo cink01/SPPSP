@@ -17,12 +17,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             InitializeComponent();
             DataAccess da = new DataAccess();
             katedras = da.GetFullKatedra();
-            obors= da.GetFullObor();
-            garants= da.GetFullGarant();
-            predmets= da.GetFullPredmet();
-            da.FillOborCB(cb_obor);
-            da.FillKatedraCB(cb_katedra);
-            da.FillGarantCB(cb_garant);
+            obors = da.GetFullObor();
+            garants = da.GetFullGarant();
+            predmets = da.GetFullPredmet();
+            da.FillCbGarantFList(cb_garant,garants);
+            da.FillCbKatFList(cb_katedra, katedras);
+            da.FillCbPredmetFList(cb_predmet, predmets);
+            da.FillCbOborFList(cb_obor, obors);
         }
         private void Bt_novy_Click(object sender, EventArgs e)
         {
@@ -166,7 +167,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             cb_katedra.Items.Clear();
             //chb_exist.Checked = false;
             cb_katedra.Text = "Nalezené katedry";
-            foreach (Katedra k in kat)
+            foreach (Katedra k in katedras)
             {
                 if (k.Naz_k.IndexOf(tb_katedraN.Text, Comp) >= 0)
                 {
@@ -180,7 +181,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             cb_obor.Items.Clear();
             //chb_exist.Checked = false;
             cb_obor.Text = "Nalezené obory";
-            foreach (Obor o in obo)
+            foreach (Obor o in obors)
             {
                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
                 {
@@ -194,7 +195,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             cb_garant.Items.Clear();
             //chb_exist.Checked = false;
             cb_garant.Text = "Nalezení garanti";
-            foreach (Garant g in gar)
+            foreach (Garant g in garants)
             {
                 if (g.Jmeno_v.IndexOf(tb_garantN.Text, Comp) >= 0)
                 {
@@ -203,17 +204,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-        private void Tb_predmetN_TextChanged(object sender, EventArgs e)
+        private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
         {
             cb_predmet.Items.Clear();
             //chb_exist.Checked = false;
             cb_predmet.Text = "Nalezené předměty";
-            foreach (Predmet p in pre)
+            foreach (Predmet p in predmets)
             {
                 if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
                 {
                     cb_predmet.Items.Add(p.Name_predmet);
-                    //  chb_exist.Checked = true;
                 }
             }
         }
