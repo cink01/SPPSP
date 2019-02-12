@@ -486,6 +486,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
         }
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z,int sem)
+        //potreba po smazani vratit do sudy nebo lichy, aby se nemusel list neustale nacitat
         {
             int x = 0;
             foreach (Predmet n in p)
