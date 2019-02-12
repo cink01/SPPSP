@@ -26,6 +26,35 @@ namespace SystemProPodporuStudijnichPlanu
             }
             return conn;
         }
+        public List<Katedra> GetFullKatedra()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+               // List<Katedra> vystup = connection.Query<Katedra>($"Select * from katedra").ToList();
+                return connection.Query<Katedra>($"Select * from [katedra]").ToList();
+            }
+        }
+        public List<Obor> GetFullObor()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Obor>($"Select * from [obor]").ToList();
+            }
+        }
+        public List<Garant> GetFullGarant()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Garant>($"Select * from [garant]").ToList();
+            }
+        }
+        public List<Predmet> GetFullPredmet()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Predmet>($"Select * from [predmet]").ToList();
+            }
+        }
         public List<Predmet> GetPredmetFullSudy(string obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))

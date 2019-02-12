@@ -7,18 +7,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCRUDmidstage : Form
     {
-        public List<Katedra> kat = new List<Katedra>();
-        public List<Obor> obo = new List<Obor>();
-        public List<Garant> gar = new List<Garant>();
-        public List<Predmet> pre = new List<Predmet>();
+        public List<Katedra> katedras = new List<Katedra>();
+        public List<Obor> obors = new List<Obor>();
+        public List<Garant> garants = new List<Garant>();
+        public List<Predmet> predmets = new List<Predmet>();
         public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCRUDmidstage()
         {
             InitializeComponent();
-            DataAccess a = new DataAccess();
-            a.FillOborCB(cb_obor);
-            a.FillKatedraCB(cb_katedra);
-            a.FillGarantCB(cb_garant);
+            DataAccess da = new DataAccess();
+            katedras = da.GetFullKatedra();
+            obors= da.GetFullObor();
+            garants= da.GetFullGarant();
+            predmets= da.GetFullPredmet();
+            da.FillOborCB(cb_obor);
+            da.FillKatedraCB(cb_katedra);
+            da.FillGarantCB(cb_garant);
         }
         private void Bt_novy_Click(object sender, EventArgs e)
         {
