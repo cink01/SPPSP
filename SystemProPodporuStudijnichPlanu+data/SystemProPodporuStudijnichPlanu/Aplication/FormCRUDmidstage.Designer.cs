@@ -40,7 +40,6 @@
             this.rb_katedra = new System.Windows.Forms.RadioButton();
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
-            this.cb_garant = new System.Windows.Forms.ComboBox();
             this.cb_predmet = new System.Windows.Forms.ComboBox();
             this.tb_katedraN = new System.Windows.Forms.TextBox();
             this.tb_oborN = new System.Windows.Forms.TextBox();
@@ -53,11 +52,12 @@
             this.gb_g = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gb_p = new System.Windows.Forms.GroupBox();
+            this.cb_semestry = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.cb_semestry = new System.Windows.Forms.ComboBox();
+            this.cb_garant = new System.Windows.Forms.ComboBox();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -191,14 +191,6 @@
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
-            // cb_garant
-            // 
-            this.cb_garant.FormattingEnabled = true;
-            this.cb_garant.Location = new System.Drawing.Point(6, 19);
-            this.cb_garant.Name = "cb_garant";
-            this.cb_garant.Size = new System.Drawing.Size(169, 21);
-            this.cb_garant.TabIndex = 14;
-            // 
             // cb_predmet
             // 
             this.cb_predmet.FormattingEnabled = true;
@@ -229,7 +221,7 @@
             this.tb_garantN.Name = "tb_garantN";
             this.tb_garantN.Size = new System.Drawing.Size(111, 20);
             this.tb_garantN.TabIndex = 18;
-            this.tb_garantN.TextChanged += new System.EventHandler(this.Tb_garantN_TextChanged);
+            this.tb_garantN.TextChanged += new System.EventHandler(this.Cb_garant_TextChanged);
             // 
             // tb_predmetN
             // 
@@ -283,8 +275,8 @@
             // 
             // gb_g
             // 
-            this.gb_g.Controls.Add(this.label3);
             this.gb_g.Controls.Add(this.cb_garant);
+            this.gb_g.Controls.Add(this.label3);
             this.gb_g.Controls.Add(this.tb_garantN);
             this.gb_g.Location = new System.Drawing.Point(374, 63);
             this.gb_g.Name = "gb_g";
@@ -317,6 +309,23 @@
             this.gb_p.TabIndex = 23;
             this.gb_p.TabStop = false;
             this.gb_p.Text = "Výběr a vyhledávání předmětů";
+            // 
+            // cb_semestry
+            // 
+            this.cb_semestry.FormattingEnabled = true;
+            this.cb_semestry.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "Nezařazené",
+            "Všechny"});
+            this.cb_semestry.Location = new System.Drawing.Point(64, 98);
+            this.cb_semestry.Name = "cb_semestry";
+            this.cb_semestry.Size = new System.Drawing.Size(111, 21);
+            this.cb_semestry.TabIndex = 23;
             // 
             // label6
             // 
@@ -353,22 +362,13 @@
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
             // 
-            // cb_semestry
+            // cb_garant
             // 
-            this.cb_semestry.FormattingEnabled = true;
-            this.cb_semestry.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "Nezařazené",
-            "Všechny"});
-            this.cb_semestry.Location = new System.Drawing.Point(64, 98);
-            this.cb_semestry.Name = "cb_semestry";
-            this.cb_semestry.Size = new System.Drawing.Size(111, 21);
-            this.cb_semestry.TabIndex = 23;
+            this.cb_garant.FormattingEnabled = true;
+            this.cb_garant.Location = new System.Drawing.Point(6, 19);
+            this.cb_garant.Name = "cb_garant";
+            this.cb_garant.Size = new System.Drawing.Size(169, 21);
+            this.cb_garant.TabIndex = 20;
             // 
             // FormCRUDmidstage
             // 
@@ -417,7 +417,6 @@
         private System.Windows.Forms.RadioButton rb_katedra;
         private System.Windows.Forms.RadioButton rb_garant;
         private System.Windows.Forms.GroupBox gb_vyber;
-        private System.Windows.Forms.ComboBox cb_garant;
         private System.Windows.Forms.ComboBox cb_predmet;
         private System.Windows.Forms.TextBox tb_katedraN;
         private System.Windows.Forms.TextBox tb_oborN;
@@ -435,5 +434,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_povin;
         private System.Windows.Forms.ComboBox cb_semestry;
+        private System.Windows.Forms.ComboBox cb_garant;
     }
 }

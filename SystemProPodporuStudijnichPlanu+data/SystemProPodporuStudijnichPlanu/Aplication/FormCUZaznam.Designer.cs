@@ -34,13 +34,13 @@
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_Zaznam = new System.Windows.Forms.GroupBox();
+            this.bt_info = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_id = new System.Windows.Forms.TextBox();
             this.l_email = new System.Windows.Forms.Label();
             this.l_zkr = new System.Windows.Forms.Label();
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
-            this.bt_info = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).BeginInit();
             this.gb_Zaznam.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.nud_semestr.Size = new System.Drawing.Size(48, 20);
             this.nud_semestr.TabIndex = 2;
             this.nud_semestr.Value = new decimal(new int[] {
-            1,
+            6,
             0,
             0,
             0});
@@ -125,6 +125,20 @@
             this.gb_Zaznam.TabStop = false;
             this.gb_Zaznam.Text = "Záznam Plánu";
             // 
+            // bt_info
+            // 
+            this.bt_info.BackColor = System.Drawing.Color.Azure;
+            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_info.Location = new System.Drawing.Point(98, 123);
+            this.bt_info.Name = "bt_info";
+            this.bt_info.Size = new System.Drawing.Size(19, 23);
+            this.bt_info.TabIndex = 13;
+            this.bt_info.Text = "?";
+            this.bt_info.UseVisualStyleBackColor = false;
+            this.bt_info.Visible = false;
+            this.bt_info.Click += new System.EventHandler(this.Bt_info_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -142,6 +156,7 @@
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
             this.tb_id.TabIndex = 6;
+            this.tb_id.Text = "-";
             // 
             // l_email
             // 
@@ -177,20 +192,6 @@
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
             this.tb_zkr.TabIndex = 4;
-            // 
-            // bt_info
-            // 
-            this.bt_info.BackColor = System.Drawing.Color.Azure;
-            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_info.Location = new System.Drawing.Point(98, 123);
-            this.bt_info.Name = "bt_info";
-            this.bt_info.Size = new System.Drawing.Size(19, 23);
-            this.bt_info.TabIndex = 13;
-            this.bt_info.Text = "?";
-            this.bt_info.UseVisualStyleBackColor = false;
-            this.bt_info.Visible = false;
-            this.bt_info.Click += new System.EventHandler(this.Bt_info_Click);
             // 
             // FormCUZaznam
             // 

@@ -334,6 +334,7 @@
             this.cb_povinnost.Name = "cb_povinnost";
             this.cb_povinnost.Size = new System.Drawing.Size(139, 21);
             this.cb_povinnost.TabIndex = 30;
+            this.cb_povinnost.TextChanged += new System.EventHandler(this.Cb_povinnost_TextChanged);
             // 
             // label8
             // 
@@ -395,6 +396,7 @@
             this.cb_obor.Name = "cb_obor";
             this.cb_obor.Size = new System.Drawing.Size(139, 21);
             this.cb_obor.TabIndex = 23;
+            this.cb_obor.TextChanged += new System.EventHandler(this.Cb_obor_TextChanged);
             // 
             // cb_garant
             // 
@@ -403,6 +405,7 @@
             this.cb_garant.Name = "cb_garant";
             this.cb_garant.Size = new System.Drawing.Size(139, 21);
             this.cb_garant.TabIndex = 22;
+            this.cb_garant.TextChanged += new System.EventHandler(this.Cb_garant_TextChanged);
             // 
             // nud_kredit
             // 

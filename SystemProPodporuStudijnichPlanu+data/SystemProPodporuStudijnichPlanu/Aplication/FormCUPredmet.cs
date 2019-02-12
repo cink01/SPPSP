@@ -1,18 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUPredmet : Form
     {
+     //   public List<Katedra> katedras = new List<Katedra>();
+        public List<Obor> obors = new List<Obor>();
+        public List<Garant> garants = new List<Garant>();
+     //   public List<Predmet> predmets = new List<Predmet>();
+        public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCUPredmet()
         {
             InitializeComponent();
-            DataAccess a = new DataAccess();
-            a.FillOborCB(cb_obor);
-            a.FillGarantCB(cb_garant);
+            DataAccess da = new DataAccess();
+            obors = da.GetFullObor();
+            garants = da.GetFullGarant();
+            da.FillCbGarantFList(cb_garant, garants);
+            da.FillCbOborFList(cb_obor, obors);
         }
 
         public string Nazev
@@ -128,6 +136,38 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Bt_close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Cb_garant_TextChanged(object sender, EventArgs e)
+        {
+            cb_garant.Items.Clear();
+            //chb_exist.Checked = false;
+            foreach (Garant g in garants)
+            {
+                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
+                {
+                    cb_garant.Items.Add(g.Jmeno_v);
+                }
+            }
+        }
+
+        private void Cb_povinnost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cb_obor_TextChanged(object sender, EventArgs e)
+        {
+            cb_obor.Items.Clear();
+            //chb_exist.Checked = false;
+            foreach (Obor o in obors)
+            {
+                if (o.Name_obor.IndexOf(cb_obor.Text, Comp) >= 0)
+                {
+                    cb_obor.Items.Add(o.Name_obor);
+                    //  chb_exist.Checked = true;
+                }
+            }
         }
     }
 }

@@ -337,6 +337,7 @@ namespace SystemProPodporuStudijnichPlanu
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
                 Zaznam.Text = "Vytvořit nový záznam";
+                Zaznam.Schov = true;
                 DialogResult potvrzeni = Zaznam.ShowDialog();
                 if (potvrzeni == DialogResult.OK)
                 {
@@ -361,70 +362,74 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VratZaznamData(out int id_z, out string zkr, out _, out string rok_o, out int PocSem);
-            using (FormCUZaznam Zaznam = new FormCUZaznam())
+            if (cmb_zaznam.SelectedIndex != -1)
             {
-                Zaznam.Text = "Upravit záznam";
-                Zaznam.Id = id_z.ToString();
-                Zaznam.Zkr = zkr;
-                Zaznam.Obor = rok_o;
-                Zaznam.Semestr = PocSem;
-                string rok_oborOld = rok_o;
-                DataAccess a = new DataAccess();
-                DialogResult potvrzeni = Zaznam.ShowDialog();
-                if (potvrzeni == DialogResult.OK)
+                VratZaznamData(out int id_z, out string zkr, out _, out string rok_o, out int PocSem);
+                using (FormCUZaznam Zaznam = new FormCUZaznam())
                 {
-                    DataCrud x = new DataCrud();
-                    string rok_oborNew = Zaznam.Obor;
-                    try
+                    Zaznam.Text = "Upravit záznam";
+                    Zaznam.Schov = false;
+                    Zaznam.Id = id_z.ToString();
+                    Zaznam.Zkr = zkr;
+                    Zaznam.Obor = rok_o;
+                    Zaznam.Semestr = PocSem;
+                    string rok_oborOld = rok_o;
+                    DataAccess a = new DataAccess();
+                    DialogResult potvrzeni = Zaznam.ShowDialog();
+                    if (potvrzeni == DialogResult.OK)
                     {
-                        id_z = Convert.ToInt32(Zaznam.Id);
-                        if (rok_oborNew == rok_oborOld)
+                        DataCrud x = new DataCrud();
+                        string rok_oborNew = Zaznam.Obor;
+                        try
                         {
-                            PocSem = Zaznam.Semestr;
-                            int stare = a.GetZaznamSemestr(id_z);
-                            x.UpdateZaznam(id_z,
-                                           Zaznam.Zkr,
-                                           PocSem);
-                            if (stare > PocSem)
-                                while (stare > PocSem)
+                            id_z = Convert.ToInt32(Zaznam.Id);
+                            if (rok_oborNew == rok_oborOld)
+                            {
+                                PocSem = Zaznam.Semestr;
+                                int stare = a.GetZaznamSemestr(id_z);
+                                x.UpdateZaznam(id_z,
+                                               Zaznam.Zkr,
+                                               PocSem);
+                                if (stare > PocSem)
+                                    while (stare > PocSem)
+                                    {
+                                        x.DeletePlanSemestr(id_z, stare);
+                                        stare--;
+                                    }
+                                if (stare < PocSem)
+                                    while (stare < PocSem)
+                                    {
+                                        x.InsertPS(Zaznam.Zkr, stare);
+                                        stare++;
+                                    }
+                            }
+                            else
+                            {
+                                try
                                 {
-                                    x.DeletePlanSemestr(id_z, stare);
-                                    stare--;
+                                    x.DeleteZaznam(id_z);
+                                    x.InsertZaznam(Zaznam.Zkr,
+                                                   Zaznam.Obor,
+                                                   Zaznam.Semestr);
+                                    for (int i = 1; i <= Zaznam.Semestr; i++)
+                                        x.InsertPS(Zaznam.Zkr, i);
                                 }
-                            if (stare < PocSem)
-                                while (stare < PocSem)
+                                catch (Exception ex)
                                 {
-                                    x.InsertPS(Zaznam.Zkr, stare);
-                                    stare++;
+                                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
+                                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            try
-                            {
-                                x.DeleteZaznam(id_z);
-                                x.InsertZaznam(Zaznam.Zkr,
-                                               Zaznam.Obor,
-                                               Zaznam.Semestr);
-                                for (int i = 1; i <= Zaznam.Semestr; i++)
-                                    x.InsertPS(Zaznam.Zkr, i);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                RefreshZaznamy();
             }
-            RefreshZaznamy();
         }
         private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
         private void Viditelnost(int i)

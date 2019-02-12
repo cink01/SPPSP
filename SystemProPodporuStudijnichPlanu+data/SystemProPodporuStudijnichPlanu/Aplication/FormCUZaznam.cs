@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUZaznam : Form
     {
+        public bool Schov { get; set; }
         public string Id
         {
             get => tb_id.Text;
@@ -38,6 +33,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public FormCUZaznam()
         {
+            if (Schov == true)
+            {
+                l_id.Visible = false;
+                tb_id.Visible = false;
+            }
             DataAccess a = new DataAccess();
             InitializeComponent();
             a.FillOborCB(cmb_obor);
@@ -45,7 +45,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void FormCUZaznam_Load(object sender, EventArgs e)
         {
-
+            if (Schov == true)
+            {
+                l_id.Visible = false;
+                tb_id.Visible = false;
+            }
         }
 
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)

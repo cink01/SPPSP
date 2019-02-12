@@ -192,17 +192,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Tb_garantN_TextChanged(object sender, EventArgs e)
         {
-            cb_garant.Items.Clear();
-            //chb_exist.Checked = false;
-            cb_garant.Text = "Nalezení garanti";
-            foreach (Garant g in garants)
-            {
-                if (g.Jmeno_v.IndexOf(tb_garantN.Text, Comp) >= 0)
-                {
-                    cb_garant.Items.Add(g.Jmeno_v);
-                    //  chb_exist.Checked = true;
-                }
-            }
+
         }
         private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
         {
@@ -214,6 +204,25 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
                 {
                     cb_predmet.Items.Add(p.Name_predmet);
+                }
+            }
+        }
+
+        private void Cb_garant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cb_garant_TextChanged(object sender, EventArgs e)
+        {
+            cb_garant.Items.Clear();
+            //chb_exist.Checked = false;
+            foreach (Garant g in garants)
+            {
+                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
+                {
+                    cb_garant.Items.Add(g.Jmeno_v);
+                    //  chb_exist.Checked = true;
                 }
             }
         }
