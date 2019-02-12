@@ -8,21 +8,21 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUPredmet : Form
     {
-     //   public List<Katedra> katedras = new List<Katedra>();
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
-     //   public List<Predmet> predmets = new List<Predmet>();
         public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCUPredmet()
         {
             InitializeComponent();
+        }
+        private void FormCUPredmet_Load(object sender, EventArgs e)
+        {
             DataAccess da = new DataAccess();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
             da.FillCbGarantFList(cb_garant, garants);
             da.FillCbOborFList(cb_obor, obors);
         }
-
         public string Nazev
         {
             get => tb_nazev.Text;
@@ -111,37 +111,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
             set => cb_garant.SelectedIndex = cb_garant.FindStringExact(value);
         }
-
-
-        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NumericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Lb_kredity_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Bt_close_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void Cb_garant_TextChanged(object sender, EventArgs e)
+        private void Cb_garant_Hledání(object sender, EventArgs e)
         {
             cb_garant.Items.Clear();
-            //chb_exist.Checked = false;
             foreach (Garant g in garants)
             {
                 if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
@@ -150,24 +126,38 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-
-        private void Cb_povinnost_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cb_obor_TextChanged(object sender, EventArgs e)
+        private void Cb_obor_Hledání(object sender, EventArgs e)
         {
             cb_obor.Items.Clear();
-            //chb_exist.Checked = false;
             foreach (Obor o in obors)
             {
                 if (o.Name_obor.IndexOf(cb_obor.Text, Comp) >= 0)
                 {
                     cb_obor.Items.Add(o.Name_obor);
-                    //  chb_exist.Checked = true;
                 }
             }
         }
+
+        private void Cb_povinnost_Hledaní(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
+/* 
+ private void HledaniTextuvCb<T>(ComboBox c,List<T> l)
+ {
+     c.Items.Clear();
+     //chb_exist.Checked = false;
+     foreach (T o in l)
+     {
+         if (o.Name_obor.IndexOf(c.Text, Comp) >= 0)
+         {
+             cb_obor.Items.Add(o.Name_obor);
+             //  chb_exist.Checked = true;
+         }
+     }
+  }
+*/

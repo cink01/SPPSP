@@ -7,36 +7,37 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCRUDmidstage : Form
     {
-        public List<Katedra> katedras = new List<Katedra>();
-        public List<Obor> obors = new List<Obor>();
-        public List<Garant> garants = new List<Garant>();
-        public List<Predmet> predmets = new List<Predmet>();
+        List<Katedra> katedras = new List<Katedra>();
+        List<Obor> obors = new List<Obor>();
+        List<Garant> garants = new List<Garant>();
+        List<Predmet> predmets = new List<Predmet>();
         public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCRUDmidstage()
         {
             InitializeComponent();
+        }
+        private void FormCRUDmidstage_Load(object sender, EventArgs e)
+        {
             DataAccess da = new DataAccess();
             katedras = da.GetFullKatedra();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
             predmets = da.GetFullPredmet();
-            da.FillCbGarantFList(cb_garant,garants);
-            da.FillCbKatFList(cb_katedra, katedras);
-            da.FillCbPredmetFList(cb_predmet, predmets);
-            da.FillCbOborFList(cb_obor, obors);
+            da.FillCbPredmetFList(cb_pre, predmets);
+            da.FillCbGarantFList(cb_garant, garants);
+            da.FillCbOborFList(cb_obo, obors);
+            da.FillCbKatFList(cb_kat, katedras);
         }
         private void Bt_novy_Click(object sender, EventArgs e)
         {
             if (rb_garant.Checked == true)
             {
-                //  bt_novy;
                 NewGarant();
             }
             if (rb_predmet.Checked == true)
             {
                 NewPredmet();
             }
-
             if (rb_obor.Checked == true)
             {
                 NewObor();
@@ -157,72 +158,73 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        private void FormCRUDmidstage_Load(object sender, EventArgs e)
-        {
-
-        }
-        //vraceni listu a plnění datasetu a mazani z nich
         private void Tb_katedraN_TextChanged(object sender, EventArgs e)
         {
-            cb_katedra.Items.Clear();
-            //chb_exist.Checked = false;
-            cb_katedra.Text = "Nalezené katedry";
+            cb_kat.Items.Clear();
+            cb_kat.Text = "Nalezené katedry";
             foreach (Katedra k in katedras)
-            {
                 if (k.Naz_k.IndexOf(tb_katedraN.Text, Comp) >= 0)
-                {
-                    cb_katedra.Items.Add(k.Naz_k);
-                    //  chb_exist.Checked = true;
-                }
-            }
+                    cb_kat.Items.Add(k.Naz_k);
         }
         private void Tb_oborN_TextChanged(object sender, EventArgs e)
         {
-            cb_obor.Items.Clear();
-            //chb_exist.Checked = false;
-            cb_obor.Text = "Nalezené obory";
+            cb_obo.Items.Clear();
+            cb_obo.Text = "Nalezené obory";
             foreach (Obor o in obors)
-            {
                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
-                {
-                    cb_obor.Items.Add(o.Name_obor);
-                    //  chb_exist.Checked = true;
-                }
-            }
-        }
-        private void Tb_garantN_TextChanged(object sender, EventArgs e)
-        {
-
+                    cb_obo.Items.Add(o.Name_obor);
         }
         private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
         {
-            cb_predmet.Items.Clear();
-            //chb_exist.Checked = false;
-            cb_predmet.Text = "Nalezené předměty";
+            cb_pre.Items.Clear();
             foreach (Predmet p in predmets)
-            {
                 if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
+                    cb_pre.Items.Add(p.Name_predmet);
+        }
+        private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
+        {
+            cb_garant.Items.Clear();
+            foreach (Garant g in garants)
+                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
+                    cb_garant.Items.Add(g.Jmeno_v);
+        }
+        private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
+        {
+            if (cb_pre.Text != "")
+            {
+                cb_pre.Items.Clear();
+                foreach (Predmet p in predmets)
                 {
-                    cb_predmet.Items.Add(p.Name_predmet);
+                    if (p.Name_predmet.IndexOf(cb_pre.Text, Comp) >= 0)
+                    {
+                        cb_garant.Items.Add(p.Name_predmet);
+                    }
+                }
+            }
+        }
+        private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
+        {
+            cb_obo.Items.Clear();
+            foreach (Obor o in obors)
+            {
+                if (o.Name_obor.IndexOf(cb_obo.Text, Comp) >= 0)
+                {
+                    cb_obo.Items.Add(o.Name_obor);
                 }
             }
         }
 
-        private void Cb_garant_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
         {
-
-        }
-
-        private void Cb_garant_TextChanged(object sender, EventArgs e)
-        {
-            cb_garant.Items.Clear();
-            //chb_exist.Checked = false;
-            foreach (Garant g in garants)
+            if (cb_kat.Text != "")
             {
-                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
-                {
-                    cb_garant.Items.Add(g.Jmeno_v);
-                    //  chb_exist.Checked = true;
+                cb_kat.Items.Clear();
+                foreach (Katedra k in katedras)
+                { 
+                    if (k.Naz_k.IndexOf(cb_kat.Text, Comp) >= 0)
+                    { 
+                        cb_garant.Items.Add(k.Naz_k);
+                    }
                 }
             }
         }

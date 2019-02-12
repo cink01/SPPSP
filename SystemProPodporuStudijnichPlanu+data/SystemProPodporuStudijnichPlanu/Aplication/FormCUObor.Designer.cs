@@ -115,7 +115,6 @@
             this.gb_obor.TabIndex = 12;
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Obor";
-            this.gb_obor.Enter += new System.EventHandler(this.Gb_obor_Enter);
             // 
             // label6
             // 
@@ -140,7 +139,6 @@
             this.nud_vs.Name = "nud_vs";
             this.nud_vs.Size = new System.Drawing.Size(59, 20);
             this.nud_vs.TabIndex = 20;
-            this.nud_vs.ValueChanged += new System.EventHandler(this.Nud_vs_ValueChanged);
             // 
             // nud_v
             // 
@@ -148,7 +146,6 @@
             this.nud_v.Name = "nud_v";
             this.nud_v.Size = new System.Drawing.Size(59, 20);
             this.nud_v.TabIndex = 19;
-            this.nud_v.ValueChanged += new System.EventHandler(this.Nud_v_ValueChanged);
             // 
             // nud_pv
             // 
@@ -156,7 +153,6 @@
             this.nud_pv.Name = "nud_pv";
             this.nud_pv.Size = new System.Drawing.Size(59, 20);
             this.nud_pv.TabIndex = 18;
-            this.nud_pv.ValueChanged += new System.EventHandler(this.Nud_pv_ValueChanged);
             // 
             // nud_p
             // 
@@ -164,7 +160,6 @@
             this.nud_p.Name = "nud_p";
             this.nud_p.Size = new System.Drawing.Size(59, 20);
             this.nud_p.TabIndex = 17;
-            this.nud_p.ValueChanged += new System.EventHandler(this.Nud_p_ValueChanged);
             // 
             // label5
             // 
@@ -174,7 +169,6 @@
             this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "Volitelných sportů:";
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // label4
             // 
@@ -184,7 +178,6 @@
             this.label4.Size = new System.Drawing.Size(109, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "Volitelných předmětů:";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label3
             // 
@@ -194,7 +187,6 @@
             this.label3.Size = new System.Drawing.Size(150, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Povinně-volitelných předmětů:";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label1
             // 
@@ -204,7 +196,6 @@
             this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Povinných předmětů:";
-            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // label2
             // 
@@ -214,7 +205,6 @@
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Rok:";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // tb_rok
             // 
@@ -222,7 +212,6 @@
             this.tb_rok.Name = "tb_rok";
             this.tb_rok.Size = new System.Drawing.Size(138, 20);
             this.tb_rok.TabIndex = 10;
-            this.tb_rok.TextChanged += new System.EventHandler(this.Tb_rok_TextChanged);
             // 
             // tb_id
             // 
@@ -231,7 +220,6 @@
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(63, 20);
             this.tb_id.TabIndex = 6;
-            this.tb_id.TextChanged += new System.EventHandler(this.Tb_id_TextChanged);
             // 
             // l_email
             // 
@@ -241,7 +229,6 @@
             this.l_email.Size = new System.Drawing.Size(41, 13);
             this.l_email.TabIndex = 9;
             this.l_email.Text = "Název:";
-            this.l_email.Click += new System.EventHandler(this.L_email_Click);
             // 
             // l_zkr
             // 
@@ -251,7 +238,6 @@
             this.l_zkr.Size = new System.Drawing.Size(47, 13);
             this.l_zkr.TabIndex = 8;
             this.l_zkr.Text = "Zkratka:";
-            this.l_zkr.Click += new System.EventHandler(this.L_zkr_Click);
             // 
             // l_id
             // 
@@ -261,7 +247,6 @@
             this.l_id.Size = new System.Drawing.Size(21, 13);
             this.l_id.TabIndex = 7;
             this.l_id.Text = "ID:";
-            this.l_id.Click += new System.EventHandler(this.L_id_Click);
             // 
             // tb_zkr
             // 
@@ -269,7 +254,6 @@
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
             this.tb_zkr.TabIndex = 4;
-            this.tb_zkr.TextChanged += new System.EventHandler(this.Tb_zkr_TextChanged);
             // 
             // tb_nazev
             // 
@@ -277,7 +261,6 @@
             this.tb_nazev.Name = "tb_nazev";
             this.tb_nazev.Size = new System.Drawing.Size(138, 20);
             this.tb_nazev.TabIndex = 5;
-            this.tb_nazev.TextChanged += new System.EventHandler(this.Tb_nazev_TextChanged);
             // 
             // FormCUObor
             // 
