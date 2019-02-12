@@ -19,7 +19,7 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
-            if (cmb_zaznam.Items.Count <= 0)
+            if (cmb_zaznam.Items.Count <= 1)
             {
                 var text = "Není založen žádný plán. Chcete vytvořit nový?";
                 var titul = "Prázný záznam";
