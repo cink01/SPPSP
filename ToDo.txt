@@ -1,6 +1,15 @@
-nastavit deselect na listy když je vybrán z jiného
-zobraztit v hlavním okně v listech jen zkr a název 
-otevření úprav přes mezi okno s vyhledávačem - udělat mezi okno
-přidat počet semestrů do db
-výpisy sudých lichých + speciálních do listů z db - ty co již jsou vybrány
-přepravky pro další funkce??
+Current
+Dokončit vyhledávání podle modelu
+Umožnit upravy a mazání pro vyhledané
+custom komponenta na popisy předmětů pro main a přiřazování k semestrům
+snaha upravit vše tak, aby vše bylo intuitivní
+
+
+
+Hotovo
+nastavit deselect na listy když je vybrán z jiného -- hotovo využívano poté switchu kvuli obtiznosti
+zobraztit v hlavním okně v listech jen zkr a název -- nakonec jen název
+otevření úprav přes mezi okno s vyhledávačem - udělat mezi okno -- hotovo zbytek v current
+přidat počet semestrů do db -- hotovo
+výpisy sudých lichých + speciálních do listů z db - ty co již jsou vybrány -- done
+přepravky pro další funkce?? -- zatim nebyli potreba
