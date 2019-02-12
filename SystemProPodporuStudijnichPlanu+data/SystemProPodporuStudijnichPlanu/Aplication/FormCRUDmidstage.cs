@@ -190,17 +190,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
         {
-            if (cb_pre.Text != "")
+
+            cb_pre.Items.Clear();
+            foreach (Predmet p in predmets)
             {
-                cb_pre.Items.Clear();
-                foreach (Predmet p in predmets)
+                if (p.Name_predmet.IndexOf(cb_pre.Text, Comp) >= 0)
                 {
-                    if (p.Name_predmet.IndexOf(cb_pre.Text, Comp) >= 0)
-                    {
-                        cb_garant.Items.Add(p.Name_predmet);
-                    }
+                    cb_pre.Items.Add(p.Name_predmet);
                 }
             }
+
         }
         private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
         {
@@ -216,17 +215,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
         {
-            if (cb_kat.Text != "")
+
+            cb_kat.Items.Clear();
+            foreach (Katedra k in katedras)
             {
-                cb_kat.Items.Clear();
-                foreach (Katedra k in katedras)
-                { 
-                    if (k.Naz_k.IndexOf(cb_kat.Text, Comp) >= 0)
-                    { 
-                        cb_garant.Items.Add(k.Naz_k);
-                    }
+                if (k.Naz_k.IndexOf(cb_kat.Text, Comp) >= 0)
+                {
+                    cb_kat.Items.Add(k.Naz_k);
                 }
             }
+
         }
     }
 }
