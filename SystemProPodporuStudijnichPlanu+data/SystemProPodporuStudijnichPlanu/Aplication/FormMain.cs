@@ -307,6 +307,19 @@ namespace SystemProPodporuStudijnichPlanu
             Sporty.Clear();
             predmetySudy.Clear();
             predmetyLichy.Clear();
+            for (int i = 1; i <= 12; i++)
+                ClearLB(i);
+        }
+        public void ClearLB(int i)
+        {
+            ListBox x = VratListBox(i);
+            VyberNudVal(0, i);
+            try
+            {
+                x.DataSource = null;
+                x.Items.Clear();
+            }
+            catch { }
         }
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
