@@ -1,0 +1,1 @@
+Instalator mi funguje zatím jen na mém pc u ostatních to hlásí chybu databáze
