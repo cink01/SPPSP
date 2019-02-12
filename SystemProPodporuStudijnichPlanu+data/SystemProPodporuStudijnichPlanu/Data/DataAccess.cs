@@ -485,17 +485,31 @@ namespace SystemProPodporuStudijnichPlanu
                     povin = x.Povinnost;
                 }
         }
+        /*
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z,int sem)
         //potreba po smazani vratit do sudy nebo lichy, aby se nemusel list neustale nacitat
         {
             int x = 0;
             foreach (Predmet n in p)
                 if ((object)LB.SelectedItem == (object)(n.Name_predmet))
+                {
                     x = n.Id_predmet;
+                    if(sem==0|| sem == 2 || sem == 4 || sem == 6 || sem == 8 || sem == 10 || sem == 12 )
+                    {
+                        //pridat n.Name_predmet do listSudy
+                    }
+                    else
+                    {
+                        //pridat n.Name_predmet do listLichy
+                     //   predmetyLichy.Add(n.Name_predmet);
+                    }
+
+                }
             int id = GetVyberId(id_z, x, sem);
             LB.Items.Remove(LB.SelectedItem);
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);
         }
+        */
     }
 }

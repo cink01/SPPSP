@@ -301,8 +301,28 @@ namespace SystemProPodporuStudijnichPlanu
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
             decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
             DataAccess da = new DataAccess();
-            da.MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+            MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
             VyberNudVal(sum, urceniZvolenehoListu);
+        }
+        public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z, int sem) //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
+        {
+            DataAccess da = new DataAccess();
+            int x = 0;
+            foreach (Predmet n in p)
+            { 
+                if ((object)LB.SelectedItem == (object)(n.Name_predmet))
+                {
+                    x = n.Id_predmet;
+                    if (sem == 0 || sem == 2 || sem == 4 || sem == 6 || sem == 8 || sem == 10 || sem == 12)
+                        predmetySudy.Add(n);
+                    else
+                        predmetyLichy.Add(n);
+                }
+            }
+            int id = da.GetVyberId(id_z, x, sem);
+            LB.Items.Remove(LB.SelectedItem);
+            DataCrud dc = new DataCrud();
+            dc.DeleteVyber(id);
         }
         private void ClearListy()
         {
