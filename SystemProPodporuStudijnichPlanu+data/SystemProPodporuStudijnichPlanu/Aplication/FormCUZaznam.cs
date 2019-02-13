@@ -42,7 +42,21 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             InitializeComponent();
             a.FillOborCB(cmb_obor);
         }
-
+        /*  List<Obor> obors = new List<Obor>();
+  public FormCUZaznam()
+  {
+      if (Schov == true)
+      {
+          l_id.Visible = false;
+          tb_id.Visible = false;
+      }
+      DataAccess a = new DataAccess();
+      Filling fill = new Filling();
+      InitializeComponent();
+      obors.Clear();
+      obors = a.GetFullObor();
+      fill.NaplnComboBox<Obor>(cmb_obor,obors);
+  }*/
         private void FormCUZaznam_Load(object sender, EventArgs e)
         {
             if (Schov == true)

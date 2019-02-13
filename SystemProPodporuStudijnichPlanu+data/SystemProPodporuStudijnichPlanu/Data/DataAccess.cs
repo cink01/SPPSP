@@ -300,6 +300,7 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
+//nahradit/prepsat Funkce kolem tvorby zaznamu a nebo tyto 2 nechat jak jsou
         public void FillOborCB(ComboBox x)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -313,46 +314,6 @@ namespace SystemProPodporuStudijnichPlanu
                     x.DisplayMember = "rok_obor";
                     x.ValueMember = "id_obor";
                     x.DataSource = ds.Tables["Obor"];
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error occured!" + ex);
-                }
-            }
-        }
-        public void FillGarantCB(ComboBox x)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                try
-                {
-                    string query = "SELECT jmeno_v,id_v FROM garant";
-                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "Garant");
-                    x.DisplayMember = "jmeno_v";
-                    x.ValueMember = "id_v";
-                    x.DataSource = ds.Tables["Garant"];
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error occured!" + ex);
-                }
-            }
-        }
-        public void FillKatedraCB(ComboBox x)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                try
-                {
-                    string query = "SELECT id_k,naz_k FROM katedra";
-                    SqlDataAdapter da = new SqlDataAdapter(query, GetConnection());
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "Katedra");
-                    x.DisplayMember = "naz_k";
-                    x.ValueMember = "id_k";
-                    x.DataSource = ds.Tables["Katedra"];
                 }
                 catch (Exception ex)
                 {
@@ -380,7 +341,6 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
         {
             SqlCommand SelectZaz = new SqlCommand("SELECT [zaznam].[id_obor], [zaznam].[pocetSem] FROM [zaznam] WHERE [zaznam].[id_zaznam] =@id_zaznam", GetConnection());
