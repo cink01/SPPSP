@@ -299,8 +299,8 @@ namespace SystemProPodporuStudijnichPlanu
             DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
             int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
             decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
-            DataAccess da = new DataAccess();
-            MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+            // DataAccess da = new DataAccess();
+            /*da.*/MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
             VyberNudVal(sum, urceniZvolenehoListu);
         }
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z, int sem) //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
