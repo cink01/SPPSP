@@ -224,7 +224,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     cb_kat.Items.Add(k.Naz_k);
                 }
             }
-
         }
     }
 }
