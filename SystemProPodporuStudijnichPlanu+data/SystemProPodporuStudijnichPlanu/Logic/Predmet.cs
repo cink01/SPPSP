@@ -85,7 +85,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public override string ToString()
         {
-            return Name_predmet + " - " + Zkr_predmet + " - " + "Kredity: " + Kredit_predmet;
+            return Name_predmet;
         }
         public string FullInfo => $"{Name_predmet} - {Zkr_predmet} - {Id_predmet} - {Semestr_predmet} - {Kredit_predmet} ";
         public string GetNazInfo()

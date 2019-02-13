@@ -26,6 +26,9 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public int Id_k { get; set; }
         public string Zkr_k { get; set; }
         public string Naz_k { get; set; }
-
+        public override string ToString()
+        {
+            return Naz_k;
+        }
     }
 }

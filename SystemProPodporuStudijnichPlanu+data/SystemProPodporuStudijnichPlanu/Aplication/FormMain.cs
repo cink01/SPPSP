@@ -19,6 +19,7 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
+          //  cmb_zaznam.SelectedIndex = 1;
             if (cmb_zaznam.Items.Count <= 0)
             {
                 var text = "Není založen žádný plán. Chcete vytvořit nový?";
@@ -166,12 +167,25 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            zkr = DZ.Row["zkr_zaznam"].ToString();
-            id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-            DataAccess db = new DataAccess();
-            db.GetZaznamFull(id_z, out id_o, out PocSem);
-            rok_o = db.GetOborRok(id_o);
+            zkr = "";
+            id_z = -1;
+            id_o = -1;
+            PocSem=0;
+            rok_o = "";
+            try
+            {
+                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+                zkr = DZ.Row["zkr_zaznam"].ToString();
+                id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+                DataAccess db = new DataAccess();
+                db.GetZaznamFull(id_z, out id_o, out PocSem);
+                rok_o = db.GetOborRok(id_o);
+            }
+            catch
+            {
+                MessageBox.Show("Není vybrán žádný plán,Chyba");
+            }
+
         }
         private void FillHlavniListy()
         {

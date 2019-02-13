@@ -26,6 +26,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             da.FillCbPredmetFList(cb_pre, predmets);
             da.FillCbGarantFList(cb_garant, garants);
             da.FillCbOborFList(cb_obo, obors);
+            da.FillCbOborFList(cmb_obo_pre, obors);
             da.FillCbKatFList(cb_kat, katedras);
         }
         private void Bt_novy_Click(object sender, EventArgs e)
@@ -174,13 +175,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
                     cb_obo.Items.Add(o.Name_obor);
         }
-        private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
+      /*  private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
         {
             cb_pre.Items.Clear();
             foreach (Predmet p in predmets)
                 if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
                     cb_pre.Items.Add(p.Name_predmet);
-        }
+        }*/
         private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
         {
             cb_garant.Items.Clear();
@@ -222,6 +223,29 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (k.Naz_k.IndexOf(cb_kat.Text, Comp) >= 0)
                 {
                     cb_kat.Items.Add(k.Naz_k);
+                }
+            }
+        }
+
+       // List<Predmet> temp = new List<Predmet>();
+        private void cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            predmets.Clear();
+            DataAccess da = new DataAccess();
+            Obor temp = (Obor)cmb_obo_pre.SelectedItem;
+            predmets=da.GetPredmetFullByObor(temp.Id_obor);
+            da.FillCbPredmetFList(cb_pre, predmets);
+
+        }
+
+        private void cmb_obo_pre_DropDown(object sender, EventArgs e)
+        {
+            cmb_obo_pre.Items.Clear();
+            foreach (Obor o in obors)
+            {
+                if (o.Name_obor.IndexOf(cmb_obo_pre.Text, Comp) >= 0)
+                {
+                    cmb_obo_pre.Items.Add(o);
                 }
             }
         }

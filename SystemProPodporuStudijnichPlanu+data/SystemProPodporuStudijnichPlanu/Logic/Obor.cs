@@ -31,7 +31,11 @@ namespace SystemProPodporuStudijnichPlanu
             Vs_obor = vs_obor;
             Praxe = praxe;
         }
-        
+        public override string ToString()
+        {
+            return Name_obor;
+        }
+
         public int Id_obor{get;set;}
         public string Zkr_obor { get; set; }
         public string Name_obor { get; set; }

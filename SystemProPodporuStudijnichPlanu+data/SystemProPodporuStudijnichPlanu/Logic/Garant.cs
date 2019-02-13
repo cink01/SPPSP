@@ -37,7 +37,10 @@ namespace SystemProPodporuStudijnichPlanu
             Konz_v = konz_v;
             Id_k = id_k;
         }
-
+        public override string ToString()
+        {
+            return Jmeno_v;
+        }
         public int Id_v{get;set;}
         public string Jmeno_v{ get; set; }
         public string Email_V { get; set; }

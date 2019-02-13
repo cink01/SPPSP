@@ -55,6 +55,14 @@ namespace SystemProPodporuStudijnichPlanu
                 return connection.Query<Predmet>($"Select * from [predmet]").ToList();
             }
         }
+        public List<Predmet> GetPredmetFullByObor(int obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 )").ToList();
+                return vystup;
+            }
+        }
         public List<Predmet> GetPredmetFullSudy(string obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -385,7 +393,7 @@ namespace SystemProPodporuStudijnichPlanu
                     tmp = GetPredmetZVyberu(sem, izaz);
                     foreach (Predmet n in tmp)
                     {
-                        x.Items.Add(n.Name_predmet);
+                        x.Items.Add(n);
                         sum += n.Kredit_predmet;
                     }
                     
@@ -405,7 +413,7 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                foreach (Katedra k in kat)
-                    x.Items.Add(k.Naz_k);
+                    x.Items.Add(k);
            }
             catch (Exception ex)
             {
@@ -419,7 +427,7 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                foreach (Obor o in obory)
-                    x.Items.Add(o.Name_obor);
+                    x.Items.Add(o);
            }
             catch (Exception ex)
             {
@@ -433,7 +441,7 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                foreach (Garant g in gara)
-                    x.Items.Add(g.Jmeno_v);
+                    x.Items.Add(g);
            }
             catch (Exception ex)
             {
@@ -447,7 +455,8 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                 foreach (Predmet p in pred)
-                    x.Items.Add(p.Name_predmet);
+                    x.Items.Add(p);
+                
             }
             catch (Exception ex)
             {
