@@ -130,8 +130,10 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Aplication\Program.cs" />
+    <Compile Include="Logic\Filling.cs" />
     <Compile Include="Logic\Garant.cs" />
     <Compile Include="Logic\Katedra.cs" />
+    <Compile Include="Logic\Kredity.cs" />
     <Compile Include="Logic\NacteniDat.cs" />
     <Compile Include="Logic\Obor.cs" />
     <Compile Include="Logic\Predmet.cs" />

@@ -323,7 +323,7 @@
             this.cmb_obo_pre.Size = new System.Drawing.Size(168, 21);
             this.cmb_obo_pre.TabIndex = 24;
             this.cmb_obo_pre.DropDown += new System.EventHandler(this.Cmb_obo_pre_Hledání);
-            this.cmb_obo_pre.SelectedIndexChanged += new System.EventHandler(this.cmb_obo_pre_SelectedIndexChanged);
+            this.cmb_obo_pre.SelectedIndexChanged += new System.EventHandler(this.Cmb_obo_pre_SelectedIndexChanged);
             // 
             // cb_pre
             // 

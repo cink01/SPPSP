@@ -10,7 +10,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
     {
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
-        public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
+        Filling fill = new Filling();
         public FormCUPredmet()
         {
             InitializeComponent();
@@ -20,8 +20,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DataAccess da = new DataAccess();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
-            da.FillCbGarantFList(cb_garant, garants);
-            da.FillCbOborFList(cb_obor, obors);
+            fill.NaplnComboBox<Garant>(cb_garant, garants);
+            fill.NaplnComboBox<Obor>(cb_obor, obors);
         }
         public string Nazev
         {
@@ -117,45 +117,15 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cb_garant_Hledání(object sender, EventArgs e)
         {
-            cb_garant.Items.Clear();
-            foreach (Garant g in garants)
-            {
-                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
-                {
-                    cb_garant.Items.Add(g.Jmeno_v);
-                }
-            }
+            fill.NajdiVComboBoxu<Garant>(cb_garant, garants);
         }
         private void Cb_obor_Hledání(object sender, EventArgs e)
         {
-            cb_obor.Items.Clear();
-            foreach (Obor o in obors)
-            {
-                if (o.Name_obor.IndexOf(cb_obor.Text, Comp) >= 0)
-                {
-                    cb_obor.Items.Add(o.Name_obor);
-                }
-            }
+            fill.NajdiVComboBoxu<Obor>(cb_obor, obors);
         }
-
         private void Cb_povinnost_Hledaní(object sender, EventArgs e)
         {
 
         }
     }
 }
-/* 
- private void HledaniTextuvCb<T>(ComboBox c,List<T> l)
- {
-     c.Items.Clear();
-     //chb_exist.Checked = false;
-     foreach (T o in l)
-     {
-         if (o.Name_obor.IndexOf(c.Text, Comp) >= 0)
-         {
-             cb_obor.Items.Add(o.Name_obor);
-             //  chb_exist.Checked = true;
-         }
-     }
-  }
-*/

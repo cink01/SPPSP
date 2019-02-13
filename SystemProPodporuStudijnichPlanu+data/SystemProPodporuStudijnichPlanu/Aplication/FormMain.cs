@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Aplication;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -32,9 +33,10 @@ namespace SystemProPodporuStudijnichPlanu
         private void RefreshList(ListBox x, int vyber)
         {
             VratZaznamData(out int izaz, out _, out _, out _, out _);
-            DataAccess da = new DataAccess();
+            // DataAccess da = new DataAccess();
+            Filling fill = new Filling();
             urceniZvolenehoListu = 0;
-            da.FillSemestrLB(x, izaz, vyber, out decimal sum, out List<Predmet> p);
+            fill.FillSemestrLB(x, izaz, vyber, out decimal sum, out List<Predmet> p);
             NaplnVybranyList(vyber, p);
             VyberNudVal(sum, vyber);
         }
@@ -552,8 +554,8 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 case 55:
                     {
-                        DataAccess da = new DataAccess();
-                        da.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
+                        Filling fill = new Filling();
+                        fill.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
                         FillPopisyDoFormu(popis, kredity, povin);
                         break;
                     }

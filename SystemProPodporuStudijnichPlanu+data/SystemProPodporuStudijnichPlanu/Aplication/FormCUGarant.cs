@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUGarant : Form
     {
+        Filling fill = new Filling();
+        List<Katedra> katedras = new List<Katedra>();
         public FormCUGarant()
         {
             InitializeComponent();
-            DataAccess a = new DataAccess();
-            a.FillKatedraCB(cmb_katedra);
+            DataAccess da = new DataAccess();
+            katedras = da.GetFullKatedra();
+            fill.NaplnComboBox<Katedra>(cmb_katedra, katedras);
         }
         public string Id
         {
@@ -52,6 +57,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             Close();
         }
-        
+
+        private void Kat_Hledani(object sender, EventArgs e)
+        {
+            fill.NajdiVComboBoxu<Katedra>(cmb_katedra, katedras);
+        }
     }
 }

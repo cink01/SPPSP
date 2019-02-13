@@ -18,21 +18,17 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {
+            Filling fill = new Filling();
             DataAccess da = new DataAccess();
             katedras = da.GetFullKatedra();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
             predmets = da.GetFullPredmet();
-            da.NaplnComboBox<Predmet>(cb_pre, predmets);
-            da.NaplnComboBox<Garant>(cb_garant, garants);
-            da.NaplnComboBox<Obor>(cb_obo, obors);
-            da.NaplnComboBox<Obor>(cmb_obo_pre, obors);
-            da.NaplnComboBox<Katedra>(cb_kat, katedras);
-            /* da.FillCbPredmetFList(cb_pre, predmets);
-             da.FillCbGarantFList(cb_garant, garants);
-             da.FillCbOborFList(cb_obo, obors);
-             da.FillCbOborFList(cmb_obo_pre, obors);
-             da.FillCbKatFList(cb_kat, katedras);*/
+            fill.NaplnComboBox<Predmet>(cb_pre, predmets);
+            fill.NaplnComboBox<Garant>(cb_garant, garants);
+            fill.NaplnComboBox<Obor>(cb_obo, obors);
+            fill.NaplnComboBox<Obor>(cmb_obo_pre, obors);
+            fill.NaplnComboBox<Katedra>(cb_kat, katedras);
         }
         private void Bt_novy_Click(object sender, EventArgs e)
         {
@@ -189,37 +185,38 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
           }*/
         private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
         {
-            DataAccess da = new DataAccess();
-            da.NajdiVComboBoxu<Garant>(cb_garant, garants);
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Garant>(cb_garant, garants);
         }
         private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
         {
-            DataAccess da = new DataAccess();
-            da.NajdiVComboBoxu<Predmet>(cb_pre, predmets);
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Predmet>(cb_pre, predmets);
         }
         private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
         {
-            DataAccess da = new DataAccess();
-            da.NajdiVComboBoxu<Obor>(cb_obo, obors);
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Obor>(cb_obo, obors);
         }
 
         private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
         {
-            DataAccess da = new DataAccess();
-            da.NajdiVComboBoxu<Katedra>(cb_kat, katedras);
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Katedra>(cb_kat, katedras);
         }
         private void Cmb_obo_pre_Hledání(object sender, EventArgs e)
         {
-            DataAccess da = new DataAccess();
-            da.NajdiVComboBoxu<Obor>(cmb_obo_pre, obors);
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Obor>(cmb_obo_pre, obors);
         }
-        private void cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
             predmets.Clear();
             DataAccess da = new DataAccess();
             Obor temp = (Obor)cmb_obo_pre.SelectedItem;
             predmets = da.GetPredmetFullByObor(temp.Id_obor);
-            da.FillCbPredmetFList(cb_pre, predmets);
+            Filling fill = new Filling();
+            fill.NaplnComboBox<Predmet>(cb_pre, predmets);
         }
     }
 }

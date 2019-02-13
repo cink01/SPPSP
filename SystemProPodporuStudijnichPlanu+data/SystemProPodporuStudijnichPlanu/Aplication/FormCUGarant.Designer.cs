@@ -113,6 +113,7 @@
             this.cmb_katedra.Name = "cmb_katedra";
             this.cmb_katedra.Size = new System.Drawing.Size(134, 21);
             this.cmb_katedra.TabIndex = 14;
+            this.cmb_katedra.DropDown += new System.EventHandler(this.Kat_Hledani);
             // 
             // label1
             // 
@@ -206,7 +207,6 @@
             this.Controls.Add(this.gb_garant);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.Name = "FormCUGarant";
             this.Text = "FormCUGarant";
