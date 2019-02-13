@@ -380,7 +380,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)
+        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)//misto sum udelat prepravku pro nekolik promennych
         {
             x.DataSource = null;
             x.Items.Clear();
@@ -408,6 +408,8 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void FillCbKatFList(ComboBox x, List<Katedra> kat)
         {
+            NaplnComboBox<Katedra>( x, kat);
+         /*
             x.DataSource = null;
             x.Items.Clear();
             try
@@ -419,10 +421,12 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 MessageBox.Show("Chyba" + ex);
             }
+            */
         }
         public void FillCbOborFList(ComboBox x, List<Obor> obory)
         {
-            x.DataSource = null;
+            NaplnComboBox<Obor>( x, obory);
+           /* x.DataSource = null;
             x.Items.Clear();
             try
             {
@@ -432,11 +436,12 @@ namespace SystemProPodporuStudijnichPlanu
             catch (Exception ex)
             {
                 MessageBox.Show("Chyba" + ex);
-            }
+            }*/
         }
         public void FillCbGarantFList(ComboBox x, List<Garant> gara)
         {
-            x.DataSource = null;
+             NaplnComboBox<Garant>( x, gara);
+           /* x.DataSource = null;
             x.Items.Clear();
             try
             {
@@ -446,11 +451,12 @@ namespace SystemProPodporuStudijnichPlanu
             catch (Exception ex)
             {
                 MessageBox.Show("Chyba" + ex);
-            }
+            }*/
         }
         public void FillCbPredmetFList(ComboBox x, List<Predmet> pred)
         {
-            x.DataSource = null;
+            NaplnComboBox<Predmet>( x, pred);
+            /*x.DataSource = null;
             x.Items.Clear();
             try
             {
@@ -461,9 +467,23 @@ namespace SystemProPodporuStudijnichPlanu
             catch (Exception ex)
             {
                 MessageBox.Show("Chyba" + ex);
+            }*/
+        }
+        public void NaplnComboBox<T>(ComboBox cb,List<T> li)
+        {
+            cb.DataSource = null;
+            cb.Items.Clear();
+            try
+            {
+                foreach (T temp in li)
+                    cb.Items.Add(temp);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba" + ex);
             }
         }
-
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
         {
             SqlCommand SelectZaz = new SqlCommand("SELECT [zaznam].[id_obor], [zaznam].[pocetSem] FROM [zaznam] WHERE [zaznam].[id_zaznam] =@id_zaznam", GetConnection());
