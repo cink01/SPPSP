@@ -81,6 +81,29 @@
             this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gb_p = new System.Windows.Forms.GroupBox();
+            this.cb_pre = new System.Windows.Forms.ComboBox();
+            this.cb_semestry = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_povin = new System.Windows.Forms.ComboBox();
+            this.tb_predmetN = new System.Windows.Forms.TextBox();
+            this.gb_g = new System.Windows.Forms.GroupBox();
+            this.cb_garant = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_garantN = new System.Windows.Forms.TextBox();
+            this.gb_o = new System.Windows.Forms.GroupBox();
+            this.cb_obo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_oborN = new System.Windows.Forms.TextBox();
+            this.gb_k = new System.Windows.Forms.GroupBox();
+            this.cb_kat = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tb_katedraN = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -99,6 +122,13 @@
             this.gb_popis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.gb_p.SuspendLayout();
+            this.gb_g.SuspendLayout();
+            this.gb_o.SuspendLayout();
+            this.gb_k.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -663,7 +693,7 @@
             this.gb_max.Controls.Add(this.lb_semestr4);
             this.gb_max.Controls.Add(this.lb_semestr3);
             this.gb_max.Controls.Add(this.lb_semestr2);
-            this.gb_max.Location = new System.Drawing.Point(12, 26);
+            this.gb_max.Location = new System.Drawing.Point(6, 6);
             this.gb_max.Name = "gb_max";
             this.gb_max.Size = new System.Drawing.Size(1132, 654);
             this.gb_max.TabIndex = 0;
@@ -757,13 +787,239 @@
             0,
             0});
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(3, 26);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1138, 686);
+            this.tabControl1.TabIndex = 74;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.gb_max);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1130, 660);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Plán";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.gb_p);
+            this.tabPage2.Controls.Add(this.gb_g);
+            this.tabPage2.Controls.Add(this.gb_o);
+            this.tabPage2.Controls.Add(this.gb_k);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1130, 660);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Vyhledávání";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gb_p
+            // 
+            this.gb_p.Controls.Add(this.cb_pre);
+            this.gb_p.Controls.Add(this.cb_semestry);
+            this.gb_p.Controls.Add(this.label6);
+            this.gb_p.Controls.Add(this.label5);
+            this.gb_p.Controls.Add(this.label4);
+            this.gb_p.Controls.Add(this.cmb_povin);
+            this.gb_p.Controls.Add(this.tb_predmetN);
+            this.gb_p.Location = new System.Drawing.Point(686, 83);
+            this.gb_p.Name = "gb_p";
+            this.gb_p.Size = new System.Drawing.Size(182, 199);
+            this.gb_p.TabIndex = 28;
+            this.gb_p.TabStop = false;
+            this.gb_p.Text = "Výběr a vyhledávání předmětů";
+            // 
+            // cb_pre
+            // 
+            this.cb_pre.FormattingEnabled = true;
+            this.cb_pre.Location = new System.Drawing.Point(7, 19);
+            this.cb_pre.Name = "cb_pre";
+            this.cb_pre.Size = new System.Drawing.Size(168, 21);
+            this.cb_pre.TabIndex = 22;
+            // 
+            // cb_semestry
+            // 
+            this.cb_semestry.FormattingEnabled = true;
+            this.cb_semestry.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "Nezařazené",
+            "Všechny"});
+            this.cb_semestry.Location = new System.Drawing.Point(64, 98);
+            this.cb_semestry.Name = "cb_semestry";
+            this.cb_semestry.Size = new System.Drawing.Size(111, 21);
+            this.cb_semestry.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 101);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Semestr:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Povinnost:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Název:";
+            // 
+            // cmb_povin
+            // 
+            this.cmb_povin.FormattingEnabled = true;
+            this.cmb_povin.Location = new System.Drawing.Point(64, 72);
+            this.cmb_povin.Name = "cmb_povin";
+            this.cmb_povin.Size = new System.Drawing.Size(111, 21);
+            this.cmb_povin.TabIndex = 20;
+            // 
+            // tb_predmetN
+            // 
+            this.tb_predmetN.Location = new System.Drawing.Point(64, 46);
+            this.tb_predmetN.Name = "tb_predmetN";
+            this.tb_predmetN.Size = new System.Drawing.Size(111, 20);
+            this.tb_predmetN.TabIndex = 19;
+            // 
+            // gb_g
+            // 
+            this.gb_g.Controls.Add(this.cb_garant);
+            this.gb_g.Controls.Add(this.label3);
+            this.gb_g.Controls.Add(this.tb_garantN);
+            this.gb_g.Location = new System.Drawing.Point(505, 83);
+            this.gb_g.Name = "gb_g";
+            this.gb_g.Size = new System.Drawing.Size(182, 199);
+            this.gb_g.TabIndex = 27;
+            this.gb_g.TabStop = false;
+            this.gb_g.Text = "Výběr a vyhledávání garantů";
+            // 
+            // cb_garant
+            // 
+            this.cb_garant.FormattingEnabled = true;
+            this.cb_garant.Location = new System.Drawing.Point(6, 19);
+            this.cb_garant.Name = "cb_garant";
+            this.cb_garant.Size = new System.Drawing.Size(169, 21);
+            this.cb_garant.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Jméno:";
+            // 
+            // tb_garantN
+            // 
+            this.tb_garantN.Location = new System.Drawing.Point(64, 46);
+            this.tb_garantN.Name = "tb_garantN";
+            this.tb_garantN.Size = new System.Drawing.Size(111, 20);
+            this.tb_garantN.TabIndex = 18;
+            // 
+            // gb_o
+            // 
+            this.gb_o.Controls.Add(this.cb_obo);
+            this.gb_o.Controls.Add(this.label1);
+            this.gb_o.Controls.Add(this.tb_oborN);
+            this.gb_o.Location = new System.Drawing.Point(324, 83);
+            this.gb_o.Name = "gb_o";
+            this.gb_o.Size = new System.Drawing.Size(182, 199);
+            this.gb_o.TabIndex = 26;
+            this.gb_o.TabStop = false;
+            this.gb_o.Text = "Výběr a vyhledávání oborů";
+            // 
+            // cb_obo
+            // 
+            this.cb_obo.FormattingEnabled = true;
+            this.cb_obo.Location = new System.Drawing.Point(7, 19);
+            this.cb_obo.Name = "cb_obo";
+            this.cb_obo.Size = new System.Drawing.Size(168, 21);
+            this.cb_obo.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Název:";
+            // 
+            // tb_oborN
+            // 
+            this.tb_oborN.Location = new System.Drawing.Point(64, 46);
+            this.tb_oborN.Name = "tb_oborN";
+            this.tb_oborN.Size = new System.Drawing.Size(111, 20);
+            this.tb_oborN.TabIndex = 17;
+            // 
+            // gb_k
+            // 
+            this.gb_k.Controls.Add(this.cb_kat);
+            this.gb_k.Controls.Add(this.label7);
+            this.gb_k.Controls.Add(this.tb_katedraN);
+            this.gb_k.Location = new System.Drawing.Point(143, 83);
+            this.gb_k.Name = "gb_k";
+            this.gb_k.Size = new System.Drawing.Size(182, 199);
+            this.gb_k.TabIndex = 25;
+            this.gb_k.TabStop = false;
+            this.gb_k.Text = "Výběr a vyhledávání kateder";
+            // 
+            // cb_kat
+            // 
+            this.cb_kat.FormattingEnabled = true;
+            this.cb_kat.Location = new System.Drawing.Point(7, 19);
+            this.cb_kat.Name = "cb_kat";
+            this.cb_kat.Size = new System.Drawing.Size(168, 21);
+            this.cb_kat.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Název:";
+            // 
+            // tb_katedraN
+            // 
+            this.tb_katedraN.Location = new System.Drawing.Point(64, 46);
+            this.tb_katedraN.Name = "tb_katedraN";
+            this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
+            this.tb_katedraN.TabIndex = 16;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1153, 684);
-            this.Controls.Add(this.gb_max);
+            this.ClientSize = new System.Drawing.Size(1153, 725);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -793,6 +1049,17 @@
             this.gb_popis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.gb_p.ResumeLayout(false);
+            this.gb_p.PerformLayout();
+            this.gb_g.ResumeLayout(false);
+            this.gb_g.PerformLayout();
+            this.gb_o.ResumeLayout(false);
+            this.gb_o.PerformLayout();
+            this.gb_k.ResumeLayout(false);
+            this.gb_k.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -851,6 +1118,29 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown nud_kredpop;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox gb_p;
+        private System.Windows.Forms.ComboBox cb_pre;
+        private System.Windows.Forms.ComboBox cb_semestry;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_povin;
+        private System.Windows.Forms.TextBox tb_predmetN;
+        private System.Windows.Forms.GroupBox gb_g;
+        private System.Windows.Forms.ComboBox cb_garant;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_garantN;
+        private System.Windows.Forms.GroupBox gb_o;
+        private System.Windows.Forms.ComboBox cb_obo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_oborN;
+        private System.Windows.Forms.GroupBox gb_k;
+        private System.Windows.Forms.ComboBox cb_kat;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tb_katedraN;
     }
 }
 

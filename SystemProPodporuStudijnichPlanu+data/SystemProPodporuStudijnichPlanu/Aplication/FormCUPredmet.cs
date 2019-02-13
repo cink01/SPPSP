@@ -142,8 +142,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
 
         }
-
-
     }
 }
 /* 
