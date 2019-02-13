@@ -51,14 +51,14 @@
             this.cb_garant = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gb_p = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmb_obo_pre = new System.Windows.Forms.ComboBox();
             this.cb_pre = new System.Windows.Forms.ComboBox();
             this.cb_semestry = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.cmb_obo_pre = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -242,6 +242,7 @@
             // 
             // cb_obo
             // 
+            this.cb_obo.DropDownWidth = 200;
             this.cb_obo.FormattingEnabled = true;
             this.cb_obo.Location = new System.Drawing.Point(7, 19);
             this.cb_obo.Name = "cb_obo";
@@ -305,10 +306,29 @@
             this.gb_p.TabStop = false;
             this.gb_p.Text = "Výběr a vyhledávání předmětů";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Obor:";
+            // 
+            // cmb_obo_pre
+            // 
+            this.cmb_obo_pre.FormattingEnabled = true;
+            this.cmb_obo_pre.Location = new System.Drawing.Point(6, 30);
+            this.cmb_obo_pre.Name = "cmb_obo_pre";
+            this.cmb_obo_pre.Size = new System.Drawing.Size(168, 21);
+            this.cmb_obo_pre.TabIndex = 24;
+            this.cmb_obo_pre.DropDown += new System.EventHandler(this.cmb_obo_pre_DropDown);
+            this.cmb_obo_pre.SelectedIndexChanged += new System.EventHandler(this.cmb_obo_pre_SelectedIndexChanged);
+            // 
             // cb_pre
             // 
             this.cb_pre.FormattingEnabled = true;
-            this.cb_pre.Location = new System.Drawing.Point(4, 83);
+            this.cb_pre.Location = new System.Drawing.Point(6, 67);
             this.cb_pre.Name = "cb_pre";
             this.cb_pre.Size = new System.Drawing.Size(168, 21);
             this.cb_pre.TabIndex = 22;
@@ -326,7 +346,7 @@
             "6",
             "Nezařazené",
             "Všechny"});
-            this.cb_semestry.Location = new System.Drawing.Point(64, 144);
+            this.cb_semestry.Location = new System.Drawing.Point(63, 121);
             this.cb_semestry.Name = "cb_semestry";
             this.cb_semestry.Size = new System.Drawing.Size(111, 21);
             this.cb_semestry.TabIndex = 23;
@@ -334,56 +354,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 147);
+            this.label6.Location = new System.Drawing.Point(15, 124);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 22;
             this.label6.Text = "Semestr:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Povinnost:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 70);
+            this.label4.Location = new System.Drawing.Point(6, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 20;
             this.label4.Text = "Název:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Povinnost:";
+            // 
             // cmb_povin
             // 
             this.cmb_povin.FormattingEnabled = true;
-            this.cmb_povin.Location = new System.Drawing.Point(64, 118);
+            this.cmb_povin.Location = new System.Drawing.Point(63, 94);
             this.cmb_povin.Name = "cmb_povin";
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
-            // 
-            // cmb_obo_pre
-            // 
-            this.cmb_obo_pre.FormattingEnabled = true;
-            this.cmb_obo_pre.Location = new System.Drawing.Point(4, 46);
-            this.cmb_obo_pre.Name = "cmb_obo_pre";
-            this.cmb_obo_pre.Size = new System.Drawing.Size(168, 21);
-            this.cmb_obo_pre.TabIndex = 24;
-            this.cmb_obo_pre.DropDown += new System.EventHandler(this.cmb_obo_pre_DropDown);
-            this.cmb_obo_pre.SelectedIndexChanged += new System.EventHandler(this.cmb_obo_pre_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 13);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Obor:";
             // 
             // FormCRUDmidstage
             // 
