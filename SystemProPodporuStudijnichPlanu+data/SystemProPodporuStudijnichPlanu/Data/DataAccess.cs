@@ -484,6 +484,13 @@ namespace SystemProPodporuStudijnichPlanu
                 MessageBox.Show("Chyba" + ex);
             }
         }
+        public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
+        {
+            x.Items.Clear();
+            foreach (T o in temp)
+                if (o.ToString().IndexOf(x.Text, Comp) >= 0)
+                    x.Items.Add(o);
+        }
         public void GetZaznamFull(int id, out int obor, out int PocetSem)
         {
             SqlCommand SelectZaz = new SqlCommand("SELECT [zaznam].[id_obor], [zaznam].[pocetSem] FROM [zaznam] WHERE [zaznam].[id_zaznam] =@id_zaznam", GetConnection());
@@ -514,6 +521,7 @@ namespace SystemProPodporuStudijnichPlanu
                     povin = x.Povinnost;
                 }
         }
+
         /*
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z,int sem)
         //potreba po smazani vratit do sudy nebo lichy, aby se nemusel list neustale nacitat

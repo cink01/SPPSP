@@ -23,11 +23,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
             predmets = da.GetFullPredmet();
-            da.FillCbPredmetFList(cb_pre, predmets);
-            da.FillCbGarantFList(cb_garant, garants);
-            da.FillCbOborFList(cb_obo, obors);
-            da.FillCbOborFList(cmb_obo_pre, obors);
-            da.FillCbKatFList(cb_kat, katedras);
+            da.NaplnComboBox<Predmet>(cb_pre, predmets);
+            da.NaplnComboBox<Garant>(cb_garant, garants);
+            da.NaplnComboBox<Obor>(cb_obo, obors);
+            da.NaplnComboBox<Obor>(cmb_obo_pre, obors);
+            da.NaplnComboBox<Katedra>(cb_kat, katedras);
+            /* da.FillCbPredmetFList(cb_pre, predmets);
+             da.FillCbGarantFList(cb_garant, garants);
+             da.FillCbOborFList(cb_obo, obors);
+             da.FillCbOborFList(cmb_obo_pre, obors);
+             da.FillCbKatFList(cb_kat, katedras);*/
         }
         private void Bt_novy_Click(object sender, EventArgs e)
         {
@@ -175,79 +180,46 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
                     cb_obo.Items.Add(o.Name_obor);
         }
-      /*  private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
-        {
-            cb_pre.Items.Clear();
-            foreach (Predmet p in predmets)
-                if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
-                    cb_pre.Items.Add(p.Name_predmet);
-        }*/
+        /*  private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
+          {
+              cb_pre.Items.Clear();
+              foreach (Predmet p in predmets)
+                  if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
+                      cb_pre.Items.Add(p.Name_predmet);
+          }*/
         private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
         {
-            cb_garant.Items.Clear();
-            foreach (Garant g in garants)
-                if (g.Jmeno_v.IndexOf(cb_garant.Text, Comp) >= 0)
-                    cb_garant.Items.Add(g.Jmeno_v);
+            DataAccess da = new DataAccess();
+            da.NajdiVComboBoxu<Garant>(cb_garant, garants);
         }
         private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
         {
-
-            cb_pre.Items.Clear();
-            foreach (Predmet p in predmets)
-            {
-                if (p.Name_predmet.IndexOf(cb_pre.Text, Comp) >= 0)
-                {
-                    cb_pre.Items.Add(p.Name_predmet);
-                }
-            }
-
+            DataAccess da = new DataAccess();
+            da.NajdiVComboBoxu<Predmet>(cb_pre, predmets);
         }
         private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
         {
-            cb_obo.Items.Clear();
-            foreach (Obor o in obors)
-            {
-                if (o.Name_obor.IndexOf(cb_obo.Text, Comp) >= 0)
-                {
-                    cb_obo.Items.Add(o.Name_obor);
-                }
-            }
+            DataAccess da = new DataAccess();
+            da.NajdiVComboBoxu<Obor>(cb_obo, obors);
         }
 
         private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
         {
-
-            cb_kat.Items.Clear();
-            foreach (Katedra k in katedras)
-            {
-                if (k.Naz_k.IndexOf(cb_kat.Text, Comp) >= 0)
-                {
-                    cb_kat.Items.Add(k.Naz_k);
-                }
-            }
+            DataAccess da = new DataAccess();
+            da.NajdiVComboBoxu<Katedra>(cb_kat, katedras);
         }
-
-       // List<Predmet> temp = new List<Predmet>();
+        private void Cmb_obo_pre_Hledání(object sender, EventArgs e)
+        {
+            DataAccess da = new DataAccess();
+            da.NajdiVComboBoxu<Obor>(cmb_obo_pre, obors);
+        }
         private void cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
             predmets.Clear();
             DataAccess da = new DataAccess();
             Obor temp = (Obor)cmb_obo_pre.SelectedItem;
-            predmets=da.GetPredmetFullByObor(temp.Id_obor);
+            predmets = da.GetPredmetFullByObor(temp.Id_obor);
             da.FillCbPredmetFList(cb_pre, predmets);
-
-        }
-
-        private void cmb_obo_pre_DropDown(object sender, EventArgs e)
-        {
-            cmb_obo_pre.Items.Clear();
-            foreach (Obor o in obors)
-            {
-                if (o.Name_obor.IndexOf(cmb_obo_pre.Text, Comp) >= 0)
-                {
-                    cmb_obo_pre.Items.Add(o);
-                }
-            }
         }
     }
 }
