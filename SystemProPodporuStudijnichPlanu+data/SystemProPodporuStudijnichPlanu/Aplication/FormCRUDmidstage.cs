@@ -358,11 +358,55 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public void DeleteGarant()
         {
+           if (cb_gar.SelectedIndex != -1)
+            {
+                foreach (Garant o in garants)
+                {
 
+                    if (o.ToString() == cb_gar.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            DataCrud dc = new DataCrud();
+                            dc.DeleteGarant(o.Id_v);
+                            DataAccess da = new DataAccess();
+                            garants = da.GetFullGarant();
+                            cb_gar.Text = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Smazání garanta proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
         }
         public void DeletePredmet()
         {
+            if (cb_pre.SelectedIndex != -1)
+            {
+                foreach (Predmet o in predmets)
+                {
 
+                    if (o.ToString() == cb_pre.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            DataCrud dc = new DataCrud();
+                            dc.DeletePredmet(o.Id_predmet);
+                            DataAccess da = new DataAccess();
+                            predmets = da.GetFullPredmet();
+                            cb_pre.Text = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Smazání předmětu proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
         }
         public void DeleteObor()
         {

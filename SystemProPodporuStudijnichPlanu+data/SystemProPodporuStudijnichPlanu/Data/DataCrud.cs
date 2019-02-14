@@ -389,5 +389,41 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void DeletePredmet(int id_predmet)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vybD = new SqlCommand("DELETE FROM [predmet] WHERE [id_predmet]=@id_predmet", conn);
+                vybD.Parameters.AddWithValue("@id_predmet", id_predmet);
+                try
+                {
+                    conn.Open();
+                    vybD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void DeleteGarant(int id_v)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vybD = new SqlCommand("DELETE FROM [garant] WHERE [id_v]=@id_v", conn);
+                vybD.Parameters.AddWithValue("@id_v", id_v);
+                try
+                {
+                    conn.Open();
+                    vybD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
     }
 }
