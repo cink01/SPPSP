@@ -38,13 +38,11 @@
             this.rb_katedra = new System.Windows.Forms.RadioButton();
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
-            this.tb_oborN = new System.Windows.Forms.TextBox();
             this.tb_garantN = new System.Windows.Forms.TextBox();
             this.gb_k = new System.Windows.Forms.GroupBox();
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.gb_o = new System.Windows.Forms.GroupBox();
             this.cb_obo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.gb_g = new System.Windows.Forms.GroupBox();
             this.cb_garant = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -174,14 +172,6 @@
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
-            // tb_oborN
-            // 
-            this.tb_oborN.Location = new System.Drawing.Point(64, 46);
-            this.tb_oborN.Name = "tb_oborN";
-            this.tb_oborN.Size = new System.Drawing.Size(111, 20);
-            this.tb_oborN.TabIndex = 17;
-            this.tb_oborN.TextChanged += new System.EventHandler(this.Tb_oborN_TextChanged);
-            // 
             // tb_garantN
             // 
             this.tb_garantN.Location = new System.Drawing.Point(64, 46);
@@ -212,8 +202,6 @@
             // gb_o
             // 
             this.gb_o.Controls.Add(this.cb_obo);
-            this.gb_o.Controls.Add(this.label2);
-            this.gb_o.Controls.Add(this.tb_oborN);
             this.gb_o.Location = new System.Drawing.Point(193, 63);
             this.gb_o.Name = "gb_o";
             this.gb_o.Size = new System.Drawing.Size(182, 199);
@@ -230,15 +218,6 @@
             this.cb_obo.Size = new System.Drawing.Size(168, 21);
             this.cb_obo.TabIndex = 22;
             this.cb_obo.DropDown += new System.EventHandler(this.Cb_obor_Hledani);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Název:";
             // 
             // gb_g
             // 
@@ -397,7 +376,6 @@
             this.gb_vyber.PerformLayout();
             this.gb_k.ResumeLayout(false);
             this.gb_o.ResumeLayout(false);
-            this.gb_o.PerformLayout();
             this.gb_g.ResumeLayout(false);
             this.gb_g.PerformLayout();
             this.gb_p.ResumeLayout(false);
@@ -417,13 +395,11 @@
         private System.Windows.Forms.RadioButton rb_katedra;
         private System.Windows.Forms.RadioButton rb_garant;
         private System.Windows.Forms.GroupBox gb_vyber;
-        private System.Windows.Forms.TextBox tb_oborN;
         private System.Windows.Forms.TextBox tb_garantN;
         private System.Windows.Forms.GroupBox gb_k;
         private System.Windows.Forms.GroupBox gb_o;
         private System.Windows.Forms.GroupBox gb_g;
         private System.Windows.Forms.GroupBox gb_p;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

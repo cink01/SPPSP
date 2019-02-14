@@ -160,7 +160,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        private void Tb_oborN_TextChanged(object sender, EventArgs e)
+       /* private void Tb_oborN_TextChanged(object sender, EventArgs e)
         {
             cb_obo.Items.Clear();
             cb_obo.Text = "Nalezené obory";
@@ -168,7 +168,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
                     cb_obo.Items.Add(o.Name_obor);
         }
-        /*  private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
+          private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
           {
               cb_pre.Items.Clear();
               foreach (Predmet p in predmets)
