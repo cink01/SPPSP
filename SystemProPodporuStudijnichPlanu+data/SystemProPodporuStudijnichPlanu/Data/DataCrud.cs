@@ -97,8 +97,8 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
-                    SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni])" +
-                        "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                    SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita]) " +
+                        "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita)", conn);
                     pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
                     pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
                     pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
@@ -113,6 +113,8 @@ namespace SystemProPodporuStudijnichPlanu
                     pred.Parameters.AddWithValue("@lab", p.Lab);
                     pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
                     pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
+                    pred.Parameters.AddWithValue("@prerekvizita", p.Prerekvizita);
+
                     try
                     {
                         conn.Open();

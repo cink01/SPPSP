@@ -65,6 +65,8 @@
             this.nud_kredit = new System.Windows.Forms.NumericUpDown();
             this.tb_nazev = new System.Windows.Forms.TextBox();
             this.databaseAppDataSet = new SystemProPodporuStudijnichPlanu.DatabaseAppDataSet();
+            this.cb_prerek = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_lab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cv)).BeginInit();
@@ -219,6 +221,8 @@
             // 
             // gb_predmet
             // 
+            this.gb_predmet.Controls.Add(this.label13);
+            this.gb_predmet.Controls.Add(this.cb_prerek);
             this.gb_predmet.Controls.Add(this.label12);
             this.gb_predmet.Controls.Add(this.tb_jazyk);
             this.gb_predmet.Controls.Add(this.label11);
@@ -255,7 +259,7 @@
             this.gb_predmet.Controls.Add(this.tb_nazev);
             this.gb_predmet.Location = new System.Drawing.Point(3, 0);
             this.gb_predmet.Name = "gb_predmet";
-            this.gb_predmet.Size = new System.Drawing.Size(696, 258);
+            this.gb_predmet.Size = new System.Drawing.Size(696, 335);
             this.gb_predmet.TabIndex = 13;
             this.gb_predmet.TabStop = false;
             this.gb_predmet.Text = "Předmět";
@@ -394,6 +398,7 @@
             this.cb_obor.Size = new System.Drawing.Size(139, 21);
             this.cb_obor.TabIndex = 23;
             this.cb_obor.DropDown += new System.EventHandler(this.Cb_obor_Hledání);
+            this.cb_obor.SelectedIndexChanged += new System.EventHandler(this.Cb_obor_SelectedIndexChanged);
             // 
             // cb_garant
             // 
@@ -423,6 +428,27 @@
             this.databaseAppDataSet.DataSetName = "DatabaseAppDataSet";
             this.databaseAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // cb_prerek
+            // 
+            this.cb_prerek.FormattingEnabled = true;
+            this.cb_prerek.Items.AddRange(new object[] {
+            "Zkouška",
+            "Zápočet"});
+            this.cb_prerek.Location = new System.Drawing.Point(75, 256);
+            this.cb_prerek.Name = "cb_prerek";
+            this.cb_prerek.Size = new System.Drawing.Size(139, 21);
+            this.cb_prerek.TabIndex = 38;
+            this.cb_prerek.DropDown += new System.EventHandler(this.Cb_prerek_Hledani);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "Prerekvizita:";
+            // 
             // FormCUPredmet
             // 
             this.AcceptButton = this.bt_ok;
@@ -430,7 +456,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(703, 264);
+            this.ClientSize = new System.Drawing.Size(703, 374);
             this.Controls.Add(this.gb_predmet);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -489,5 +515,7 @@
         private DatabaseAppDataSet databaseAppDataSet;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tb_jazyk;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cb_prerek;
     }
 }

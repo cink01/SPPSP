@@ -82,20 +82,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertPredmet(new Predmet(p.Nazev,
-                                                    p.Zkr,
-                                                    p.Kredit,
-                                                    p.Obor,
-                                                    p.Garant,
-                                                    p.Semestr,
-                                                    p.Orig,
-                                                    p.Povinnost,
-                                                    p.Prednaska,
-                                                    p.Cv,
-                                                    p.Cvk,
-                                                    p.Lab,
-                                                    p.Jazyk,
-                                                    p.Zakonceni));
+                        x.InsertPredmet(p.P);
                     }
                     catch (Exception ex)
                     {
@@ -263,7 +250,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.UpdateGarant(Gara.G);
                         garants = a.GetFullGarant();
                         cb_garant.Text = Gara.G.ToString();
-
                     }
                     catch (Exception ex)
                     {
@@ -276,7 +262,59 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
     
         private void EditPredmet()
         {
+            using (FormCUPredmet Pred = new FormCUPredmet())
+            {
+                Pred.Text = "Upravit Předmět";
+                foreach (Predmet o in predmets)
+                {
+                    if (o.ToString() == cb_pre.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            Pred.Id = o.Id_v;
+                            Pred.Nazev = o.Name_predmet;
+                            Pred.Zkr = o.Zkr_predmet;
+                            Pred.Kredit = o.Kredit_predmet;
+                            Pred.Obor = o.Id_obor;
+                            Pred.Garant = o.Id_v;
+                            Pred.Semestr = o.Semestr_predmet;
+                            Pred.Orig = o.Id_orig;
+                            Pred.Povinnost = o.Povinnost;
+                            Pred.Prednaska = o.Prednaska;
+                            Pred.Cv = o.Cviceni;
+                            Pred.Cvk = o.Kombi;
+                            Pred.Lab = o.Lab;
+                            Pred.Jazyk = o.Jazyk;
+                            Pred.Zakonceni = o.Zakonceni;
+                            Pred.Popis = o.Popis;
+                            Pred.Prerek = o.Prerekvizita;
 
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                DataAccess a = new DataAccess();
+                DialogResult potvrzeni = Pred.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
+                {
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.UpdatePredmet(Pred.P);
+                        predmets = a.GetFullPredmet();
+                        cb_pre.Text = Pred.P.ToString();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
         private void EditObor()
         {

@@ -10,6 +10,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
     {
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
+        public List<Predmet> predmets = new List<Predmet>();
         Filling fill = new Filling();
         public FormCUPredmet()
         {
@@ -20,37 +21,45 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DataAccess da = new DataAccess();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
+            predmets = da.GetFullPredmet();
             fill.NaplnComboBox<Garant>(cb_garant, garants);
             fill.NaplnComboBox<Obor>(cb_obor, obors);
+        }
+        public Predmet P
+        {
+            get
+            {
+                return new Predmet(Id, Nazev, Zkr, Kredit, Obor, Garant, Semestr, Orig, Povinnost, Prednaska, Cv, Cvk, Lab, Jazyk, Zakonceni, Povinnost, Prerek);
+            }
         }
         public string Nazev
         {
             get => tb_nazev.Text;
             set => tb_nazev.Text = value;
         }
-        public string Id
+        public int Id
         {
-            get => tb_id.Text;
-            set => tb_id.Text = value;
+            get => Convert.ToInt32(tb_id.Text);
+            set => tb_id.Text = value.ToString();
         }
         public string Zkr
         {
             get => tb_zkr.Text;
             set => tb_zkr.Text = value;
         }
-        public string Orig
+        public int Orig
         {
-            get => tb_orig.Text;
-            set => tb_orig.Text = value;
+            get => Convert.ToInt32(tb_orig.Text);
+            set => tb_orig.Text = value.ToString();
         }
         public string Popis
         {
             get => rtb_popis.Text;
             set => rtb_popis.Text = value;
         }
-        public string Kredit
+        public int Kredit
         {
-            get => nud_kredit.Value.ToString();
+            get => Convert.ToInt32(nud_kredit.Value);
             set => nud_kredit.Value = Convert.ToDecimal(value);
         }
         public string Jazyk
@@ -58,29 +67,29 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => tb_jazyk.Text;
             set => tb_jazyk.Text = value;
         }
-        public string Semestr
+        public int Semestr
         {
-            get => nud_semestr.Value.ToString();
+            get => Convert.ToInt32(nud_semestr.Value);
             set => nud_semestr.Value = Convert.ToDecimal(value);
         }
-        public string Prednaska
+        public int Prednaska
         {
-            get => nud_p.Value.ToString();
+            get => Convert.ToInt32(nud_p.Value);
             set => nud_p.Value = Convert.ToDecimal(value);
         }
-        public string Cv 
+        public int Cv 
         {
-            get => nud_cv.Value.ToString();
+            get => Convert.ToInt32(nud_cv.Value);
             set => nud_cv.Value = Convert.ToDecimal(value);
         }
-        public string Cvk
+        public int Cvk
         {
-            get => nud_cvk.Value.ToString();
+            get => Convert.ToInt32(nud_cvk.Value);
             set => nud_cvk.Value = Convert.ToDecimal(value);
         }
-        public string Lab 
+        public int Lab 
         {
-            get => nud_lab.Value.ToString();
+            get => Convert.ToInt32(nud_lab.Value);
             set => nud_lab.Value = Convert.ToDecimal(value);
         }
         public string Zakonceni
@@ -93,23 +102,44 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
             set => cb_povinnost.SelectedIndex = cb_povinnost.FindStringExact(value);
         }
-        public string Obor 
+        public int Obor 
         {
             get
             {
-                DataRowView DV = cb_obor.SelectedItem as DataRowView;
-                return DV.Row["rok_obor"].ToString();
+                foreach (Obor k in obors)
+                    if (k.Name_obor == cb_obor.SelectedIndex.ToString())
+                        return k.Id_obor;
+                return 0;
             }
-            set => cb_obor.SelectedIndex = cb_obor.FindStringExact(value);
+
+            set
+            {
+                foreach (Obor k in obors)
+                    if (k.Id_obor == value)
+                        cb_obor.SelectedIndex = cb_obor.FindStringExact(k.Name_obor);
+            }
         }
-        public string Garant
+        public int Garant
         {
             get
             {
-                DataRowView DV = cb_garant.SelectedItem as DataRowView;
-                return DV.Row["jmeno_v"].ToString();
+                foreach (Garant k in garants)
+                    if (k.Jmeno_v == cb_garant.SelectedIndex.ToString())
+                        return k.Id_v;
+                return 0;
             }
-            set => cb_garant.SelectedIndex = cb_garant.FindStringExact(value);
+
+            set
+            {
+                foreach (Garant k in garants)
+                    if (k.Id_v == value)
+                        cb_garant.SelectedIndex = cb_garant.FindStringExact(k.Jmeno_v);
+            }
+        }
+        public int Prerek
+        {
+            get;
+            set;
         }
         private void Bt_close_Click(object sender, EventArgs e)
         {
@@ -126,6 +156,20 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Cb_povinnost_Hledaní(object sender, EventArgs e)
         {
 
+        }
+
+        private void Cb_prerek_Hledani(object sender, EventArgs e)
+        {
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Predmet>(cb_prerek, predmets);
+        }
+
+        private void Cb_obor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataAccess da = new DataAccess();
+            foreach(Obor o in obors)
+                if(o.Name_obor==cb_obor.SelectedItem.ToString())
+                    predmets=da.GetPredmetFullByObor(o.Id_obor);
         }
     }
 }

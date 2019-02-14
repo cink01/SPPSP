@@ -28,7 +28,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
         {
             x.Items.Clear();
-            int sirka = 0;
+            int sirka = 1;
             foreach (T o in temp)
             {
                 if (o.ToString().IndexOf(x.Text, Comp) >= 0)
