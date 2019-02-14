@@ -309,18 +309,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (potvrzeni == DialogResult.OK)
                 {
                     DataCrud x = new DataCrud();
+               //     Filling fill = new Filling();
                     try
                     {
                         if (Pred.Prerek != -1)
                         {
-                            x.UpdatePredmet(Pred.P,1);
+                            x.UpdatePredmet(Pred.P);
                             predmets = a.GetFullPredmet();
+                          //  fill.NaplnComboBox<Predmet>(cb_pre, predmets);
                             cb_pre.Text = Pred.P.ToString();
                         }
                         else
                         {
+
                             x.UpdatePredmet(Pred.P);
                             predmets = a.GetFullPredmet();
+                     //       fill.NaplnComboBox<Predmet>(cb_pre, predmets);
                             cb_pre.Text = Pred.P.ToString();
                         }
 

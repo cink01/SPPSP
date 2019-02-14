@@ -100,8 +100,8 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                     {
-                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita]) " +
-                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita)", conn);
+                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita],[popis]) " +
+                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita,@popis)", conn);
                         pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
                         pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
                         pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
@@ -117,6 +117,8 @@ namespace SystemProPodporuStudijnichPlanu
                         pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
                         pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
                         pred.Parameters.AddWithValue("@prerekvizita", p.Prerekvizita);
+                        pred.Parameters.AddWithValue("@popis", p.Popis);
+
 
                         try
                         {
@@ -139,8 +141,8 @@ namespace SystemProPodporuStudijnichPlanu
                 {
                     using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                     {
-                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni]) " +
-                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[popis]) " +
+                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@popis)", conn);
                         pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
                         pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
                         pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
@@ -155,6 +157,7 @@ namespace SystemProPodporuStudijnichPlanu
                         pred.Parameters.AddWithValue("@lab", p.Lab);
                         pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
                         pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
+                        pred.Parameters.AddWithValue("@popis", p.Popis);
                         try
                         {
                             conn.Open();
@@ -299,15 +302,15 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void UpdatePredmet(Predmet P, int i = 0)
+        public void UpdatePredmet(Predmet P)
         {
-            if (i == 0)
+            int i = P.Prerekvizita;
+            if (i == -1)
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
                     SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
-                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet," +
-                        "id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni " +
+                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet,id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni,popis=@popis " +
                         "WHERE id_predmet=@id_predmet", conn);
                     pred.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
                     pred.Parameters.AddWithValue("@name_predmet", P.Name_predmet);
@@ -324,6 +327,7 @@ namespace SystemProPodporuStudijnichPlanu
                     pred.Parameters.AddWithValue("@lab", P.Lab);
                     pred.Parameters.AddWithValue("@jazyk", P.Jazyk);
                     pred.Parameters.AddWithValue("@zakonceni", P.Zakonceni);
+                    pred.Parameters.AddWithValue("@popis", P.Popis);
 
                     try
                     {
@@ -342,8 +346,7 @@ namespace SystemProPodporuStudijnichPlanu
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
                     SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
-                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet," +
-                        "id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni , prerekvizita=@prerekvizita " +
+                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet,id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni , prerekvizita=@prerekvizita, popis=@popis " +
                         "WHERE id_predmet=@id_predmet", conn);
                     pred.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
                     pred.Parameters.AddWithValue("@name_predmet", P.Name_predmet);
@@ -361,6 +364,7 @@ namespace SystemProPodporuStudijnichPlanu
                     pred.Parameters.AddWithValue("@jazyk", P.Jazyk);
                     pred.Parameters.AddWithValue("@zakonceni", P.Zakonceni);
                     pred.Parameters.AddWithValue("@prerekvizita", P.Prerekvizita);
+                    pred.Parameters.AddWithValue("@popis", P.Popis);
                     try
                     {
                         conn.Open();

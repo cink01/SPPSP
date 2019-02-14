@@ -157,13 +157,14 @@ namespace SystemProPodporuStudijnichPlanu
             cmb_zaznam.SelectedIndex = cmb_zaznam.FindStringExact(zkratka);
 
         }
-        private void FillPopisyDoFormu(string popis, decimal kredity, string povin)
+        private void FillPopisyDoFormu(string popis, decimal kredity, string povin, decimal idcko)
         {
             try
             {
                 nud_kredpop.Value = kredity;
                 richTextBox1.Text = popis;
                 textBox1.Text = povin;
+                tb_idcko.Text = idcko.ToString();
             }
             catch { }
         }
@@ -312,12 +313,20 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_smaz_Click(object sender, EventArgs e)
         {
-            DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-            int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-            decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
-            // DataAccess da = new DataAccess();
-            /*da.*/MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
-            VyberNudVal(sum, urceniZvolenehoListu);
+            try
+            {
+                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+                int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+                decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
+
+                MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+                VyberNudVal(sum, urceniZvolenehoListu);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("není vybrán žádný plán");
+            }
+
         }
         public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z, int sem) //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
         {
@@ -325,7 +334,7 @@ namespace SystemProPodporuStudijnichPlanu
             int x = 0;
             foreach (Predmet n in p)
             { 
-                if ((object)LB.SelectedItem == (object)(n.Name_predmet))
+                if ( LB.SelectedItem.ToString() == n.ToString())
                 {
                     x = n.Id_predmet;
                     if (sem == 0 || sem == 2 || sem == 4 || sem == 6 || sem == 8 || sem == 10 || sem == 12)
@@ -555,8 +564,8 @@ namespace SystemProPodporuStudijnichPlanu
                 case 55:
                     {
                         Filling fill = new Filling();
-                        fill.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin);
-                        FillPopisyDoFormu(popis, kredity, povin);
+                        fill.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin,out decimal idcko);
+                        FillPopisyDoFormu(popis, kredity, povin, idcko);
                         break;
                     }
                 case 12:

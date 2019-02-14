@@ -32,7 +32,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
-                return new Predmet(Id, Nazev, Zkr, Kredit, Obor, Garant, Semestr, Orig, Povinnost, Prednaska, Cv, Cvk, Lab, Jazyk, Zakonceni, Povinnost, Prerek);
+                return new Predmet(Id, Nazev, Zkr, Kredit, Obor, Garant, Semestr, Orig, Povinnost, Prednaska, Cv, Cvk, Lab, Jazyk, Zakonceni, Popis, Prerek);
             }
         }
         public string Nazev
@@ -104,12 +104,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public string Zakonceni
         {
             get => cb_zakončení.GetItemText(cb_zakončení.SelectedItem);
-            set => cb_zakončení.SelectedIndex = cb_zakončení.FindStringExact(value);
+            set => cb_zakončení.SelectedItem = cb_zakončení.FindStringExact(value);
         }
         public string Povinnost 
         {
             get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
-            set => cb_povinnost.SelectedIndex = cb_povinnost.FindStringExact(value);
+            set => cb_povinnost.SelectedItem = cb_povinnost.FindStringExact(value);
         }
         public int Obor 
         {

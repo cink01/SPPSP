@@ -104,6 +104,7 @@
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_katedraN = new System.Windows.Forms.TextBox();
+            this.tb_idcko = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -701,6 +702,7 @@
             // 
             // gb_popis
             // 
+            this.gb_popis.Controls.Add(this.tb_idcko);
             this.gb_popis.Controls.Add(this.richTextBox1);
             this.gb_popis.Controls.Add(this.textBox1);
             this.gb_popis.Controls.Add(this.nud_kredpop);
@@ -1013,6 +1015,13 @@
             this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
             this.tb_katedraN.TabIndex = 16;
             // 
+            // tb_idcko
+            // 
+            this.tb_idcko.Location = new System.Drawing.Point(184, 266);
+            this.tb_idcko.Name = "tb_idcko";
+            this.tb_idcko.Size = new System.Drawing.Size(100, 20);
+            this.tb_idcko.TabIndex = 76;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1141,6 +1150,7 @@
         private System.Windows.Forms.ComboBox cb_kat;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_katedraN;
+        private System.Windows.Forms.TextBox tb_idcko;
     }
 }
 

@@ -46,6 +46,8 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.gb_predmet = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cb_prerek = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tb_jazyk = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,8 +67,6 @@
             this.nud_kredit = new System.Windows.Forms.NumericUpDown();
             this.tb_nazev = new System.Windows.Forms.TextBox();
             this.databaseAppDataSet = new SystemProPodporuStudijnichPlanu.DatabaseAppDataSet();
-            this.cb_prerek = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_lab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_cv)).BeginInit();
@@ -264,6 +264,27 @@
             this.gb_predmet.TabStop = false;
             this.gb_predmet.Text = "Předmět";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "Prerekvizita:";
+            // 
+            // cb_prerek
+            // 
+            this.cb_prerek.FormattingEnabled = true;
+            this.cb_prerek.Items.AddRange(new object[] {
+            "Zkouška",
+            "Zápočet"});
+            this.cb_prerek.Location = new System.Drawing.Point(75, 256);
+            this.cb_prerek.Name = "cb_prerek";
+            this.cb_prerek.Size = new System.Drawing.Size(139, 21);
+            this.cb_prerek.TabIndex = 38;
+            this.cb_prerek.DropDown += new System.EventHandler(this.Cb_prerek_Hledani);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -330,10 +351,10 @@
             // 
             this.cb_povinnost.FormattingEnabled = true;
             this.cb_povinnost.Items.AddRange(new object[] {
-            "Povinný předmět",
-            "Volitelný předmět",
-            "Povinně volitelný",
-            "Cizí jazyk"});
+            "\"Povinný předmět\"",
+            "\"Volitelný předmět\"",
+            "\"Povinně volitelný\"",
+            "\"Cizí jazyk\""});
             this.cb_povinnost.Location = new System.Drawing.Point(75, 177);
             this.cb_povinnost.Name = "cb_povinnost";
             this.cb_povinnost.Size = new System.Drawing.Size(139, 21);
@@ -427,27 +448,6 @@
             // 
             this.databaseAppDataSet.DataSetName = "DatabaseAppDataSet";
             this.databaseAppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cb_prerek
-            // 
-            this.cb_prerek.FormattingEnabled = true;
-            this.cb_prerek.Items.AddRange(new object[] {
-            "Zkouška",
-            "Zápočet"});
-            this.cb_prerek.Location = new System.Drawing.Point(75, 256);
-            this.cb_prerek.Name = "cb_prerek";
-            this.cb_prerek.Size = new System.Drawing.Size(139, 21);
-            this.cb_prerek.TabIndex = 38;
-            this.cb_prerek.DropDown += new System.EventHandler(this.Cb_prerek_Hledani);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 259);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 13);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "Prerekvizita:";
             // 
             // FormCUPredmet
             // 
