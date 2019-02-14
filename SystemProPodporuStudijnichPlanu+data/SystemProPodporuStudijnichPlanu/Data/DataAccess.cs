@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
+
 namespace SystemProPodporuStudijnichPlanu
 {
     public class DataAccess
