@@ -284,6 +284,7 @@
             this.cb_prerek.Size = new System.Drawing.Size(139, 21);
             this.cb_prerek.TabIndex = 38;
             this.cb_prerek.DropDown += new System.EventHandler(this.Cb_prerek_Hledani);
+            this.cb_prerek.Enter += new System.EventHandler(this.Cb_prerek_Hledani);
             // 
             // label12
             // 
@@ -420,6 +421,7 @@
             this.cb_obor.TabIndex = 23;
             this.cb_obor.DropDown += new System.EventHandler(this.Cb_obor_Hledání);
             this.cb_obor.SelectedIndexChanged += new System.EventHandler(this.Cb_obor_SelectedIndexChanged);
+            this.cb_obor.Enter += new System.EventHandler(this.Cb_obor_Hledání);
             // 
             // cb_garant
             // 
@@ -429,6 +431,7 @@
             this.cb_garant.Size = new System.Drawing.Size(139, 21);
             this.cb_garant.TabIndex = 22;
             this.cb_garant.DropDown += new System.EventHandler(this.Cb_garant_Hledání);
+            this.cb_garant.Enter += new System.EventHandler(this.Cb_garant_Hledání);
             // 
             // nud_kredit
             // 

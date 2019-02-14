@@ -38,14 +38,12 @@
             this.rb_katedra = new System.Windows.Forms.RadioButton();
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
-            this.tb_garantN = new System.Windows.Forms.TextBox();
             this.gb_k = new System.Windows.Forms.GroupBox();
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.gb_o = new System.Windows.Forms.GroupBox();
             this.cb_obo = new System.Windows.Forms.ComboBox();
             this.gb_g = new System.Windows.Forms.GroupBox();
             this.cb_garant = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gb_p = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmb_obo_pre = new System.Windows.Forms.ComboBox();
@@ -55,6 +53,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_kat_gar = new System.Windows.Forms.ComboBox();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -172,16 +175,9 @@
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
-            // tb_garantN
-            // 
-            this.tb_garantN.Location = new System.Drawing.Point(64, 46);
-            this.tb_garantN.Name = "tb_garantN";
-            this.tb_garantN.Size = new System.Drawing.Size(111, 20);
-            this.tb_garantN.TabIndex = 18;
-            this.tb_garantN.TextChanged += new System.EventHandler(this.Cb_garant_Hledani);
-            // 
             // gb_k
             // 
+            this.gb_k.Controls.Add(this.label8);
             this.gb_k.Controls.Add(this.cb_kat);
             this.gb_k.Location = new System.Drawing.Point(12, 63);
             this.gb_k.Name = "gb_k";
@@ -193,7 +189,7 @@
             // cb_kat
             // 
             this.cb_kat.FormattingEnabled = true;
-            this.cb_kat.Location = new System.Drawing.Point(7, 19);
+            this.cb_kat.Location = new System.Drawing.Point(13, 30);
             this.cb_kat.Name = "cb_kat";
             this.cb_kat.Size = new System.Drawing.Size(168, 21);
             this.cb_kat.TabIndex = 21;
@@ -201,6 +197,7 @@
             // 
             // gb_o
             // 
+            this.gb_o.Controls.Add(this.label1);
             this.gb_o.Controls.Add(this.cb_obo);
             this.gb_o.Location = new System.Drawing.Point(193, 63);
             this.gb_o.Name = "gb_o";
@@ -213,7 +210,7 @@
             // 
             this.cb_obo.DropDownWidth = 200;
             this.cb_obo.FormattingEnabled = true;
-            this.cb_obo.Location = new System.Drawing.Point(7, 19);
+            this.cb_obo.Location = new System.Drawing.Point(6, 30);
             this.cb_obo.Name = "cb_obo";
             this.cb_obo.Size = new System.Drawing.Size(168, 21);
             this.cb_obo.TabIndex = 22;
@@ -221,9 +218,10 @@
             // 
             // gb_g
             // 
-            this.gb_g.Controls.Add(this.cb_garant);
             this.gb_g.Controls.Add(this.label3);
-            this.gb_g.Controls.Add(this.tb_garantN);
+            this.gb_g.Controls.Add(this.cmb_kat_gar);
+            this.gb_g.Controls.Add(this.label2);
+            this.gb_g.Controls.Add(this.cb_garant);
             this.gb_g.Location = new System.Drawing.Point(374, 63);
             this.gb_g.Name = "gb_g";
             this.gb_g.Size = new System.Drawing.Size(182, 199);
@@ -234,20 +232,11 @@
             // cb_garant
             // 
             this.cb_garant.FormattingEnabled = true;
-            this.cb_garant.Location = new System.Drawing.Point(6, 19);
+            this.cb_garant.Location = new System.Drawing.Point(6, 68);
             this.cb_garant.Name = "cb_garant";
             this.cb_garant.Size = new System.Drawing.Size(169, 21);
             this.cb_garant.TabIndex = 20;
             this.cb_garant.DropDown += new System.EventHandler(this.Cb_garant_Hledani);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Jméno:";
             // 
             // gb_p
             // 
@@ -296,6 +285,7 @@
             // 
             // cb_semestry
             // 
+            this.cb_semestry.DropDownWidth = 50;
             this.cb_semestry.FormattingEnabled = true;
             this.cb_semestry.Items.AddRange(new object[] {
             "1",
@@ -340,6 +330,7 @@
             // 
             // cmb_povin
             // 
+            this.cmb_povin.DropDownWidth = 200;
             this.cmb_povin.FormattingEnabled = true;
             this.cmb_povin.Items.AddRange(new object[] {
             "\"Povinný předmět\"",
@@ -351,6 +342,52 @@
             this.cmb_povin.Name = "cmb_povin";
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Obor:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Garant:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Katedra:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Katedra:";
+            // 
+            // cmb_kat_gar
+            // 
+            this.cmb_kat_gar.FormattingEnabled = true;
+            this.cmb_kat_gar.Location = new System.Drawing.Point(6, 30);
+            this.cmb_kat_gar.Name = "cmb_kat_gar";
+            this.cmb_kat_gar.Size = new System.Drawing.Size(168, 21);
+            this.cmb_kat_gar.TabIndex = 29;
+            this.cmb_kat_gar.DropDown += new System.EventHandler(this.Cmb_kat_gar_hledaní);
+            this.cmb_kat_gar.SelectedIndexChanged += new System.EventHandler(this.Cmb_kat_gar_SelectedIndexChanged);
             // 
             // FormCRUDmidstage
             // 
@@ -375,7 +412,9 @@
             this.gb_vyber.ResumeLayout(false);
             this.gb_vyber.PerformLayout();
             this.gb_k.ResumeLayout(false);
+            this.gb_k.PerformLayout();
             this.gb_o.ResumeLayout(false);
+            this.gb_o.PerformLayout();
             this.gb_g.ResumeLayout(false);
             this.gb_g.PerformLayout();
             this.gb_p.ResumeLayout(false);
@@ -395,12 +434,10 @@
         private System.Windows.Forms.RadioButton rb_katedra;
         private System.Windows.Forms.RadioButton rb_garant;
         private System.Windows.Forms.GroupBox gb_vyber;
-        private System.Windows.Forms.TextBox tb_garantN;
         private System.Windows.Forms.GroupBox gb_k;
         private System.Windows.Forms.GroupBox gb_o;
         private System.Windows.Forms.GroupBox gb_g;
         private System.Windows.Forms.GroupBox gb_p;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -412,5 +449,10 @@
         private System.Windows.Forms.ComboBox cb_pre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmb_obo_pre;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmb_kat_gar;
+        private System.Windows.Forms.Label label2;
     }
 }

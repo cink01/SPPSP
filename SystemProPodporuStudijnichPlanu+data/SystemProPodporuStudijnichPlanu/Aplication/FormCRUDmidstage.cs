@@ -151,41 +151,70 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-       /* private void Tb_oborN_TextChanged(object sender, EventArgs e)
-        {
-            cb_obo.Items.Clear();
-            cb_obo.Text = "Nalezené obory";
-            foreach (Obor o in obors)
-                if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
-                    cb_obo.Items.Add(o.Name_obor);
-        }
-          private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
-          {
-              cb_pre.Items.Clear();
-              foreach (Predmet p in predmets)
-                  if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
-                      cb_pre.Items.Add(p.Name_predmet);
-          }*/
+        /* private void Tb_oborN_TextChanged(object sender, EventArgs e)
+         {
+             cb_obo.Items.Clear();
+             cb_obo.Text = "Nalezené obory";
+             foreach (Obor o in obors)
+                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
+                     cb_obo.Items.Add(o.Name_obor);
+         }
+           private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
+           {
+               cb_pre.Items.Clear();
+               foreach (Predmet p in predmets)
+                   if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
+                       cb_pre.Items.Add(p.Name_predmet);
+           }*/
         private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
         {
+            if (cmb_kat_gar.Text == "")
+            {
+                DataAccess da =new DataAccess();
+                garants = da.GetFullGarant();
+            }
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Garant>(cb_garant, garants);
+            rb_garant.Checked = true;
+        }
+        private void Cmb_kat_gar_hledaní(object sender, EventArgs e)
+        {
+            Filling fill = new Filling();
+            fill.NajdiVComboBoxu<Katedra>(cmb_kat_gar, katedras);
+        }
+
+        private void Cmb_kat_gar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            garants.Clear();
+            DataAccess da = new DataAccess();
+            Katedra temp = (Katedra)cmb_kat_gar.SelectedItem;
+            garants = da.GetGarantByKatedra(temp.Id_k);
+            Filling fill = new Filling();
+            fill.NaplnComboBox<Garant>(cb_garant, garants);
         }
         private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
         {
+            if (cmb_obo_pre.Text == "")
+            {
+                DataAccess da = new DataAccess();
+                predmets = da.GetFullPredmet();
+            }
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Predmet>(cb_pre, predmets);
+            rb_predmet.Checked = true;
         }
         private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
         {
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Obor>(cb_obo, obors);
+            rb_obor.Checked = true;
         }
 
         private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
         {
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Katedra>(cb_kat, katedras);
+            rb_katedra.Checked = true;
         }
         private void Cmb_obo_pre_Hledání(object sender, EventArgs e)
         {

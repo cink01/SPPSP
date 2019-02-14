@@ -103,13 +103,44 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public string Zakonceni
         {
-            get => cb_zakončení.GetItemText(cb_zakončení.SelectedItem);
-            set => cb_zakončení.SelectedItem = cb_zakončení.FindStringExact(value);
+          /*  get => cb_zakončení.GetItemText(cb_zakončení.SelectedItem);
+            set => cb_zakončení.SelectedIndex = cb_zakončení.FindString(value);*/
+            get
+            {
+                if ("Zápočet" == cb_zakončení.GetItemText(cb_zakončení.SelectedItem))
+                    return "\"ZA\"";
+                else
+                    return @"ZK";
+
+            }
+            set
+            {
+                if (value == "\"ZA\"")
+                    cb_zakončení.SelectedIndex = cb_zakončení.FindString("Zápočet");
+                else
+                    cb_zakončení.SelectedIndex = cb_zakončení.FindString("Zkouška");
+            }
         }
         public string Povinnost 
         {
             get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
-            set => cb_povinnost.SelectedItem = cb_povinnost.FindStringExact(value);
+            set => cb_povinnost.SelectedIndex = cb_povinnost.FindString(value);
+            /*
+            get
+            {
+                if ("Zápočet" == cb_povinnost.GetItemText(cb_povinnost.SelectedItem))
+                    return "\"ZA\"";
+                else
+                    return @"ZK";
+
+            }
+            set
+            {
+                if(value=="\"ZA\"")
+                    cb_povinnost.SelectedIndex = cb_povinnost.FindString("Zápočet");
+                else
+                    cb_povinnost.SelectedIndex = cb_povinnost.FindString("Zkouška");
+            }*/
         }
         public int Obor 
         {
