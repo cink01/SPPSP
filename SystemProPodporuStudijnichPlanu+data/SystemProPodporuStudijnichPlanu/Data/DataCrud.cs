@@ -256,6 +256,57 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void UpdatePredmet(Predmet P)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand Upredmet = new SqlCommand("UPDATE [predmet] " +
+                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
+                    "WHERE id_predmet=@id_predmet", conn);
+                Upredmet.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
+                Upredmet.Parameters.AddWithValue("");
+                Upredmet.Parameters.AddWithValue("");    
+                Upredmet.Parameters.AddWithValue("@id_obor", P.Id_obor);
+                Upredmet.Parameters.AddWithValue("@p_obor", P.P_obor);
+                Upredmet.Parameters.AddWithValue("@pv_obor", P.Pv_obor);
+                Upredmet.Parameters.AddWithValue("@v_obor", P.V_obor);
+                Upredmet.Parameters.AddWithValue("@vs_obor", P.Vs_obor);
+                Upredmet.Parameters.AddWithValue("@praxe", P.Praxe);
+                Upredmet.Parameters.AddWithValue("@rok_obor", P.Rok_obor);
+                try
+                {
+                    conn.Open();
+                    Uobor.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void UpdateGarant(Garant G)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand Ugarant = new SqlCommand("UPDATE [garant] " +
+                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
+                    "WHERE id_v=@id_v", conn);
+                Ugarant.Parameters.AddWithValue("@id_v", G.Id_v);
+                Ugarant.Parameters.AddWithValue();
+                Ugarant.Parameters.AddWithValue();
+                try
+                {
+                    conn.Open();
+                    Uobor.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
         public void InsertPS(string zaznam, int Semestr)
         {
             DataAccess da = new DataAccess();
