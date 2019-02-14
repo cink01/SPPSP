@@ -16,7 +16,7 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
-            RefreshZaznamy();
+            RefreshZaznamy("Doporučené AI");
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
@@ -154,7 +154,7 @@ namespace SystemProPodporuStudijnichPlanu
             cmb_zaznam.DataSource = null;
             DataAccess db = new DataAccess();
             db.FillZaznamCB(cmb_zaznam);
-            cmb_zaznam.SelectedIndex = cmb_zaznam.FindStringExact(zkratka);
+            cmb_zaznam.SelectedItem = cmb_zaznam.FindStringExact(zkratka);
 
         }
         private void FillPopisyDoFormu(string popis, decimal kredity, string povin, decimal idcko)
@@ -406,6 +406,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string Zzkr = "";
             if (cmb_zaznam.SelectedIndex != -1)
             {
                 VratZaznamData(out int id_z, out string zkr, out _, out string rok_o, out int PocSem);
@@ -469,10 +470,11 @@ namespace SystemProPodporuStudijnichPlanu
                         {
                             MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        Zzkr = Zaznam.Zkr;
                         MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                RefreshZaznamy();
+                RefreshZaznamy(Zzkr);
             }
         }
         private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
