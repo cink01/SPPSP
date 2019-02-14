@@ -89,9 +89,10 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertPredmet(Predmet p, int i = 0)
+        public void InsertPredmet(Predmet p)
         {
-            if (i == 0)
+            int i = p.Prerekvizita;
+            if (i != -1)
             {
                 DataAccess da = new DataAccess();
                 da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);

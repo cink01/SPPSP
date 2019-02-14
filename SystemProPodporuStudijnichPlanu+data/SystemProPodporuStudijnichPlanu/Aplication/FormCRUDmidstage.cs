@@ -84,7 +84,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertPredmet(p.P,1);
+                        x.InsertPredmet(p.P);
                         DataAccess da = new DataAccess();
                         predmets = da.GetFullPredmet();
                     }

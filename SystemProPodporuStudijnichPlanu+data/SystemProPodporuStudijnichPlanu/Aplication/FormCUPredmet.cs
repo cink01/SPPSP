@@ -168,7 +168,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 { 
                 foreach (Predmet k in predmets)
                     if (k.Id_predmet == value)
-                        cb_prerek.SelectedIndex = cb_prerek.FindStringExact(k.ToString());
+                        cb_prerek.SelectedItem = cb_prerek.FindStringExact(k.ToString());
                 }
             }
         }
