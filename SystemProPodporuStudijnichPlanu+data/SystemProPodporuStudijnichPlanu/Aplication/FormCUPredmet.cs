@@ -11,19 +11,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
         public List<Predmet> predmets = new List<Predmet>();
-        Filling fill = new Filling();
+
         public FormCUPredmet()
         {
+            Filling fill = new Filling();
             InitializeComponent();
-        }
-        private void FormCUPredmet_Load(object sender, EventArgs e)
-        {
             DataAccess da = new DataAccess();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();
             predmets = da.GetFullPredmet();
             fill.NaplnComboBox<Garant>(cb_garant, garants);
             fill.NaplnComboBox<Obor>(cb_obor, obors);
+            fill.NaplnComboBox<Predmet>(cb_prerek, predmets);
+        }
+        private void FormCUPredmet_Load(object sender, EventArgs e)
+        {
+
         }
         public Predmet P
         {
@@ -39,7 +42,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public int Id
         {
-            get => Convert.ToInt32(tb_id.Text);
+            get
+            {
+                if (tb_id.Text == "")
+                    return -1;
+                else
+                    return Convert.ToInt32(tb_id.Text);
+            }
             set => tb_id.Text = value.ToString();
         }
         public string Zkr
@@ -107,7 +116,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 foreach (Obor k in obors)
-                    if (k.Name_obor == cb_obor.SelectedIndex.ToString())
+                    if (k.ToString() == cb_obor.SelectedItem.ToString())
                         return k.Id_obor;
                 return 0;
             }
@@ -116,7 +125,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 foreach (Obor k in obors)
                     if (k.Id_obor == value)
-                        cb_obor.SelectedIndex = cb_obor.FindStringExact(k.Name_obor);
+                        cb_obor.SelectedIndex = cb_obor.FindStringExact(k.ToString());
             }
         }
         public int Garant
@@ -124,7 +133,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 foreach (Garant k in garants)
-                    if (k.Jmeno_v == cb_garant.SelectedIndex.ToString())
+                    if (k.ToString() == cb_garant.SelectedItem.ToString())
                         return k.Id_v;
                 return 0;
             }
@@ -133,13 +142,35 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 foreach (Garant k in garants)
                     if (k.Id_v == value)
-                        cb_garant.SelectedIndex = cb_garant.FindStringExact(k.Jmeno_v);
+                        cb_garant.SelectedIndex = cb_garant.FindStringExact(k.ToString());
             }
         }
         public int Prerek
         {
-            get;
-            set;
+            get
+            {
+                if (cb_prerek.SelectedIndex != -1)
+                { 
+                    foreach (Predmet k in predmets)
+                        if (k.ToString() == cb_prerek.SelectedItem.ToString())
+                            return k.Id_v;
+                    return -1;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            set
+            {
+                if (value != -1)
+                { 
+                foreach (Predmet k in predmets)
+                    if (k.Id_predmet == value)
+                        cb_prerek.SelectedIndex = cb_prerek.FindStringExact(k.ToString());
+                }
+            }
         }
         private void Bt_close_Click(object sender, EventArgs e)
         {
@@ -147,10 +178,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cb_garant_Hledání(object sender, EventArgs e)
         {
+            Filling fill = new Filling();
             fill.NajdiVComboBoxu<Garant>(cb_garant, garants);
         }
         private void Cb_obor_Hledání(object sender, EventArgs e)
         {
+            Filling fill = new Filling();
             fill.NajdiVComboBoxu<Obor>(cb_obor, obors);
         }
         private void Cb_povinnost_Hledaní(object sender, EventArgs e)

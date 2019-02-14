@@ -10,7 +10,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
-                return new Obor(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_nazev.Text, tb_rok.Text, Convert.ToInt32(nud_p.Value), Convert.ToInt32(nud_pv.Value), Convert.ToInt32(nud_v.Value), Convert.ToInt32(nud_vs.Value), rtb_praxe.Text);
+                return new Obor(Id, tb_zkr.Text, tb_nazev.Text, tb_rok.Text, Convert.ToInt32(nud_p.Value), Convert.ToInt32(nud_pv.Value), Convert.ToInt32(nud_v.Value), Convert.ToInt32(nud_vs.Value), rtb_praxe.Text);
             }
             set
             {
@@ -41,10 +41,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => tb_nazev.Text;
             set => tb_nazev.Text = value;
         }
-        public string Id
+        public int Id
         {
-            get => tb_id.Text;
-            set => tb_id.Text = value;
+            get
+            {
+                if (tb_id.Text == "")
+                    return -1;
+                else
+                    return Convert.ToInt32(tb_id.Text);
+                    }
+            set => tb_id.Text = value.ToString();
         }
         public int P
         {

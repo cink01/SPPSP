@@ -62,6 +62,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     try
                     {
                         x.InsertGarant(g.G);
+                        DataAccess da = new DataAccess();
+                        garants = da.GetFullGarant();
                     }
                     catch (Exception ex)
                     {
@@ -82,7 +84,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertPredmet(p.P);
+                        x.InsertPredmet(p.P,1);
+                        DataAccess da = new DataAccess();
+                        predmets = da.GetFullPredmet();
                     }
                     catch (Exception ex)
                     {
@@ -111,6 +115,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                               o.V,
                                               o.Vs,
                                               o.Praxe));
+                        DataAccess da = new DataAccess();
+                        obors = da.GetFullObor();
                     }
                     catch (Exception ex)
                     {
@@ -133,6 +139,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     {
                         x.InsertKat(k.Zkr,
                                     k.Nazev);
+                        DataAccess da = new DataAccess();
+                        katedras = da.GetFullKatedra();
                     }
                     catch (Exception ex)
                     {
@@ -227,7 +235,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         try
                         {
                             // Gara.G = o;
-                            Gara.Id = o.Id_v.ToString();
+                            Gara.Id = o.Id_v;
                             Gara.Jmeno = o.Jmeno_v;
                             Gara.Email = o.Email_V;
                             Gara.Tel = o.Tel_v;
@@ -287,8 +295,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             Pred.Jazyk = o.Jazyk;
                             Pred.Zakonceni = o.Zakonceni;
                             Pred.Popis = o.Popis;
-                            Pred.Prerek = o.Prerekvizita;
-
+                            if(o.Prerekvizita>=0)
+                                Pred.Prerek = o.Prerekvizita;
                         }
                         catch (Exception ex)
                         {
@@ -303,9 +311,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.UpdatePredmet(Pred.P);
-                        predmets = a.GetFullPredmet();
-                        cb_pre.Text = Pred.P.ToString();
+                        if (Pred.Prerek != -1)
+                        {
+                            x.UpdatePredmet(Pred.P,1);
+                            predmets = a.GetFullPredmet();
+                            cb_pre.Text = Pred.P.ToString();
+                        }
+                        else
+                        {
+                            x.UpdatePredmet(Pred.P);
+                            predmets = a.GetFullPredmet();
+                            cb_pre.Text = Pred.P.ToString();
+                        }
 
                     }
                     catch (Exception ex)
@@ -330,7 +347,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             try
                             {
                                 //  Obo.O = o;new Obor(o.Id_obor,o.Zkr_obor,o.Name_obor,o.Rok_obor,o.P_obor,o.Pv_obor,o.V_obor,o.Vs_obor,o.Praxe);
-                                Obo.Id = o.Id_obor.ToString();
+                                Obo.Id = o.Id_obor;
                                 Obo.Zkr = o.Zkr_obor;
                                 Obo.Nazev = o.Name_obor;
                                 Obo.Rok = o.Rok_obor;

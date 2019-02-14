@@ -21,12 +21,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
-                return new Garant(Convert.ToInt32(tb_id.Text), tb_jm.Text, tb_email.Text, cmb_katedra.SelectedItem.ToString(), tb_tel.Text, tb_konz.Text);
+                return new Garant(Id, Jmeno, Email, Tel, Konz, Kat);
         	}
             set
             {
                 G = value;
-                Id = G.Id_v.ToString();
+                Id = G.Id_v;
                 Jmeno = G.Jmeno_v;
                 Email = G.Email_V;
                 Tel = G.Tel_v;
@@ -34,10 +34,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 Kat = G.Id_k;
             }
         }
-        public string Id
+        public int Id
         {
-            get => tb_id.Text;
-            set => tb_id.Text = value;
+            get
+            {
+                if (tb_id.Text == "")
+                    return -1;
+                else
+                    return Convert.ToInt32(tb_id.Text);
+            }
+            set => tb_id.Text = value.ToString();
         }
         public string Jmeno
         {
@@ -64,7 +70,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 foreach (Katedra k in katedras)
-                    if (k.Naz_k == cmb_katedra.SelectedIndex.ToString())
+                    if (k.Naz_k == cmb_katedra.SelectedItem.ToString())
                         return k.Id_k;
                 return 0;
             }

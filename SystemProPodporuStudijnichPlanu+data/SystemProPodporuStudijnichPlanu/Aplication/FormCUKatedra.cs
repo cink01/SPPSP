@@ -14,7 +14,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
-                return new Katedra(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_název.Text);
+                return new Katedra(Id, tb_zkr.Text, tb_název.Text);
             }
             set
             {
@@ -35,7 +35,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public int Id
         {
-            get => Convert.ToInt32( tb_id.Text);
+            get
+            {
+                if (tb_id.Text == "")
+                    return -1;
+                else
+                    return Convert.ToInt32(tb_id.Text);
+            }
             set => tb_id.Text = value.ToString();
         }
         private void Bt_ok_Click(object sender, EventArgs e)

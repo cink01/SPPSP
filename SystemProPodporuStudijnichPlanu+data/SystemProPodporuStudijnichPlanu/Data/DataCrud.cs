@@ -70,7 +70,7 @@ namespace SystemProPodporuStudijnichPlanu
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
                     //kontrola jestli neexistuje již existuje
-                    SqlCommand garant = new SqlCommand("insert into garant(jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
+                    SqlCommand garant = new SqlCommand("insert into [garant](jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
                     garant.Parameters.AddWithValue("@jmeno_v", g.Jmeno_v);
                     garant.Parameters.AddWithValue("@email_v", g.Email_V);
                     garant.Parameters.AddWithValue("@tel_v", g.Tel_v);
@@ -89,42 +89,82 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertPredmet(Predmet p)
+        public void InsertPredmet(Predmet p, int i = 0)
         {
-            DataAccess da = new DataAccess();
-            da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
-            if (exist <= 0)
+            if (i == 0)
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                DataAccess da = new DataAccess();
+                da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
+                if (exist <= 0)
                 {
-                    SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita]) " +
-                        "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita)", conn);
-                    pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
-                    pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
-                    pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
-                    pred.Parameters.AddWithValue("@id_obor", p.Id_obor);
-                    pred.Parameters.AddWithValue("@id_v", p.Id_v);
-                    pred.Parameters.AddWithValue("@semestr_predmet", p.Semestr_predmet);
-                    pred.Parameters.AddWithValue("@id_orig", p.Id_orig);
-                    pred.Parameters.AddWithValue("@povinnost", p.Povinnost);
-                    pred.Parameters.AddWithValue("@prednaska", p.Prednaska);
-                    pred.Parameters.AddWithValue("@cviceni", p.Cviceni);
-                    pred.Parameters.AddWithValue("@kombi", p.Kombi);
-                    pred.Parameters.AddWithValue("@lab", p.Lab);
-                    pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
-                    pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
-                    pred.Parameters.AddWithValue("@prerekvizita", p.Prerekvizita);
+                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                    {
+                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita]) " +
+                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita)", conn);
+                        pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
+                        pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
+                        pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
+                        pred.Parameters.AddWithValue("@id_obor", p.Id_obor);
+                        pred.Parameters.AddWithValue("@id_v", p.Id_v);
+                        pred.Parameters.AddWithValue("@semestr_predmet", p.Semestr_predmet);
+                        pred.Parameters.AddWithValue("@id_orig", p.Id_orig);
+                        pred.Parameters.AddWithValue("@povinnost", p.Povinnost);
+                        pred.Parameters.AddWithValue("@prednaska", p.Prednaska);
+                        pred.Parameters.AddWithValue("@cviceni", p.Cviceni);
+                        pred.Parameters.AddWithValue("@kombi", p.Kombi);
+                        pred.Parameters.AddWithValue("@lab", p.Lab);
+                        pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
+                        pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
+                        pred.Parameters.AddWithValue("@prerekvizita", p.Prerekvizita);
 
-                    try
-                    {
-                        conn.Open();
-                        pred.ExecuteNonQuery();
+                        try
+                        {
+                            conn.Open();
+                            pred.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        conn.Close();
                     }
-                    catch (Exception ex)
+                }
+            }
+            else
+            {
+                DataAccess da = new DataAccess();
+                da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
+                if (exist <= 0)
+                {
+                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni]) " +
+                            "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                        pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
+                        pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
+                        pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
+                        pred.Parameters.AddWithValue("@id_obor", p.Id_obor);
+                        pred.Parameters.AddWithValue("@id_v", p.Id_v);
+                        pred.Parameters.AddWithValue("@semestr_predmet", p.Semestr_predmet);
+                        pred.Parameters.AddWithValue("@id_orig", p.Id_orig);
+                        pred.Parameters.AddWithValue("@povinnost", p.Povinnost);
+                        pred.Parameters.AddWithValue("@prednaska", p.Prednaska);
+                        pred.Parameters.AddWithValue("@cviceni", p.Cviceni);
+                        pred.Parameters.AddWithValue("@kombi", p.Kombi);
+                        pred.Parameters.AddWithValue("@lab", p.Lab);
+                        pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
+                        pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
+                        try
+                        {
+                            conn.Open();
+                            pred.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        conn.Close();
                     }
-                    conn.Close();
                 }
             }
         }
@@ -258,26 +298,79 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
-        public void UpdatePredmet(Predmet P)
+        public void UpdatePredmet(Predmet P, int i = 0)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            if (i == 0)
             {
-                SqlCommand Upredmet = new SqlCommand("UPDATE [predmet] " +
-                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
-                    "WHERE id_predmet=@id_predmet", conn);
-                Upredmet.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
-              /*  Upredmet.Parameters.AddWithValue("@",);
-                Upredmet.Parameters.AddWithValue("@",);    */
-                try
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
-                    conn.Open();
-                    Upredmet.ExecuteNonQuery();
+                    SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
+                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet," +
+                        "id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni " +
+                        "WHERE id_predmet=@id_predmet", conn);
+                    pred.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
+                    pred.Parameters.AddWithValue("@name_predmet", P.Name_predmet);
+                    pred.Parameters.AddWithValue("@zkr_predmet", P.Zkr_predmet);
+                    pred.Parameters.AddWithValue("@kredit_predmet", P.Kredit_predmet);
+                    pred.Parameters.AddWithValue("@id_obor", P.Id_obor);
+                    pred.Parameters.AddWithValue("@id_v", P.Id_v);
+                    pred.Parameters.AddWithValue("@semestr_predmet", P.Semestr_predmet);
+                    pred.Parameters.AddWithValue("@id_orig", P.Id_orig);
+                    pred.Parameters.AddWithValue("@povinnost", P.Povinnost);
+                    pred.Parameters.AddWithValue("@prednaska", P.Prednaska);
+                    pred.Parameters.AddWithValue("@cviceni", P.Cviceni);
+                    pred.Parameters.AddWithValue("@kombi", P.Kombi);
+                    pred.Parameters.AddWithValue("@lab", P.Lab);
+                    pred.Parameters.AddWithValue("@jazyk", P.Jazyk);
+                    pred.Parameters.AddWithValue("@zakonceni", P.Zakonceni);
+
+                    try
+                    {
+                        conn.Open();
+                        pred.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
                 }
-                catch (Exception ex)
+            }
+            else
+            {
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
+                        "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet," +
+                        "id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni , prerekvizita=@prerekvizita " +
+                        "WHERE id_predmet=@id_predmet", conn);
+                    pred.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
+                    pred.Parameters.AddWithValue("@name_predmet", P.Name_predmet);
+                    pred.Parameters.AddWithValue("@zkr_predmet", P.Zkr_predmet);
+                    pred.Parameters.AddWithValue("@kredit_predmet", P.Kredit_predmet);
+                    pred.Parameters.AddWithValue("@id_obor", P.Id_obor);
+                    pred.Parameters.AddWithValue("@id_v", P.Id_v);
+                    pred.Parameters.AddWithValue("@semestr_predmet", P.Semestr_predmet);
+                    pred.Parameters.AddWithValue("@id_orig", P.Id_orig);
+                    pred.Parameters.AddWithValue("@povinnost", P.Povinnost);
+                    pred.Parameters.AddWithValue("@prednaska", P.Prednaska);
+                    pred.Parameters.AddWithValue("@cviceni", P.Cviceni);
+                    pred.Parameters.AddWithValue("@kombi", P.Kombi);
+                    pred.Parameters.AddWithValue("@lab", P.Lab);
+                    pred.Parameters.AddWithValue("@jazyk", P.Jazyk);
+                    pred.Parameters.AddWithValue("@zakonceni", P.Zakonceni);
+                    pred.Parameters.AddWithValue("@prerekvizita", P.Prerekvizita);
+                    try
+                    {
+                        conn.Open();
+                        pred.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
                 }
-                conn.Close();
             }
         }
         public void UpdateGarant(Garant G)
