@@ -8,7 +8,6 @@ using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
-
 namespace SystemProPodporuStudijnichPlanu
 {
     public class DataAccess
@@ -301,7 +300,7 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
-//nahradit/prepsat Funkce kolem tvorby zaznamu a nebo tyto 2 nechat jak jsou
+        //nahradit/prepsat Funkce kolem tvorby zaznamu a nebo tyto 2 nechat jak jsou
         public void FillOborCB(ComboBox x)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -360,6 +359,5 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-
     }
 }
