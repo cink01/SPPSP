@@ -362,6 +362,12 @@
             // cmb_povin
             // 
             this.cmb_povin.FormattingEnabled = true;
+            this.cmb_povin.Items.AddRange(new object[] {
+            "\"Povinný předmět\"",
+            "\"Cizí jazyk\"",
+            "\"Volitelný předmět\"",
+            "\"Povinně volitelný\"",
+            "\"Volitelný předmět (sportovní aktivita)\""});
             this.cmb_povin.Location = new System.Drawing.Point(63, 94);
             this.cmb_povin.Name = "cmb_povin";
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);

@@ -358,12 +358,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public void DeleteGarant()
         {
-           if (cb_gar.SelectedIndex != -1)
+           if (cb_garant.SelectedIndex != -1)
             {
                 foreach (Garant o in garants)
                 {
 
-                    if (o.ToString() == cb_gar.SelectedItem.ToString())
+                    if (o.ToString() == cb_garant.SelectedItem.ToString())
                     {
                         try
                         {
@@ -371,7 +371,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             dc.DeleteGarant(o.Id_v);
                             DataAccess da = new DataAccess();
                             garants = da.GetFullGarant();
-                            cb_gar.Text = "";
+                            cb_garant.Text = "";
                         }
                         catch (Exception ex)
                         {
