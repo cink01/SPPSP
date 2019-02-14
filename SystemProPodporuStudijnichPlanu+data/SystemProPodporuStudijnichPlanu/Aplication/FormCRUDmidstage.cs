@@ -279,7 +279,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     {
                         try
                         {
-                            Pred.Id = o.Id_v;
+                            Pred.Id = o.Id_predmet;
                             Pred.Nazev = o.Name_predmet;
                             Pred.Zkr = o.Zkr_predmet;
                             Pred.Kredit = o.Kredit_predmet;
