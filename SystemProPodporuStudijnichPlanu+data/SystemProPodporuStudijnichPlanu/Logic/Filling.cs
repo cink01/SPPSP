@@ -29,20 +29,17 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         {
             x.Items.Clear();
             int sirka = 0;
-            int tmp = 0;
             foreach (T o in temp)
             {
                 if (o.ToString().IndexOf(x.Text, Comp) >= 0)
                 {
                     x.Items.Add(o);
-                    tmp = TextRenderer.MeasureText(o.ToString(), x.Font).Width;
-				    if (sirka < tmp)
-				    {
-				        sirka = tmp;
-				    }
+                    int tmp = TextRenderer.MeasureText(o.ToString(), x.Font).Width;
+                    if (sirka < tmp)
+                        sirka = tmp;
                 }
             }
-            x.DropDownWidth =sirka;
+            x.DropDownWidth = sirka;
         }
         public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)//misto sum udelat prepravku pro nekolik promennych
         {
