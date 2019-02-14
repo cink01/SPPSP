@@ -5,14 +5,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUObor : Form
     {
+
         public Obor O
         {
             get
             {
-                return new Obor(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_nazev.Text,tb_rok.Text,Convert.ToInt32(nud_p.Value),Convert.ToInt32(nud_pv.Value),Convert.ToInt32(nud_v.Value),Convert.ToInt32(nud_vs.Value),rtb_praxe.Text);
+                return new Obor(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_nazev.Text, tb_rok.Text, Convert.ToInt32(nud_p.Value), Convert.ToInt32(nud_pv.Value), Convert.ToInt32(nud_v.Value), Convert.ToInt32(nud_vs.Value), rtb_praxe.Text);
             }
             set
             {
+                O = value;
                 tb_id.Text = O.Id_obor.ToString();
                 tb_zkr.Text = O.Zkr_obor;
                 tb_nazev.Text = O.Name_obor;

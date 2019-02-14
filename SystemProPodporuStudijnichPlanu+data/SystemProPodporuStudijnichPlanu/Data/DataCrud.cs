@@ -264,19 +264,12 @@ namespace SystemProPodporuStudijnichPlanu
                     "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
                     "WHERE id_predmet=@id_predmet", conn);
                 Upredmet.Parameters.AddWithValue("@id_predmet", P.Id_predmet);
-                Upredmet.Parameters.AddWithValue("");
-                Upredmet.Parameters.AddWithValue("");    
-                Upredmet.Parameters.AddWithValue("@id_obor", P.Id_obor);
-                Upredmet.Parameters.AddWithValue("@p_obor", P.P_obor);
-                Upredmet.Parameters.AddWithValue("@pv_obor", P.Pv_obor);
-                Upredmet.Parameters.AddWithValue("@v_obor", P.V_obor);
-                Upredmet.Parameters.AddWithValue("@vs_obor", P.Vs_obor);
-                Upredmet.Parameters.AddWithValue("@praxe", P.Praxe);
-                Upredmet.Parameters.AddWithValue("@rok_obor", P.Rok_obor);
+              /*  Upredmet.Parameters.AddWithValue("@",);
+                Upredmet.Parameters.AddWithValue("@",);    */
                 try
                 {
                     conn.Open();
-                    Uobor.ExecuteNonQuery();
+                    Upredmet.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -290,15 +283,18 @@ namespace SystemProPodporuStudijnichPlanu
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
                 SqlCommand Ugarant = new SqlCommand("UPDATE [garant] " +
-                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
+                    "SET jmeno_v=@jmeno_v, email_v=@email_v, tel_v=@tel_v, konz_v=@konz_v,id_k=@id_k " +
                     "WHERE id_v=@id_v", conn);
                 Ugarant.Parameters.AddWithValue("@id_v", G.Id_v);
-                Ugarant.Parameters.AddWithValue();
-                Ugarant.Parameters.AddWithValue();
+                Ugarant.Parameters.AddWithValue("@jmeno_v",G.Jmeno_v);
+                Ugarant.Parameters.AddWithValue("@email_v",G.Email_V);
+                Ugarant.Parameters.AddWithValue("@tel_v",G.Tel_v);
+                Ugarant.Parameters.AddWithValue("@konz_v",G.Konz_v);
+                Ugarant.Parameters.AddWithValue("@id_k",G.Id_k);
                 try
                 {
                     conn.Open();
-                    Uobor.ExecuteNonQuery();
+                    Ugarant.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {

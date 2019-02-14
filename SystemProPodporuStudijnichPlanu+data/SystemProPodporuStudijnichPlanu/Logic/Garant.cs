@@ -8,6 +8,7 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class Garant
     {
+        public Garant() { }
         public Garant(string jmeno_v, string email_V, string kat,string tel_v= "neuveden", string konz_v="neuvedeny")
         {
             DataAccess da = new DataAccess();

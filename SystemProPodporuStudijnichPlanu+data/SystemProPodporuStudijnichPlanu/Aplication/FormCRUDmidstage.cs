@@ -61,11 +61,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertGarant(new Garant(g.Jmeno,
-                                                  g.Email,
-                                                  g.Kat,
-                                                  g.Tel,
-                                                  g.Konz));
+                        x.InsertGarant(g.G);
                     }
                     catch (Exception ex)
                     {
@@ -234,8 +230,50 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void EditGarant()
         {
+            using (FormCUGarant Gara = new FormCUGarant())
+            {
+                Gara.Text = "Upravit Garanta";
+                foreach (Garant o in garants)
+                {
+                    if (o.ToString() == cb_garant.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            // Gara.G = o;
+                            Gara.Id = o.Id_v.ToString();
+                            Gara.Jmeno = o.Jmeno_v;
+                            Gara.Email = o.Email_V;
+                            Gara.Tel = o.Tel_v;
+                            Gara.Konz = o.Konz_v;
+                            Gara.Kat = o.Id_k;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                DataAccess a = new DataAccess();
+                DialogResult potvrzeni = Gara.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
+                {
+                    DataCrud x = new DataCrud();
+                    try
+                    {
+                        x.UpdateGarant(Gara.G);
+                        garants = a.GetFullGarant();
+                        cb_garant.Text = Gara.G.ToString();
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
+    
         private void EditPredmet()
         {
 
@@ -253,18 +291,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             try
                             {
-                                Obo.O = new Obor(o.Id_obor,
-                                                 o.Zkr_obor,
-                                                 o.Name_obor,
-                                                 o.Rok_obor,
-                                                 o.P_obor,
-                                                 o.Pv_obor,
-                                                 o.V_obor,
-                                                 o.Vs_obor,
-                                                 o.Praxe);
-                            }
-                            catch
-                            {
+                                //  Obo.O = o;new Obor(o.Id_obor,o.Zkr_obor,o.Name_obor,o.Rok_obor,o.P_obor,o.Pv_obor,o.V_obor,o.Vs_obor,o.Praxe);
                                 Obo.Id = o.Id_obor.ToString();
                                 Obo.Zkr = o.Zkr_obor;
                                 Obo.Nazev = o.Name_obor;
@@ -274,6 +301,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                 Obo.V = o.V_obor;
                                 Obo.Vs = o.Vs_obor;
                                 Obo.Praxe = o.Praxe;
+                            }
+                            catch(Exception ex)
+                            {
+                                MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
