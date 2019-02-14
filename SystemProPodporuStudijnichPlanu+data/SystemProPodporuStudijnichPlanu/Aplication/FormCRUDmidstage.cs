@@ -123,9 +123,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertObor(new Obor(o.Zkr,
                                               o.Nazev,
                                               o.Rok,
-                                              o.Pp,
-                                              o.Pvp,
-                                              o.Vp,
+                                              o.P,
+                                              o.Pv,
+                                              o.V,
                                               o.Vs,
                                               o.Praxe));
                     }
@@ -160,14 +160,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        private void Tb_katedraN_TextChanged(object sender, EventArgs e)
-        {
-            cb_kat.Items.Clear();
-            cb_kat.Text = "Nalezené katedry";
-            foreach (Katedra k in katedras)
-                if (k.Naz_k.IndexOf(tb_katedraN.Text, Comp) >= 0)
-                    cb_kat.Items.Add(k.Naz_k);
-        }
         private void Tb_oborN_TextChanged(object sender, EventArgs e)
         {
             cb_obo.Items.Clear();
@@ -217,6 +209,212 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             predmets = da.GetPredmetFullByObor(temp.Id_obor);
             Filling fill = new Filling();
             fill.NaplnComboBox<Predmet>(cb_pre, predmets);
+        }
+
+        private void Bt_upravit_Click(object sender, EventArgs e)
+        {
+            if (rb_garant.Checked == true)
+            {
+                EditGarant();
+            }
+            if (rb_predmet.Checked == true)
+            {
+                EditPredmet();
+            }
+            if (rb_obor.Checked == true)
+            {
+                EditObor();
+            }
+
+            if (rb_katedra.Checked == true)
+            {
+                EditKatedra();
+            }
+        }
+
+        private void EditGarant()
+        {
+
+        }
+        private void EditPredmet()
+        {
+
+        }
+        private void EditObor()
+        {
+            if (cb_obo.SelectedIndex != -1)
+            {
+                using (FormCUObor Obo = new FormCUObor())
+                {
+                    Obo.Text = "Upravit Katedru";
+                    foreach (Obor o in obors)
+                    {
+                        if (o.ToString() == cb_obo.SelectedItem.ToString())
+                        {
+                            try
+                            {
+                                Obo.O = new Obor(o.Id_obor,
+                                                 o.Zkr_obor,
+                                                 o.Name_obor,
+                                                 o.Rok_obor,
+                                                 o.P_obor,
+                                                 o.Pv_obor,
+                                                 o.V_obor,
+                                                 o.Vs_obor,
+                                                 o.Praxe);
+                            }
+                            catch
+                            {
+                                Obo.Id = o.Id_obor.ToString();
+                                Obo.Zkr = o.Zkr_obor;
+                                Obo.Nazev = o.Name_obor;
+                                Obo.Rok = o.Rok_obor;
+                                Obo.P = o.P_obor;
+                                Obo.Pv = o.Pv_obor;
+                                Obo.V = o.V_obor;
+                                Obo.Vs = o.Vs_obor;
+                                Obo.Praxe = o.Praxe;
+                            }
+                        }
+                    }
+                    DataAccess a = new DataAccess();
+                    DialogResult potvrzeni = Obo.ShowDialog();
+                    if (potvrzeni == DialogResult.OK)
+                    {
+                        DataCrud x = new DataCrud();
+                        try
+                        {
+                            x.UpdateObor(Obo.O);
+                            obors = a.GetFullObor();
+                            cb_obo.Text = Obo.O.ToString();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+        private void EditKatedra()
+        {
+            if (cb_kat.SelectedIndex != -1)
+            {
+                using (FormCUKatedra Kat = new FormCUKatedra())
+                {
+                    Kat.Text = "Upravit Katedru";
+                    foreach (Katedra o in katedras)
+                    {
+                        if (o.ToString() == cb_kat.SelectedItem.ToString())
+                        {
+                            Kat.Id = o.Id_k;
+                            Kat.Zkr = o.Zkr_k;
+                            Kat.Nazev = o.Naz_k;
+                        }
+                    }
+                    DataAccess a = new DataAccess();
+                    DialogResult potvrzeni = Kat.ShowDialog();
+                    if (potvrzeni == DialogResult.OK)
+                    {
+                        DataCrud x = new DataCrud();
+                        try
+                        {
+                            x.UpdateKatedra(Kat.K);
+                            katedras = a.GetFullKatedra();
+                            cb_kat.Text = Kat.K.ToString();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void Bt_smazat_Click(object sender, EventArgs e)
+        {
+            if (rb_garant.Checked == true)
+            {
+                DeleteGarant();
+            }
+            if (rb_predmet.Checked == true)
+            {
+                DeletePredmet();
+            }
+            if (rb_obor.Checked == true)
+            {
+                DeleteObor();
+            }
+
+            if (rb_katedra.Checked == true)
+            {
+                DeleteKatedra();
+            }
+        }
+        public void DeleteGarant()
+        {
+
+        }
+        public void DeletePredmet()
+        {
+
+        }
+        public void DeleteObor()
+        {
+            if (cb_obo.SelectedIndex != -1)
+            {
+                foreach (Obor o in obors)
+            {
+
+                    if (o.ToString() == cb_obo.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            DataCrud dc = new DataCrud();
+                            dc.DeleteObor(o.Id_obor);
+                            DataAccess da = new DataAccess();
+                            obors = da.GetFullObor();
+                            cb_obo.Text = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Smazání oboru proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
+        }
+        public void DeleteKatedra()
+        {
+            if (cb_kat.SelectedIndex != -1)
+            {
+                foreach (Katedra o in katedras)
+                {
+
+                    if (o.ToString() == cb_kat.SelectedItem.ToString())
+                    {
+                        try
+                        {
+                            DataCrud dc = new DataCrud();
+                            dc.DeleteKatedra(o.Id_k);
+                            DataAccess da = new DataAccess();
+                            katedras = da.GetFullKatedra();
+                            cb_kat.Text = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Smazání katedry proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
         }
     }
 }

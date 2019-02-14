@@ -136,6 +136,11 @@
             // nud_vs
             // 
             this.nud_vs.Location = new System.Drawing.Point(395, 97);
+            this.nud_vs.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.nud_vs.Name = "nud_vs";
             this.nud_vs.Size = new System.Drawing.Size(59, 20);
             this.nud_vs.TabIndex = 20;
@@ -143,6 +148,11 @@
             // nud_v
             // 
             this.nud_v.Location = new System.Drawing.Point(395, 71);
+            this.nud_v.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.nud_v.Name = "nud_v";
             this.nud_v.Size = new System.Drawing.Size(59, 20);
             this.nud_v.TabIndex = 19;
@@ -150,6 +160,11 @@
             // nud_pv
             // 
             this.nud_pv.Location = new System.Drawing.Point(395, 45);
+            this.nud_pv.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.nud_pv.Name = "nud_pv";
             this.nud_pv.Size = new System.Drawing.Size(59, 20);
             this.nud_pv.TabIndex = 18;
@@ -157,6 +172,11 @@
             // nud_p
             // 
             this.nud_p.Location = new System.Drawing.Point(395, 19);
+            this.nud_p.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.nud_p.Name = "nud_p";
             this.nud_p.Size = new System.Drawing.Size(59, 20);
             this.nud_p.TabIndex = 17;

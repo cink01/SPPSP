@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -15,6 +9,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCUKatedra()
         {
             InitializeComponent();
+        }
+        public Katedra K
+        {
+            get
+            {
+                return new Katedra(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_název.Text);
+            }
+            set
+            {
+                tb_id.Text = K.Id_k.ToString();
+                tb_zkr.Text = K.Zkr_k;
+                tb_název.Text = K.Naz_k;
+            }
         }
         public string Nazev
         {
@@ -26,7 +33,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => tb_zkr.Text;
             set => tb_zkr.Text = value;
         }
-
+        public int Id
+        {
+            get => Convert.ToInt32( tb_id.Text);
+            set => tb_id.Text = value.ToString();
+        }
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if (tb_název.Text == "" || tb_zkr.Text == "")

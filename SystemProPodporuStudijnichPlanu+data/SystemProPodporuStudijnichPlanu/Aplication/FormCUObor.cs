@@ -5,6 +5,25 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUObor : Form
     {
+        public Obor O
+        {
+            get
+            {
+                return new Obor(Convert.ToInt32(tb_id.Text), tb_zkr.Text, tb_nazev.Text,tb_rok.Text,Convert.ToInt32(nud_p.Value),Convert.ToInt32(nud_pv.Value),Convert.ToInt32(nud_v.Value),Convert.ToInt32(nud_vs.Value),rtb_praxe.Text);
+            }
+            set
+            {
+                tb_id.Text = O.Id_obor.ToString();
+                tb_zkr.Text = O.Zkr_obor;
+                tb_nazev.Text = O.Name_obor;
+                tb_rok.Text = O.Rok_obor;
+                nud_p.Value = O.P_obor;
+                nud_pv.Value = O.Pv_obor;
+                nud_v.Value = O.V_obor;
+                nud_vs.Value = O.Vs_obor;
+                rtb_praxe.Text = O.Praxe;
+            }
+        }
         public string Rok
         {
             get => tb_rok.Text;
@@ -25,17 +44,17 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => tb_id.Text;
             set => tb_id.Text = value;
         }
-        public int Pp
+        public int P
         {
             get => (int)nud_p.Value;
             set => nud_p.Value = value;
         }
-        public int Pvp
+        public int Pv
         {
             get => (int)nud_pv.Value;
             set => nud_pv.Value = value;
         }
-        public int Vp
+        public int V
         {
             get => (int)nud_v.Value;
             set => nud_v.Value = value;

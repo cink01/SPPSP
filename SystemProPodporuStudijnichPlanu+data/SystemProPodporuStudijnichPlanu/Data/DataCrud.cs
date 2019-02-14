@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -205,6 +206,56 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void UpdateKatedra(Katedra K)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand zaz = new SqlCommand("UPDATE [katedra] " +
+                    "SET zkr_k=@zkr_k, naz_k=@naz_k " +
+                    "WHERE id_k=@id_k", conn);
+                zaz.Parameters.AddWithValue("@zkr_k", K.Zkr_k);
+                zaz.Parameters.AddWithValue("@naz_k", K.Naz_k);
+                zaz.Parameters.AddWithValue("@id_k", K.Id_k);
+                try
+                {
+                    conn.Open();
+                    zaz.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void UpdateObor(Obor Ob)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand Uobor = new SqlCommand("UPDATE [obor] " +
+                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
+                    "WHERE id_obor=@id_obor", conn);
+                Uobor.Parameters.AddWithValue("@zkr_obor", Ob.Zkr_obor);
+                Uobor.Parameters.AddWithValue("@Name_obor", Ob.Name_obor);
+                Uobor.Parameters.AddWithValue("@id_obor", Ob.Id_obor);
+                Uobor.Parameters.AddWithValue("@p_obor", Ob.P_obor);
+                Uobor.Parameters.AddWithValue("@pv_obor", Ob.Pv_obor);
+                Uobor.Parameters.AddWithValue("@v_obor", Ob.V_obor);
+                Uobor.Parameters.AddWithValue("@vs_obor", Ob.Vs_obor);
+                Uobor.Parameters.AddWithValue("@praxe", Ob.Praxe);
+                Uobor.Parameters.AddWithValue("@rok_obor", Ob.Rok_obor);
+                try
+                {
+                    conn.Open();
+                    Uobor.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
         public void InsertPS(string zaznam, int Semestr)
         {
             DataAccess da = new DataAccess();
@@ -290,6 +341,42 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [vyber] WHERE [id_vyber]=@id_vyber", conn);
                 vybD.Parameters.AddWithValue("@id_vyber", id);
+                try
+                {
+                    conn.Open();
+                    vybD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void DeleteKatedra(int id_k)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vybD = new SqlCommand("DELETE FROM [katedra] WHERE [id_k]=@id_k", conn);
+                vybD.Parameters.AddWithValue("@id_k", id_k);
+                try
+                {
+                    conn.Open();
+                    vybD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
+        public void DeleteObor(int id_obor)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand vybD = new SqlCommand("DELETE FROM [obor] WHERE [id_obor]=@id_obor", conn);
+                vybD.Parameters.AddWithValue("@id_obor", id_obor);
                 try
                 {
                     conn.Open();

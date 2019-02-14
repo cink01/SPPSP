@@ -38,12 +38,10 @@
             this.rb_katedra = new System.Windows.Forms.RadioButton();
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
-            this.tb_katedraN = new System.Windows.Forms.TextBox();
             this.tb_oborN = new System.Windows.Forms.TextBox();
             this.tb_garantN = new System.Windows.Forms.TextBox();
             this.gb_k = new System.Windows.Forms.GroupBox();
             this.cb_kat = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gb_o = new System.Windows.Forms.GroupBox();
             this.cb_obo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,6 +89,7 @@
             this.bt_smazat.TabIndex = 4;
             this.bt_smazat.Text = "Smazat";
             this.bt_smazat.UseVisualStyleBackColor = false;
+            this.bt_smazat.Click += new System.EventHandler(this.Bt_smazat_Click);
             // 
             // bt_novy
             // 
@@ -116,6 +115,7 @@
             this.bt_upravit.TabIndex = 6;
             this.bt_upravit.Text = "Upravit";
             this.bt_upravit.UseVisualStyleBackColor = false;
+            this.bt_upravit.Click += new System.EventHandler(this.Bt_upravit_Click);
             // 
             // rb_predmet
             // 
@@ -174,14 +174,6 @@
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             // 
-            // tb_katedraN
-            // 
-            this.tb_katedraN.Location = new System.Drawing.Point(64, 46);
-            this.tb_katedraN.Name = "tb_katedraN";
-            this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
-            this.tb_katedraN.TabIndex = 16;
-            this.tb_katedraN.TextChanged += new System.EventHandler(this.Tb_katedraN_TextChanged);
-            // 
             // tb_oborN
             // 
             this.tb_oborN.Location = new System.Drawing.Point(64, 46);
@@ -201,8 +193,6 @@
             // gb_k
             // 
             this.gb_k.Controls.Add(this.cb_kat);
-            this.gb_k.Controls.Add(this.label1);
-            this.gb_k.Controls.Add(this.tb_katedraN);
             this.gb_k.Location = new System.Drawing.Point(12, 63);
             this.gb_k.Name = "gb_k";
             this.gb_k.Size = new System.Drawing.Size(182, 199);
@@ -218,15 +208,6 @@
             this.cb_kat.Size = new System.Drawing.Size(168, 21);
             this.cb_kat.TabIndex = 21;
             this.cb_kat.DropDown += new System.EventHandler(this.Cb_katedra_Hledani);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Název:";
             // 
             // gb_o
             // 
@@ -409,7 +390,6 @@
             this.gb_vyber.ResumeLayout(false);
             this.gb_vyber.PerformLayout();
             this.gb_k.ResumeLayout(false);
-            this.gb_k.PerformLayout();
             this.gb_o.ResumeLayout(false);
             this.gb_o.PerformLayout();
             this.gb_g.ResumeLayout(false);
@@ -431,14 +411,12 @@
         private System.Windows.Forms.RadioButton rb_katedra;
         private System.Windows.Forms.RadioButton rb_garant;
         private System.Windows.Forms.GroupBox gb_vyber;
-        private System.Windows.Forms.TextBox tb_katedraN;
         private System.Windows.Forms.TextBox tb_oborN;
         private System.Windows.Forms.TextBox tb_garantN;
         private System.Windows.Forms.GroupBox gb_k;
         private System.Windows.Forms.GroupBox gb_o;
         private System.Windows.Forms.GroupBox gb_g;
         private System.Windows.Forms.GroupBox gb_p;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
