@@ -281,17 +281,15 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public string GetGarantById(int id_v)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                return connection.Query($"SELECT jmeno_v FROM [garant]  WHERE id_v='{id_v}'").SingleOrDefault();
-            }
+            SqlCommand getGarById = new SqlCommand("SELECT jmeno_v FROM [garant]  WHERE id_v=@id_v)", GetConnection());
+            getGarById.Parameters.AddWithValue("@id_v", id_v);
+            return getGarById.ExecuteScalar().ToString();
         }
         public string GetPredmetById(int id_predmet)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                return connection.Query($"SELECT name_predmet FROM [predmet]  WHERE id_predmet='{id_predmet}'").SingleOrDefault();
-            }
+            SqlCommand getGarById = new SqlCommand("SELECT name_predmet FROM [predmet]  WHERE id_predmet=@id_predmet)", GetConnection());
+            getGarById.Parameters.AddWithValue("@id_predmet", id_predmet);
+            return getGarById.ExecuteScalar().ToString();
         }
         public string GetOborRok(int o)
         {
