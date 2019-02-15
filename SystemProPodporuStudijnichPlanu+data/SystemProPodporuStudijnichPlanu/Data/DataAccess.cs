@@ -117,7 +117,14 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-
+        public List<Predmet> GetPredmetBySemestrFull(int semestr_predmet)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"SELECT * FROM predmet WHERE semestr_predmet='{ semestr_predmet }'").ToList();
+                return vystup;
+            }
+        }
         public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, string rok)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))

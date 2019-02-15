@@ -68,18 +68,27 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             predmets = tmp;
             sum = kr.Suma;
         }
-        public void GetDetail(ListBox LB, List<Predmet> p, out string popis, out decimal kredity, out string povin, out decimal idcko)
+        public void GetDetail(ListBox LB,/* List<Predmet> p,*/ out string popis, out decimal kredity, out string povin, out decimal idcko)
         {
             idcko = kredity = 0;
             povin = popis = "";
-            foreach (Predmet x in p)
-                if ((object)x == (object)LB.SelectedItem)
-                {
-                    popis = x.Popis;
-                    kredity = x.Kredit_predmet;
-                    povin = x.Povinnost;
-                    idcko = x.Id_predmet;
-                }
+            try
+            {
+                Predmet x = (Predmet)LB.SelectedItem;
+                popis = x.Popis;
+                kredity = x.Kredit_predmet;
+                povin = x.Povinnost;
+                idcko = x.Id_predmet;
+            }
+            catch{}
+            /* foreach (Predmet x in p)
+                 if ((object)x == (object)LB.SelectedItem)
+                 {
+                     popis = x.Popis;
+                     kredity = x.Kredit_predmet;
+                     povin = x.Povinnost;
+                     idcko = x.Id_predmet;
+                 }*/
         }
     }
 }

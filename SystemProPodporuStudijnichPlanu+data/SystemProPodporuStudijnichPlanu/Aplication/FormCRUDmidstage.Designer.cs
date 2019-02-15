@@ -39,10 +39,15 @@
             this.rb_garant = new System.Windows.Forms.RadioButton();
             this.gb_vyber = new System.Windows.Forms.GroupBox();
             this.gb_k = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.gb_o = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cb_obo = new System.Windows.Forms.ComboBox();
             this.gb_g = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_kat_gar = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cb_garant = new System.Windows.Forms.ComboBox();
             this.gb_p = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,11 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmb_kat_gar = new System.Windows.Forms.ComboBox();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -186,6 +186,15 @@
             this.gb_k.TabStop = false;
             this.gb_k.Text = "Výběr a vyhledávání kateder";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Katedra:";
+            // 
             // cb_kat
             // 
             this.cb_kat.FormattingEnabled = true;
@@ -205,6 +214,15 @@
             this.gb_o.TabIndex = 21;
             this.gb_o.TabStop = false;
             this.gb_o.Text = "Výběr a vyhledávání oborů";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Obor:";
             // 
             // cb_obo
             // 
@@ -228,6 +246,34 @@
             this.gb_g.TabIndex = 22;
             this.gb_g.TabStop = false;
             this.gb_g.Text = "Výběr a vyhledávání garantů";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Katedra:";
+            // 
+            // cmb_kat_gar
+            // 
+            this.cmb_kat_gar.FormattingEnabled = true;
+            this.cmb_kat_gar.Location = new System.Drawing.Point(6, 30);
+            this.cmb_kat_gar.Name = "cmb_kat_gar";
+            this.cmb_kat_gar.Size = new System.Drawing.Size(168, 21);
+            this.cmb_kat_gar.TabIndex = 29;
+            this.cmb_kat_gar.DropDown += new System.EventHandler(this.Cmb_kat_gar_hledaní);
+            this.cmb_kat_gar.SelectedIndexChanged += new System.EventHandler(this.Cmb_kat_gar_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Garant:";
             // 
             // cb_garant
             // 
@@ -300,6 +346,7 @@
             this.cb_semestry.Name = "cb_semestry";
             this.cb_semestry.Size = new System.Drawing.Size(111, 21);
             this.cb_semestry.TabIndex = 23;
+            this.cb_semestry.SelectedIndexChanged += new System.EventHandler(this.Cb_semestry_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -342,52 +389,6 @@
             this.cmb_povin.Name = "cmb_povin";
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Obor:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Garant:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Katedra:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Katedra:";
-            // 
-            // cmb_kat_gar
-            // 
-            this.cmb_kat_gar.FormattingEnabled = true;
-            this.cmb_kat_gar.Location = new System.Drawing.Point(6, 30);
-            this.cmb_kat_gar.Name = "cmb_kat_gar";
-            this.cmb_kat_gar.Size = new System.Drawing.Size(168, 21);
-            this.cmb_kat_gar.TabIndex = 29;
-            this.cmb_kat_gar.DropDown += new System.EventHandler(this.Cmb_kat_gar_hledaní);
-            this.cmb_kat_gar.SelectedIndexChanged += new System.EventHandler(this.Cmb_kat_gar_SelectedIndexChanged);
             // 
             // FormCRUDmidstage
             // 

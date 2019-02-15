@@ -170,7 +170,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (cmb_kat_gar.Text == "")
             {
-                DataAccess da =new DataAccess();
+                DataAccess da = new DataAccess();
                 garants = da.GetFullGarant();
             }
             Filling fill = new Filling();
@@ -223,14 +223,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            predmets.Clear();
-            DataAccess da = new DataAccess();
-            Obor temp = (Obor)cmb_obo_pre.SelectedItem;
-            predmets = da.GetPredmetFullByObor(temp.Id_obor);
-            Filling fill = new Filling();
-            fill.NaplnComboBox<Predmet>(cb_pre, predmets);
+            string vyber = "";
+            if (cb_semestry.SelectedIndex!=-1)
+                vyber = cb_semestry.SelectedItem.ToString();
+            if (vyber == "")
+                vyber = "všechny";
+            VyberPresSemestr(vyber);
+            /*   predmets.Clear();
+               DataAccess da = new DataAccess();
+               Obor temp = (Obor)cmb_obo_pre.SelectedItem;
+               predmets = da.GetPredmetFullByObor(temp.Id_obor);
+               Filling fill = new Filling();
+               fill.NaplnComboBox<Predmet>(cb_pre, predmets);*/
         }
-
         private void Bt_upravit_Click(object sender, EventArgs e)
         {
             if (rb_garant.Checked == true)
@@ -251,7 +256,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 EditKatedra();
             }
         }
-
         private void EditGarant()
         {
             using (FormCUGarant Gara = new FormCUGarant())
@@ -271,7 +275,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             Gara.Konz = o.Konz_v;
                             Gara.Kat = o.Id_k;
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -296,7 +300,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-    
         private void EditPredmet()
         {
             using (FormCUPredmet Pred = new FormCUPredmet())
@@ -324,7 +327,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             Pred.Jazyk = o.Jazyk;
                             Pred.Zakonceni = o.Zakonceni;
                             Pred.Popis = o.Popis;
-                            if(o.Prerekvizita>=0)
+                            if (o.Prerekvizita >= 0)
                                 Pred.Prerek = o.Prerekvizita;
                         }
                         catch (Exception ex)
@@ -338,14 +341,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (potvrzeni == DialogResult.OK)
                 {
                     DataCrud x = new DataCrud();
-               //     Filling fill = new Filling();
                     try
                     {
                         if (Pred.Prerek != -1)
                         {
                             x.UpdatePredmet(Pred.P);
                             predmets = a.GetFullPredmet();
-                          //  fill.NaplnComboBox<Predmet>(cb_pre, predmets);
                             cb_pre.Text = Pred.P.ToString();
                         }
                         else
@@ -353,7 +354,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
                             x.UpdatePredmet(Pred.P);
                             predmets = a.GetFullPredmet();
-                     //       fill.NaplnComboBox<Predmet>(cb_pre, predmets);
                             cb_pre.Text = Pred.P.ToString();
                         }
 
@@ -390,7 +390,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                 Obo.Vs = o.Vs_obor;
                                 Obo.Praxe = o.Praxe;
                             }
-                            catch(Exception ex)
+                            catch (Exception ex)
                             {
                                 MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -477,7 +477,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public void DeleteGarant()
         {
-           if (cb_garant.SelectedIndex != -1)
+            if (cb_garant.SelectedIndex != -1)
             {
                 foreach (Garant o in garants)
                 {
@@ -532,7 +532,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (cb_obo.SelectedIndex != -1)
             {
                 foreach (Obor o in obors)
-            {
+                {
 
                     if (o.ToString() == cb_obo.SelectedItem.ToString())
                     {
@@ -578,6 +578,112 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     }
                 }
             }
+        }
+
+        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string vyber = cb_semestry.SelectedItem.ToString();
+            if (vyber == "")
+                vyber = "všechny";
+            VyberPresSemestr(vyber);
+        }
+        private void VyberPresSemestr(string vyber)
+        {
+            int iobor = VratIdckoOboru();
+            DataAccess da = new DataAccess();
+            switch (vyber)
+            {
+                case "1":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(1);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(1, iobor);
+                        }
+                    }
+                    break;
+                case "2":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(2);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(2, iobor);
+                        }
+                    }
+                    break;
+                case "3":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(3);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(3, iobor);
+                        }
+                    }
+                    break;
+                case "4":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(4);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(4, iobor);
+                        }
+                    } break;
+                case "5": 
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(5);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(5, iobor);
+                        }
+                    }break;
+                case "6":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(6);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(6, iobor);
+                        }
+                    } break;
+                case "všechny":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetFullPredmet();
+                        else
+                        {
+                            predmets = da.GetPredmetFullByObor(iobor);
+                        }
+                    } break;
+                case "neřazazeno":
+                    {
+                        predmets.Clear();
+                        if (iobor == -1)
+                            predmets = da.GetPredmetBySemestrFull(0);
+                        else
+                        {
+                            predmets = da.GetPredmetBySemestr(0, iobor);
+                        }
+                    } break;
+                default: break;
+
+            }
+        }
+        private int VratIdckoOboru()
+        {
+            Obor temp = (Obor)cmb_obo_pre.SelectedItem;
+            return (temp.Id_obor);
         }
     }
 }

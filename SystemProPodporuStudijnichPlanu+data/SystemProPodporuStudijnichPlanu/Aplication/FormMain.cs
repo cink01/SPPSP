@@ -566,7 +566,7 @@ namespace SystemProPodporuStudijnichPlanu
                 case 55:
                     {
                         Filling fill = new Filling();
-                        fill.GetDetail(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), out string popis, out decimal kredity, out string povin,out decimal idcko);
+                        fill.GetDetail(VratListBox(urceniZvolenehoListu), /*VyberListu(urceniZvolenehoListu), */out string popis, out decimal kredity, out string povin,out decimal idcko);
                         FillPopisyDoFormu(popis, kredity, povin, idcko);
                         break;
                     }
