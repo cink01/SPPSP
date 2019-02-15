@@ -73,16 +73,13 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.l_vk = new System.Windows.Forms.Label();
+            this.l_pvk = new System.Windows.Forms.Label();
+            this.l_pkr = new System.Windows.Forms.Label();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
-            this.gb_popis = new System.Windows.Forms.GroupBox();
-            this.tb_idcko = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.nud_kredpop = new System.Windows.Forms.NumericUpDown();
-            this.tb_semest = new System.Windows.Forms.TextBox();
-            this.tb_obor = new System.Windows.Forms.TextBox();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -108,10 +105,6 @@
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_katedraN = new System.Windows.Forms.TextBox();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -130,8 +123,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).BeginInit();
-            this.gb_popis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -313,7 +304,7 @@
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
             this.nud_celkemKred.Enabled = false;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(1013, 395);
+            this.nud_celkemKred.Location = new System.Drawing.Point(1017, 392);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -431,7 +422,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(926, 397);
+            this.lb_celkem.Location = new System.Drawing.Point(930, 394);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(81, 13);
             this.lb_celkem.TabIndex = 14;
@@ -642,7 +633,7 @@
             this.bt_smaz.BackColor = System.Drawing.Color.LightCoral;
             this.bt_smaz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smaz.Location = new System.Drawing.Point(684, 385);
+            this.bt_smaz.Location = new System.Drawing.Point(683, 390);
             this.bt_smaz.Name = "bt_smaz";
             this.bt_smaz.Size = new System.Drawing.Size(104, 20);
             this.bt_smaz.TabIndex = 60;
@@ -672,14 +663,13 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
-            this.gb_max.Controls.Add(this.label10);
-            this.gb_max.Controls.Add(this.label9);
-            this.gb_max.Controls.Add(this.label8);
+            this.gb_max.Controls.Add(this.l_vk);
+            this.gb_max.Controls.Add(this.l_pvk);
+            this.gb_max.Controls.Add(this.l_pkr);
             this.gb_max.Controls.Add(this.vypisPopisPredmet);
             this.gb_max.Controls.Add(this.nud_vKr);
             this.gb_max.Controls.Add(this.nud_pvKr);
             this.gb_max.Controls.Add(this.nud_pKr);
-            this.gb_max.Controls.Add(this.gb_popis);
             this.gb_max.Controls.Add(this.lb_vyber);
             this.gb_max.Controls.Add(this.nud_PridatDoSem);
             this.gb_max.Controls.Add(this.label2);
@@ -718,12 +708,59 @@
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
+            // l_vk
+            // 
+            this.l_vk.AutoSize = true;
+            this.l_vk.Location = new System.Drawing.Point(860, 472);
+            this.l_vk.Name = "l_vk";
+            this.l_vk.Size = new System.Drawing.Size(151, 13);
+            this.l_vk.TabIndex = 80;
+            this.l_vk.Text = "Kredity z volitelných předmětů:";
+            // 
+            // l_pvk
+            // 
+            this.l_pvk.AutoSize = true;
+            this.l_pvk.Location = new System.Drawing.Point(867, 446);
+            this.l_pvk.Name = "l_pvk";
+            this.l_pvk.Size = new System.Drawing.Size(144, 13);
+            this.l_pvk.TabIndex = 79;
+            this.l_pvk.Text = "Kredity z povinně-volitelných:";
+            // 
+            // l_pkr
+            // 
+            this.l_pkr.AutoSize = true;
+            this.l_pkr.Location = new System.Drawing.Point(861, 420);
+            this.l_pkr.Name = "l_pkr";
+            this.l_pkr.Size = new System.Drawing.Size(150, 13);
+            this.l_pkr.TabIndex = 78;
+            this.l_pkr.Text = "Kredity z povinných předmětů:";
+            // 
+            // vypisPopisPredmet
+            // 
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 43);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
+            // 
             // nud_vKr
             // 
             this.nud_vKr.BackColor = System.Drawing.Color.White;
             this.nud_vKr.Enabled = false;
             this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_vKr.Location = new System.Drawing.Point(1013, 473);
+            this.nud_vKr.Location = new System.Drawing.Point(1017, 470);
             this.nud_vKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -740,7 +777,7 @@
             this.nud_pvKr.BackColor = System.Drawing.Color.White;
             this.nud_pvKr.Enabled = false;
             this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pvKr.Location = new System.Drawing.Point(1013, 447);
+            this.nud_pvKr.Location = new System.Drawing.Point(1017, 444);
             this.nud_pvKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -758,7 +795,7 @@
             this.nud_pKr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nud_pKr.Enabled = false;
             this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pKr.Location = new System.Drawing.Point(1013, 421);
+            this.nud_pKr.Location = new System.Drawing.Point(1017, 418);
             this.nud_pKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -769,69 +806,6 @@
             this.nud_pKr.Size = new System.Drawing.Size(55, 20);
             this.nud_pKr.TabIndex = 74;
             this.nud_pKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // gb_popis
-            // 
-            this.gb_popis.Controls.Add(this.tb_idcko);
-            this.gb_popis.Controls.Add(this.richTextBox1);
-            this.gb_popis.Controls.Add(this.textBox1);
-            this.gb_popis.Controls.Add(this.nud_kredpop);
-            this.gb_popis.Controls.Add(this.tb_semest);
-            this.gb_popis.Controls.Add(this.tb_obor);
-            this.gb_popis.Location = new System.Drawing.Point(696, 503);
-            this.gb_popis.Name = "gb_popis";
-            this.gb_popis.Size = new System.Drawing.Size(240, 98);
-            this.gb_popis.TabIndex = 73;
-            this.gb_popis.TabStop = false;
-            this.gb_popis.Text = "Popis";
-            // 
-            // tb_idcko
-            // 
-            this.tb_idcko.Location = new System.Drawing.Point(220, 293);
-            this.tb_idcko.Name = "tb_idcko";
-            this.tb_idcko.Size = new System.Drawing.Size(100, 20);
-            this.tb_idcko.TabIndex = 76;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 125);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(317, 151);
-            this.richTextBox1.TabIndex = 75;
-            this.richTextBox1.Text = "";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(231, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 20);
-            this.textBox1.TabIndex = 74;
-            // 
-            // nud_kredpop
-            // 
-            this.nud_kredpop.Location = new System.Drawing.Point(267, 20);
-            this.nud_kredpop.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nud_kredpop.Name = "nud_kredpop";
-            this.nud_kredpop.Size = new System.Drawing.Size(53, 20);
-            this.nud_kredpop.TabIndex = 73;
-            // 
-            // tb_semest
-            // 
-            this.tb_semest.Location = new System.Drawing.Point(298, 99);
-            this.tb_semest.Name = "tb_semest";
-            this.tb_semest.Size = new System.Drawing.Size(25, 20);
-            this.tb_semest.TabIndex = 72;
-            // 
-            // tb_obor
-            // 
-            this.tb_obor.Location = new System.Drawing.Point(298, 72);
-            this.tb_obor.Name = "tb_obor";
-            this.tb_obor.Size = new System.Drawing.Size(25, 20);
-            this.tb_obor.TabIndex = 71;
             // 
             // lb_vyber
             // 
@@ -896,7 +870,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1130, 660);
+            this.tabPage2.Size = new System.Drawing.Size(1093, 660);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vyhledávání";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1092,40 +1066,6 @@
             this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
             this.tb_katedraN.TabIndex = 16;
             // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(684, 36);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
-            this.vypisPopisPredmet.TabIndex = 77;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(857, 423);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(150, 13);
-            this.label8.TabIndex = 78;
-            this.label8.Text = "Kredity z povinných předmětů:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(863, 451);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 13);
-            this.label9.TabIndex = 79;
-            this.label9.Text = "Kredity z povinně-volitelných:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(856, 475);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(151, 13);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "Kredity z volitelných předmětů:";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1161,9 +1101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).EndInit();
-            this.gb_popis.ResumeLayout(false);
-            this.gb_popis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1228,12 +1165,6 @@
         private System.Windows.Forms.Label lb_vyber;
         private System.Windows.Forms.ToolStripMenuItem vytvořitNovýZáznamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem upravitZáznamToolStripMenuItem;
-        private System.Windows.Forms.TextBox tb_semest;
-        private System.Windows.Forms.TextBox tb_obor;
-        private System.Windows.Forms.GroupBox gb_popis;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown nud_kredpop;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1257,13 +1188,12 @@
         private System.Windows.Forms.ComboBox cb_kat;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_katedraN;
-        private System.Windows.Forms.TextBox tb_idcko;
         private System.Windows.Forms.NumericUpDown nud_vKr;
         private System.Windows.Forms.NumericUpDown nud_pvKr;
         private System.Windows.Forms.NumericUpDown nud_pKr;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label l_vk;
+        private System.Windows.Forms.Label l_pvk;
+        private System.Windows.Forms.Label l_pkr;
         private Komponenty.VypisPopisPredmetcs vypisPopisPredmet;
     }
 }

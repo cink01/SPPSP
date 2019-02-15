@@ -281,15 +281,15 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public string GetGarantById(int id_v)
         {
-            SqlCommand getGarById = new SqlCommand("SELECT jmeno_v FROM [garant]  WHERE id_v=@id_v)", GetConnection());
+            SqlCommand getGarById = new SqlCommand("SELECT jmeno_v FROM [garant]  WHERE id_v=@id_v", GetConnection());
             getGarById.Parameters.AddWithValue("@id_v", id_v);
-            return getGarById.ExecuteScalar().ToString();
+            return (string)getGarById.ExecuteScalar();
         }
         public string GetPredmetById(int id_predmet)
         {
-            SqlCommand getGarById = new SqlCommand("SELECT name_predmet FROM [predmet]  WHERE id_predmet=@id_predmet)", GetConnection());
-            getGarById.Parameters.AddWithValue("@id_predmet", id_predmet);
-            return getGarById.ExecuteScalar().ToString();
+            SqlCommand getPreById = new SqlCommand("SELECT name_predmet FROM [predmet]  WHERE id_predmet=@id_predmet", GetConnection());
+            getPreById.Parameters.AddWithValue("@id_predmet", id_predmet);
+            return (string)getPreById.ExecuteScalar();
         }
         public string GetOborRok(int o)
         {

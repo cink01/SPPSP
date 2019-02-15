@@ -75,10 +75,10 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             {
                 Predmet x = (Predmet)LB.SelectedItem;
                 DataAccess da = new DataAccess();
-                if(x.Prerekvizita<=0)
-                	v.Prerekvizita="Není"
-            	else
-                	v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+                if (x.Prerekvizita <= 0)
+                    v.Prerekvizita = "Není";
+                else
+                    v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
                 v.Popis = x.Popis;
                 v.Kredit = x.Kredit_predmet.ToString();
                 v.Povinnost = x.Povinnost;
@@ -92,32 +92,10 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Garant = da.GetGarantById(x.Id_v);
 
             }
-            catch(Exception ex)
+            catch/*(Exception ex)*/
             {
-                MessageBox.Show("chyba: "+ex);
+               // MessageBox.Show("chyba: "+ex);
             }
-        }
-        public void GetDetail(ListBox LB,/* List<Predmet> p,*/ out string popis, out decimal kredity, out string povin, out decimal idcko)
-        {
-            idcko = kredity = 0;
-            povin = popis = "";
-            try
-            {
-                Predmet x = (Predmet)LB.SelectedItem;
-                popis = x.Popis;
-                kredity = x.Kredit_predmet;
-                povin = x.Povinnost;
-                idcko = x.Id_predmet;
-            }
-            catch { }
-            /* foreach (Predmet x in p)
-                 if ((object)x == (object)LB.SelectedItem)
-                 {
-                     popis = x.Popis;
-                     kredity = x.Kredit_predmet;
-                     povin = x.Povinnost;
-                     idcko = x.Id_predmet;
-                 }*/
         }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {

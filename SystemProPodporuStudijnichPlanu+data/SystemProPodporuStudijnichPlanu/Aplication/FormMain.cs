@@ -164,8 +164,8 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
                 db.GetZaznamFull(id_zaznam, out int obor, out int semestry);
-                tb_obor.Text = obor.ToString();
-                tb_semest.Text = semestry.ToString();
+                _ = obor.ToString();
+                _ = semestry.ToString();
                 Viditelnost(semestry);
                 nud_PridatDoSem.Maximum = semestry;
             }
@@ -178,7 +178,7 @@ namespace SystemProPodporuStudijnichPlanu
             cmb_zaznam.SelectedItem = cmb_zaznam.FindStringExact(zkratka);
 
         }
-        private void FillPopisyDoFormu(string popis, decimal kredity, string povin, decimal idcko)
+     /*   private void FillPopisyDoFormu(string popis, decimal kredity, string povin, decimal idcko)
         {
             try
             {
@@ -188,7 +188,7 @@ namespace SystemProPodporuStudijnichPlanu
                 tb_idcko.Text = idcko.ToString();
             }
             catch { }
-        }
+        }*/
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
         {
             zkr = "";
@@ -215,8 +215,8 @@ namespace SystemProPodporuStudijnichPlanu
         {
             ClearListy();
             VratZaznamData(out int idz, out string _, out int obor, out string _, out int semestry);
-            tb_obor.Text = obor.ToString();
-            tb_semest.Text = semestry.ToString();
+            /*tb_obor.Text = obor.ToString();
+            tb_semest.Text = semestry.ToString();*/
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             DataAccess db = new DataAccess();
@@ -337,7 +337,7 @@ namespace SystemProPodporuStudijnichPlanu
             try
             {
                 VratZaznamData(out int id_z, out _, out int id_o, out _, out _);
-                decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
+                decimal sum = VratNudVal(urceniZvolenehoListu) - Convert.ToDecimal(vypisPopisPredmet.Kredit);
                 MazatZVyberu(VratListBox(urceniZvolenehoListu), id_z, urceniZvolenehoListu,id_o);
                 VyberNudVal(sum, urceniZvolenehoListu);
             }
@@ -495,7 +495,13 @@ namespace SystemProPodporuStudijnichPlanu
         private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
         private void Viditelnost(int i)
         {
-            gb_popis.Left = i > 6 ? 715 : 428;
+            vypisPopisPredmet.Left = i > 6 ? 684 : 428;
+            bt_smaz.Left = i > 6 ? 684 : 428;
+            nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
+            lb_celkem.Left = i > 6 ? 930 : 675;
+            l_pkr.Left = i > 6 ? 861 : 606;
+            l_pvk.Left = i > 6 ? 867 : 612;
+            l_vk.Left = i > 6 ? 860 : 605;
             Tma();
             switch (i)
             {
