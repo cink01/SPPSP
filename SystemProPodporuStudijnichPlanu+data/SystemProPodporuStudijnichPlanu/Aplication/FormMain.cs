@@ -58,39 +58,7 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
-        private void Bt_proved_Click(object sender, EventArgs e)
-        {
-            DataCrud data = new DataCrud();
-            //temp.Clear();
-            VratZaznamData(out int id_z, out _, out _, out _, out _);
-            int vyber = (int)nud_PridatDoSem.Value;
-            FormPridavani FP = new FormPridavani();
-            int count;
-            if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
-            {
-                count = 1;
-                FP.PredmetySeznam = predmetyLichy;
-            }
-            else
-            {
-                count = 2;
-                FP.PredmetySeznam = predmetySudy;
-            }
-            FP.RefreshSeznam();
-            DialogResult potvrzeni = FP.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
-            {
-                if (count == 1)
-                    predmetyLichy = FP.PredmetySeznam;
-                if (count == 2)
-                    predmetySudy = FP.PredmetySeznam;
-                foreach (Predmet p in FP.PredmetyAdd)
-                {
-                    data.InsertVyber(p.Id_predmet, vyber, id_z);
-                }
-                RefreshList(VratListBox(vyber), vyber);
-            }
-        }
+
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -130,11 +98,54 @@ namespace SystemProPodporuStudijnichPlanu
             FormCRUDmidstage x = new FormCRUDmidstage();
             x.Show();
         }
+        private void Bt_proved_Click(object sender, EventArgs e)
+        {
+            DataCrud data = new DataCrud();
+
+            //temp.Clear();
+            VratZaznamData(out int id_z, out _, out int id_o, out _, out int PocSem);
+            int vyber = (int)nud_PridatDoSem.Value;
+            FormPridavani FP = new FormPridavani();
+            int count;
+            if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
+            {
+                count = 1;
+                FP.PredmetySeznam = predmetyLichy;
+            }
+            else
+            {
+                count = 2;
+                FP.PredmetySeznam = predmetySudy;
+            }
+            FP.RefreshSeznam();
+            DialogResult potvrzeni = FP.ShowDialog();
+            if (potvrzeni == DialogResult.OK)
+            {
+                if (count == 1)
+                    predmetyLichy = FP.PredmetySeznam;
+                if (count == 2)
+                    predmetySudy = FP.PredmetySeznam;
+                foreach (Predmet p in FP.PredmetyAdd)
+                {
+                    data.InsertVyber(p.Id_predmet, vyber, id_z);
+                }
+                RefreshList(VratListBox(vyber), vyber);
+                ObnovPovinn( id_o, PocSem);
+            }
+        }
+        public void ObnovPovinn( int id_o,int PocSem)
+        {
+            DataAccess da = new DataAccess();
+            Filling fill = new Filling();
+            Kredity kr = new Kredity();
+            for (int i = 1; i <= PocSem; i++)
+                fill.VypoctiPovinnostiKredity(VyberListu(i), kr);
+            Obor obor = da.GetOborById(id_o);
+            fill.NaplnNUDyPovinn(nud_pKr, nud_pvKr, nud_vKr, kr, obor);
+        }
         private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
         {
             VyplnPotrebnyZeZaznamu();
-            Filling fill = new Filling();
-            Kredity kredity = new Kredity();
             if (cmb_zaznam.SelectedIndex >= 0)
             {
                 FillHlavniListy();
@@ -142,10 +153,7 @@ namespace SystemProPodporuStudijnichPlanu
                 int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
                 DataAccess db = new DataAccess();
                 db.GetZaznamFull(id_z, out int id_o, out int PocSem);
-                for (int i = 1; i<= PocSem; i++)
-                    fill.VypoctiPovinnostiKredity(VyberListu(i), kredity);
-                Obor obor = db.GetOborById(id_o);
-                fill.NaplnNUDyPovinn(nud_pKr, nud_pvKr, nud_vKr, kredity,obor);
+                ObnovPovinn(id_o, PocSem);
             }
         }
         private void VyplnPotrebnyZeZaznamu()
@@ -328,11 +336,9 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-                int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+                VratZaznamData(out int id_z, out _, out int id_o, out _, out _);
                 decimal sum = VratNudVal(urceniZvolenehoListu) - nud_kredpop.Value;
-
-                MazatZVyberu(VratListBox(urceniZvolenehoListu), VyberListu(urceniZvolenehoListu), id_z, urceniZvolenehoListu);
+                MazatZVyberu(VratListBox(urceniZvolenehoListu), id_z, urceniZvolenehoListu,id_o);
                 VyberNudVal(sum, urceniZvolenehoListu);
             }
             catch (Exception)
@@ -341,25 +347,21 @@ namespace SystemProPodporuStudijnichPlanu
             }
 
         }
-        public void MazatZVyberu(ListBox LB, List<Predmet> p, int id_z, int sem) //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
+        public void MazatZVyberu(ListBox LB, int id_z, int sem,int id_o) 
+        //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
         {
             DataAccess da = new DataAccess();
-            int x = 0;
-            foreach (Predmet n in p)
-            { 
-                if ( LB.SelectedItem.ToString() == n.ToString())
-                {
-                    x = n.Id_predmet;
-                    if (sem == 0 || sem == 2 || sem == 4 || sem == 6 || sem == 8 || sem == 10 || sem == 12)
-                        predmetySudy.Add(n);
-                    else
-                        predmetyLichy.Add(n);
-                }
-            }
-            int id = da.GetVyberId(id_z, x, sem);
+            Predmet temp = (Predmet)LB.SelectedItem;
+            if (sem == 0 || sem == 2 || sem == 4 || sem == 6 || sem == 8 || sem == 10 || sem == 12)
+                predmetySudy.Add(temp);
+            else
+                predmetyLichy.Add(temp);
+            int id = da.GetVyberId(id_z, temp.Id_predmet, sem);
             LB.Items.Remove(LB.SelectedItem);
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);
+            Filling fill = new Filling();
+            fill.VratHodnotuPoSmazani(temp, nud_pKr, nud_pvKr, nud_vKr,id_o);
         }
         private void ClearListy()
         {

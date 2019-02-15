@@ -120,6 +120,30 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
+        public void VratHodnotuPoSmazani(Predmet n, NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, int id_o)
+        {
+            switch (n.Povinnost)
+            {
+                case "\"Povinný předmět\"":
+                case "\"Cizí jazyk\"":
+                    NUDP.Value -= n.Kredit_predmet;
+                    break;
+                case "\"Volitelný předmět\"":
+                case "\"Volitelný předmět (sportovní aktivita)\"":
+                    NUDV.Value -= n.Kredit_predmet;
+                    break;
+                case "\"Povinně volitelný\"":
+                    NUDPV.Value -= n.Kredit_predmet;
+                    break;
+                default:
+                    break;
+            }
+            DataAccess da = new DataAccess();
+            Obor obor = da.GetOborById(id_o);
+            NUDP.BackColor = obor.P_obor <= NUDP.Value ? Color.LightGreen : Color.LightCoral;
+            NUDPV.BackColor = obor.Pv_obor <= NUDPV.Value ? Color.LightGreen : Color.LightCoral;
+            NUDV.BackColor = obor.V_obor <= NUDV.Value  ? Color.LightGreen : Color.LightCoral;
+        }
         public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity,Obor obor)
             //vložit kontrolu podle oboru a požadavků
         {
