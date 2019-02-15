@@ -74,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
             this.gb_popis = new System.Windows.Forms.GroupBox();
+            this.tb_idcko = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nud_kredpop = new System.Windows.Forms.NumericUpDown();
@@ -104,7 +105,9 @@
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_katedraN = new System.Windows.Forms.TextBox();
-            this.tb_idcko = new System.Windows.Forms.TextBox();
+            this.nud_pKr = new System.Windows.Forms.NumericUpDown();
+            this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
+            this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -130,6 +133,9 @@
             this.gb_g.SuspendLayout();
             this.gb_o.SuspendLayout();
             this.gb_k.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -661,6 +667,9 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.nud_vKr);
+            this.gb_max.Controls.Add(this.nud_pvKr);
+            this.gb_max.Controls.Add(this.nud_pKr);
             this.gb_max.Controls.Add(this.gb_popis);
             this.gb_max.Controls.Add(this.lb_vyber);
             this.gb_max.Controls.Add(this.nud_PridatDoSem);
@@ -710,16 +719,23 @@
             this.gb_popis.Controls.Add(this.tb_obor);
             this.gb_popis.Location = new System.Drawing.Point(715, 43);
             this.gb_popis.Name = "gb_popis";
-            this.gb_popis.Size = new System.Drawing.Size(402, 548);
+            this.gb_popis.Size = new System.Drawing.Size(329, 548);
             this.gb_popis.TabIndex = 73;
             this.gb_popis.TabStop = false;
             this.gb_popis.Text = "Popis";
             // 
+            // tb_idcko
+            // 
+            this.tb_idcko.Location = new System.Drawing.Point(220, 293);
+            this.tb_idcko.Name = "tb_idcko";
+            this.tb_idcko.Size = new System.Drawing.Size(100, 20);
+            this.tb_idcko.TabIndex = 76;
+            // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 72);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 125);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(390, 151);
+            this.richTextBox1.Size = new System.Drawing.Size(317, 151);
             this.richTextBox1.TabIndex = 75;
             this.richTextBox1.Text = "";
             // 
@@ -727,7 +743,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(231, 46);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.Size = new System.Drawing.Size(92, 20);
             this.textBox1.TabIndex = 74;
             // 
             // nud_kredpop
@@ -744,14 +760,14 @@
             // 
             // tb_semest
             // 
-            this.tb_semest.Location = new System.Drawing.Point(371, 46);
+            this.tb_semest.Location = new System.Drawing.Point(298, 99);
             this.tb_semest.Name = "tb_semest";
             this.tb_semest.Size = new System.Drawing.Size(25, 20);
             this.tb_semest.TabIndex = 72;
             // 
             // tb_obor
             // 
-            this.tb_obor.Location = new System.Drawing.Point(371, 19);
+            this.tb_obor.Location = new System.Drawing.Point(298, 72);
             this.tb_obor.Name = "tb_obor";
             this.tb_obor.Size = new System.Drawing.Size(25, 20);
             this.tb_obor.TabIndex = 71;
@@ -1015,12 +1031,53 @@
             this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
             this.tb_katedraN.TabIndex = 16;
             // 
-            // tb_idcko
+            // nud_pKr
             // 
-            this.tb_idcko.Location = new System.Drawing.Point(184, 266);
-            this.tb_idcko.Name = "tb_idcko";
-            this.tb_idcko.Size = new System.Drawing.Size(100, 20);
-            this.tb_idcko.TabIndex = 76;
+            this.nud_pKr.BackColor = System.Drawing.Color.White;
+            this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_pKr.Location = new System.Drawing.Point(1062, 44);
+            this.nud_pKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_pKr.Name = "nud_pKr";
+            this.nud_pKr.ReadOnly = true;
+            this.nud_pKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_pKr.TabIndex = 74;
+            this.nud_pKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nud_pvKr
+            // 
+            this.nud_pvKr.BackColor = System.Drawing.Color.White;
+            this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_pvKr.Location = new System.Drawing.Point(1062, 70);
+            this.nud_pvKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_pvKr.Name = "nud_pvKr";
+            this.nud_pvKr.ReadOnly = true;
+            this.nud_pvKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_pvKr.TabIndex = 75;
+            this.nud_pvKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nud_vKr
+            // 
+            this.nud_vKr.BackColor = System.Drawing.Color.White;
+            this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_vKr.Location = new System.Drawing.Point(1062, 96);
+            this.nud_vKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_vKr.Name = "nud_vKr";
+            this.nud_vKr.ReadOnly = true;
+            this.nud_vKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_vKr.TabIndex = 76;
+            this.nud_vKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormMain
             // 
@@ -1069,6 +1126,9 @@
             this.gb_o.PerformLayout();
             this.gb_k.ResumeLayout(false);
             this.gb_k.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1151,6 +1211,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_katedraN;
         private System.Windows.Forms.TextBox tb_idcko;
+        private System.Windows.Forms.NumericUpDown nud_vKr;
+        private System.Windows.Forms.NumericUpDown nud_pvKr;
+        private System.Windows.Forms.NumericUpDown nud_pKr;
     }
 }
 

@@ -36,9 +36,9 @@ namespace SystemProPodporuStudijnichPlanu
             // DataAccess da = new DataAccess();
             Filling fill = new Filling();
             urceniZvolenehoListu = 0;
-            fill.FillSemestrLB(x, izaz, vyber, out decimal sum, out List<Predmet> p);
+            fill.FillSemestrLB(x, izaz, vyber, out Kredity sum, out List<Predmet> p);
             NaplnVybranyList(vyber, p);
-            VyberNudVal(sum, vyber);
+            VyberNudVal(sum.Suma, vyber);
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
@@ -133,11 +133,23 @@ namespace SystemProPodporuStudijnichPlanu
         private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
         {
             VyplnPotrebnyZeZaznamu();
+            Filling fill = new Filling();
+            Kredity kredity = new Kredity();
             if (cmb_zaznam.SelectedIndex >= 0)
+            {
                 FillHlavniListy();
+                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
+                int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
+                DataAccess db = new DataAccess();
+                db.GetZaznamFull(id_z, out _, out int PocSem);
+                for (int i = 1; i<= PocSem; i++)
+                    fill.VypoctiPovinnostiKredity(VyberListu(i), kredity);
+                fill.NaplnNUDyPovinn(nud_pKr, nud_pvKr, nud_vKr, kredity);
+            }
         }
         private void VyplnPotrebnyZeZaznamu()
         {
+
             DataAccess db = new DataAccess();
             if (cmb_zaznam.SelectedItem is DataRowView DZ)
             {

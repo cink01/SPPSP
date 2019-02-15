@@ -355,7 +355,8 @@
             "\"Povinný předmět\"",
             "\"Volitelný předmět\"",
             "\"Povinně volitelný\"",
-            "\"Cizí jazyk\""});
+            "\"Cizí jazyk\"",
+            "\"Volitelný předmět (sportovní aktivita)\""});
             this.cb_povinnost.Location = new System.Drawing.Point(75, 177);
             this.cb_povinnost.Name = "cb_povinnost";
             this.cb_povinnost.Size = new System.Drawing.Size(139, 21);

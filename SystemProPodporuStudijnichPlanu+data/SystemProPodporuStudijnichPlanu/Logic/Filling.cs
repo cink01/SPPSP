@@ -41,8 +41,8 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             x.DropDownWidth = sirka;
         }
-        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)
-            //misto sum udelat prepravku pro nekolik promennych
+        public void FillSemestrLB(ListBox x, int izaz, int sem, out Kredity kr, out List<Predmet> predmets)
+        //misto sum udelat prepravku pro nekolik promennych
         {
             x.DataSource = null;
             x.Items.Clear();
@@ -58,7 +58,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                         x.Items.Add(n);
                         kr.Suma += n.Kredit_predmet;
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -67,7 +66,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             else
                 tmp = null;
             predmets = tmp;
-            sum = kr.Suma;
         }
         public void GetDetail(ListBox LB,/* List<Predmet> p,*/ out string popis, out decimal kredity, out string povin, out decimal idcko)
         {
@@ -81,7 +79,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 povin = x.Povinnost;
                 idcko = x.Id_predmet;
             }
-            catch{}
+            catch { }
             /* foreach (Predmet x in p)
                  if ((object)x == (object)LB.SelectedItem)
                  {
@@ -90,6 +88,46 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                      povin = x.Povinnost;
                      idcko = x.Id_predmet;
                  }*/
+        }
+        public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
+        {
+            try
+            {
+                foreach (Predmet n in collection)
+                {
+                    if (n.Povinnost == "\"Povinný předmět\"" || n.Povinnost == "\"Cizí jazyk\"")
+                    {
+                        kr.Povinne += n.Kredit_predmet;
+                        continue;
+                    }
+                    if (n.Povinnost == "\"Volitelný předmět\"")
+                    {
+                        kr.Volitelny += n.Kredit_predmet;
+                        continue;
+                    }
+                    if (n.Povinnost == "\"Povinně volitelný\"")
+                    {
+                        kr.PVolitelny += n.Kredit_predmet;
+                        continue;
+                    }
+                    if (n.Povinnost == "\"Volitelný předmět (sportovní aktivita)\"") 
+                    {
+                        kr.Sport += n.Kredit_predmet;
+                        continue;
+                    }
+                }
+            }
+            catch { }
+        }
+        public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity)
+            //vložit kontrolu podle oboru a požadavků
+        {
+            NUDP.Value = kredity.Povinne;
+            NUDPV.Value = kredity.PVolitelny;
+            decimal temp = (kredity.Volitelny + kredity.Sport);
+            NUDV.Value = temp;
+
+
         }
     }
 }
