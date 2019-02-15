@@ -20,6 +20,18 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             Volitelny = volitelny;
             Sport = sport;
         }
+        public void PridatKr(int pridavek,int vyber)
+        {
+            switch(vyber)
+            {
+                case 1: Suma += pridavek;break;
+                case 2: Povinne += pridavek;break;
+                case 3: PVolitelny += pridavek;break;
+                case 4: Volitelny += pridavek;break;
+                case 5: Sport += pridavek;break;
+                default:break;
+            }
+        }
         public decimal Suma { get; set; }
         public decimal Povinne { get; set; }
         public decimal PVolitelny { get; set; }

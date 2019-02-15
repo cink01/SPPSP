@@ -41,7 +41,8 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             x.DropDownWidth = sirka;
         }
-        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)//misto sum udelat prepravku pro nekolik promennych
+        public void FillSemestrLB(ListBox x, int izaz, int sem, out decimal sum, out List<Predmet> predmets)
+            //misto sum udelat prepravku pro nekolik promennych
         {
             x.DataSource = null;
             x.Items.Clear();

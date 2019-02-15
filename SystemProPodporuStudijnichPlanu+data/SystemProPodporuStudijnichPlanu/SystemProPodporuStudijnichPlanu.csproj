@@ -137,6 +137,7 @@
     <Compile Include="Logic\NacteniDat.cs" />
     <Compile Include="Logic\Obor.cs" />
     <Compile Include="Logic\Predmet.cs" />
+    <Compile Include="Logic\Zaznam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aplication\FormCRUDmidstage.resx">
       <DependentUpon>FormCRUDmidstage.cs</DependentUpon>

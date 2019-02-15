@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SystemProPodporuStudijnichPlanu.Logic
+﻿namespace SystemProPodporuStudijnichPlanu.Logic
 {
     public class Katedra
     {
@@ -13,6 +7,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public string Naz_k { get; set; }
         public Katedra() { }
         public Katedra(string zkr_k, string naz_k)
+        //constructor bez id
         {
             DataAccess da = new DataAccess();
             Id_k = da.GetKatedraId(Naz_k);
