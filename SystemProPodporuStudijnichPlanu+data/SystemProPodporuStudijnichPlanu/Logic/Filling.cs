@@ -75,14 +75,15 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             {
                 Predmet x = (Predmet)LB.SelectedItem;
                 DataAccess da = new DataAccess();
-                v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+                if(x.Prerekvizita<=0)
+                	v.Prerekvizita="Není"
+            	else
+                	v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
                 v.Popis = x.Popis;
                 v.Kredit = x.Kredit_predmet.ToString();
                 v.Povinnost = x.Povinnost;
                 v.Zkr = x.Zkr_predmet;
-
                 v.Zakončení = x.Zakonceni;
-
                 v.Jazyk = x.Jazyk;
                 v.Prednaska = x.Prednaska.ToString();
                 v.Cviceni = x.Cviceni.ToString();
