@@ -73,6 +73,9 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.nud_vKr = new System.Windows.Forms.NumericUpDown();
+            this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
+            this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.gb_popis = new System.Windows.Forms.GroupBox();
             this.tb_idcko = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -105,9 +108,6 @@
             this.cb_kat = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_katedraN = new System.Windows.Forms.TextBox();
-            this.nud_pKr = new System.Windows.Forms.NumericUpDown();
-            this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
-            this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -123,6 +123,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).BeginInit();
             this.gb_max.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).BeginInit();
             this.gb_popis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
@@ -133,9 +136,6 @@
             this.gb_g.SuspendLayout();
             this.gb_o.SuspendLayout();
             this.gb_k.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -307,6 +307,7 @@
             // nud_celkemKred
             // 
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
+            this.nud_celkemKred.Enabled = false;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_celkemKred.Location = new System.Drawing.Point(623, 15);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
@@ -709,6 +710,58 @@
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
+            // nud_vKr
+            // 
+            this.nud_vKr.BackColor = System.Drawing.Color.White;
+            this.nud_vKr.Enabled = false;
+            this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_vKr.Location = new System.Drawing.Point(1062, 96);
+            this.nud_vKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_vKr.Name = "nud_vKr";
+            this.nud_vKr.ReadOnly = true;
+            this.nud_vKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_vKr.TabIndex = 76;
+            this.nud_vKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nud_pvKr
+            // 
+            this.nud_pvKr.BackColor = System.Drawing.Color.White;
+            this.nud_pvKr.Enabled = false;
+            this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_pvKr.Location = new System.Drawing.Point(1062, 70);
+            this.nud_pvKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_pvKr.Name = "nud_pvKr";
+            this.nud_pvKr.ReadOnly = true;
+            this.nud_pvKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_pvKr.TabIndex = 75;
+            this.nud_pvKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nud_pKr
+            // 
+            this.nud_pKr.BackColor = System.Drawing.Color.White;
+            this.nud_pKr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nud_pKr.Enabled = false;
+            this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_pKr.Location = new System.Drawing.Point(1062, 44);
+            this.nud_pKr.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nud_pKr.Name = "nud_pKr";
+            this.nud_pKr.ReadOnly = true;
+            this.nud_pKr.Size = new System.Drawing.Size(55, 20);
+            this.nud_pKr.TabIndex = 74;
+            this.nud_pKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // gb_popis
             // 
             this.gb_popis.Controls.Add(this.tb_idcko);
@@ -1031,54 +1084,6 @@
             this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
             this.tb_katedraN.TabIndex = 16;
             // 
-            // nud_pKr
-            // 
-            this.nud_pKr.BackColor = System.Drawing.Color.White;
-            this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pKr.Location = new System.Drawing.Point(1062, 44);
-            this.nud_pKr.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nud_pKr.Name = "nud_pKr";
-            this.nud_pKr.ReadOnly = true;
-            this.nud_pKr.Size = new System.Drawing.Size(55, 20);
-            this.nud_pKr.TabIndex = 74;
-            this.nud_pKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // nud_pvKr
-            // 
-            this.nud_pvKr.BackColor = System.Drawing.Color.White;
-            this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pvKr.Location = new System.Drawing.Point(1062, 70);
-            this.nud_pvKr.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nud_pvKr.Name = "nud_pvKr";
-            this.nud_pvKr.ReadOnly = true;
-            this.nud_pvKr.Size = new System.Drawing.Size(55, 20);
-            this.nud_pvKr.TabIndex = 75;
-            this.nud_pvKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // nud_vKr
-            // 
-            this.nud_vKr.BackColor = System.Drawing.Color.White;
-            this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_vKr.Location = new System.Drawing.Point(1062, 96);
-            this.nud_vKr.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nud_vKr.Name = "nud_vKr";
-            this.nud_vKr.ReadOnly = true;
-            this.nud_vKr.Size = new System.Drawing.Size(55, 20);
-            this.nud_vKr.TabIndex = 76;
-            this.nud_vKr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1111,6 +1116,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem12)).EndInit();
             this.gb_max.ResumeLayout(false);
             this.gb_max.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).EndInit();
             this.gb_popis.ResumeLayout(false);
             this.gb_popis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredpop)).EndInit();
@@ -1126,9 +1134,6 @@
             this.gb_o.PerformLayout();
             this.gb_k.ResumeLayout(false);
             this.gb_k.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_vKr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

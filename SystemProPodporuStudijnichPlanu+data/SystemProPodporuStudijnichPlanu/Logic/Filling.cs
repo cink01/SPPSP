@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Logic
@@ -119,15 +120,19 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
-        public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity)
+        public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity,Obor obor)
             //vložit kontrolu podle oboru a požadavků
         {
             NUDP.Value = kredity.Povinne;
             NUDPV.Value = kredity.PVolitelny;
             decimal temp = (kredity.Volitelny + kredity.Sport);
             NUDV.Value = temp;
-
-
+            NUDP.BackColor = obor.P_obor <= kredity.Povinne ? Color.LightGreen : Color.LightCoral;
+            NUDPV.BackColor = obor.Pv_obor <= kredity.PVolitelny ? Color.LightGreen : Color.LightCoral;
+            NUDV.BackColor = obor.V_obor <= temp ? Color.LightGreen : Color.LightCoral;
+            if(kredity.Suma>=180)
+                if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
+                    MessageBox.Show("Máte zapsáno více sportů a počet volitelných není dostatečný");
         }
     }
 }

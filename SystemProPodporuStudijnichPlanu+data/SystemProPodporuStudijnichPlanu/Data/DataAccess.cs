@@ -272,6 +272,17 @@ namespace SystemProPodporuStudijnichPlanu
             get_ID_vyber.Parameters.AddWithValue("@sem_ps", sem);
             return Convert.ToInt32(get_ID_vyber.ExecuteScalar());
         }
+        public Obor GetOborById(int id_obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Obor>($"SELECT * FROM [obor]  WHERE id_obor='{id_obor}'").SingleOrDefault();
+            }
+            /*
+            SqlCommand get_Obor_by_ID = new SqlCommand("SELECT * FROM [obor]  WHERE id_obor=@id_obor", GetConnection());
+            get_Obor_by_ID.Parameters.AddWithValue("@id_obor", id_obor);
+            return get_Obor_by_ID.ExecuteScalar();*/
+        }
         public string GetOborRok(int o)
         {
             SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());

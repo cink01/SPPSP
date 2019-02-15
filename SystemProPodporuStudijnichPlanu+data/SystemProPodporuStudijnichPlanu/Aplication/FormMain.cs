@@ -141,10 +141,11 @@ namespace SystemProPodporuStudijnichPlanu
                 DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
                 int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
                 DataAccess db = new DataAccess();
-                db.GetZaznamFull(id_z, out _, out int PocSem);
+                db.GetZaznamFull(id_z, out int id_o, out int PocSem);
                 for (int i = 1; i<= PocSem; i++)
                     fill.VypoctiPovinnostiKredity(VyberListu(i), kredity);
-                fill.NaplnNUDyPovinn(nud_pKr, nud_pvKr, nud_vKr, kredity);
+                Obor obor = db.GetOborById(id_o);
+                fill.NaplnNUDyPovinn(nud_pKr, nud_pvKr, nud_vKr, kredity,obor);
             }
         }
         private void VyplnPotrebnyZeZaznamu()
