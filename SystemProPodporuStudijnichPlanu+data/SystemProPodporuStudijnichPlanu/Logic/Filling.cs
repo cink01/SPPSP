@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Komponenty;
 
 namespace SystemProPodporuStudijnichPlanu.Logic
 {
@@ -68,6 +69,33 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 tmp = null;
             predmets = tmp;
         }
+        public void FillDetail(ListBox LB, VypisPopisPredmetcs v)
+        {
+            try
+            {
+                Predmet x = (Predmet)LB.SelectedItem;
+                DataAccess da = new DataAccess();
+                v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+                v.Popis = x.Popis;
+                v.Kredit = x.Kredit_predmet.ToString();
+                v.Povinnost = x.Povinnost;
+                v.Zkr = x.Zkr_predmet;
+
+                v.Zakončení = x.Zakonceni;
+
+                v.Jazyk = x.Jazyk;
+                v.Prednaska = x.Prednaska.ToString();
+                v.Cviceni = x.Cviceni.ToString();
+                v.Kombi = x.Kombi.ToString();
+                v.Lab = x.Lab.ToString();
+                v.Garant = da.GetGarantById(x.Id_v);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("chyba: "+ex);
+            }
+        }
         public void GetDetail(ListBox LB,/* List<Predmet> p,*/ out string popis, out decimal kredity, out string povin, out decimal idcko)
         {
             idcko = kredity = 0;
@@ -120,7 +148,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
-        public void VratHodnotuPoSmazani(Predmet n, NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, int id_o)
+        public void VratHodnotuPoSmazani(Predmet n, NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, NumericUpDown celkem, int id_o)
         {
             switch (n.Povinnost)
             {
@@ -140,9 +168,12 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             DataAccess da = new DataAccess();
             Obor obor = da.GetOborById(id_o);
+            celkem.Value = (NUDP.Value + NUDPV.Value + NUDV.Value);
             NUDP.BackColor = obor.P_obor <= NUDP.Value ? Color.LightGreen : Color.LightCoral;
             NUDPV.BackColor = obor.Pv_obor <= NUDPV.Value ? Color.LightGreen : Color.LightCoral;
             NUDV.BackColor = obor.V_obor <= NUDV.Value  ? Color.LightGreen : Color.LightCoral;
+            celkem.BackColor = 180 <= celkem.Value ? Color.LightGreen : Color.LightCoral;
+
         }
         public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity,Obor obor)
             //vložit kontrolu podle oboru a požadavků

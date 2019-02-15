@@ -130,6 +130,12 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Aplication\Program.cs" />
+    <Compile Include="Komponenty\VypisPopisPredmetcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Komponenty\VypisPopisPredmetcs.Designer.cs">
+      <DependentUpon>VypisPopisPredmetcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Filling.cs" />
     <Compile Include="Logic\Garant.cs" />
     <Compile Include="Logic\Katedra.cs" />
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplication\FormPridavani.resx">
       <DependentUpon>FormPridavani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Komponenty\VypisPopisPredmetcs.resx">
+      <DependentUpon>VypisPopisPredmetcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

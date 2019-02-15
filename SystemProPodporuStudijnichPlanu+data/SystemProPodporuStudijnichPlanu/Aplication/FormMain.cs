@@ -361,7 +361,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);
             Filling fill = new Filling();
-            fill.VratHodnotuPoSmazani(temp, nud_pKr, nud_pvKr, nud_vKr,id_o);
+            fill.VratHodnotuPoSmazani(temp, nud_pKr, nud_pvKr, nud_vKr,nud_celkemKred,id_o);
         }
         private void ClearListy()
         {
@@ -581,8 +581,9 @@ namespace SystemProPodporuStudijnichPlanu
                 case 55:
                     {
                         Filling fill = new Filling();
-                        fill.GetDetail(VratListBox(urceniZvolenehoListu), /*VyberListu(urceniZvolenehoListu), */out string popis, out decimal kredity, out string povin,out decimal idcko);
-                        FillPopisyDoFormu(popis, kredity, povin, idcko);
+                        fill.FillDetail(VratListBox(urceniZvolenehoListu), vypisPopisPredmet);
+                       //fill.GetDetail(VratListBox(urceniZvolenehoListu), /*VyberListu(urceniZvolenehoListu), */out string popis, out decimal kredity, out string povin,out decimal idcko);
+                        //FillPopisyDoFormu(popis, kredity, povin, idcko);
                         break;
                     }
                 case 12:

@@ -278,10 +278,20 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 return connection.Query<Obor>($"SELECT * FROM [obor]  WHERE id_obor='{id_obor}'").SingleOrDefault();
             }
-            /*
-            SqlCommand get_Obor_by_ID = new SqlCommand("SELECT * FROM [obor]  WHERE id_obor=@id_obor", GetConnection());
-            get_Obor_by_ID.Parameters.AddWithValue("@id_obor", id_obor);
-            return get_Obor_by_ID.ExecuteScalar();*/
+        }
+        public string GetGarantById(int id_v)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query($"SELECT jmeno_v FROM [garant]  WHERE id_v='{id_v}'").SingleOrDefault();
+            }
+        }
+        public string GetPredmetById(int id_predmet)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query($"SELECT name_predmet FROM [predmet]  WHERE id_predmet='{id_predmet}'").SingleOrDefault();
+            }
         }
         public string GetOborRok(int o)
         {
