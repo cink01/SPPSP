@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -36,7 +37,7 @@ namespace SystemProPodporuStudijnichPlanu
             foreach (Predmet n in predmetyAdd)
             {
                 sum += n.Kredit_predmet;
-                lb_chci.Items.Add(n.Name_predmet);
+                lb_chci.Items.Add(n.ToString());
             }
             nud_kredity.Value = sum;
         }
@@ -46,7 +47,7 @@ namespace SystemProPodporuStudijnichPlanu
             lb_vypis.Items.Clear();
             foreach (Predmet n in predmetySeznam)
             {
-                lb_vypis.Items.Add(n.Name_predmet);
+                lb_vypis.Items.Add(n.ToString());
             }
         }
         private void Bt_close_Click(object sender, EventArgs e)
@@ -55,7 +56,8 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)//predelat podle videa a nejspis vyuzit tlacitka a v selectu urobit popis na kazdou stranu na popis urobit funkci a tu vyuzivat tady i ve formMain
         {
-
+            Filling fill = new Filling();
+            fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);
         }
         private void Lb_chci_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -65,15 +67,19 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                foreach (Predmet n in predmetySeznam)
-                {
-                    if ((object)lb_vypis.SelectedItem == (object)(n.Name_predmet))
-                    {
-                        var moveables = predmetySeznam.Where(x => x.Name_predmet == n.Name_predmet);
-                        predmetyAdd.AddRange(moveables);
-                        predmetySeznam = predmetySeznam.Except(predmetyAdd).ToList();
-                    }
-                }
+              /*  Predmet temp = (Predmet)lb_vypis.SelectedItem;
+                var moveables = predmetySeznam.Where(x => x.ToString() == temp.ToString());
+                predmetyAdd.AddRange(moveables);
+                predmetySeznam = predmetySeznam.Except(predmetyAdd).ToList();*/
+                  foreach (Predmet n in predmetySeznam)
+                  {
+                      if ((object)lb_vypis.SelectedItem == (object)(n.ToString()))
+                      {
+                          var moveables = predmetySeznam.Where(x => x.Name_predmet == n.Name_predmet);
+                          predmetyAdd.AddRange(moveables);
+                          predmetySeznam = predmetySeznam.Except(predmetyAdd).ToList();
+                      }
+                  }
                 RefreshSeznam(); RefreshAdd();
             }
             catch { }
@@ -82,23 +88,19 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                foreach (Predmet n in predmetyAdd)
-                {
-                    if ((object)lb_chci.SelectedItem == (object)(n.Name_predmet))
-                    {
-                        var moveables = predmetyAdd.Where(x => x.Name_predmet == n.Name_predmet);
-                        predmetySeznam.AddRange(moveables);
-                        predmetyAdd = predmetyAdd.Except(predmetySeznam).ToList();
-                    }
-                    /* if ((object)lb_chci.SelectedItem == (object)(n.FullInfo))
-                     {
-                         Predmet x = new Predmet(n.Id_predmet, n.Name_predmet, n.Zkr_predmet, n.Kredit_predmet, n.Id_obor, n.Id_v, n.Semestr_predmet, n.Id_orig, n.Povinnost, n.Prednaska, n.Cviceni, n.Kombi, n.Lab, n.Jazyk, n.Zakonceni, n.Popis);
-                         predmetySeznam.Add(x);
-                         predmetyAdd.Remove(x);
-                         //lb_chci.Items.Remove(lb_chci.SelectedItem );
-
-                     }*/
-                }
+            /*    Predmet temp = (Predmet)lb_chci.SelectedItem;
+                var moveables = predmetyAdd.Where(x => x.ToString() == temp.ToString());
+                predmetySeznam.AddRange(moveables);
+                predmetyAdd = predmetyAdd.Except(predmetySeznam).ToList();*/
+                  foreach (Predmet n in predmetyAdd)
+                  {
+                      if ((object)lb_chci.SelectedItem == (object)(n.Name_predmet))
+                      {
+                          var moveables = predmetyAdd.Where(x => x.Name_predmet == n.Name_predmet);
+                          predmetySeznam.AddRange(moveables);
+                          predmetyAdd = predmetyAdd.Except(predmetySeznam).ToList();
+                      }
+                  }
                 RefreshSeznam(); RefreshAdd();
             }
             catch { }

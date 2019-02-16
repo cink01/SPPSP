@@ -97,6 +97,63 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                // MessageBox.Show("chyba: "+ex);
             }
         }
+        public void FillDetail(ComboBox cb, VypisPopisPredmetcs v)
+        {
+            try
+            {
+                Predmet x = (Predmet)cb.SelectedItem;
+                DataAccess da = new DataAccess();
+                if (x.Prerekvizita <= 0)
+                    v.Prerekvizita = "Není";
+                else
+                    v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+                v.Popis = x.Popis;
+                v.Kredit = x.Kredit_predmet.ToString();
+                v.Povinnost = x.Povinnost;
+                v.Zkr = x.Zkr_predmet;
+                v.Zakončení = x.Zakonceni;
+                v.Jazyk = x.Jazyk;
+                v.Prednaska = x.Prednaska.ToString();
+                v.Cviceni = x.Cviceni.ToString();
+                v.Kombi = x.Kombi.ToString();
+                v.Lab = x.Lab.ToString();
+                v.Garant = da.GetGarantById(x.Id_v);
+
+            }
+            catch/*(Exception ex)*/
+            {
+                // MessageBox.Show("chyba: "+ex);
+            }
+        }
+        public void FillDetail(ListBox LB, VypisPopisPredmetcs v, List<Predmet> lp)
+        {
+            try
+            {
+                foreach (Predmet x in lp)
+                {
+                    if ((object)LB.SelectedItem == (object)(x.ToString()))
+                    {
+                        DataAccess da = new DataAccess();
+                        if (x.Prerekvizita <= 0)
+                            v.Prerekvizita = "Není";
+                        else
+                            v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+                        v.Popis = x.Popis;
+                        v.Kredit = x.Kredit_predmet.ToString();
+                        v.Povinnost = x.Povinnost;
+                        v.Zkr = x.Zkr_predmet;
+                        v.Zakončení = x.Zakonceni;
+                        v.Jazyk = x.Jazyk;
+                        v.Prednaska = x.Prednaska.ToString();
+                        v.Cviceni = x.Cviceni.ToString();
+                        v.Kombi = x.Kombi.ToString();
+                        v.Lab = x.Lab.ToString();
+                        v.Garant = da.GetGarantById(x.Id_v);
+                    }
+                }
+            }
+            catch{}
+        }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {
             try

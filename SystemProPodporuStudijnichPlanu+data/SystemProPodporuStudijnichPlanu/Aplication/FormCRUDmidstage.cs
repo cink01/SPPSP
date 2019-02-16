@@ -685,5 +685,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Obor temp = (Obor)cmb_obo_pre.SelectedItem;
             return (temp.Id_obor);
         }
+
+        private void Cb_pre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filling fill = new Filling();
+            fill.FillDetail(cb_pre, vypisPopisPredmetMid);
+        }
     }
 }

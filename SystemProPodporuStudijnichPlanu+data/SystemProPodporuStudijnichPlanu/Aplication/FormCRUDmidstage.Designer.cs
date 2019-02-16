@@ -58,6 +58,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
+            this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -71,7 +72,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(662, 268);
+            this.bt_close.Location = new System.Drawing.Point(662, 322);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 3;
@@ -84,7 +85,7 @@
             this.bt_smazat.BackColor = System.Drawing.Color.Bisque;
             this.bt_smazat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smazat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smazat.Location = new System.Drawing.Point(174, 268);
+            this.bt_smazat.Location = new System.Drawing.Point(174, 322);
             this.bt_smazat.Name = "bt_smazat";
             this.bt_smazat.Size = new System.Drawing.Size(75, 23);
             this.bt_smazat.TabIndex = 4;
@@ -97,7 +98,7 @@
             this.bt_novy.BackColor = System.Drawing.Color.GreenYellow;
             this.bt_novy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_novy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_novy.Location = new System.Drawing.Point(12, 268);
+            this.bt_novy.Location = new System.Drawing.Point(12, 322);
             this.bt_novy.Name = "bt_novy";
             this.bt_novy.Size = new System.Drawing.Size(75, 23);
             this.bt_novy.TabIndex = 5;
@@ -110,7 +111,7 @@
             this.bt_upravit.BackColor = System.Drawing.Color.LemonChiffon;
             this.bt_upravit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_upravit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_upravit.Location = new System.Drawing.Point(93, 268);
+            this.bt_upravit.Location = new System.Drawing.Point(93, 322);
             this.bt_upravit.Name = "bt_upravit";
             this.bt_upravit.Size = new System.Drawing.Size(75, 23);
             this.bt_upravit.TabIndex = 6;
@@ -181,7 +182,7 @@
             this.gb_k.Controls.Add(this.cb_kat);
             this.gb_k.Location = new System.Drawing.Point(12, 63);
             this.gb_k.Name = "gb_k";
-            this.gb_k.Size = new System.Drawing.Size(182, 199);
+            this.gb_k.Size = new System.Drawing.Size(182, 67);
             this.gb_k.TabIndex = 20;
             this.gb_k.TabStop = false;
             this.gb_k.Text = "Výběr a vyhledávání kateder";
@@ -210,7 +211,7 @@
             this.gb_o.Controls.Add(this.cb_obo);
             this.gb_o.Location = new System.Drawing.Point(193, 63);
             this.gb_o.Name = "gb_o";
-            this.gb_o.Size = new System.Drawing.Size(182, 199);
+            this.gb_o.Size = new System.Drawing.Size(182, 67);
             this.gb_o.TabIndex = 21;
             this.gb_o.TabStop = false;
             this.gb_o.Text = "Výběr a vyhledávání oborů";
@@ -242,7 +243,7 @@
             this.gb_g.Controls.Add(this.cb_garant);
             this.gb_g.Location = new System.Drawing.Point(374, 63);
             this.gb_g.Name = "gb_g";
-            this.gb_g.Size = new System.Drawing.Size(182, 199);
+            this.gb_g.Size = new System.Drawing.Size(182, 110);
             this.gb_g.TabIndex = 22;
             this.gb_g.TabStop = false;
             this.gb_g.Text = "Výběr a vyhledávání garantů";
@@ -296,7 +297,7 @@
             this.gb_p.Controls.Add(this.cmb_povin);
             this.gb_p.Location = new System.Drawing.Point(555, 63);
             this.gb_p.Name = "gb_p";
-            this.gb_p.Size = new System.Drawing.Size(182, 199);
+            this.gb_p.Size = new System.Drawing.Size(182, 164);
             this.gb_p.TabIndex = 23;
             this.gb_p.TabStop = false;
             this.gb_p.Text = "Výběr a vyhledávání předmětů";
@@ -328,6 +329,7 @@
             this.cb_pre.Size = new System.Drawing.Size(168, 21);
             this.cb_pre.TabIndex = 22;
             this.cb_pre.DropDown += new System.EventHandler(this.Cb_predmet_Hledani);
+            this.cb_pre.SelectedIndexChanged += new System.EventHandler(this.Cb_pre_SelectedIndexChanged);
             // 
             // cb_semestry
             // 
@@ -390,13 +392,34 @@
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
             // 
+            // vypisPopisPredmetMid
+            // 
+            this.vypisPopisPredmetMid.Cviceni = "";
+            this.vypisPopisPredmetMid.Garant = "";
+            this.vypisPopisPredmetMid.Jazyk = "";
+            this.vypisPopisPredmetMid.Kombi = "";
+            this.vypisPopisPredmetMid.Kredit = "";
+            this.vypisPopisPredmetMid.Lab = "";
+            this.vypisPopisPredmetMid.Location = new System.Drawing.Point(743, 12);
+            this.vypisPopisPredmetMid.Name = "vypisPopisPredmetMid";
+            this.vypisPopisPredmetMid.P = null;
+            this.vypisPopisPredmetMid.Popis = "";
+            this.vypisPopisPredmetMid.Povinnost = "";
+            this.vypisPopisPredmetMid.Prednaska = "";
+            this.vypisPopisPredmetMid.Prerekvizita = "";
+            this.vypisPopisPredmetMid.Size = new System.Drawing.Size(388, 341);
+            this.vypisPopisPredmetMid.TabIndex = 24;
+            this.vypisPopisPredmetMid.Zakončení = "";
+            this.vypisPopisPredmetMid.Zkr = "";
+            // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(750, 305);
+            this.ClientSize = new System.Drawing.Size(1134, 357);
+            this.Controls.Add(this.vypisPopisPredmetMid);
             this.Controls.Add(this.gb_p);
             this.Controls.Add(this.gb_g);
             this.Controls.Add(this.gb_o);
@@ -455,5 +478,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_kat_gar;
         private System.Windows.Forms.Label label2;
+        private Komponenty.VypisPopisPredmetcs vypisPopisPredmetMid;
     }
 }
