@@ -59,7 +59,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 )").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{obor}'").ToList();
                 return vystup;
 
             }

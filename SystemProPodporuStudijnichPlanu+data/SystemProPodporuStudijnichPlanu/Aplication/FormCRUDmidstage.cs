@@ -305,37 +305,31 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             using (FormCUPredmet Pred = new FormCUPredmet())
             {
                 Pred.Text = "Upravit Předmět";
-                foreach (Predmet o in predmets)
+                try
                 {
-                    if (o.ToString() == cb_pre.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            Pred.Id = o.Id_predmet;
-                            Pred.Nazev = o.Name_predmet;
-                            Pred.Zkr = o.Zkr_predmet;
-                            Pred.Kredit = o.Kredit_predmet;
-                            Pred.Obor = o.Id_obor;
-                            Pred.Garant = o.Id_v;
-                            Pred.Semestr = o.Semestr_predmet;
-                            Pred.Orig = o.Id_orig;
-                            Pred.Povinnost = o.Povinnost;
-                            Pred.Prednaska = o.Prednaska;
-                            Pred.Cv = o.Cviceni;
-                            Pred.Cvk = o.Kombi;
-                            Pred.Lab = o.Lab;
-                            Pred.Jazyk = o.Jazyk;
-                            Pred.Zakonceni = o.Zakonceni;
-                            Pred.Popis = o.Popis;
-                            if (o.Prerekvizita >= 0)
-                                Pred.Prerek = o.Prerekvizita;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Predmet o = (Predmet)cb_pre.SelectedItem;
+                    Pred.Id = o.Id_predmet;
+                    Pred.Nazev = o.Name_predmet;
+                    Pred.Zkr = o.Zkr_predmet;
+                    Pred.Kredit = o.Kredit_predmet;
+                    Pred.Obor = o.Id_obor;
+                    Pred.Garant = o.Id_v;
+                    Pred.Semestr = o.Semestr_predmet;
+                    Pred.Orig = o.Id_orig;
+                    Pred.Povinnost = o.Povinnost;
+                    Pred.Prednaska = o.Prednaska;
+                    Pred.Cv = o.Cviceni;
+                    Pred.Cvk = o.Kombi;
+                    Pred.Lab = o.Lab;
+                    Pred.Jazyk = o.Jazyk;
+                    Pred.Zakonceni = o.Zakonceni;
+                    Pred.Popis = o.Popis;
+                    if (o.Prerekvizita > 0)
+                        Pred.Prerek = o.Prerekvizita;
+                    else
+                        Pred.Prerek = -1;
                 }
+                catch{}
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Pred.ShowDialog();
                 if (potvrzeni == DialogResult.OK)

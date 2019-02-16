@@ -110,7 +110,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if ("Zápočet" == cb_zakončení.GetItemText(cb_zakončení.SelectedItem))
                     return "\"ZA\"";
                 else
-                    return @"ZK";
+                    return "\"ZK\"";
 
             }
             set
@@ -125,31 +125,17 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
             set => cb_povinnost.SelectedIndex = cb_povinnost.FindString(value);
-            /*
-            get
-            {
-                if ("Zápočet" == cb_povinnost.GetItemText(cb_povinnost.SelectedItem))
-                    return "\"ZA\"";
-                else
-                    return @"ZK";
-
-            }
-            set
-            {
-                if(value=="\"ZA\"")
-                    cb_povinnost.SelectedIndex = cb_povinnost.FindString("Zápočet");
-                else
-                    cb_povinnost.SelectedIndex = cb_povinnost.FindString("Zkouška");
-            }*/
         }
         public int Obor 
         {
             get
             {
-                foreach (Obor k in obors)
-                    if (k.ToString() == cb_obor.SelectedItem.ToString())
-                        return k.Id_obor;
-                return 0;
+                Obor k = (Obor)cb_obor.SelectedItem;
+                return k.Id_obor;
+                /* foreach (Obor k in obors)
+                     if (k.ToString() == cb_obor.SelectedItem.ToString())
+                         return k.Id_obor;
+                 return 0;*/
             }
 
             set
@@ -163,10 +149,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
+                Garant k = (Garant)cb_garant.SelectedItem;
+                return k.Id_v;
+                /*
                 foreach (Garant k in garants)
                     if (k.ToString() == cb_garant.SelectedItem.ToString())
                         return k.Id_v;
-                return 0;
+                return 0;*/
             }
 
             set
@@ -181,11 +170,13 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 if (cb_prerek.SelectedIndex != -1)
-                { 
-                    foreach (Predmet k in predmets)
-                        if (k.ToString() == cb_prerek.SelectedItem.ToString())
-                            return k.Id_v;
-                    return -1;
+                {
+                    Predmet k = (Predmet)cb_prerek.SelectedItem;
+                    return k.Id_predmet;
+                    /*  foreach (Predmet k in predmets)
+                          if (k.ToString() == cb_prerek.SelectedItem.ToString())
+                              return k.Id_predmet;
+                        return -1;*/
                 }
                 else
                 {
@@ -196,10 +187,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             set
             {
                 if (value != -1)
-                { 
+                {
                 foreach (Predmet k in predmets)
                     if (k.Id_predmet == value)
-                        cb_prerek.SelectedItem = cb_prerek.FindStringExact(k.ToString());
+                        cb_prerek.SelectedItem = cb_prerek.FindString(k.ToString());
                 }
             }
         }
