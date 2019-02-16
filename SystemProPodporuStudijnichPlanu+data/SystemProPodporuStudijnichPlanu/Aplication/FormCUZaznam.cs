@@ -68,7 +68,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tb_id.Text!="")
+            if ((tb_id.Text != "") && (this.Text == "Upravit záznam"))
             {
                 bt_info.Visible = true;
             }
