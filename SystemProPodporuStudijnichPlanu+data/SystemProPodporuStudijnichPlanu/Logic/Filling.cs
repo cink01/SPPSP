@@ -69,7 +69,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 tmp = null;
             predmets = tmp;
         }
-        public void FillDetail(ListBox LB, VypisPopisPredmetcs v)
+        public void FillDetail(ListBox LB, VypisPopisPredmet v)
         {
             try
             {
@@ -89,15 +89,13 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Cviceni = x.Cviceni.ToString();
                 v.Kombi = x.Kombi.ToString();
                 v.Lab = x.Lab.ToString();
+                v.Semestr = x.Semestr_predmet.ToString();
                 v.Garant = da.GetGarantById(x.Id_v);
 
             }
-            catch/*(Exception ex)*/
-            {
-               // MessageBox.Show("chyba: "+ex);
-            }
+            catch { }
         }
-        public void FillDetail(ComboBox cb, VypisPopisPredmetcs v)
+        public void FillDetail(ComboBox cb, VypisPopisPredmet v)
         {
             try
             {
@@ -118,14 +116,12 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Kombi = x.Kombi.ToString();
                 v.Lab = x.Lab.ToString();
                 v.Garant = da.GetGarantById(x.Id_v);
+                v.Semestr = x.Semestr_predmet.ToString();
 
             }
-            catch/*(Exception ex)*/
-            {
-                // MessageBox.Show("chyba: "+ex);
-            }
+            catch { }
         }
-        public void FillDetail(ListBox LB, VypisPopisPredmetcs v, List<Predmet> lp)
+        public void FillDetail(ListBox LB, VypisPopisPredmet v, List<Predmet> lp)
         {
             try
             {
@@ -139,6 +135,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                         else
                             v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
                         v.Popis = x.Popis;
+                        v.Semestr = x.Semestr_predmet.ToString();
                         v.Kredit = x.Kredit_predmet.ToString();
                         v.Povinnost = x.Povinnost;
                         v.Zkr = x.Zkr_predmet;
@@ -149,10 +146,11 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                         v.Kombi = x.Kombi.ToString();
                         v.Lab = x.Lab.ToString();
                         v.Garant = da.GetGarantById(x.Id_v);
+
                     }
                 }
             }
-            catch{}
+            catch { }
         }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {
@@ -175,7 +173,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                         kr.PVolitelny += n.Kredit_predmet;
                         continue;
                     }
-                    if (n.Povinnost == "\"Volitelný předmět (sportovní aktivita)\"") 
+                    if (n.Povinnost == "\"Volitelný předmět (sportovní aktivita)\"")
                     {
                         kr.Sport += n.Kredit_predmet;
                         continue;
@@ -207,12 +205,12 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             celkem.Value = (NUDP.Value + NUDPV.Value + NUDV.Value);
             NUDP.BackColor = obor.P_obor <= NUDP.Value ? Color.LightGreen : Color.LightCoral;
             NUDPV.BackColor = obor.Pv_obor <= NUDPV.Value ? Color.LightGreen : Color.LightCoral;
-            NUDV.BackColor = obor.V_obor <= NUDV.Value  ? Color.LightGreen : Color.LightCoral;
+            NUDV.BackColor = obor.V_obor <= NUDV.Value ? Color.LightGreen : Color.LightCoral;
             celkem.BackColor = 180 <= celkem.Value ? Color.LightGreen : Color.LightCoral;
 
         }
-        public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity,Obor obor)
-            //vložit kontrolu podle oboru a požadavků
+        public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity, Obor obor)
+        //vložit kontrolu podle oboru a požadavků
         {
             NUDP.Value = kredity.Povinne;
             NUDPV.Value = kredity.PVolitelny;
@@ -221,7 +219,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             NUDP.BackColor = obor.P_obor <= kredity.Povinne ? Color.LightGreen : Color.LightCoral;
             NUDPV.BackColor = obor.Pv_obor <= kredity.PVolitelny ? Color.LightGreen : Color.LightCoral;
             NUDV.BackColor = obor.V_obor <= temp ? Color.LightGreen : Color.LightCoral;
-            if(kredity.Suma>=180)
+            if (kredity.Suma >= 180)
                 if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
                     MessageBox.Show("Máte zapsáno více sportů a počet volitelných není dostatečný");
         }

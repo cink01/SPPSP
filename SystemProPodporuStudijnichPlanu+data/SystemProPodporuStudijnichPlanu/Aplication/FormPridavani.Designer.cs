@@ -36,7 +36,7 @@
             this.lb_chci = new System.Windows.Forms.ListBox();
             this.nud_kredity = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,6 +193,6 @@
         private System.Windows.Forms.ListBox lb_chci;
         private System.Windows.Forms.NumericUpDown nud_kredity;
         private System.Windows.Forms.Label label1;
-        private Komponenty.VypisPopisPredmetcs vypisPopisPredmet;
+        private Komponenty.VypisPopisPredmet vypisPopisPredmet;
     }
 }

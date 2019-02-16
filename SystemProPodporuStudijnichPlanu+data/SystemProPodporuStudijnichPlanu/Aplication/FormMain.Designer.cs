@@ -71,12 +71,12 @@
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -659,26 +659,6 @@
             this.l_pkr.TabIndex = 78;
             this.l_pkr.Text = "Kredity z povinných předmětů:";
             // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Cviceni = "";
-            this.vypisPopisPredmet.Garant = "";
-            this.vypisPopisPredmet.Jazyk = "";
-            this.vypisPopisPredmet.Kombi = "";
-            this.vypisPopisPredmet.Kredit = "";
-            this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 35);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.P = null;
-            this.vypisPopisPredmet.Popis = "";
-            this.vypisPopisPredmet.Povinnost = "";
-            this.vypisPopisPredmet.Prednaska = "";
-            this.vypisPopisPredmet.Prerekvizita = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
-            this.vypisPopisPredmet.TabIndex = 77;
-            this.vypisPopisPredmet.Zakončení = "";
-            this.vypisPopisPredmet.Zkr = "";
-            // 
             // nud_vKr
             // 
             this.nud_vKr.BackColor = System.Drawing.Color.White;
@@ -764,12 +744,33 @@
             0,
             0});
             // 
+            // vypisPopisPredmet
+            // 
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 35);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Semestr = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1102, 725);
+            this.ClientSize = new System.Drawing.Size(1102, 688);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -852,7 +853,7 @@
         private System.Windows.Forms.Label l_vk;
         private System.Windows.Forms.Label l_pvk;
         private System.Windows.Forms.Label l_pkr;
-        private Komponenty.VypisPopisPredmetcs vypisPopisPredmet;
+        private Komponenty.VypisPopisPredmet vypisPopisPredmet;
     }
 }
 

@@ -58,7 +58,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
+            this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.povolitSprávuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hromadnéNačteníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -534,7 +534,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_kat_gar;
         private System.Windows.Forms.Label label2;
-        private Komponenty.VypisPopisPredmetcs vypisPopisPredmetMid;
+        private Komponenty.VypisPopisPredmet vypisPopisPredmetMid;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem povolitSprávuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hromadnéNačteníToolStripMenuItem;

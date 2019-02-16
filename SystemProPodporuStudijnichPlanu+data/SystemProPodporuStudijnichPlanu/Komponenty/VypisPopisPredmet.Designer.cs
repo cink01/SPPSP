@@ -1,6 +1,6 @@
 ﻿namespace SystemProPodporuStudijnichPlanu.Komponenty
 {
-    partial class VypisPopisPredmetcs
+    partial class VypisPopisPredmet
     {
         /// <summary> 
         /// Vyžaduje se proměnná návrháře.
@@ -31,6 +31,8 @@
             this.gb_popis_pr = new System.Windows.Forms.GroupBox();
             this.rtb_popis = new System.Windows.Forms.RichTextBox();
             this.gb_základ = new System.Windows.Forms.GroupBox();
+            this.tb_kredity = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.l_prerek = new System.Windows.Forms.Label();
             this.tb_jazyk = new System.Windows.Forms.TextBox();
@@ -38,11 +40,9 @@
             this.tb_prerek = new System.Windows.Forms.TextBox();
             this.tb_zakonc = new System.Windows.Forms.TextBox();
             this.tb_povinn = new System.Windows.Forms.TextBox();
-            this.tb_garant = new System.Windows.Forms.TextBox();
-            this.tb_kredity = new System.Windows.Forms.TextBox();
+            this.tb_semestr = new System.Windows.Forms.TextBox();
             this.tb_zkratka = new System.Windows.Forms.TextBox();
             this.l_povinnost = new System.Windows.Forms.Label();
-            this.l_garant = new System.Windows.Forms.Label();
             this.l_kredity = new System.Windows.Forms.Label();
             this.l_zkratka = new System.Windows.Forms.Label();
             this.gb_vyuc = new System.Windows.Forms.GroupBox();
@@ -55,6 +55,8 @@
             this.tb_cviceni = new System.Windows.Forms.TextBox();
             this.tb_prednaska = new System.Windows.Forms.TextBox();
             this.l_popis = new System.Windows.Forms.Label();
+            this.tb_garant = new System.Windows.Forms.TextBox();
+            this.l_garant = new System.Windows.Forms.Label();
             this.gb_popis_pr.SuspendLayout();
             this.gb_základ.SuspendLayout();
             this.gb_vyuc.SuspendLayout();
@@ -86,6 +88,8 @@
             // 
             // gb_základ
             // 
+            this.gb_základ.Controls.Add(this.tb_kredity);
+            this.gb_základ.Controls.Add(this.label7);
             this.gb_základ.Controls.Add(this.label6);
             this.gb_základ.Controls.Add(this.l_prerek);
             this.gb_základ.Controls.Add(this.tb_jazyk);
@@ -93,22 +97,38 @@
             this.gb_základ.Controls.Add(this.tb_prerek);
             this.gb_základ.Controls.Add(this.tb_zakonc);
             this.gb_základ.Controls.Add(this.tb_povinn);
-            this.gb_základ.Controls.Add(this.tb_kredity);
+            this.gb_základ.Controls.Add(this.tb_semestr);
             this.gb_základ.Controls.Add(this.tb_zkratka);
             this.gb_základ.Controls.Add(this.l_povinnost);
             this.gb_základ.Controls.Add(this.l_kredity);
             this.gb_základ.Controls.Add(this.l_zkratka);
             this.gb_základ.Location = new System.Drawing.Point(6, 19);
             this.gb_základ.Name = "gb_základ";
-            this.gb_základ.Size = new System.Drawing.Size(177, 169);
+            this.gb_základ.Size = new System.Drawing.Size(177, 190);
             this.gb_základ.TabIndex = 21;
             this.gb_základ.TabStop = false;
             this.gb_základ.Text = "Základní informace";
             // 
+            // tb_kredity
+            // 
+            this.tb_kredity.Location = new System.Drawing.Point(73, 64);
+            this.tb_kredity.Name = "tb_kredity";
+            this.tb_kredity.Size = new System.Drawing.Size(100, 20);
+            this.tb_kredity.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Kredity:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 145);
+            this.label6.Location = new System.Drawing.Point(30, 171);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 20;
@@ -117,7 +137,7 @@
             // l_prerek
             // 
             this.l_prerek.AutoSize = true;
-            this.l_prerek.Location = new System.Drawing.Point(2, 119);
+            this.l_prerek.Location = new System.Drawing.Point(2, 145);
             this.l_prerek.Name = "l_prerek";
             this.l_prerek.Size = new System.Drawing.Size(65, 13);
             this.l_prerek.TabIndex = 5;
@@ -125,7 +145,7 @@
             // 
             // tb_jazyk
             // 
-            this.tb_jazyk.Location = new System.Drawing.Point(73, 142);
+            this.tb_jazyk.Location = new System.Drawing.Point(73, 168);
             this.tb_jazyk.Name = "tb_jazyk";
             this.tb_jazyk.Size = new System.Drawing.Size(100, 20);
             this.tb_jazyk.TabIndex = 13;
@@ -133,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 93);
+            this.label1.Location = new System.Drawing.Point(4, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 4;
@@ -141,38 +161,31 @@
             // 
             // tb_prerek
             // 
-            this.tb_prerek.Location = new System.Drawing.Point(73, 116);
+            this.tb_prerek.Location = new System.Drawing.Point(73, 142);
             this.tb_prerek.Name = "tb_prerek";
             this.tb_prerek.Size = new System.Drawing.Size(100, 20);
             this.tb_prerek.TabIndex = 12;
             // 
             // tb_zakonc
             // 
-            this.tb_zakonc.Location = new System.Drawing.Point(73, 90);
+            this.tb_zakonc.Location = new System.Drawing.Point(73, 116);
             this.tb_zakonc.Name = "tb_zakonc";
             this.tb_zakonc.Size = new System.Drawing.Size(100, 20);
             this.tb_zakonc.TabIndex = 11;
             // 
             // tb_povinn
             // 
-            this.tb_povinn.Location = new System.Drawing.Point(73, 64);
+            this.tb_povinn.Location = new System.Drawing.Point(73, 90);
             this.tb_povinn.Name = "tb_povinn";
             this.tb_povinn.Size = new System.Drawing.Size(100, 20);
             this.tb_povinn.TabIndex = 10;
             // 
-            // tb_garant
+            // tb_semestr
             // 
-            this.tb_garant.Location = new System.Drawing.Point(185, 44);
-            this.tb_garant.Name = "tb_garant";
-            this.tb_garant.Size = new System.Drawing.Size(194, 20);
-            this.tb_garant.TabIndex = 9;
-            // 
-            // tb_kredity
-            // 
-            this.tb_kredity.Location = new System.Drawing.Point(73, 38);
-            this.tb_kredity.Name = "tb_kredity";
-            this.tb_kredity.Size = new System.Drawing.Size(100, 20);
-            this.tb_kredity.TabIndex = 8;
+            this.tb_semestr.Location = new System.Drawing.Point(73, 38);
+            this.tb_semestr.Name = "tb_semestr";
+            this.tb_semestr.Size = new System.Drawing.Size(100, 20);
+            this.tb_semestr.TabIndex = 8;
             // 
             // tb_zkratka
             // 
@@ -184,29 +197,20 @@
             // l_povinnost
             // 
             this.l_povinnost.AutoSize = true;
-            this.l_povinnost.Location = new System.Drawing.Point(10, 67);
+            this.l_povinnost.Location = new System.Drawing.Point(10, 93);
             this.l_povinnost.Name = "l_povinnost";
             this.l_povinnost.Size = new System.Drawing.Size(57, 13);
             this.l_povinnost.TabIndex = 3;
             this.l_povinnost.Text = "Povinnost:";
             // 
-            // l_garant
-            // 
-            this.l_garant.AutoSize = true;
-            this.l_garant.Location = new System.Drawing.Point(185, 28);
-            this.l_garant.Name = "l_garant";
-            this.l_garant.Size = new System.Drawing.Size(42, 13);
-            this.l_garant.TabIndex = 2;
-            this.l_garant.Text = "Garant:";
-            // 
             // l_kredity
             // 
             this.l_kredity.AutoSize = true;
-            this.l_kredity.Location = new System.Drawing.Point(25, 41);
+            this.l_kredity.Location = new System.Drawing.Point(19, 41);
             this.l_kredity.Name = "l_kredity";
-            this.l_kredity.Size = new System.Drawing.Size(42, 13);
+            this.l_kredity.Size = new System.Drawing.Size(48, 13);
             this.l_kredity.TabIndex = 1;
-            this.l_kredity.Text = "Kredity:";
+            this.l_kredity.Text = "Semestr:";
             // 
             // l_zkratka
             // 
@@ -227,7 +231,7 @@
             this.gb_vyuc.Controls.Add(this.tb_kombi);
             this.gb_vyuc.Controls.Add(this.tb_cviceni);
             this.gb_vyuc.Controls.Add(this.tb_prednaska);
-            this.gb_vyuc.Location = new System.Drawing.Point(6, 203);
+            this.gb_vyuc.Location = new System.Drawing.Point(6, 215);
             this.gb_vyuc.Name = "gb_vyuc";
             this.gb_vyuc.Size = new System.Drawing.Size(177, 116);
             this.gb_vyuc.TabIndex = 19;
@@ -307,12 +311,28 @@
             this.l_popis.TabIndex = 6;
             this.l_popis.Text = "Popis:";
             // 
-            // VypisPopisPredmetcs
+            // tb_garant
+            // 
+            this.tb_garant.Location = new System.Drawing.Point(185, 44);
+            this.tb_garant.Name = "tb_garant";
+            this.tb_garant.Size = new System.Drawing.Size(194, 20);
+            this.tb_garant.TabIndex = 9;
+            // 
+            // l_garant
+            // 
+            this.l_garant.AutoSize = true;
+            this.l_garant.Location = new System.Drawing.Point(185, 28);
+            this.l_garant.Name = "l_garant";
+            this.l_garant.Size = new System.Drawing.Size(42, 13);
+            this.l_garant.TabIndex = 2;
+            this.l_garant.Text = "Garant:";
+            // 
+            // VypisPopisPredmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_popis_pr);
-            this.Name = "VypisPopisPredmetcs";
+            this.Name = "VypisPopisPredmet";
             this.Size = new System.Drawing.Size(388, 341);
             this.gb_popis_pr.ResumeLayout(false);
             this.gb_popis_pr.PerformLayout();
@@ -338,7 +358,7 @@
         private System.Windows.Forms.TextBox tb_zakonc;
         private System.Windows.Forms.TextBox tb_povinn;
         private System.Windows.Forms.TextBox tb_garant;
-        private System.Windows.Forms.TextBox tb_kredity;
+        private System.Windows.Forms.TextBox tb_semestr;
         private System.Windows.Forms.TextBox tb_zkratka;
         private System.Windows.Forms.Label l_popis;
         private System.Windows.Forms.Label l_povinnost;
@@ -353,5 +373,7 @@
         private System.Windows.Forms.TextBox tb_cviceni;
         private System.Windows.Forms.TextBox tb_prednaska;
         private System.Windows.Forms.RichTextBox rtb_popis;
+        private System.Windows.Forms.TextBox tb_kredity;
+        private System.Windows.Forms.Label label7;
     }
 }

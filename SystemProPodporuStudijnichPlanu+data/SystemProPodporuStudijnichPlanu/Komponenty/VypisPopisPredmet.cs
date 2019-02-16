@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Komponenty
 {
-    public partial class VypisPopisPredmetcs : UserControl
+    public partial class VypisPopisPredmet : UserControl
     {
-        public VypisPopisPredmetcs()
+        public VypisPopisPredmet()
         {
             InitializeComponent();
         }
@@ -78,6 +78,11 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
         {
             get => tb_laborator.Text;
             set => tb_laborator.Text = value;
+        }
+        public string Semestr
+        {
+            get => tb_semestr.Text;
+            set => tb_semestr.Text = value;
         }
 
         private void Gb_popis_pr_Enter(object sender, EventArgs e)
