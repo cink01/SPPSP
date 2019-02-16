@@ -24,10 +24,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             fill.NaplnComboBox<Obor>(cb_obor, obors);
             fill.NaplnComboBox<Predmet>(cb_prerek, predmets);
         }
-        private void FormCUPredmet_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void FormCUPredmet_Load(object sender, EventArgs e){}
         public Predmet P
         {
             get
@@ -103,8 +100,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public string Zakonceni
         {
-          /*  get => cb_zakončení.GetItemText(cb_zakončení.SelectedItem);
-            set => cb_zakončení.SelectedIndex = cb_zakončení.FindString(value);*/
             get
             {
                 if ("Zápočet" == cb_zakončení.GetItemText(cb_zakončení.SelectedItem))
@@ -132,12 +127,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 Obor k = (Obor)cb_obor.SelectedItem;
                 return k.Id_obor;
-                /* foreach (Obor k in obors)
-                     if (k.ToString() == cb_obor.SelectedItem.ToString())
-                         return k.Id_obor;
-                 return 0;*/
             }
-
             set
             {
                 foreach (Obor k in obors)
@@ -151,11 +141,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 Garant k = (Garant)cb_garant.SelectedItem;
                 return k.Id_v;
-                /*
-                foreach (Garant k in garants)
-                    if (k.ToString() == cb_garant.SelectedItem.ToString())
-                        return k.Id_v;
-                return 0;*/
             }
 
             set
@@ -173,10 +158,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 {
                     Predmet k = (Predmet)cb_prerek.SelectedItem;
                     return k.Id_predmet;
-                    /*  foreach (Predmet k in predmets)
-                          if (k.ToString() == cb_prerek.SelectedItem.ToString())
-                              return k.Id_predmet;
-                        return -1;*/
                 }
                 else
                 {

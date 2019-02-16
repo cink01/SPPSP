@@ -151,21 +151,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        /* private void Tb_oborN_TextChanged(object sender, EventArgs e)
-         {
-             cb_obo.Items.Clear();
-             cb_obo.Text = "Nalezené obory";
-             foreach (Obor o in obors)
-                 if (o.Name_obor.IndexOf(tb_oborN.Text, Comp) >= 0)
-                     cb_obo.Items.Add(o.Name_obor);
-         }
-           private void Tb_predmetN_TextChanged(object sender, EventArgs e)//pri změně oboru se přepiše list a ten se pak bude kontrolovat podle nazvu 
-           {
-               cb_pre.Items.Clear();
-               foreach (Predmet p in predmets)
-                   if (p.Name_predmet.IndexOf(tb_predmetN.Text, Comp) >= 0)
-                       cb_pre.Items.Add(p.Name_predmet);
-           }*/
         private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
         {
             if (cmb_kat_gar.Text == "")
@@ -229,12 +214,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (vyber == "")
                 vyber = "všechny";
             VyberPresSemestr(vyber);
-            /*   predmets.Clear();
-               DataAccess da = new DataAccess();
-               Obor temp = (Obor)cmb_obo_pre.SelectedItem;
-               predmets = da.GetPredmetFullByObor(temp.Id_obor);
-               Filling fill = new Filling();
-               fill.NaplnComboBox<Predmet>(cb_pre, predmets);*/
         }
         private void Bt_upravit_Click(object sender, EventArgs e)
         {
@@ -261,25 +240,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             using (FormCUGarant Gara = new FormCUGarant())
             {
                 Gara.Text = "Upravit Garanta";
-                foreach (Garant o in garants)
+                try
                 {
-                    if (o.ToString() == cb_garant.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            // Gara.G = o;
-                            Gara.Id = o.Id_v;
-                            Gara.Jmeno = o.Jmeno_v;
-                            Gara.Email = o.Email_V;
-                            Gara.Tel = o.Tel_v;
-                            Gara.Konz = o.Konz_v;
-                            Gara.Kat = o.Id_k;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Garant o = (Garant)cb_garant.SelectedItem;
+                    Gara.Id = o.Id_v;
+                    Gara.Jmeno = o.Jmeno_v;
+                    Gara.Email = o.Email_V;
+                    Gara.Tel = o.Tel_v;
+                    Gara.Konz = o.Konz_v;
+                    Gara.Kat = o.Id_k;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Gara.ShowDialog();
@@ -324,12 +297,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     Pred.Jazyk = o.Jazyk;
                     Pred.Zakonceni = o.Zakonceni;
                     Pred.Popis = o.Popis;
-                    if (o.Prerekvizita > 0)
-                        Pred.Prerek = o.Prerekvizita;
-                    else
-                        Pred.Prerek = -1;
+                    Pred.Prerek = o.Prerekvizita;
                 }
-                catch{}
+                catch { }
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Pred.ShowDialog();
                 if (potvrzeni == DialogResult.OK)
@@ -345,7 +315,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         }
                         else
                         {
-
                             x.UpdatePredmet(Pred.P);
                             predmets = a.GetFullPredmet();
                             cb_pre.Text = Pred.P.ToString();
@@ -367,28 +336,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 using (FormCUObor Obo = new FormCUObor())
                 {
                     Obo.Text = "Upravit Katedru";
-                    foreach (Obor o in obors)
+                    try
                     {
-                        if (o.ToString() == cb_obo.SelectedItem.ToString())
-                        {
-                            try
-                            {
-                                //  Obo.O = o;new Obor(o.Id_obor,o.Zkr_obor,o.Name_obor,o.Rok_obor,o.P_obor,o.Pv_obor,o.V_obor,o.Vs_obor,o.Praxe);
-                                Obo.Id = o.Id_obor;
-                                Obo.Zkr = o.Zkr_obor;
-                                Obo.Nazev = o.Name_obor;
-                                Obo.Rok = o.Rok_obor;
-                                Obo.P = o.P_obor;
-                                Obo.Pv = o.Pv_obor;
-                                Obo.V = o.V_obor;
-                                Obo.Vs = o.Vs_obor;
-                                Obo.Praxe = o.Praxe;
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
+                        Obor o = (Obor)cb_obo.SelectedItem;
+                        Obo.Id = o.Id_obor;
+                        Obo.Zkr = o.Zkr_obor;
+                        Obo.Nazev = o.Name_obor;
+                        Obo.Rok = o.Rok_obor;
+                        Obo.P = o.P_obor;
+                        Obo.Pv = o.Pv_obor;
+                        Obo.V = o.V_obor;
+                        Obo.Vs = o.Vs_obor;
+                        Obo.Praxe = o.Praxe;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     DataAccess a = new DataAccess();
                     DialogResult potvrzeni = Obo.ShowDialog();
@@ -418,15 +381,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 using (FormCUKatedra Kat = new FormCUKatedra())
                 {
                     Kat.Text = "Upravit Katedru";
-                    foreach (Katedra o in katedras)
+                    try
                     {
-                        if (o.ToString() == cb_kat.SelectedItem.ToString())
-                        {
-                            Kat.Id = o.Id_k;
-                            Kat.Zkr = o.Zkr_k;
-                            Kat.Nazev = o.Naz_k;
-                        }
+                        Katedra o = (Katedra)cb_kat.SelectedItem;
+                        Kat.Id = o.Id_k;
+                        Kat.Zkr = o.Zkr_k;
+                        Kat.Nazev = o.Naz_k;
                     }
+                    catch { }
                     DataAccess a = new DataAccess();
                     DialogResult potvrzeni = Kat.ShowDialog();
                     if (potvrzeni == DialogResult.OK)
@@ -448,7 +410,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-
         private void Bt_smazat_Click(object sender, EventArgs e)
         {
             if (rb_garant.Checked == true)
@@ -629,7 +590,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetBySemestr(4, iobor);
                         }
-                    } break;
+                    }
+                    break;
                 case "5":
                     {
                         predmets.Clear();
@@ -639,7 +601,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetBySemestr(5, iobor);
                         }
-                    } break;
+                    }
+                    break;
                 case "6":
                     {
                         predmets.Clear();
@@ -649,7 +612,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetBySemestr(6, iobor);
                         }
-                    } break;
+                    }
+                    break;
                 case "všechny":
                     {
                         predmets.Clear();
@@ -659,7 +623,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetFullByObor(iobor);
                         }
-                    } break;
+                    }
+                    break;
                 case "neřazazeno":
                     {
                         predmets.Clear();
@@ -669,7 +634,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetBySemestr(0, iobor);
                         }
-                    } break;
+                    }
+                    break;
                 default: break;
 
             }
