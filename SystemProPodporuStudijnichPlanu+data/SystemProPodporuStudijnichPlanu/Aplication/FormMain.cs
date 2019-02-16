@@ -51,6 +51,7 @@ namespace SystemProPodporuStudijnichPlanu
             nud_KredSem6.BackColor = nud_KredSem6.Value < 15 ? Color.LightCoral : Color.LightGreen;
             nud_celkemKred.BackColor = nud_celkemKred.Value < 180 ? Color.LightCoral : Color.LightGreen;
         }
+
         private void UkonceniProgramu(object sender, EventArgs e)
         {
             if (MessageBox.Show(Properties.Resources.EXIT_MESSAGE, Properties.Resources.EXIT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -58,7 +59,7 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
-
+/*
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -97,7 +98,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             FormCRUDmidstage x = new FormCRUDmidstage();
             x.Show();
-        }
+        }*/
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
@@ -382,10 +383,7 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch { }
         }
-        private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FillHlavniListy();
-        }
+  //      private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e) => FillHlavniListy();
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VytvorZaznam();
@@ -492,12 +490,12 @@ namespace SystemProPodporuStudijnichPlanu
                 RefreshZaznamy(Zzkr);
             }
         }
-        private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SprávaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
-            hromadnéNačteníDatToolStripMenuItem.Visible = hromadnéNačteníDatToolStripMenuItem.Visible != true;
-            
+            FormCRUDmidstage x = new FormCRUDmidstage();
+            x.Show();
         }
+    
         private void Viditelnost(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
@@ -507,6 +505,8 @@ namespace SystemProPodporuStudijnichPlanu
             l_pkr.Left = i > 6 ? 861 : 606;
             l_pvk.Left = i > 6 ? 867 : 612;
             l_vk.Left = i > 6 ? 860 : 605;
+            gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
+            this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
             Tma();
             switch (i)
             {
@@ -593,8 +593,6 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         Filling fill = new Filling();
                         fill.FillDetail(VratListBox(urceniZvolenehoListu), vypisPopisPredmet);
-                       //fill.GetDetail(VratListBox(urceniZvolenehoListu), /*VyberListu(urceniZvolenehoListu), */out string popis, out decimal kredity, out string povin,out decimal idcko);
-                        //FillPopisyDoFormu(popis, kredity, povin, idcko);
                         break;
                     }
                 case 12:
@@ -973,11 +971,6 @@ namespace SystemProPodporuStudijnichPlanu
                 default:
                     return -1;
             }
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

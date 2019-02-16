@@ -224,7 +224,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
             string vyber = "";
-            if (cb_semestry.SelectedIndex!=-1)
+            if (cb_semestry.SelectedIndex != -1)
                 vyber = cb_semestry.SelectedItem.ToString();
             if (vyber == "")
                 vyber = "všechny";
@@ -636,7 +636,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             predmets = da.GetPredmetBySemestr(4, iobor);
                         }
                     } break;
-                case "5": 
+                case "5":
                     {
                         predmets.Clear();
                         if (iobor == -1)
@@ -645,7 +645,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         {
                             predmets = da.GetPredmetBySemestr(5, iobor);
                         }
-                    }break;
+                    } break;
                 case "6":
                     {
                         predmets.Clear();
@@ -694,12 +694,29 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void PovolitSprávuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult x = DialogResult.Cancel;
+            if (bt_novy.Visible != true)
+            {
+                x = MessageBox.Show("Opravdu chcete povolit správce?\nÚpravy a mazání záznamů může vést k odstranění vytvořených plánu.\nPokračovat?", "Povolit správu", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            }
+            else
+            {
+                Schovka();
+                povolitSprávuToolStripMenuItem.Text = "Povolit správu";
+            }
+            if (x == DialogResult.OK)
+            {
+                Schovka();
+                povolitSprávuToolStripMenuItem.Text = "Zakázat správu";
+            }
+        }
+        private void Schovka()
+        {
             hromadnéNačteníToolStripMenuItem.Visible = hromadnéNačteníToolStripMenuItem.Visible != true;
             bt_novy.Visible = bt_novy.Visible != true;
             bt_upravit.Visible = bt_upravit.Visible != true;
             bt_smazat.Visible = bt_smazat.Visible != true;
         }
-
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -712,12 +729,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     cesta = openFileDialog.FileName;
+                    NacteniDat nd = new NacteniDat();
+                    nd.Proved(cesta);
                 }
             }
-            NacteniDat nd = new NacteniDat();
-            nd.Proved(cesta);
         }
-
         private void PřidatPopisyKPředmětůmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci_tilda.txt";
@@ -730,10 +746,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     cesta = openFileDialog.FileName;
+                    NacteniDat nd = new NacteniDat();
+                    nd.ProvedPopis(cesta);
                 }
             }
-            NacteniDat nd = new NacteniDat();
-            nd.ProvedPopis(cesta);
         }
     }
 }
