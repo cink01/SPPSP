@@ -152,6 +152,26 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
+        public void FillDetail(VypisPopisPredmet v, Predmet x)
+        {
+            DataAccess da = new DataAccess();
+            if (x.Prerekvizita <= 0)
+                v.Prerekvizita = "Není";
+            else
+                v.Prerekvizita = da.GetPredmetById(x.Prerekvizita);
+            v.Popis = x.Popis;
+            v.Semestr = x.Semestr_predmet.ToString();
+            v.Kredit = x.Kredit_predmet.ToString();
+            v.Povinnost = x.Povinnost;
+            v.Zkr = x.Zkr_predmet;
+            v.Zakončení = x.Zakonceni;
+            v.Jazyk = x.Jazyk;
+            v.Prednaska = x.Prednaska.ToString();
+            v.Cviceni = x.Cviceni.ToString();
+            v.Kombi = x.Kombi.ToString();
+            v.Lab = x.Lab.ToString();
+            v.Garant = da.GetGarantById(x.Id_v);
+        }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {
             try
@@ -222,6 +242,21 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             if (kredity.Suma >= 180)
                 if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
                     MessageBox.Show("Máte zapsáno více sportů a počet volitelných není dostatečný");
+        }
+
+        public void NastavIndexCombo<T>( ComboBox x, /*List<T> t,*/ string z)
+        {
+            /*  foreach (T k in t)
+                  if (k.ToString() == z)
+                      x.SelectedIndex = x.FindString(k.ToString());*/
+            x.SelectedIndex = x.FindString(z);
+        }
+        public void NastavIndexCombo<T>(ComboBox x, List<T> t, int z)
+        {
+            /*foreach (T k in t)
+                if (k.ToInt() == z)
+                    x.SelectedIndex = x.FindString(k.ToString());*/
+
         }
     }
 }

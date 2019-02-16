@@ -25,11 +25,8 @@
             Vs_obor = vs_obor;
             Praxe = praxe;
         }
-        public override string ToString()
-        {
-            return Name_obor;
-        }
-
+        public override string ToString() => Name_obor;
+        public int ToInt() => Id_obor;
         public int Id_obor{get;set;}
         public string Zkr_obor { get; set; }
         public string Name_obor { get; set; }

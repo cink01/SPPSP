@@ -18,7 +18,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public bool Schov { get; set; }
         public int Id
         {
-            get => Convert.ToInt32(tb_id.Text);
+            get
+            {
+                try
+                {
+                    return Convert.ToInt32(tb_id.Text);
+                }
+                catch (Exception)
+                {
+                    return -1;
+                }
+
+            }
             set => tb_id.Text = value.ToString();
         }
         public int Semestr

@@ -83,18 +83,10 @@ namespace SystemProPodporuStudijnichPlanu
             Id_predmet = da.GetPredmetId(name_predmet, obor);
             Popis = popis;
         }
-        public override string ToString()
-        {
-            return Name_predmet;
-        }
+        public override string ToString() => Name_predmet;
+        public int ToInt() => Id_predmet;
         public string FullInfo => $"{Name_predmet} - {Zkr_predmet} - {Id_predmet} - {Semestr_predmet} - {Kredit_predmet} ";
-        public string GetNazInfo()
-        {
-            return $"{Name_predmet} - {Zkr_predmet}";
-        }
-        public string GetPredmetPopis()
-        {
-            return $"{Name_predmet}\nNěco:{Kredit_predmet}\nPopis:{Popis}";
-        }
+        public string NazInfo => $"{Name_predmet} - {Zkr_predmet}";
+        public string PredmetPopis => $"{Name_predmet}\nNěco:{Kredit_predmet}\nPopis:{Popis}";
     }
 }

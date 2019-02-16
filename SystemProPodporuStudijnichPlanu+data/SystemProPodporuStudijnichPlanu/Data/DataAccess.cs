@@ -34,6 +34,13 @@ namespace SystemProPodporuStudijnichPlanu
                 return connection.Query<Katedra>($"Select * from [katedra]").ToList();
             }
         }
+        public List<Zaznam> GetFullZaznam()
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Zaznam>($"SELECT * FROM [zaznam]").ToList();
+            }
+        }
         public List<Obor> GetFullObor()
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))

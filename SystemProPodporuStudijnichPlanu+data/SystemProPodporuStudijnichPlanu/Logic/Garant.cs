@@ -22,7 +22,6 @@
             Konz_v = konz_v;
             Id_k = da.GetKatedraId(kat);
         }
-
         public Garant(int id_v, string jmeno_v, string email_V, string tel_v, string konz_v, int id_k)
         {
             Id_v = id_v;
@@ -32,10 +31,8 @@
             Konz_v = konz_v;
             Id_k = id_k;
         }
-        public override string ToString()
-        {
-            return Jmeno_v;
-        }
+        public override string ToString() => Jmeno_v;
+        public int ToInt() => Id_v;
         public int Id_v{get;set;}
         public string Jmeno_v{ get; set; }
         public string Email_V { get; set; }

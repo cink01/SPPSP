@@ -20,7 +20,6 @@ namespace SystemProPodporuStudijnichPlanu
             menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
-          //  cmb_zaznam.SelectedIndex = 1;
             if (cmb_zaznam.Items.Count <= 0)
             {
                 var text = "Není založen žádný plán. Chcete vytvořit nový?";
@@ -32,8 +31,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void RefreshList(ListBox x, int vyber)
         {
-            VratZaznamData(out int izaz, out _, out _, out _, out _);
-            // DataAccess da = new DataAccess();
+            VratZaznamData(out int izaz, out _, out _, out _);
             Filling fill = new Filling();
             urceniZvolenehoListu = 0;
             fill.FillSemestrLB(x, izaz, vyber, out Kredity sum, out List<Predmet> p);
@@ -59,52 +57,12 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
-/*
-        private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
-        private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "";
-                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    cesta = openFileDialog.FileName;
-                }
-            }
-            NacteniDat nd = new NacteniDat();
-            nd.Proved(cesta);
-        }
-        private void NaplnitPredmetyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci_tilda.txt";
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "";
-                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    cesta = openFileDialog.FileName;
-                }
-            }
-            NacteniDat nd = new NacteniDat();
-            nd.ProvedPopis(cesta);
-        }
-        private void SprávaDatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCRUDmidstage x = new FormCRUDmidstage();
-            x.Show();
-        }*/
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
 
             //temp.Clear();
-            VratZaznamData(out int id_z, out _, out int id_o, out _, out int PocSem);
+            VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
             int count;
@@ -131,10 +89,10 @@ namespace SystemProPodporuStudijnichPlanu
                     data.InsertVyber(p.Id_predmet, vyber, id_z);
                 }
                 RefreshList(VratListBox(vyber), vyber);
-                ObnovPovinn( id_o, PocSem);
+                ObnovPovinn(id_o, PocSem);
             }
         }
-        public void ObnovPovinn( int id_o,int PocSem)
+        public void ObnovPovinn(int id_o, int PocSem)
         {
             DataAccess da = new DataAccess();
             Filling fill = new Filling();
@@ -150,74 +108,41 @@ namespace SystemProPodporuStudijnichPlanu
             if (cmb_zaznam.SelectedIndex >= 0)
             {
                 FillHlavniListy();
-                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-                int id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-                DataAccess db = new DataAccess();
-                db.GetZaznamFull(id_z, out int id_o, out int PocSem);
-                ObnovPovinn(id_o, PocSem);
+                Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
+                ObnovPovinn(z.Id_obor, z.PocetSem);
             }
         }
         private void VyplnPotrebnyZeZaznamu()
         {
-
-            DataAccess db = new DataAccess();
-            if (cmb_zaznam.SelectedItem is DataRowView DZ)
-            {
-                int id_zaznam = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-                db.GetZaznamFull(id_zaznam, out int obor, out int semestry);
-                _ = obor.ToString();
-                _ = semestry.ToString();
-                Viditelnost(semestry);
-                nud_PridatDoSem.Maximum = semestry;
-            }
-        }
-        private void RefreshZaznamy(string zkratka="")
-        {
-            cmb_zaznam.DataSource = null;
-            DataAccess db = new DataAccess();
-            db.FillZaznamCB(cmb_zaznam);
-            cmb_zaznam.SelectedItem = cmb_zaznam.FindStringExact(zkratka);
-
-        }
-     /*   private void FillPopisyDoFormu(string popis, decimal kredity, string povin, decimal idcko)
-        {
-            try
-            {
-                nud_kredpop.Value = kredity;
-                richTextBox1.Text = popis;
-                textBox1.Text = povin;
-                tb_idcko.Text = idcko.ToString();
+            try { 
+            Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
+            Viditelnost(z.PocetSem);
+            nud_PridatDoSem.Maximum = z.PocetSem;
             }
             catch { }
-        }*/
-        private void VratZaznamData(out int id_z, out string zkr, out int id_o, out string rok_o, out int PocSem)
+        }
+        List<Zaznam> zaznams = new List<Zaznam>();
+        private void RefreshZaznamy(string zkratka = "")
         {
-            zkr = "";
-            id_z = -1;
-            id_o = -1;
-            PocSem=0;
-            rok_o = "";
-            try
-            {
-                DataRowView DZ = cmb_zaznam.SelectedItem as DataRowView;
-                zkr = DZ.Row["zkr_zaznam"].ToString();
-                id_z = Convert.ToInt32(DZ.Row["id_zaznam"].ToString());
-                DataAccess db = new DataAccess();
-                db.GetZaznamFull(id_z, out id_o, out PocSem);
-                rok_o = db.GetOborRok(id_o);
-            }
-            catch
-            {
-                MessageBox.Show("Není vybrán žádný plán,Chyba");
-            }
-
+            cmb_zaznam.DataSource = null;
+            Filling f = new Filling();
+            DataAccess db = new DataAccess();
+            zaznams = db.GetFullZaznam();
+            f.NaplnComboBox<Zaznam>(cmb_zaznam, zaznams);
+            f.NastavIndexCombo<Zaznam>(cmb_zaznam, /*zaznams,*/zkratka);
+        }
+        private void VratZaznamData(out int id_z, out string zkr, out int id_o, out int PocSem)
+        {
+            Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
+            id_z = z.Id_zaznam;
+            zkr = z.Zkr_zaznam;
+            id_o = z.Id_obor;
+            PocSem = z.PocetSem;
         }
         private void FillHlavniListy()
         {
             ClearListy();
-            VratZaznamData(out int idz, out string _, out int obor, out string _, out int semestry);
-            /*tb_obor.Text = obor.ToString();
-            tb_semest.Text = semestry.ToString();*/
+            VratZaznamData(out int idz, out _, out int obor, out int semestry);
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             DataAccess db = new DataAccess();
@@ -231,51 +156,63 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(1);
+            if (VratListBox(1).SelectedIndex != -1)
+                DeselectnutiListu(1);
         }
         private void Lb_semestr2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(2);
+            if (VratListBox(2).SelectedIndex != -1)
+                DeselectnutiListu(2);
         }
         private void Lb_semestr3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(3);
+            if (VratListBox(3).SelectedIndex != -1)
+                DeselectnutiListu(3);
         }
         private void Lb_semestr4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(4);
+            if (VratListBox(4).SelectedIndex != -1)
+                DeselectnutiListu(4);
         }
         private void Lb_semestr5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(5);
+            if (VratListBox(5).SelectedIndex != -1)
+                DeselectnutiListu(5);
         }
         private void Lb_semestr6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(6);
+            if (VratListBox(6).SelectedIndex != -1)
+                DeselectnutiListu(6);
         }
         private void Lb_semestr7_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(7);
+            if (VratListBox(7).SelectedIndex != -1)
+                DeselectnutiListu(7);
         }
         private void Lb_semestr8_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(8);
+            if (VratListBox(8).SelectedIndex != -1)
+                DeselectnutiListu(8);
         }
         private void Lb_semestr9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(9);
+            if (VratListBox(9).SelectedIndex != -1)
+                DeselectnutiListu(9);
         }
         private void Lb_semestr10_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(10);
+            if (VratListBox(10).SelectedIndex != -1)
+                DeselectnutiListu(10);
         }
         private void Lb_semestr11_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(11);
+            if (VratListBox(11).SelectedIndex != -1)
+                DeselectnutiListu(11);
         }
         private void Lb_semestr12_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeselectnutiListu(12);
+            if (VratListBox(12).SelectedIndex != -1)
+                DeselectnutiListu(12);
         }
         private void NaplnitIndividualy(int semestry = 0)
         {
@@ -337,9 +274,9 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                VratZaznamData(out int id_z, out _, out int id_o, out _, out _);
+                VratZaznamData(out int id_z, out _, out int id_o, out _);
                 decimal sum = VratNudVal(urceniZvolenehoListu) - Convert.ToDecimal(vypisPopisPredmet.Kredit);
-                MazatZVyberu(VratListBox(urceniZvolenehoListu), id_z, urceniZvolenehoListu,id_o);
+                MazatZVyberu(VratListBox(urceniZvolenehoListu), id_z, urceniZvolenehoListu, id_o);
                 VyberNudVal(sum, urceniZvolenehoListu);
             }
             catch (Exception)
@@ -348,7 +285,7 @@ namespace SystemProPodporuStudijnichPlanu
             }
 
         }
-        public void MazatZVyberu(ListBox LB, int id_z, int sem,int id_o) 
+        public void MazatZVyberu(ListBox LB, int id_z, int sem, int id_o)
         //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
         {
             DataAccess da = new DataAccess();
@@ -362,7 +299,7 @@ namespace SystemProPodporuStudijnichPlanu
             DataCrud dc = new DataCrud();
             dc.DeleteVyber(id);
             Filling fill = new Filling();
-            fill.VratHodnotuPoSmazani(temp, nud_pKr, nud_pvKr, nud_vKr,nud_celkemKred,id_o);
+            fill.VratHodnotuPoSmazani(temp, nud_pKr, nud_pvKr, nud_vKr, nud_celkemKred, id_o);
         }
         private void ClearListy()
         {
@@ -383,7 +320,6 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch { }
         }
-  //      private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e) => FillHlavniListy();
         private void VytvořitNovýZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VytvorZaznam();
@@ -420,7 +356,7 @@ namespace SystemProPodporuStudijnichPlanu
             string Zzkr = "";
             if (cmb_zaznam.SelectedIndex != -1)
             {
-                VratZaznamData(out int id_z, out string zkr, out int ido, out string rok_o, out int PocSem);
+                VratZaznamData(out int id_z, out string zkr, out int ido, out int PocSem);
                 using (FormCUZaznam Zaznam = new FormCUZaznam())
                 {
                     Zaznam.Text = "Upravit záznam";
@@ -491,8 +427,8 @@ namespace SystemProPodporuStudijnichPlanu
             FormCRUDmidstage x = new FormCRUDmidstage();
             x.Show();
         }
-    	private void ZměnyVeliZic(int i)
-    	{
+        private void ZměnyVeliZic(int i)
+        {
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
             bt_smaz.Left = i > 6 ? 684 : 428;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
@@ -503,20 +439,10 @@ namespace SystemProPodporuStudijnichPlanu
             gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
             this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
             Tma();
-    	}
+        }
         private void Viditelnost(int i)
         {
-        	ZměnyVeliZic(i);
-          /*  vypisPopisPredmet.Left = i > 6 ? 684 : 428;
-            bt_smaz.Left = i > 6 ? 684 : 428;
-            nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
-            lb_celkem.Left = i > 6 ? 930 : 675;
-            l_pkr.Left = i > 6 ? 861 : 606;
-            l_pvk.Left = i > 6 ? 867 : 612;
-            l_vk.Left = i > 6 ? 860 : 605;
-            gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
-            this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
-            Tma();*/
+            ZměnyVeliZic(i);
             switch (i)
             {
                 case 12:
@@ -601,83 +527,70 @@ namespace SystemProPodporuStudijnichPlanu
                 case 55:
                     {
                         Filling fill = new Filling();
-                        fill.FillDetail(VratListBox(urceniZvolenehoListu), vypisPopisPredmet);
+                        fill.FillDetail(VratListBox(i), vypisPopisPredmet);
                         break;
                     }
                 case 12:
                     {
-                        urceniZvolenehoListu = 12;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 11:
                     {
-                        urceniZvolenehoListu = 11;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 10:
                     {
-                        urceniZvolenehoListu = 10;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 9:
                     {
-                        urceniZvolenehoListu = 9;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 8:
                     {
-                        urceniZvolenehoListu = 8;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 7:
                     {
-                        urceniZvolenehoListu = 7;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 6:
                     {
-                        urceniZvolenehoListu = 6;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 5:
                     {
-                        urceniZvolenehoListu = 5;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 4:
                     {
-                        urceniZvolenehoListu = 4;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 3:
                     {
-                        urceniZvolenehoListu = 3;
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 2:
                     {
-                        urceniZvolenehoListu = 2;
                         lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 1:
                     {
-                        urceniZvolenehoListu = 1;
                         lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 default:
-                    urceniZvolenehoListu = -1;
                     break;
             }
         }

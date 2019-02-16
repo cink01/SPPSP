@@ -85,8 +85,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     try
                     {
                         x.InsertPredmet(p.P);
-                        DataAccess da = new DataAccess();
-                        predmets = da.GetFullPredmet();
+                        ZaridVyber();
+                        cb_pre.SelectedIndex = cb_pre.FindStringExact(p.P.ToString());
                     }
                     catch (Exception ex)
                     {
@@ -208,6 +208,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cmb_obo_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ZaridVyber();
+        }
+        private void ZaridVyber()
+        {
             string vyber = "";
             if (cb_semestry.SelectedIndex != -1)
                 vyber = cb_semestry.SelectedItem.ToString();
@@ -307,19 +311,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        if (Pred.Prerek != -1)
-                        {
-                            x.UpdatePredmet(Pred.P);
-                            predmets = a.GetFullPredmet();
-                            cb_pre.Text = Pred.P.ToString();
-                        }
-                        else
-                        {
-                            x.UpdatePredmet(Pred.P);
-                            predmets = a.GetFullPredmet();
-                            cb_pre.Text = Pred.P.ToString();
-                        }
-
+                        Filling f = new Filling();
+                        x.UpdatePredmet(Pred.P);
+                        ZaridVyber();
+                        cb_pre.Text = Pred.P.ToString();
+                        f.FillDetail(vypisPopisPredmetMid, Pred.P);
                     }
                     catch (Exception ex)
                     {
@@ -642,8 +638,15 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private int VratIdckoOboru()
         {
-            Obor temp = (Obor)cmb_obo_pre.SelectedItem;
-            return (temp.Id_obor);
+            try
+            {
+                Obor temp = (Obor)cmb_obo_pre.SelectedItem;
+                return (temp.Id_obor);
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         private void Cb_pre_SelectedIndexChanged(object sender, EventArgs e)

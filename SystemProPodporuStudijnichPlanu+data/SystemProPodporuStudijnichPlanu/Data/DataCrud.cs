@@ -216,10 +216,10 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
-                SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor,pocetSem) values(@zz,@id_o,@pocetSem)", conn);
-                zaz.Parameters.AddWithValue("@zz", Z.Zkr_zaznam);
-                zaz.Parameters.AddWithValue("@id_o", Z.Id_obor);
-                zaz.Parameters.AddWithValue("@pocetSem",Z.PocetSem);
+                SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor,pocetSem) values(@zkr_zaznam,@id_obor,@pocetSem)", conn);
+                zaz.Parameters.AddWithValue("@zkr_zaznam", Z.Zkr_zaznam);
+                zaz.Parameters.AddWithValue("@id_obor", Z.Id_obor);
+                zaz.Parameters.AddWithValue("@pocetSem", Z.PocetSem);
                 try
                 {
                     conn.Open();

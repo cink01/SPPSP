@@ -18,15 +18,11 @@
             Id_obor = id_obor;
             PocetSem = pocetSem;
         }
-
         public int Id_zaznam { get; set; }
         public string Zkr_zaznam { get; set; }
         public int Id_obor { get; set; }
         public int PocetSem { get; set; }
-
-        public override string ToString()
-        {
-            return Zkr_zaznam;
-        }
+        public int ToInt() => Id_zaznam;
+        public override string ToString() => Zkr_zaznam;
     }
 }

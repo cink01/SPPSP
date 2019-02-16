@@ -11,6 +11,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
         public List<Predmet> predmets = new List<Predmet>();
+    //    Filling fill = new Filling();
 
         public FormCUPredmet()
         {
@@ -130,6 +131,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
             set
             {
+     //           fill.NastavIndexCombo<Obor>(cb_obor, obors, value);
                 foreach (Obor k in obors)
                     if (k.Id_obor == value)
                         cb_obor.SelectedIndex = cb_obor.FindStringExact(k.ToString());
@@ -161,7 +163,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
                 else
                 {
-                    return -1;
+                    return 0;
                 }
             }
 

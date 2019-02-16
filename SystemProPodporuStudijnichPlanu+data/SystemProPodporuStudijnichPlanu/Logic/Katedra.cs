@@ -21,9 +21,7 @@
             Zkr_k = zkr_k;
             Naz_k = naz_k;
         }
-        public override string ToString()
-        {
-            return Naz_k;
-        }
+        public override string ToString() => Naz_k;
+        public int ToInt() => Id_k;
     }
 }
