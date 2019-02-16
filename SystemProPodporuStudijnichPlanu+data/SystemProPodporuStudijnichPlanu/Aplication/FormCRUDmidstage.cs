@@ -691,5 +691,49 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Filling fill = new Filling();
             fill.FillDetail(cb_pre, vypisPopisPredmetMid);
         }
+
+        private void PovolitSprávuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hromadnéNačteníToolStripMenuItem.Visible = hromadnéNačteníToolStripMenuItem.Visible != true;
+            bt_novy.Visible = bt_novy.Visible != true;
+            bt_upravit.Visible = bt_upravit.Visible != true;
+            bt_smazat.Visible = bt_smazat.Visible != true;
+        }
+
+        private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
+        private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "";
+                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    cesta = openFileDialog.FileName;
+                }
+            }
+            NacteniDat nd = new NacteniDat();
+            nd.Proved(cesta);
+        }
+
+        private void PřidatPopisyKPředmětůmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_s_anotaci_tilda.txt";
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "";
+                openFileDialog.Filter = "txt soubor (*.txt)|*.txt|Všechny soubory (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    cesta = openFileDialog.FileName;
+                }
+            }
+            NacteniDat nd = new NacteniDat();
+            nd.ProvedPopis(cesta);
+        }
     }
 }

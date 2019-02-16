@@ -492,7 +492,12 @@ namespace SystemProPodporuStudijnichPlanu
                 RefreshZaznamy(Zzkr);
             }
         }
-        private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e) => správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
+        private void PovolitSprávceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // správaToolStripMenuItem.Visible = správaToolStripMenuItem.Visible != true;
+            hromadnéNačteníDatToolStripMenuItem.Visible = hromadnéNačteníDatToolStripMenuItem.Visible != true;
+            
+        }
         private void Viditelnost(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;

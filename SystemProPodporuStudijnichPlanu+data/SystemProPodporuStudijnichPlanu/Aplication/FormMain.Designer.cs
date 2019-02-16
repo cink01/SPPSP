@@ -76,35 +76,12 @@
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.gb_p = new System.Windows.Forms.GroupBox();
-            this.cb_pre = new System.Windows.Forms.ComboBox();
-            this.cb_semestry = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.tb_predmetN = new System.Windows.Forms.TextBox();
-            this.gb_g = new System.Windows.Forms.GroupBox();
-            this.cb_garant = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_garantN = new System.Windows.Forms.TextBox();
-            this.gb_o = new System.Windows.Forms.GroupBox();
-            this.cb_obo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_oborN = new System.Windows.Forms.TextBox();
-            this.gb_k = new System.Windows.Forms.GroupBox();
-            this.cb_kat = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tb_katedraN = new System.Windows.Forms.TextBox();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmetcs();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -124,13 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.gb_p.SuspendLayout();
-            this.gb_g.SuspendLayout();
-            this.gb_o.SuspendLayout();
-            this.gb_k.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -143,7 +113,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1107, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(1102, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -183,9 +153,8 @@
             this.hromadnéNačteníDatToolStripMenuItem,
             this.správaDatToolStripMenuItem});
             this.správaToolStripMenuItem.Name = "správaToolStripMenuItem";
-            this.správaToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
-            this.správaToolStripMenuItem.Text = "Správa";
-            this.správaToolStripMenuItem.Visible = false;
+            this.správaToolStripMenuItem.Size = new System.Drawing.Size(83, 19);
+            this.správaToolStripMenuItem.Text = "Vyhledávání";
             // 
             // hromadnéNačteníDatToolStripMenuItem
             // 
@@ -193,8 +162,9 @@
             this.naplnitDatabáziToolStripMenuItem1,
             this.přidatPopisyKPředmětůmToolStripMenuItem});
             this.hromadnéNačteníDatToolStripMenuItem.Name = "hromadnéNačteníDatToolStripMenuItem";
-            this.hromadnéNačteníDatToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.hromadnéNačteníDatToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.hromadnéNačteníDatToolStripMenuItem.Text = "Hromadné načtení dat";
+            this.hromadnéNačteníDatToolStripMenuItem.Visible = false;
             // 
             // naplnitDatabáziToolStripMenuItem1
             // 
@@ -213,8 +183,8 @@
             // správaDatToolStripMenuItem
             // 
             this.správaDatToolStripMenuItem.Name = "správaDatToolStripMenuItem";
-            this.správaDatToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.správaDatToolStripMenuItem.Text = "Správa dat";
+            this.správaDatToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.správaDatToolStripMenuItem.Text = "Zobrazit okno vyhledávání";
             this.správaDatToolStripMenuItem.Click += new System.EventHandler(this.SprávaDatToolStripMenuItem_Click);
             // 
             // nápovědaToolStripMenuItem
@@ -229,14 +199,15 @@
             // oAplikaciToolStripMenuItem
             // 
             this.oAplikaciToolStripMenuItem.Name = "oAplikaciToolStripMenuItem";
-            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oAplikaciToolStripMenuItem.Text = "O aplikaci";
             // 
             // povolitSprávceToolStripMenuItem
             // 
             this.povolitSprávceToolStripMenuItem.Name = "povolitSprávceToolStripMenuItem";
-            this.povolitSprávceToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.povolitSprávceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.povolitSprávceToolStripMenuItem.Text = "Povolit správce";
+            this.povolitSprávceToolStripMenuItem.Visible = false;
             this.povolitSprávceToolStripMenuItem.Click += new System.EventHandler(this.PovolitSprávceToolStripMenuItem_Click);
             // 
             // lb_semestr2
@@ -304,7 +275,7 @@
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
             this.nud_celkemKred.Enabled = false;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(1017, 392);
+            this.nud_celkemKred.Location = new System.Drawing.Point(1014, 384);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -422,7 +393,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(930, 394);
+            this.lb_celkem.Location = new System.Drawing.Point(927, 386);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(81, 13);
             this.lb_celkem.TabIndex = 14;
@@ -633,7 +604,7 @@
             this.bt_smaz.BackColor = System.Drawing.Color.LightCoral;
             this.bt_smaz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smaz.Location = new System.Drawing.Point(683, 390);
+            this.bt_smaz.Location = new System.Drawing.Point(683, 382);
             this.bt_smaz.Name = "bt_smaz";
             this.bt_smaz.Size = new System.Drawing.Size(104, 20);
             this.bt_smaz.TabIndex = 60;
@@ -702,7 +673,7 @@
             this.gb_max.Controls.Add(this.lb_semestr4);
             this.gb_max.Controls.Add(this.lb_semestr3);
             this.gb_max.Controls.Add(this.lb_semestr2);
-            this.gb_max.Location = new System.Drawing.Point(6, 6);
+            this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
             this.gb_max.Size = new System.Drawing.Size(1080, 654);
             this.gb_max.TabIndex = 0;
@@ -711,7 +682,7 @@
             // l_vk
             // 
             this.l_vk.AutoSize = true;
-            this.l_vk.Location = new System.Drawing.Point(860, 472);
+            this.l_vk.Location = new System.Drawing.Point(857, 464);
             this.l_vk.Name = "l_vk";
             this.l_vk.Size = new System.Drawing.Size(151, 13);
             this.l_vk.TabIndex = 80;
@@ -720,7 +691,7 @@
             // l_pvk
             // 
             this.l_pvk.AutoSize = true;
-            this.l_pvk.Location = new System.Drawing.Point(867, 446);
+            this.l_pvk.Location = new System.Drawing.Point(864, 438);
             this.l_pvk.Name = "l_pvk";
             this.l_pvk.Size = new System.Drawing.Size(144, 13);
             this.l_pvk.TabIndex = 79;
@@ -729,38 +700,18 @@
             // l_pkr
             // 
             this.l_pkr.AutoSize = true;
-            this.l_pkr.Location = new System.Drawing.Point(861, 420);
+            this.l_pkr.Location = new System.Drawing.Point(858, 412);
             this.l_pkr.Name = "l_pkr";
             this.l_pkr.Size = new System.Drawing.Size(150, 13);
             this.l_pkr.TabIndex = 78;
             this.l_pkr.Text = "Kredity z povinných předmětů:";
-            // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Cviceni = "";
-            this.vypisPopisPredmet.Garant = "";
-            this.vypisPopisPredmet.Jazyk = "";
-            this.vypisPopisPredmet.Kombi = "";
-            this.vypisPopisPredmet.Kredit = "";
-            this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 43);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.P = null;
-            this.vypisPopisPredmet.Popis = "";
-            this.vypisPopisPredmet.Povinnost = "";
-            this.vypisPopisPredmet.Prednaska = "";
-            this.vypisPopisPredmet.Prerekvizita = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
-            this.vypisPopisPredmet.TabIndex = 77;
-            this.vypisPopisPredmet.Zakončení = "";
-            this.vypisPopisPredmet.Zkr = "";
             // 
             // nud_vKr
             // 
             this.nud_vKr.BackColor = System.Drawing.Color.White;
             this.nud_vKr.Enabled = false;
             this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_vKr.Location = new System.Drawing.Point(1017, 470);
+            this.nud_vKr.Location = new System.Drawing.Point(1014, 462);
             this.nud_vKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -777,7 +728,7 @@
             this.nud_pvKr.BackColor = System.Drawing.Color.White;
             this.nud_pvKr.Enabled = false;
             this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pvKr.Location = new System.Drawing.Point(1017, 444);
+            this.nud_pvKr.Location = new System.Drawing.Point(1014, 436);
             this.nud_pvKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -795,7 +746,7 @@
             this.nud_pKr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nud_pKr.Enabled = false;
             this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pKr.Location = new System.Drawing.Point(1017, 418);
+            this.nud_pKr.Location = new System.Drawing.Point(1014, 410);
             this.nud_pKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -840,239 +791,33 @@
             0,
             0});
             // 
-            // tabControl1
+            // vypisPopisPredmet
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 26);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1101, 686);
-            this.tabControl1.TabIndex = 74;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.gb_max);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1093, 660);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Plán";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.gb_p);
-            this.tabPage2.Controls.Add(this.gb_g);
-            this.tabPage2.Controls.Add(this.gb_o);
-            this.tabPage2.Controls.Add(this.gb_k);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1093, 660);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Vyhledávání";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // gb_p
-            // 
-            this.gb_p.Controls.Add(this.cb_pre);
-            this.gb_p.Controls.Add(this.cb_semestry);
-            this.gb_p.Controls.Add(this.label6);
-            this.gb_p.Controls.Add(this.label5);
-            this.gb_p.Controls.Add(this.label4);
-            this.gb_p.Controls.Add(this.cmb_povin);
-            this.gb_p.Controls.Add(this.tb_predmetN);
-            this.gb_p.Location = new System.Drawing.Point(686, 83);
-            this.gb_p.Name = "gb_p";
-            this.gb_p.Size = new System.Drawing.Size(182, 199);
-            this.gb_p.TabIndex = 28;
-            this.gb_p.TabStop = false;
-            this.gb_p.Text = "Výběr a vyhledávání předmětů";
-            // 
-            // cb_pre
-            // 
-            this.cb_pre.FormattingEnabled = true;
-            this.cb_pre.Location = new System.Drawing.Point(7, 19);
-            this.cb_pre.Name = "cb_pre";
-            this.cb_pre.Size = new System.Drawing.Size(168, 21);
-            this.cb_pre.TabIndex = 22;
-            // 
-            // cb_semestry
-            // 
-            this.cb_semestry.FormattingEnabled = true;
-            this.cb_semestry.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "Nezařazené",
-            "Všechny"});
-            this.cb_semestry.Location = new System.Drawing.Point(64, 98);
-            this.cb_semestry.Name = "cb_semestry";
-            this.cb_semestry.Size = new System.Drawing.Size(111, 21);
-            this.cb_semestry.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Semestr:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Povinnost:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Název:";
-            // 
-            // cmb_povin
-            // 
-            this.cmb_povin.FormattingEnabled = true;
-            this.cmb_povin.Location = new System.Drawing.Point(64, 72);
-            this.cmb_povin.Name = "cmb_povin";
-            this.cmb_povin.Size = new System.Drawing.Size(111, 21);
-            this.cmb_povin.TabIndex = 20;
-            // 
-            // tb_predmetN
-            // 
-            this.tb_predmetN.Location = new System.Drawing.Point(64, 46);
-            this.tb_predmetN.Name = "tb_predmetN";
-            this.tb_predmetN.Size = new System.Drawing.Size(111, 20);
-            this.tb_predmetN.TabIndex = 19;
-            // 
-            // gb_g
-            // 
-            this.gb_g.Controls.Add(this.cb_garant);
-            this.gb_g.Controls.Add(this.label3);
-            this.gb_g.Controls.Add(this.tb_garantN);
-            this.gb_g.Location = new System.Drawing.Point(505, 83);
-            this.gb_g.Name = "gb_g";
-            this.gb_g.Size = new System.Drawing.Size(182, 199);
-            this.gb_g.TabIndex = 27;
-            this.gb_g.TabStop = false;
-            this.gb_g.Text = "Výběr a vyhledávání garantů";
-            // 
-            // cb_garant
-            // 
-            this.cb_garant.FormattingEnabled = true;
-            this.cb_garant.Location = new System.Drawing.Point(6, 19);
-            this.cb_garant.Name = "cb_garant";
-            this.cb_garant.Size = new System.Drawing.Size(169, 21);
-            this.cb_garant.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Jméno:";
-            // 
-            // tb_garantN
-            // 
-            this.tb_garantN.Location = new System.Drawing.Point(64, 46);
-            this.tb_garantN.Name = "tb_garantN";
-            this.tb_garantN.Size = new System.Drawing.Size(111, 20);
-            this.tb_garantN.TabIndex = 18;
-            // 
-            // gb_o
-            // 
-            this.gb_o.Controls.Add(this.cb_obo);
-            this.gb_o.Controls.Add(this.label1);
-            this.gb_o.Controls.Add(this.tb_oborN);
-            this.gb_o.Location = new System.Drawing.Point(324, 83);
-            this.gb_o.Name = "gb_o";
-            this.gb_o.Size = new System.Drawing.Size(182, 199);
-            this.gb_o.TabIndex = 26;
-            this.gb_o.TabStop = false;
-            this.gb_o.Text = "Výběr a vyhledávání oborů";
-            // 
-            // cb_obo
-            // 
-            this.cb_obo.FormattingEnabled = true;
-            this.cb_obo.Location = new System.Drawing.Point(7, 19);
-            this.cb_obo.Name = "cb_obo";
-            this.cb_obo.Size = new System.Drawing.Size(168, 21);
-            this.cb_obo.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Název:";
-            // 
-            // tb_oborN
-            // 
-            this.tb_oborN.Location = new System.Drawing.Point(64, 46);
-            this.tb_oborN.Name = "tb_oborN";
-            this.tb_oborN.Size = new System.Drawing.Size(111, 20);
-            this.tb_oborN.TabIndex = 17;
-            // 
-            // gb_k
-            // 
-            this.gb_k.Controls.Add(this.cb_kat);
-            this.gb_k.Controls.Add(this.label7);
-            this.gb_k.Controls.Add(this.tb_katedraN);
-            this.gb_k.Location = new System.Drawing.Point(143, 83);
-            this.gb_k.Name = "gb_k";
-            this.gb_k.Size = new System.Drawing.Size(182, 199);
-            this.gb_k.TabIndex = 25;
-            this.gb_k.TabStop = false;
-            this.gb_k.Text = "Výběr a vyhledávání kateder";
-            // 
-            // cb_kat
-            // 
-            this.cb_kat.FormattingEnabled = true;
-            this.cb_kat.Location = new System.Drawing.Point(7, 19);
-            this.cb_kat.Name = "cb_kat";
-            this.cb_kat.Size = new System.Drawing.Size(168, 21);
-            this.cb_kat.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Název:";
-            // 
-            // tb_katedraN
-            // 
-            this.tb_katedraN.Location = new System.Drawing.Point(64, 46);
-            this.tb_katedraN.Name = "tb_katedraN";
-            this.tb_katedraN.Size = new System.Drawing.Size(111, 20);
-            this.tb_katedraN.TabIndex = 16;
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 35);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1107, 725);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1102, 725);
+            this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1102,17 +847,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_pvKr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_pKr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_PridatDoSem)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.gb_p.ResumeLayout(false);
-            this.gb_p.PerformLayout();
-            this.gb_g.ResumeLayout(false);
-            this.gb_g.PerformLayout();
-            this.gb_o.ResumeLayout(false);
-            this.gb_o.PerformLayout();
-            this.gb_k.ResumeLayout(false);
-            this.gb_k.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1165,29 +899,6 @@
         private System.Windows.Forms.Label lb_vyber;
         private System.Windows.Forms.ToolStripMenuItem vytvořitNovýZáznamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem upravitZáznamToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox gb_p;
-        private System.Windows.Forms.ComboBox cb_pre;
-        private System.Windows.Forms.ComboBox cb_semestry;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmb_povin;
-        private System.Windows.Forms.TextBox tb_predmetN;
-        private System.Windows.Forms.GroupBox gb_g;
-        private System.Windows.Forms.ComboBox cb_garant;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_garantN;
-        private System.Windows.Forms.GroupBox gb_o;
-        private System.Windows.Forms.ComboBox cb_obo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_oborN;
-        private System.Windows.Forms.GroupBox gb_k;
-        private System.Windows.Forms.ComboBox cb_kat;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tb_katedraN;
         private System.Windows.Forms.NumericUpDown nud_vKr;
         private System.Windows.Forms.NumericUpDown nud_pvKr;
         private System.Windows.Forms.NumericUpDown nud_pKr;
