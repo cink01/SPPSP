@@ -259,7 +259,7 @@
             this.gb_predmet.Controls.Add(this.tb_nazev);
             this.gb_predmet.Location = new System.Drawing.Point(3, 0);
             this.gb_predmet.Name = "gb_predmet";
-            this.gb_predmet.Size = new System.Drawing.Size(696, 335);
+            this.gb_predmet.Size = new System.Drawing.Size(696, 290);
             this.gb_predmet.TabIndex = 13;
             this.gb_predmet.TabStop = false;
             this.gb_predmet.Text = "Předmět";
@@ -460,7 +460,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(703, 374);
+            this.ClientSize = new System.Drawing.Size(703, 294);
             this.Controls.Add(this.gb_predmet);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

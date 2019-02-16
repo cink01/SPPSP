@@ -401,9 +401,7 @@ namespace SystemProPodporuStudijnichPlanu
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertZaznam(Zaznam.Zkr,
-                                       Zaznam.Obor,
-                                       Zaznam.Semestr);
+                        x.InsertZaznam(Zaznam.Zaz);
                         for (int i = 1; i <= Zaznam.Semestr; i++)
                             x.InsertPS(Zaznam.Zkr, i);
                     }
@@ -422,26 +420,26 @@ namespace SystemProPodporuStudijnichPlanu
             string Zzkr = "";
             if (cmb_zaznam.SelectedIndex != -1)
             {
-                VratZaznamData(out int id_z, out string zkr, out _, out string rok_o, out int PocSem);
+                VratZaznamData(out int id_z, out string zkr, out int ido, out string rok_o, out int PocSem);
                 using (FormCUZaznam Zaznam = new FormCUZaznam())
                 {
                     Zaznam.Text = "Upravit záznam";
                     Zaznam.Schov = false;
-                    Zaznam.Id = id_z.ToString();
+                    Zaznam.Id = id_z;
                     Zaznam.Zkr = zkr;
-                    Zaznam.Obor = rok_o;
+                    Zaznam.Obor = ido;
                     Zaznam.Semestr = PocSem;
-                    string rok_oborOld = rok_o;
+                    int oborOld = ido;
                     DataAccess a = new DataAccess();
                     DialogResult potvrzeni = Zaznam.ShowDialog();
                     if (potvrzeni == DialogResult.OK)
                     {
                         DataCrud x = new DataCrud();
-                        string rok_oborNew = Zaznam.Obor;
+                        int oborNew = Zaznam.Obor;
                         try
                         {
                             id_z = Convert.ToInt32(Zaznam.Id);
-                            if (rok_oborNew == rok_oborOld)
+                            if (oborNew == oborOld)
                             {
                                 PocSem = Zaznam.Semestr;
                                 int stare = a.GetZaznamSemestr(id_z);
@@ -466,9 +464,7 @@ namespace SystemProPodporuStudijnichPlanu
                                 try
                                 {
                                     x.DeleteZaznam(id_z);
-                                    x.InsertZaznam(Zaznam.Zkr,
-                                                   Zaznam.Obor,
-                                                   Zaznam.Semestr);
+                                    x.InsertZaznam(Zaznam.Zaz);
                                     for (int i = 1; i <= Zaznam.Semestr; i++)
                                         x.InsertPS(Zaznam.Zkr, i);
                                 }

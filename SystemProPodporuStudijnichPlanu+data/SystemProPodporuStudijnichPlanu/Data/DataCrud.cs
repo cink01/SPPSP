@@ -212,6 +212,26 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void InsertZaznam(Zaznam Z)
+        {
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor,pocetSem) values(@zz,@id_o,@pocetSem)", conn);
+                zaz.Parameters.AddWithValue("@zz", Z.Zkr_zaznam);
+                zaz.Parameters.AddWithValue("@id_o", Z.Id_obor);
+                zaz.Parameters.AddWithValue("@pocetSem",Z.PocetSem);
+                try
+                {
+                    conn.Open();
+                    zaz.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conn.Close();
+            }
+        }
         public void DeleteZaznam(int id)
         {
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))

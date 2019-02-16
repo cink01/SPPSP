@@ -76,6 +76,7 @@
             this.cmb_obor.Name = "cmb_obor";
             this.cmb_obor.Size = new System.Drawing.Size(138, 21);
             this.cmb_obor.TabIndex = 3;
+            this.cmb_obor.DropDown += new System.EventHandler(this.Cmb_obor_DropDown);
             this.cmb_obor.SelectedIndexChanged += new System.EventHandler(this.Cmb_obor_SelectedIndexChanged);
             // 
             // bt_close
