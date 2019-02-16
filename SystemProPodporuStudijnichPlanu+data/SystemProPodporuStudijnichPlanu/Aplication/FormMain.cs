@@ -495,9 +495,8 @@ namespace SystemProPodporuStudijnichPlanu
             FormCRUDmidstage x = new FormCRUDmidstage();
             x.Show();
         }
-    
-        private void Viditelnost(int i)
-        {
+    	private void ZměnyVeliZic(int i)
+    	{
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
             bt_smaz.Left = i > 6 ? 684 : 428;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
@@ -508,6 +507,20 @@ namespace SystemProPodporuStudijnichPlanu
             gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
             this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
             Tma();
+    	}
+        private void Viditelnost(int i)
+        {
+        	ZměnyVeliZic(i);
+          /*  vypisPopisPredmet.Left = i > 6 ? 684 : 428;
+            bt_smaz.Left = i > 6 ? 684 : 428;
+            nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
+            lb_celkem.Left = i > 6 ? 930 : 675;
+            l_pkr.Left = i > 6 ? 861 : 606;
+            l_pvk.Left = i > 6 ? 867 : 612;
+            l_vk.Left = i > 6 ? 860 : 605;
+            gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
+            this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
+            Tma();*/
             switch (i)
             {
                 case 12:
