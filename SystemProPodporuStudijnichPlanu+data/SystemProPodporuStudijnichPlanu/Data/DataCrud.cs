@@ -89,8 +89,45 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertPredmet(Predmet p)
+        public void InsertPredmetHromada(Predmet p)
         {
+            DataAccess da = new DataAccess();
+            da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
+            if (exist <= 0)
+            {
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                {
+                    SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni]) " +
+                        "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                    pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
+                    pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
+                    pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
+                    pred.Parameters.AddWithValue("@id_obor", p.Id_obor);
+                    pred.Parameters.AddWithValue("@id_v", p.Id_v);
+                    pred.Parameters.AddWithValue("@semestr_predmet", p.Semestr_predmet);
+                    pred.Parameters.AddWithValue("@id_orig", p.Id_orig);
+                    pred.Parameters.AddWithValue("@povinnost", p.Povinnost);
+                    pred.Parameters.AddWithValue("@prednaska", p.Prednaska);
+                    pred.Parameters.AddWithValue("@cviceni", p.Cviceni);
+                    pred.Parameters.AddWithValue("@kombi", p.Kombi);
+                    pred.Parameters.AddWithValue("@lab", p.Lab);
+                    pred.Parameters.AddWithValue("@jazyk", p.Jazyk);
+                    pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
+                    try
+                    {
+                        conn.Open();
+                        pred.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
+                }
+            }
+        }    
+            public void InsertPredmet(Predmet p)
+            {
             int i = p.Prerekvizita;
             if (i != -1)
             {
@@ -118,8 +155,6 @@ namespace SystemProPodporuStudijnichPlanu
                         pred.Parameters.AddWithValue("@zakonceni", p.Zakonceni);
                         pred.Parameters.AddWithValue("@prerekvizita", p.Prerekvizita);
                         pred.Parameters.AddWithValue("@popis", p.Popis);
-
-
                         try
                         {
                             conn.Open();

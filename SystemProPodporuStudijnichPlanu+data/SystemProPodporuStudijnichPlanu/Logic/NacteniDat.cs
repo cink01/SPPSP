@@ -27,8 +27,7 @@ namespace SystemProPodporuStudijnichPlanu
                     //naplnění dat do garantů
                     DC.InsertGarant(new Garant(fulldata[11], fulldata[15], fulldata[12]));
                     //naplnění předmětů bez popisu
-                    DC.InsertPredmet(new Predmet(fulldata[1], fulldata[2], fulldata[3], fulldata[5], fulldata[11], fulldata[6],
-                        fulldata[0], fulldata[10], fulldata[16], fulldata[17], fulldata[19], fulldata[20], fulldata[22], fulldata[4]));
+                    DC.InsertPredmetHromada(new Predmet(fulldata[1], fulldata[2], fulldata[3], fulldata[5], fulldata[11], fulldata[6],fulldata[0], fulldata[10], fulldata[16], fulldata[17], fulldata[19], fulldata[20], fulldata[22], fulldata[4]));
                 }
                 MessageBox.Show("Načtení dat do databéze proběhlo úspešně", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
