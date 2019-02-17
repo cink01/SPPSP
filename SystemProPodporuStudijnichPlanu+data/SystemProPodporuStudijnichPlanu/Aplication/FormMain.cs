@@ -428,6 +428,8 @@ namespace SystemProPodporuStudijnichPlanu
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
             vypisGarant1.Left = i > 6 ?786:428;
             bt_zobrazDGar.Left = i > 6 ? 684 : 428;
+            vypisPopisPredmet.Visible = false;
+            vypisGarant1.Visible = false;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
             lb_celkem.Left = i > 6 ? 930 : 675;
             l_pkr.Left = i > 6 ? 861 : 606;
@@ -520,6 +522,8 @@ namespace SystemProPodporuStudijnichPlanu
         {
             bt_smaz.Visible = true;
             bt_zobrazDGar.Visible = true;
+            vypisPopisPredmet.Visible = true;
+            vypisGarant1.Visible = false;
             switch (i)
             {
                 case 55:
@@ -901,7 +905,7 @@ namespace SystemProPodporuStudijnichPlanu
 
         private void Bt_zobrazDGar_Click(object sender, EventArgs e)
         {
-
+            vypisGarant1.Visible = true;
         }
     }
 }
