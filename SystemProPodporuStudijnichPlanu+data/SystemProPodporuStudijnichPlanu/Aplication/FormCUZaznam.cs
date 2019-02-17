@@ -28,7 +28,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 {
                     return -1;
                 }
-
             }
             set => tb_id.Text = value.ToString();
         }
@@ -66,6 +65,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DataAccess da = new DataAccess();
             Filling fill = new Filling();
             InitializeComponent();
+
+            errorProvider_Zaznam_zkratka.SetIconAlignment(tb_zkr, ErrorIconAlignment.MiddleRight);
+            errorProvider_Zaznam_zkratka.SetIconPadding(tb_zkr, 2);
+            errorProvider_Zaznam_zkratka.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+            errorProvider_Zaznam_obor.SetIconAlignment(cmb_obor, ErrorIconAlignment.MiddleRight);
+            errorProvider_Zaznam_obor.SetIconPadding(cmb_obor, 2);
+            errorProvider_Zaznam_obor.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
             obors = da.GetFullObor();
             obors.RemoveAt(0);
             fill.NaplnComboBox<Obor>(cmb_obor, obors);
@@ -77,7 +84,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 l_id.Visible = false;
                 tb_id.Visible = false;
             }
-
         }
         private void Cmb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -92,8 +98,38 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cmb_obor_DropDown(object sender, EventArgs e)
         {
-           /* Filling fill = new Filling();
-            fill.NajdiVComboBoxu<Obor>(cmb_obor, obors);*/
+            /* Filling fill = new Filling();
+             fill.NajdiVComboBoxu<Obor>(cmb_obor, obors);*/
+        }
+        private void Tb_zkr_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            errorProvider_Zaznam_zkratka.Clear();
+            if (tb_zkr.Text.Length == 0)
+            {
+                errorProvider_Zaznam_zkratka.SetError(tb_zkr, "Označení je vyžadováno.");
+                e.Cancel = true;
+            }
+        }
+        private void Cmb_obor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            errorProvider_Zaznam_obor.Clear();
+            if (cmb_obor.SelectedIndex == -1)
+            {
+                errorProvider_Zaznam_obor.SetError(cmb_obor, "Musí být vybrán obor.");
+                e.Cancel = true;
+            }
+        }
+        private void Bt_ok_Click(object sender, EventArgs e)
+        {
+            if (tb_zkr.Text != "" && cmb_obor.SelectedIndex != -1)
+                this.DialogResult = DialogResult.OK;
+            /*else
+                MessageBox.Show("Všechny požadované políčka musí byt vyplněny.");*/
+        }
+
+        private void Bt_close_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

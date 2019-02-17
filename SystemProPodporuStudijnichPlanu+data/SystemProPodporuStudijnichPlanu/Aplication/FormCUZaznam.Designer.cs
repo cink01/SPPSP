@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCUZaznam));
             this.nud_semestr = new System.Windows.Forms.NumericUpDown();
             this.cmb_obor = new System.Windows.Forms.ComboBox();
@@ -41,13 +42,18 @@
             this.l_zkr = new System.Windows.Forms.Label();
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
+            this.errorProvider_Zaznam_zkratka = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_Zaznam_obor = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).BeginInit();
             this.gb_Zaznam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Zaznam_zkratka)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Zaznam_obor)).BeginInit();
             this.SuspendLayout();
             // 
             // nud_semestr
             // 
             this.nud_semestr.BackColor = System.Drawing.Color.White;
+            this.nud_semestr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_semestr.Location = new System.Drawing.Point(95, 44);
             this.nud_semestr.Maximum = new decimal(new int[] {
             12,
@@ -61,7 +67,8 @@
             0});
             this.nud_semestr.Name = "nud_semestr";
             this.nud_semestr.Size = new System.Drawing.Size(48, 20);
-            this.nud_semestr.TabIndex = 2;
+            this.nud_semestr.TabIndex = 3;
+            this.nud_semestr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nud_semestr.Value = new decimal(new int[] {
             6,
             0,
@@ -75,9 +82,10 @@
             this.cmb_obor.Location = new System.Drawing.Point(95, 96);
             this.cmb_obor.Name = "cmb_obor";
             this.cmb_obor.Size = new System.Drawing.Size(138, 21);
-            this.cmb_obor.TabIndex = 3;
+            this.cmb_obor.TabIndex = 2;
             this.cmb_obor.DropDown += new System.EventHandler(this.Cmb_obor_DropDown);
             this.cmb_obor.SelectedIndexChanged += new System.EventHandler(this.Cmb_obor_SelectedIndexChanged);
+            this.cmb_obor.Validating += new System.ComponentModel.CancelEventHandler(this.Cmb_obor_Validating);
             // 
             // bt_close
             // 
@@ -85,25 +93,26 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(109, 123);
+            this.bt_close.Location = new System.Drawing.Point(126, 124);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 5;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
+            this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
             // 
             // bt_ok
             // 
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
-            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(33, 123);
+            this.bt_ok.Location = new System.Drawing.Point(50, 124);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
-            this.bt_ok.TabIndex = 2;
+            this.bt_ok.TabIndex = 4;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
+            this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // gb_Zaznam
             // 
@@ -121,7 +130,7 @@
             this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gb_Zaznam.Location = new System.Drawing.Point(5, 2);
             this.gb_Zaznam.Name = "gb_Zaznam";
-            this.gb_Zaznam.Size = new System.Drawing.Size(239, 159);
+            this.gb_Zaznam.Size = new System.Drawing.Size(260, 159);
             this.gb_Zaznam.TabIndex = 12;
             this.gb_Zaznam.TabStop = false;
             this.gb_Zaznam.Text = "Záznam Plánu";
@@ -131,10 +140,10 @@
             this.bt_info.BackColor = System.Drawing.Color.Azure;
             this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_info.Location = new System.Drawing.Point(98, 123);
+            this.bt_info.Location = new System.Drawing.Point(120, 124);
             this.bt_info.Name = "bt_info";
             this.bt_info.Size = new System.Drawing.Size(19, 23);
-            this.bt_info.TabIndex = 13;
+            this.bt_info.TabIndex = 6;
             this.bt_info.Text = "?";
             this.bt_info.UseVisualStyleBackColor = false;
             this.bt_info.Visible = false;
@@ -156,7 +165,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
-            this.tb_id.TabIndex = 6;
+            this.tb_id.TabIndex = 7;
             this.tb_id.Text = "-";
             // 
             // l_email
@@ -192,7 +201,16 @@
             this.tb_zkr.Location = new System.Drawing.Point(95, 70);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
-            this.tb_zkr.TabIndex = 4;
+            this.tb_zkr.TabIndex = 1;
+            this.tb_zkr.Validating += new System.ComponentModel.CancelEventHandler(this.Tb_zkr_Validating);
+            // 
+            // errorProvider_Zaznam_zkratka
+            // 
+            this.errorProvider_Zaznam_zkratka.ContainerControl = this;
+            // 
+            // errorProvider_Zaznam_obor
+            // 
+            this.errorProvider_Zaznam_obor.ContainerControl = this;
             // 
             // FormCUZaznam
             // 
@@ -201,7 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(248, 166);
+            this.ClientSize = new System.Drawing.Size(271, 165);
             this.Controls.Add(this.gb_Zaznam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUZaznam";
@@ -210,6 +228,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).EndInit();
             this.gb_Zaznam.ResumeLayout(false);
             this.gb_Zaznam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Zaznam_zkratka)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Zaznam_obor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +247,7 @@
         private System.Windows.Forms.Label l_id;
         private System.Windows.Forms.TextBox tb_zkr;
         private System.Windows.Forms.Button bt_info;
+        private System.Windows.Forms.ErrorProvider errorProvider_Zaznam_zkratka;
+        private System.Windows.Forms.ErrorProvider errorProvider_Zaznam_obor;
     }
 }
