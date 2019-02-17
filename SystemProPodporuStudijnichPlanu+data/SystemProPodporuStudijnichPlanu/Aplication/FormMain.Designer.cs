@@ -764,6 +764,7 @@
             0,
             0,
             0});
+            this.nud_PridatDoSem.ValueChanged += new System.EventHandler(this.Nud_PridatDoSem_ValueChanged);
             // 
             // FormMain
             // 

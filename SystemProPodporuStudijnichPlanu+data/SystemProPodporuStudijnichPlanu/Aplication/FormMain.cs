@@ -58,36 +58,37 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
+        private void PripravPresun(int v,int o,int z)
+        {
+            Sporty.Clear();
+            predmetyLichy.Clear();
+            predmetySudy.Clear();
+            DataAccess da = new DataAccess();
+            Sporty = da.SportyNotInVyber(v, o, z);
+            predmetyLichy = da.GetPredmetFullLichyVyberKromeSportu(o, z);
+            predmetySudy = da.GetPredmetFullSudyVyberKromeSportu(o, z);
+        }
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
             VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
             int vyber = (int)nud_PridatDoSem.Value;
+            PripravPresun(vyber, id_o, id_z);
             FormPridavani FP = new FormPridavani();
-            DataAccess da = new DataAccess();
-
-
-            int count;
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
             {
-                count = 1;
-              //  predmetyLichy = predmetyLichy.Except(da.GetPredmetZVyberu(vyber, id_z)).ToList();
+                predmetyLichy.AddRange(Sporty);
                 FP.PredmetySeznam = predmetyLichy;
             }
             else
             {
-                count = 2;
-               // predmetySudy = predmetySudy.Except(da.GetPredmetZVyberu(vyber, id_z)).ToList();
+                predmetySudy.AddRange(Sporty);
                 FP.PredmetySeznam = predmetySudy;
             }
             FP.RefreshSeznam();
             DialogResult potvrzeni = FP.ShowDialog();
             if (potvrzeni == DialogResult.OK)
             {
-                if (count == 1)
-                    predmetyLichy = FP.PredmetySeznam;
-                if (count == 2)
-                    predmetySudy = FP.PredmetySeznam;
                 foreach (Predmet p in FP.PredmetyAdd)
                 {
                     data.InsertVyber(p.Id_predmet, vyber, id_z);
@@ -146,15 +147,9 @@ namespace SystemProPodporuStudijnichPlanu
         private void FillHlavniListy()
         {
             ClearListy();
-            VratZaznamData(out int idz, out _, out int obor, out int semestry);
+            VratZaznamData(out _, out _, out _, out int semestry);
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
-            DataAccess db = new DataAccess();
-            predmetyLichy = db.GetPredmetFullLichyVyber(obor, idz);
-            predmetySudy = db.GetPredmetFullSudyVyber(obor, idz);
-            Sporty = db.GetPredmetBySemestr(0, obor);
-            predmetyLichy.AddRange(Sporty);
-            predmetySudy.AddRange(Sporty);
             for (int i = 1; i <= semestry; i++)
                 NaplnitIndividualy(i);
         }
@@ -307,9 +302,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void ClearListy()
         {
-            Sporty.Clear();
-            predmetySudy.Clear();
-            predmetyLichy.Clear();
             for (int i = 1; i <= 12; i++)
                 ClearLB(i);
         }
@@ -899,6 +891,11 @@ namespace SystemProPodporuStudijnichPlanu
                 default:
                     return -1;
             }
+        }
+
+        private void Nud_PridatDoSem_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

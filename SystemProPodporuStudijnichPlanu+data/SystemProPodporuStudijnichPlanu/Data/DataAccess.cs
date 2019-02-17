@@ -124,6 +124,14 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
+        public List<Predmet> SportyNotInVyber(int semestr,int id_obor, int id_z)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from [predmet] where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet NOT IN(Select [predmet].id_predmet from ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE [plansemestr].id_zaznam='{id_z}' AND [plansemestr].sem_ps='{semestr}' )").ToList();
+                return vystup;
+            }
+        }
         public List<Predmet> GetPredmetBySemestrFull(int semestr_predmet)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -175,7 +183,7 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetFullLichyVyber(int id_obor, int izaz)
+        public List<Predmet> GetPredmetFullLichyVyber(int id_obor, int izaz,int PocSem)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
@@ -188,7 +196,20 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetFullSudyVyber(int id_obor, int izaz)
+        public List<Predmet> GetPredmetFullLichyVyberKromeSportu(int id_obor, int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}' AND [predmet].id_predmet NOT IN(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullSudyVyberKromeSportu(int id_obor, int izaz)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
@@ -196,7 +217,7 @@ namespace SystemProPodporuStudijnichPlanu
                     $"AND [predmet].id_predmet NOT IN(" +
                     $"SELECT [predmet].id_predmet " +
                     $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
-                    $"WHERE [plansemestr].id_zaznam='{izaz}')" +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}'  AND [predmet].id_predmet NOT IN(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
                     $"ORDER BY semestr_predmet,povinnost").ToList();
                 return vystup;
             }
