@@ -78,6 +78,7 @@
             // cmb_obor
             // 
             this.cmb_obor.BackColor = System.Drawing.Color.White;
+            this.cmb_obor.DropDownWidth = 240;
             this.cmb_obor.FormattingEnabled = true;
             this.cmb_obor.Location = new System.Drawing.Point(95, 96);
             this.cmb_obor.Name = "cmb_obor";

@@ -98,8 +98,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cmb_obor_DropDown(object sender, EventArgs e)
         {
-            /* Filling fill = new Filling();
-             fill.NajdiVComboBoxu<Obor>(cmb_obor, obors);*/
+           /* Filling f = new Filling();
+            f.DynSirka<Obor>(cmb_obor, obors);*/
         }
         private void Tb_zkr_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {

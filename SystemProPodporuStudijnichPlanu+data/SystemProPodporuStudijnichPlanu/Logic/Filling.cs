@@ -20,7 +20,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             {
                 foreach (T temp in li)
                     cb.Items.Add(temp);
-
             }
             catch (Exception ex)
             {
@@ -36,6 +35,20 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 if (o.ToString().IndexOf(x.Text, Comp) >= 0)
                 {
                     x.Items.Add(o);
+                    int tmp = TextRenderer.MeasureText(o.ToString(), x.Font).Width;
+                    if (sirka < tmp)
+                        sirka = tmp;
+                }
+            }
+            x.DropDownWidth = sirka;
+        }
+        public void DynSirka<T>(ComboBox x, List<T> temp)
+        {
+            int sirka = 1;
+            foreach (T o in temp)
+            {
+                if (o.ToString().IndexOf(x.Text, Comp) >= 0)
+                {
                     int tmp = TextRenderer.MeasureText(o.ToString(), x.Font).Width;
                     if (sirka < tmp)
                         sirka = tmp;
@@ -191,22 +204,22 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             {
                 foreach (Predmet n in collection)
                 {
-                    if (n.Povinnost == "\"Povinný předmět\"" || n.Povinnost == "\"Cizí jazyk\"")
+                    if (n.Povinnost == "Povinný předmět" || n.Povinnost == "Cizí jazyk")
                     {
                         kr.Povinne += n.Kredit_predmet;
                         continue;
                     }
-                    if (n.Povinnost == "\"Volitelný předmět\"")
+                    if (n.Povinnost == "Volitelný předmět")
                     {
                         kr.Volitelny += n.Kredit_predmet;
                         continue;
                     }
-                    if (n.Povinnost == "\"Povinně volitelný\"")
+                    if (n.Povinnost == "Povinně volitelný")
                     {
                         kr.PVolitelny += n.Kredit_predmet;
                         continue;
                     }
-                    if (n.Povinnost == "\"Volitelný předmět (sportovní aktivita)\"")
+                    if (n.Povinnost == "Volitelný předmět (sportovní aktivita)")
                     {
                         kr.Sport += n.Kredit_predmet;
                         continue;
@@ -219,15 +232,15 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         {
             switch (n.Povinnost)
             {
-                case "\"Povinný předmět\"":
-                case "\"Cizí jazyk\"":
+                case "Povinný předmět":
+                case "Cizí jazyk":
                     NUDP.Value -= n.Kredit_predmet;
                     break;
-                case "\"Volitelný předmět\"":
-                case "\"Volitelný předmět (sportovní aktivita)\"":
+                case "Volitelný předmět":
+                case "Volitelný předmět (sportovní aktivita)":
                     NUDV.Value -= n.Kredit_predmet;
                     break;
-                case "\"Povinně volitelný\"":
+                case "Povinně volitelný":
                     NUDPV.Value -= n.Kredit_predmet;
                     break;
                 default:

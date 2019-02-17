@@ -426,14 +426,15 @@ namespace SystemProPodporuStudijnichPlanu
         private void ZměnyVeliZic(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
-            bt_smaz.Left = i > 6 ? 684 : 428;
+            vypisGarant1.Left = i > 6 ?786:428;
+            bt_zobrazDGar.Left = i > 6 ? 684 : 428;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
             lb_celkem.Left = i > 6 ? 930 : 675;
             l_pkr.Left = i > 6 ? 861 : 606;
             l_pvk.Left = i > 6 ? 867 : 612;
             l_vk.Left = i > 6 ? 860 : 605;
             gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
-            this.Size = i > 6 ? new Size(1122, 768) : new Size(859, 768);
+            this.Size = i > 6 ? new Size(1122, 731) : new Size(860, 731);
             Tma();
         }
         private void Viditelnost(int i)
@@ -518,6 +519,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void DeselectnutiListu(int i)
         {
             bt_smaz.Visible = true;
+            bt_zobrazDGar.Visible = true;
             switch (i)
             {
                 case 55:
@@ -529,7 +531,6 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                 case 12:
                     {
-
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
@@ -894,6 +895,11 @@ namespace SystemProPodporuStudijnichPlanu
         }
 
         private void Nud_PridatDoSem_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Bt_zobrazDGar_Click(object sender, EventArgs e)
         {
 
         }
