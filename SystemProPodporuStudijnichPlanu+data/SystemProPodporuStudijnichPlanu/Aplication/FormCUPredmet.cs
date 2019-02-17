@@ -104,14 +104,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 if ("Zápočet" == cb_zakončení.GetItemText(cb_zakončení.SelectedItem))
-                    return "\"ZA\"";
+                    return "ZA";
                 else
-                    return "\"ZK\"";
+                    return "ZK";
 
             }
             set
             {
-                if (value == "\"ZA\"")
+                if (value == "ZA")
                     cb_zakončení.SelectedIndex = cb_zakončení.FindString("Zápočet");
                 else
                     cb_zakončení.SelectedIndex = cb_zakončení.FindString("Zkouška");
