@@ -221,20 +221,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Bt_upravit_Click(object sender, EventArgs e)
         {
-            if (rb_garant.Checked == true)
+            if (rb_garant.Checked == true && cb_garant.SelectedIndex != -1)
             {
                 EditGarant();
             }
-            if (rb_predmet.Checked == true)
+            if (rb_predmet.Checked == true && cb_pre.SelectedIndex != -1)
             {
                 EditPredmet();
             }
-            if (rb_obor.Checked == true)
+            if (rb_obor.Checked == true && cb_obo.SelectedIndex != -1)
             {
                 EditObor();
             }
-
-            if (rb_katedra.Checked == true)
+            if (rb_katedra.Checked == true && cb_kat.SelectedIndex != -1)
             {
                 EditKatedra();
             }
@@ -713,6 +712,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     nd.ProvedPopis(cesta);
                 }
             }
+        }
+
+        private void Cb_garant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filling f = new Filling();
+            f.FillGarantDetail(cb_garant, vypisGarant_Mid);
         }
     }
 }

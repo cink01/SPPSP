@@ -69,6 +69,19 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 tmp = null;
             predmets = tmp;
         }
+        public void FillGarantDetail(ComboBox cb, VypisGarant v)
+        {
+            try
+            {
+                Garant g = (Garant)cb.SelectedItem;
+                DataAccess da = new DataAccess();
+                v.Konzultace = g.Konz_v;
+                v.Telefon = g.Tel_v;
+                v.Email = g.Email_V;
+                v.Katedra = da.GetKatedraById(g.Id_k);
+            }
+            catch { }
+        }
         public void FillDetail(ListBox LB, VypisPopisPredmet v)
         {
             try

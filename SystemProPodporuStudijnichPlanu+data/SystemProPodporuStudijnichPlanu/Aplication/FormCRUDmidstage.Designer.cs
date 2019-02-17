@@ -58,12 +58,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.povolitSprávuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hromadnéNačteníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.přidatPopisyKPředmětůmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vypisGarant_Mid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
+            this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -293,6 +294,7 @@
             this.cb_garant.Size = new System.Drawing.Size(169, 21);
             this.cb_garant.TabIndex = 20;
             this.cb_garant.DropDown += new System.EventHandler(this.Cb_garant_Hledani);
+            this.cb_garant.SelectedIndexChanged += new System.EventHandler(this.Cb_garant_SelectedIndexChanged);
             // 
             // gb_p
             // 
@@ -401,26 +403,6 @@
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
             // 
-            // vypisPopisPredmetMid
-            // 
-            this.vypisPopisPredmetMid.Cviceni = "";
-            this.vypisPopisPredmetMid.Garant = "";
-            this.vypisPopisPredmetMid.Jazyk = "";
-            this.vypisPopisPredmetMid.Kombi = "";
-            this.vypisPopisPredmetMid.Kredit = "";
-            this.vypisPopisPredmetMid.Lab = "";
-            this.vypisPopisPredmetMid.Location = new System.Drawing.Point(734, 27);
-            this.vypisPopisPredmetMid.Name = "vypisPopisPredmetMid";
-            this.vypisPopisPredmetMid.P = null;
-            this.vypisPopisPredmetMid.Popis = "";
-            this.vypisPopisPredmetMid.Povinnost = "";
-            this.vypisPopisPredmetMid.Prednaska = "";
-            this.vypisPopisPredmetMid.Prerekvizita = "";
-            this.vypisPopisPredmetMid.Size = new System.Drawing.Size(388, 341);
-            this.vypisPopisPredmetMid.TabIndex = 24;
-            this.vypisPopisPredmetMid.Zakončení = "";
-            this.vypisPopisPredmetMid.Zkr = "";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -463,6 +445,39 @@
             this.přidatPopisyKPředmětůmToolStripMenuItem.Text = "Přidat popisy k předmětům";
             this.přidatPopisyKPředmětůmToolStripMenuItem.Click += new System.EventHandler(this.PřidatPopisyKPředmětůmToolStripMenuItem_Click);
             // 
+            // vypisGarant_Mid
+            // 
+            this.vypisGarant_Mid.Email = "";
+            this.vypisGarant_Mid.G = null;
+            this.vypisGarant_Mid.Katedra = "";
+            this.vypisGarant_Mid.Konzultace = "";
+            this.vypisGarant_Mid.Location = new System.Drawing.Point(322, 254);
+            this.vypisGarant_Mid.Name = "vypisGarant_Mid";
+            this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 114);
+            this.vypisGarant_Mid.TabIndex = 26;
+            this.vypisGarant_Mid.Telefon = "";
+            // 
+            // vypisPopisPredmetMid
+            // 
+            this.vypisPopisPredmetMid.Cviceni = "";
+            this.vypisPopisPredmetMid.Garant = "";
+            this.vypisPopisPredmetMid.Jazyk = "";
+            this.vypisPopisPredmetMid.Kombi = "";
+            this.vypisPopisPredmetMid.Kredit = "";
+            this.vypisPopisPredmetMid.Lab = "";
+            this.vypisPopisPredmetMid.Location = new System.Drawing.Point(734, 27);
+            this.vypisPopisPredmetMid.Name = "vypisPopisPredmetMid";
+            this.vypisPopisPredmetMid.P = null;
+            this.vypisPopisPredmetMid.Popis = "";
+            this.vypisPopisPredmetMid.Povinnost = "";
+            this.vypisPopisPredmetMid.Prednaska = "";
+            this.vypisPopisPredmetMid.Prerekvizita = "";
+            this.vypisPopisPredmetMid.Semestr = "";
+            this.vypisPopisPredmetMid.Size = new System.Drawing.Size(388, 341);
+            this.vypisPopisPredmetMid.TabIndex = 24;
+            this.vypisPopisPredmetMid.Zakončení = "";
+            this.vypisPopisPredmetMid.Zkr = "";
+            // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +485,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(1126, 372);
+            this.Controls.Add(this.vypisGarant_Mid);
             this.Controls.Add(this.vypisPopisPredmetMid);
             this.Controls.Add(this.gb_p);
             this.Controls.Add(this.gb_g);
@@ -540,5 +556,6 @@
         private System.Windows.Forms.ToolStripMenuItem hromadnéNačteníToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem přidatPopisyKPředmětůmToolStripMenuItem;
+        private Komponenty.VypisGarant vypisGarant_Mid;
     }
 }

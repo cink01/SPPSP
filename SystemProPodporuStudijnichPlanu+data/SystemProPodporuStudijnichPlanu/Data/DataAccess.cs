@@ -319,6 +319,12 @@ namespace SystemProPodporuStudijnichPlanu
             getPreById.Parameters.AddWithValue("@id_predmet", id_predmet);
             return (string)getPreById.ExecuteScalar();
         }
+        public string GetKatedraById(int id_k)
+        {
+            SqlCommand getKatById = new SqlCommand("SELECT naz_k FROM [katedra]  WHERE id_k=@id_k", GetConnection());
+            getKatById.Parameters.AddWithValue("@id_k", id_k);
+            return (string)getKatById.ExecuteScalar();
+        }
         public string GetOborRok(int o)
         {
             SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());
