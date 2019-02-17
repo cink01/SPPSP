@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Aplication;
 using SystemProPodporuStudijnichPlanu.Logic;
@@ -60,20 +61,23 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
-
-            //temp.Clear();
             VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
             int vyber = (int)nud_PridatDoSem.Value;
             FormPridavani FP = new FormPridavani();
+            DataAccess da = new DataAccess();
+
+
             int count;
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
             {
                 count = 1;
+              //  predmetyLichy = predmetyLichy.Except(da.GetPredmetZVyberu(vyber, id_z)).ToList();
                 FP.PredmetySeznam = predmetyLichy;
             }
             else
             {
                 count = 2;
+               // predmetySudy = predmetySudy.Except(da.GetPredmetZVyberu(vyber, id_z)).ToList();
                 FP.PredmetySeznam = predmetySudy;
             }
             FP.RefreshSeznam();
@@ -528,10 +532,12 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         Filling fill = new Filling();
                         fill.FillDetail(VratListBox(i), vypisPopisPredmet);
+                        urceniZvolenehoListu = i;
                         break;
                     }
                 case 12:
                     {
+
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }

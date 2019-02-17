@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
@@ -54,7 +50,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             Close();
         }
-        private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)//predelat podle videa a nejspis vyuzit tlacitka a v selectu urobit popis na kazdou stranu na popis urobit funkci a tu vyuzivat tady i ve formMain
+        private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filling fill = new Filling();
             fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);

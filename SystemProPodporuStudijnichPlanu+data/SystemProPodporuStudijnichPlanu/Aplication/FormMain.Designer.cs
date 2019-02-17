@@ -71,12 +71,12 @@
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -357,9 +357,9 @@
             this.btn_pridat.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_pridat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_pridat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_pridat.Location = new System.Drawing.Point(513, 16);
+            this.btn_pridat.Location = new System.Drawing.Point(574, 12);
             this.btn_pridat.Name = "btn_pridat";
-            this.btn_pridat.Size = new System.Drawing.Size(104, 20);
+            this.btn_pridat.Size = new System.Drawing.Size(104, 21);
             this.btn_pridat.TabIndex = 20;
             this.btn_pridat.Text = "&Přidat";
             this.btn_pridat.UseVisualStyleBackColor = false;
@@ -557,9 +557,9 @@
             this.bt_smaz.BackColor = System.Drawing.Color.LightCoral;
             this.bt_smaz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smaz.Location = new System.Drawing.Point(683, 382);
+            this.bt_smaz.Location = new System.Drawing.Point(680, 383);
             this.bt_smaz.Name = "bt_smaz";
-            this.bt_smaz.Size = new System.Drawing.Size(104, 20);
+            this.bt_smaz.Size = new System.Drawing.Size(104, 42);
             this.bt_smaz.TabIndex = 60;
             this.bt_smaz.Text = "Smaž vybraný";
             this.bt_smaz.UseVisualStyleBackColor = false;
@@ -569,7 +569,7 @@
             // cmb_zaznam
             // 
             this.cmb_zaznam.FormattingEnabled = true;
-            this.cmb_zaznam.Location = new System.Drawing.Point(158, 15);
+            this.cmb_zaznam.Location = new System.Drawing.Point(159, 12);
             this.cmb_zaznam.Name = "cmb_zaznam";
             this.cmb_zaznam.Size = new System.Drawing.Size(113, 21);
             this.cmb_zaznam.TabIndex = 62;
@@ -578,7 +578,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 19);
+            this.label2.Location = new System.Drawing.Point(80, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 63;
@@ -659,6 +659,27 @@
             this.l_pkr.TabIndex = 78;
             this.l_pkr.Text = "Kredity z povinných předmětů:";
             // 
+            // vypisPopisPredmet
+            // 
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 34);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Semestr = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
+            // 
             // nud_vKr
             // 
             this.nud_vKr.BackColor = System.Drawing.Color.White;
@@ -714,7 +735,7 @@
             // lb_vyber
             // 
             this.lb_vyber.AutoSize = true;
-            this.lb_vyber.Location = new System.Drawing.Point(370, 20);
+            this.lb_vyber.Location = new System.Drawing.Point(425, 16);
             this.lb_vyber.Name = "lb_vyber";
             this.lb_vyber.Size = new System.Drawing.Size(76, 13);
             this.lb_vyber.TabIndex = 70;
@@ -723,7 +744,7 @@
             // nud_PridatDoSem
             // 
             this.nud_PridatDoSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_PridatDoSem.Location = new System.Drawing.Point(452, 16);
+            this.nud_PridatDoSem.Location = new System.Drawing.Point(508, 12);
             this.nud_PridatDoSem.Maximum = new decimal(new int[] {
             12,
             0,
@@ -743,27 +764,6 @@
             0,
             0,
             0});
-            // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Cviceni = "";
-            this.vypisPopisPredmet.Garant = "";
-            this.vypisPopisPredmet.Jazyk = "";
-            this.vypisPopisPredmet.Kombi = "";
-            this.vypisPopisPredmet.Kredit = "";
-            this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(683, 35);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.P = null;
-            this.vypisPopisPredmet.Popis = "";
-            this.vypisPopisPredmet.Povinnost = "";
-            this.vypisPopisPredmet.Prednaska = "";
-            this.vypisPopisPredmet.Prerekvizita = "";
-            this.vypisPopisPredmet.Semestr = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
-            this.vypisPopisPredmet.TabIndex = 77;
-            this.vypisPopisPredmet.Zakončení = "";
-            this.vypisPopisPredmet.Zkr = "";
             // 
             // FormMain
             // 
