@@ -44,6 +44,7 @@
             this.tb_zkr = new System.Windows.Forms.TextBox();
             this.errorProvider_Zaznam_zkratka = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_Zaznam_obor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.VypisObor_Zaznam = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             ((System.ComponentModel.ISupportInitialize)(this.nud_semestr)).BeginInit();
             this.gb_Zaznam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Zaznam_zkratka)).BeginInit();
@@ -129,7 +130,7 @@
             this.gb_Zaznam.Controls.Add(this.l_id);
             this.gb_Zaznam.Controls.Add(this.tb_zkr);
             this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gb_Zaznam.Location = new System.Drawing.Point(5, 2);
+            this.gb_Zaznam.Location = new System.Drawing.Point(7, 24);
             this.gb_Zaznam.Name = "gb_Zaznam";
             this.gb_Zaznam.Size = new System.Drawing.Size(260, 159);
             this.gb_Zaznam.TabIndex = 12;
@@ -213,6 +214,20 @@
             // 
             this.errorProvider_Zaznam_obor.ContainerControl = this;
             // 
+            // vypisObor1
+            // 
+            this.VypisObor_Zaznam.Location = new System.Drawing.Point(271, 2);
+            this.VypisObor_Zaznam.Name = "vypisObor1";
+            this.VypisObor_Zaznam.P = "";
+            this.VypisObor_Zaznam.Praxe = "";
+            this.VypisObor_Zaznam.Pv = "";
+            this.VypisObor_Zaznam.Rok = "";
+            this.VypisObor_Zaznam.Size = new System.Drawing.Size(388, 229);
+            this.VypisObor_Zaznam.TabIndex = 13;
+            this.VypisObor_Zaznam.V = "";
+            this.VypisObor_Zaznam.Vs = "";
+            this.VypisObor_Zaznam.Zkr = "";
+            // 
             // FormCUZaznam
             // 
             this.AcceptButton = this.bt_ok;
@@ -220,7 +235,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(271, 165);
+            this.ClientSize = new System.Drawing.Size(663, 233);
+            this.Controls.Add(this.VypisObor_Zaznam);
             this.Controls.Add(this.gb_Zaznam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUZaznam";
@@ -250,5 +266,6 @@
         private System.Windows.Forms.Button bt_info;
         private System.Windows.Forms.ErrorProvider errorProvider_Zaznam_zkratka;
         private System.Windows.Forms.ErrorProvider errorProvider_Zaznam_obor;
+        private Komponenty.VypisObor VypisObor_Zaznam;
     }
 }

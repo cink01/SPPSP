@@ -136,6 +136,18 @@
     <Compile Include="Komponenty\VypisGarant.Designer.cs">
       <DependentUpon>VypisGarant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Komponenty\VypisKatedra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Komponenty\VypisKatedra.Designer.cs">
+      <DependentUpon>VypisKatedra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Komponenty\VypisObor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Komponenty\VypisObor.Designer.cs">
+      <DependentUpon>VypisObor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Komponenty\VypisPopisPredmet.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Komponenty\VypisGarant.resx">
       <DependentUpon>VypisGarant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Komponenty\VypisKatedra.resx">
+      <DependentUpon>VypisKatedra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Komponenty\VypisObor.resx">
+      <DependentUpon>VypisObor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Komponenty\VypisPopisPredmet.resx">
       <DependentUpon>VypisPopisPredmet.cs</DependentUpon>

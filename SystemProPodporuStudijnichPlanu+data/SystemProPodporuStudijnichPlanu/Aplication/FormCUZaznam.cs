@@ -91,6 +91,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 bt_info.Visible = true;
             }
+            Filling f = new Filling();
+            f.FillOborDetail(cmb_obor, VypisObor_Zaznam);
         }
         private void Bt_info_Click(object sender, EventArgs e)
         {

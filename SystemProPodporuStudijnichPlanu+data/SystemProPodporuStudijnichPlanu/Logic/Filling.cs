@@ -82,6 +82,22 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 tmp = null;
             predmets = tmp;
         }
+        public void FillOborDetail(ComboBox cb, VypisObor v)
+        {
+            try
+            {
+                Obor o = (Obor)cb.SelectedItem;
+                DataAccess da = new DataAccess();
+                v.Zkr = o.Zkr_obor;
+                v.Rok = o.Rok_obor;
+                v.P = o.P_obor.ToString();
+                v.Pv = o.Pv_obor.ToString();
+                v.V=o.V_obor.ToString();
+                v.Vs =o.Vs_obor.ToString();
+                v.Praxe = o.Praxe;
+            }
+            catch { }
+        }
         public void FillGarantDetail(ComboBox cb, VypisGarant v)
         {
             try
