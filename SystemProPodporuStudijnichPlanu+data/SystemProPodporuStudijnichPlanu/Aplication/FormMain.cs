@@ -906,6 +906,8 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_zobrazDGar_Click(object sender, EventArgs e)
         {
             vypisGarant1.Visible = true;
+            Filling f = new Filling();
+            f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarant1);
         }
     }
 }

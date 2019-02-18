@@ -78,44 +78,6 @@ namespace SystemProPodporuStudijnichPlanu
                 return connection.Query<Garant>($"SELECT * FROM [garant] WHERE id_k='{ikatedra}'").ToList();
             }
         }
-        
-        public List<Predmet> GetPredmetFullSudy(string obor)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 )").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetFullLichy(string obor)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * " +
-                    $"from predmet " +
-                    $"where id_obor='{GetOborId(obor)}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
-                    $"ORDER BY semestr_predmet,povinnost").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetFullLichy(int id_obor)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5)" +
-                    $"ORDER BY semestr_predmet,povinnost").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetFullSudy(int id_obor)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
-                    $"ORDER BY semestr_predmet,povinnost").ToList();
-                return vystup;
-            }
-        }
         public List<Predmet> GetPredmetBySemestr(int semestr_predmet, int id_obor)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -124,7 +86,7 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> SportyNotInVyber(int semestr,int id_obor, int id_z)
+        public List<Predmet> SportyNotInVyber(int semestr, int id_obor, int id_z)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
             {
@@ -140,28 +102,6 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-        public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, string rok)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>(
-                    $"SELECT [predmet].* " +
-                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] NATURAL JOIN [obor]" +
-                    $" WHERE [obor].rok_obor='{ rok }'AND [zaznam].zkr_zaznam='{zaznam}'AND [plansemestr].sem_ps='{semestr}'").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetZVyberu(int seme, string zazn, int iobor)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>(
-                    $"SELECT [predmet].* " +
-                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] WHERE [predmet].id_obor='{ iobor }'AND [zaznam].zkr_zaznam='{zazn}'AND [plansemestr].sem_ps='{seme}'" +
-                    $"ORDER BY [predmet].semestr_predmet").ToList();
-                return vystup;
-            }
-        }
         public List<Predmet> GetPredmetZVyberu(int seme, int izaz)
         {
             using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
@@ -170,29 +110,6 @@ namespace SystemProPodporuStudijnichPlanu
                     $"SELECT [predmet].* " +
                     $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  WHERE [plansemestr].id_zaznam='{izaz}'AND [plansemestr].sem_ps='{seme}'" +
                     $"ORDER BY [predmet].semestr_predmet").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetyVyberFull(int izaz)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>(
-                    $"SELECT [predmet].* FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
-                    $"WHERE [plansemestr].id_zaznam='{izaz}'").ToList();
-                return vystup;
-            }
-        }
-        public List<Predmet> GetPredmetFullLichyVyber(int id_obor, int izaz,int PocSem)
-        {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
-            {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
-                    $"AND [predmet].id_predmet NOT IN(" +
-                    $"SELECT [predmet].id_predmet " +
-                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
-                    $"WHERE [plansemestr].id_zaznam='{izaz}')" +
-                    $"ORDER BY semestr_predmet,povinnost").ToList();
                 return vystup;
             }
         }
@@ -307,6 +224,13 @@ namespace SystemProPodporuStudijnichPlanu
                 return connection.Query<Obor>($"SELECT * FROM [obor]  WHERE id_obor='{id_obor}'").SingleOrDefault();
             }
         }
+        public Garant GetFullGarantById(int id_v)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Garant>($"SELECT * FROM [garant]  WHERE id_v='{id_v}'").SingleOrDefault();
+            }
+        }
         public string GetGarantById(int id_v)
         {
             SqlCommand getGarById = new SqlCommand("SELECT jmeno_v FROM [garant]  WHERE id_v=@id_v", GetConnection());
@@ -325,12 +249,7 @@ namespace SystemProPodporuStudijnichPlanu
             getKatById.Parameters.AddWithValue("@id_k", id_k);
             return (string)getKatById.ExecuteScalar();
         }
-        public string GetOborRok(int o)
-        {
-            SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());
-            get_ID_obor.Parameters.AddWithValue("@obor", o);
-            return get_ID_obor.ExecuteScalar().ToString();
-        }
+
         public int GetKatedraId(string katedra)
         {
             SqlCommand get_ID_Katedra = new SqlCommand("SELECT id_k FROM [katedra] WHERE ([naz_k] = @naz_k)", GetConnection());
@@ -369,6 +288,106 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
+
+
+        public string GetOborRok(int o)
+        {
+            SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());
+            get_ID_obor.Parameters.AddWithValue("@obor", o);
+            return get_ID_obor.ExecuteScalar().ToString();
+        }
+        public List<Garant> GetFullGarantByName(string name)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                return connection.Query<Garant>($"Select * from [garant] where jmeno_v='{name}'").ToList();
+            }
+        }
+        public List<Predmet> GetPredmetFullSudy(string obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{GetOborId(obor)}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5 )").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullLichy(string obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * " +
+                    $"from predmet " +
+                    $"where id_obor='{GetOborId(obor)}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullLichy(int id_obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5)" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullSudy(int id_obor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+
+        public List<Predmet> GetPredmetZVyberu(int semestr, string zaznam, string rok)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* " +
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] NATURAL JOIN [obor]" +
+                    $" WHERE [obor].rok_obor='{ rok }'AND [zaznam].zkr_zaznam='{zaznam}'AND [plansemestr].sem_ps='{semestr}'").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetZVyberu(int seme, string zazn, int iobor)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* " +
+                    $"FROM [predmet] NATURAL JOIN [vyber] NATURAL JOIN [plansemestr] NATURAL JOIN [zaznam] WHERE [predmet].id_obor='{ iobor }'AND [zaznam].zkr_zaznam='{zazn}'AND [plansemestr].sem_ps='{seme}'" +
+                    $"ORDER BY [predmet].semestr_predmet").ToList();
+                return vystup;
+            }
+        }
+
+        public List<Predmet> GetPredmetyVyberFull(int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT [predmet].* FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}'").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> GetPredmetFullLichyVyber(int id_obor, int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}')" +
+                    $"ORDER BY semestr_predmet,povinnost").ToList();
+                return vystup;
+            }
+        }
+
         //nahradit/prepsat Funkce kolem tvorby zaznamu a nebo tyto 2 nechat jak jsou
         public void FillOborCB(ComboBox x)
         {
@@ -416,7 +435,7 @@ namespace SystemProPodporuStudijnichPlanu
             SelectZaz.Parameters.AddWithValue("@id_zaznam", id);
             using (var reader = SelectZaz.ExecuteReader())
             {
-                if (reader.Read()) // Don't assume we have any rows.
+                if (reader.Read())
                 {
                     obor = reader.GetInt32(reader.GetOrdinal("id_obor"));
                     PocetSem = reader.GetInt32(reader.GetOrdinal("pocetSem"));

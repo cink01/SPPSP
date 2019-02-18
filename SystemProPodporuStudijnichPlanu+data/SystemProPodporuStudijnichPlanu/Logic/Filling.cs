@@ -95,6 +95,20 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
+        public void FillGarantDetail(ListBox LB, VypisGarant v)
+        {
+            try
+            {
+                Predmet x = (Predmet)LB.SelectedItem;
+                DataAccess da = new DataAccess();
+                Garant g = da.GetFullGarantById(x.Id_v);
+                v.Konzultace = g.Konz_v;
+                v.Katedra = da.GetKatedraById(g.Id_k);
+                v.Email = g.Email_V;
+                v.Telefon = g.Tel_v;
+            }
+            catch { }
+        }
         public void FillDetail(ListBox LB, VypisPopisPredmet v)
         {
             try
@@ -117,7 +131,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Lab = x.Lab.ToString();
                 v.Semestr = x.Semestr_predmet.ToString();
                 v.Garant = da.GetGarantById(x.Id_v);
-
             }
             catch { }
         }
@@ -172,7 +185,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                         v.Kombi = x.Kombi.ToString();
                         v.Lab = x.Lab.ToString();
                         v.Garant = da.GetGarantById(x.Id_v);
-
                     }
                 }
             }
@@ -253,7 +265,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             NUDPV.BackColor = obor.Pv_obor <= NUDPV.Value ? Color.LightGreen : Color.LightCoral;
             NUDV.BackColor = obor.V_obor <= NUDV.Value ? Color.LightGreen : Color.LightCoral;
             celkem.BackColor = 180 <= celkem.Value ? Color.LightGreen : Color.LightCoral;
-
         }
         public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity, Obor obor)
         //vložit kontrolu podle oboru a požadavků
@@ -269,8 +280,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
                     MessageBox.Show("Máte zapsáno více sportů a počet volitelných není dostatečný");
         }
-
-        public void NastavIndexCombo<T>( ComboBox x, /*List<T> t,*/ string z)
+        public void NastavIndexCombo<T>(ComboBox x, /*List<T> t,*/ string z)
         {
             /*  foreach (T k in t)
                   if (k.ToString() == z)
@@ -279,10 +289,9 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         }
         public void NastavIndexCombo<T>(ComboBox x, List<T> t, int z)
         {
-            /*foreach (T k in t)
-                if (k.ToInt() == z)
-                    x.SelectedIndex = x.FindString(k.ToString());*/
-
+            foreach (T k in t)
+                if (Convert.ToInt32(k)== z)
+                         x.SelectedIndex = x.FindString(k.ToString());
         }
     }
 }
