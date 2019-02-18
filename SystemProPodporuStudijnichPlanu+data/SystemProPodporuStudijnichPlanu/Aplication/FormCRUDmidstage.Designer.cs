@@ -65,6 +65,7 @@
             this.přidatPopisyKPředmětůmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vypisGarant_Mid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
+            this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -79,7 +80,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(653, 337);
+            this.bt_close.Location = new System.Drawing.Point(261, 422);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 16;
@@ -92,7 +93,7 @@
             this.bt_smazat.BackColor = System.Drawing.Color.Bisque;
             this.bt_smazat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smazat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smazat.Location = new System.Drawing.Point(165, 337);
+            this.bt_smazat.Location = new System.Drawing.Point(178, 422);
             this.bt_smazat.Name = "bt_smazat";
             this.bt_smazat.Size = new System.Drawing.Size(75, 23);
             this.bt_smazat.TabIndex = 15;
@@ -106,7 +107,7 @@
             this.bt_novy.BackColor = System.Drawing.Color.GreenYellow;
             this.bt_novy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_novy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_novy.Location = new System.Drawing.Point(3, 337);
+            this.bt_novy.Location = new System.Drawing.Point(30, 422);
             this.bt_novy.Name = "bt_novy";
             this.bt_novy.Size = new System.Drawing.Size(75, 23);
             this.bt_novy.TabIndex = 13;
@@ -120,7 +121,7 @@
             this.bt_upravit.BackColor = System.Drawing.Color.LemonChiffon;
             this.bt_upravit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_upravit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_upravit.Location = new System.Drawing.Point(84, 337);
+            this.bt_upravit.Location = new System.Drawing.Point(104, 422);
             this.bt_upravit.Name = "bt_upravit";
             this.bt_upravit.Size = new System.Drawing.Size(75, 23);
             this.bt_upravit.TabIndex = 14;
@@ -132,10 +133,10 @@
             // rb_predmet
             // 
             this.rb_predmet.AutoSize = true;
-            this.rb_predmet.Location = new System.Drawing.Point(599, 19);
+            this.rb_predmet.Location = new System.Drawing.Point(123, 19);
             this.rb_predmet.Name = "rb_predmet";
             this.rb_predmet.Size = new System.Drawing.Size(65, 17);
-            this.rb_predmet.TabIndex = 4;
+            this.rb_predmet.TabIndex = 3;
             this.rb_predmet.TabStop = true;
             this.rb_predmet.Text = "Předmět";
             this.rb_predmet.UseVisualStyleBackColor = true;
@@ -143,10 +144,10 @@
             // rb_obor
             // 
             this.rb_obor.AutoSize = true;
-            this.rb_obor.Location = new System.Drawing.Point(244, 19);
+            this.rb_obor.Location = new System.Drawing.Point(6, 19);
             this.rb_obor.Name = "rb_obor";
             this.rb_obor.Size = new System.Drawing.Size(48, 17);
-            this.rb_obor.TabIndex = 2;
+            this.rb_obor.TabIndex = 1;
             this.rb_obor.TabStop = true;
             this.rb_obor.Text = "Obor";
             this.rb_obor.UseVisualStyleBackColor = true;
@@ -154,10 +155,10 @@
             // rb_katedra
             // 
             this.rb_katedra.AutoSize = true;
-            this.rb_katedra.Location = new System.Drawing.Point(18, 19);
+            this.rb_katedra.Location = new System.Drawing.Point(194, 19);
             this.rb_katedra.Name = "rb_katedra";
             this.rb_katedra.Size = new System.Drawing.Size(62, 17);
-            this.rb_katedra.TabIndex = 1;
+            this.rb_katedra.TabIndex = 4;
             this.rb_katedra.TabStop = true;
             this.rb_katedra.Text = "Katedra";
             this.rb_katedra.UseVisualStyleBackColor = true;
@@ -165,10 +166,10 @@
             // rb_garant
             // 
             this.rb_garant.AutoSize = true;
-            this.rb_garant.Location = new System.Drawing.Point(418, 19);
+            this.rb_garant.Location = new System.Drawing.Point(60, 19);
             this.rb_garant.Name = "rb_garant";
             this.rb_garant.Size = new System.Drawing.Size(57, 17);
-            this.rb_garant.TabIndex = 3;
+            this.rb_garant.TabIndex = 2;
             this.rb_garant.TabStop = true;
             this.rb_garant.Text = "Garant";
             this.rb_garant.UseVisualStyleBackColor = true;
@@ -181,7 +182,7 @@
             this.gb_vyber.Controls.Add(this.rb_katedra);
             this.gb_vyber.Location = new System.Drawing.Point(3, 27);
             this.gb_vyber.Name = "gb_vyber";
-            this.gb_vyber.Size = new System.Drawing.Size(725, 45);
+            this.gb_vyber.Size = new System.Drawing.Size(260, 45);
             this.gb_vyber.TabIndex = 13;
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
@@ -214,6 +215,7 @@
             this.cb_kat.Size = new System.Drawing.Size(168, 21);
             this.cb_kat.TabIndex = 5;
             this.cb_kat.DropDown += new System.EventHandler(this.Cb_katedra_Hledani);
+            this.cb_kat.SelectedIndexChanged += new System.EventHandler(this.Cb_kat_SelectedIndexChanged);
             // 
             // gb_o
             // 
@@ -244,6 +246,7 @@
             this.cb_obo.Size = new System.Drawing.Size(168, 21);
             this.cb_obo.TabIndex = 6;
             this.cb_obo.DropDown += new System.EventHandler(this.Cb_obor_Hledani);
+            this.cb_obo.SelectedIndexChanged += new System.EventHandler(this.Cb_obo_SelectedIndexChanged);
             // 
             // gb_g
             // 
@@ -427,8 +430,8 @@
             this.naplnitDatabáziToolStripMenuItem,
             this.přidatPopisyKPředmětůmToolStripMenuItem});
             this.hromadnéNačteníToolStripMenuItem.Name = "hromadnéNačteníToolStripMenuItem";
-            this.hromadnéNačteníToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
-            this.hromadnéNačteníToolStripMenuItem.Text = "Hromadné načtení";
+            this.hromadnéNačteníToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.hromadnéNačteníToolStripMenuItem.Text = "Hromadné načítání";
             this.hromadnéNačteníToolStripMenuItem.Visible = false;
             // 
             // naplnitDatabáziToolStripMenuItem
@@ -451,7 +454,7 @@
             this.vypisGarant_Mid.G = null;
             this.vypisGarant_Mid.Katedra = "";
             this.vypisGarant_Mid.Konzultace = "";
-            this.vypisGarant_Mid.Location = new System.Drawing.Point(254, 194);
+            this.vypisGarant_Mid.Location = new System.Drawing.Point(443, 248);
             this.vypisGarant_Mid.Name = "vypisGarant_Mid";
             this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 114);
             this.vypisGarant_Mid.TabIndex = 26;
@@ -466,7 +469,7 @@
             this.vypisPopisPredmetMid.Kombi = "";
             this.vypisPopisPredmetMid.Kredit = "";
             this.vypisPopisPredmetMid.Lab = "";
-            this.vypisPopisPredmetMid.Location = new System.Drawing.Point(734, 27);
+            this.vypisPopisPredmetMid.Location = new System.Drawing.Point(738, 74);
             this.vypisPopisPredmetMid.Name = "vypisPopisPredmetMid";
             this.vypisPopisPredmetMid.P = null;
             this.vypisPopisPredmetMid.Popis = "";
@@ -476,8 +479,24 @@
             this.vypisPopisPredmetMid.Semestr = "";
             this.vypisPopisPredmetMid.Size = new System.Drawing.Size(388, 341);
             this.vypisPopisPredmetMid.TabIndex = 24;
+            this.vypisPopisPredmetMid.Visible = false;
             this.vypisPopisPredmetMid.Zakončení = "";
             this.vypisPopisPredmetMid.Zkr = "";
+            // 
+            // VypisOborMid
+            // 
+            this.VypisOborMid.Location = new System.Drawing.Point(3, 177);
+            this.VypisOborMid.Name = "VypisOborMid";
+            this.VypisOborMid.P = "";
+            this.VypisOborMid.Praxe = "";
+            this.VypisOborMid.Pv = "";
+            this.VypisOborMid.Rok = "";
+            this.VypisOborMid.Size = new System.Drawing.Size(388, 222);
+            this.VypisOborMid.TabIndex = 28;
+            this.VypisOborMid.V = "";
+            this.VypisOborMid.Visible = false;
+            this.VypisOborMid.Vs = "";
+            this.VypisOborMid.Zkr = "";
             // 
             // FormCRUDmidstage
             // 
@@ -485,9 +504,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(1126, 372);
-            this.Controls.Add(this.vypisGarant_Mid);
+            this.ClientSize = new System.Drawing.Size(1126, 452);
+            this.Controls.Add(this.VypisOborMid);
             this.Controls.Add(this.vypisPopisPredmetMid);
+            this.Controls.Add(this.vypisGarant_Mid);
             this.Controls.Add(this.gb_p);
             this.Controls.Add(this.gb_g);
             this.Controls.Add(this.gb_o);
@@ -558,5 +578,6 @@
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem přidatPopisyKPředmětůmToolStripMenuItem;
         private Komponenty.VypisGarant vypisGarant_Mid;
+        private Komponenty.VypisObor VypisOborMid;
     }
 }

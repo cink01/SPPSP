@@ -82,6 +82,17 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 tmp = null;
             predmets = tmp;
         }
+/*        public void FillKatedraDetail(ComboBox cb, VypisKatedra v)
+        {
+            try
+            {
+                Katedra k = (Katedra)cb.SelectedItem;
+                DataAccess da = new DataAccess();
+                v.Zkr = k.Zkr_k;
+                v.
+            }
+            catch { }
+        }*/
         public void FillOborDetail(ComboBox cb, VypisObor v)
         {
             try

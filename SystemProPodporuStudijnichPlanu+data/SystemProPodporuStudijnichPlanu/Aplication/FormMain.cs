@@ -425,11 +425,10 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void ZměnyVeliZic(int i)
         {
-            vypisPopisPredmet.Left = i > 6 ? 684 : 428;
-            vypisGarant1.Left = i > 6 ?786:428;
+            vypisPopisPredmet.Left = i > 6 ? 680 : 428;
+            vypisGarant1.Left = i > 6 ?780:528;
             bt_zobrazDGar.Left = i > 6 ? 682 : 428;
-            vypisPopisPredmet.Visible = false;
-            vypisGarant1.Visible = false;
+            vypisPopisPredmet.Visible = vypisGarant1.Visible = bt_zobrazDGar.Visible= bt_smaz.Visible = false;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
             lb_celkem.Left = i > 6 ? 930 : 675;
             l_pkr.Left = i > 6 ? 861 : 606;

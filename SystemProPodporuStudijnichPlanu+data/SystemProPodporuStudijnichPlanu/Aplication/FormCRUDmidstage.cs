@@ -531,7 +531,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-
         private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e)
         {
             string vyber = cb_semestry.SelectedItem.ToString();
@@ -649,13 +648,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 return -1;
             }
         }
-
         private void Cb_pre_SelectedIndexChanged(object sender, EventArgs e)
         {
+            vypisPopisPredmetMid.Visible = true;
+            if (cb_pre.SelectedIndex == -1)
+                vypisPopisPredmetMid.Visible = false;
             Filling fill = new Filling();
             fill.FillDetail(cb_pre, vypisPopisPredmetMid);
         }
-
         private void PovolitSprávuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult x = DialogResult.Cancel;
@@ -715,7 +715,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
             }
         }
-
         private void Cb_garant_SelectedIndexChanged(object sender, EventArgs e)
         {
             vypisGarant_Mid.Visible = true;
@@ -723,6 +722,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 vypisGarant_Mid.Visible = false;
             Filling f = new Filling();
             f.FillGarantDetail(cb_garant, vypisGarant_Mid);
+        }
+        private void Cb_kat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Cb_obo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VypisOborMid.Visible = true;
+            if (cb_obo.SelectedIndex == -1)
+                VypisOborMid.Visible = false;
+            Filling f = new Filling();
+            f.FillOborDetail(cb_obo, VypisOborMid);
         }
     }
 }
