@@ -31,10 +31,10 @@
             this.gb_obor = new System.Windows.Forms.GroupBox();
             this.rtb_praxe = new System.Windows.Forms.RichTextBox();
             this.gb_základ = new System.Windows.Forms.GroupBox();
-            this.tb_rok = new System.Windows.Forms.TextBox();
             this.tb_zkratka = new System.Windows.Forms.TextBox();
-            this.l_kredity = new System.Windows.Forms.Label();
             this.l_zkratka = new System.Windows.Forms.Label();
+            this.l_kredity = new System.Windows.Forms.Label();
+            this.tb_rok = new System.Windows.Forms.TextBox();
             this.gb_vyuc = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.gb_obor.Controls.Add(this.gb_základ);
             this.gb_obor.Controls.Add(this.gb_vyuc);
             this.gb_obor.Controls.Add(this.l_popis);
-            this.gb_obor.Location = new System.Drawing.Point(3, 3);
+            this.gb_obor.Location = new System.Drawing.Point(1, -2);
             this.gb_obor.Name = "gb_obor";
             this.gb_obor.Size = new System.Drawing.Size(383, 224);
             this.gb_obor.TabIndex = 1;
@@ -84,19 +84,21 @@
             this.gb_základ.TabStop = false;
             this.gb_základ.Text = "Základní informace";
             // 
-            // tb_rok
-            // 
-            this.tb_rok.Location = new System.Drawing.Point(93, 45);
-            this.tb_rok.Name = "tb_rok";
-            this.tb_rok.Size = new System.Drawing.Size(100, 20);
-            this.tb_rok.TabIndex = 8;
-            // 
             // tb_zkratka
             // 
             this.tb_zkratka.Location = new System.Drawing.Point(93, 19);
             this.tb_zkratka.Name = "tb_zkratka";
             this.tb_zkratka.Size = new System.Drawing.Size(100, 20);
             this.tb_zkratka.TabIndex = 7;
+            // 
+            // l_zkratka
+            // 
+            this.l_zkratka.AutoSize = true;
+            this.l_zkratka.Location = new System.Drawing.Point(40, 22);
+            this.l_zkratka.Name = "l_zkratka";
+            this.l_zkratka.Size = new System.Drawing.Size(47, 13);
+            this.l_zkratka.TabIndex = 0;
+            this.l_zkratka.Text = "Zkratka:";
             // 
             // l_kredity
             // 
@@ -107,14 +109,12 @@
             this.l_kredity.TabIndex = 1;
             this.l_kredity.Text = "Rok(označení):";
             // 
-            // l_zkratka
+            // tb_rok
             // 
-            this.l_zkratka.AutoSize = true;
-            this.l_zkratka.Location = new System.Drawing.Point(40, 22);
-            this.l_zkratka.Name = "l_zkratka";
-            this.l_zkratka.Size = new System.Drawing.Size(47, 13);
-            this.l_zkratka.TabIndex = 0;
-            this.l_zkratka.Text = "Zkratka:";
+            this.tb_rok.Location = new System.Drawing.Point(93, 45);
+            this.tb_rok.Name = "tb_rok";
+            this.tb_rok.Size = new System.Drawing.Size(100, 20);
+            this.tb_rok.TabIndex = 8;
             // 
             // gb_vyuc
             // 
@@ -212,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_obor);
             this.Name = "VypisObor";
-            this.Size = new System.Drawing.Size(388, 229);
+            this.Size = new System.Drawing.Size(386, 223);
             this.gb_obor.ResumeLayout(false);
             this.gb_obor.PerformLayout();
             this.gb_základ.ResumeLayout(false);

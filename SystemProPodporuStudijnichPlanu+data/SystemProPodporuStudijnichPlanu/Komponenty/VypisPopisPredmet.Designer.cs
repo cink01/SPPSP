@@ -70,7 +70,7 @@
             this.gb_popis_pr.Controls.Add(this.l_popis);
             this.gb_popis_pr.Controls.Add(this.tb_garant);
             this.gb_popis_pr.Controls.Add(this.l_garant);
-            this.gb_popis_pr.Location = new System.Drawing.Point(3, 3);
+            this.gb_popis_pr.Location = new System.Drawing.Point(2, -1);
             this.gb_popis_pr.Name = "gb_popis_pr";
             this.gb_popis_pr.Size = new System.Drawing.Size(383, 337);
             this.gb_popis_pr.TabIndex = 0;
@@ -333,7 +333,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_popis_pr);
             this.Name = "VypisPopisPredmet";
-            this.Size = new System.Drawing.Size(388, 341);
+            this.Size = new System.Drawing.Size(387, 337);
             this.gb_popis_pr.ResumeLayout(false);
             this.gb_popis_pr.PerformLayout();
             this.gb_základ.ResumeLayout(false);

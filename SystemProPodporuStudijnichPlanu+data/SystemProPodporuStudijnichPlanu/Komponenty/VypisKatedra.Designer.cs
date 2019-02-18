@@ -94,7 +94,7 @@
             this.gb_kat.Controls.Add(this.tb_zkratka);
             this.gb_kat.Controls.Add(this.label1);
             this.gb_kat.Controls.Add(this.tb_pocG);
-            this.gb_kat.Location = new System.Drawing.Point(3, 3);
+            this.gb_kat.Location = new System.Drawing.Point(2, -2);
             this.gb_kat.Name = "gb_kat";
             this.gb_kat.Size = new System.Drawing.Size(222, 102);
             this.gb_kat.TabIndex = 9;
@@ -107,7 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_kat);
             this.Name = "VypisKatedra";
-            this.Size = new System.Drawing.Size(230, 113);
+            this.Size = new System.Drawing.Size(226, 102);
             this.gb_kat.ResumeLayout(false);
             this.gb_kat.PerformLayout();
             this.ResumeLayout(false);

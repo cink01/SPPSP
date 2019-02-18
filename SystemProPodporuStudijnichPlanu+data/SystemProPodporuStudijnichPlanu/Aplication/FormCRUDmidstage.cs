@@ -735,5 +735,42 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Filling f = new Filling();
             f.FillOborDetail(cb_obo, VypisOborMid);
         }
+
+        private void Rb_obor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_obor.Checked == true)
+                Zobrazovacka(1);
+            if (rb_katedra.Checked == true)
+                Zobrazovacka(2);
+            if (rb_garant.Checked == true)
+                Zobrazovacka(3);
+            if (rb_predmet.Checked == true)
+                Zobrazovacka(4);
+        }
+        private void Zobrazovacka(int vyber)
+        {
+            this.Size = new Size(590, 454);
+            gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
+            gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
+            vypisGarant_Mid.Location = VypisOborMid.Location = vypisPopisPredmetMid.Location = new Point(186, 78);
+            vypisGarant_Mid.Visible = VypisOborMid.Visible = vypisPopisPredmetMid.Visible = false;
+            switch (vyber)
+            {
+                case 1:
+                    gb_o.Visible = true;
+                    break;
+                case 2:
+                    gb_k.Visible =true;
+                    break;
+                case 3:
+                    gb_g.Visible =true;
+                    break;
+                case 4:
+                    gb_p.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
