@@ -729,11 +729,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cb_obo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            VypisOborMid.Visible = true;
+            VypisOborMid1.Visible = true;
             if (cb_obo.SelectedIndex == -1)
-                VypisOborMid.Visible = false;
+                VypisOborMid1.Visible = false;
             Filling f = new Filling();
-            f.FillOborDetail(cb_obo, VypisOborMid);
+            f.FillOborDetail(cb_obo, VypisOborMid1);
         }
 
         private void Rb_obor_CheckedChanged(object sender, EventArgs e)
@@ -752,8 +752,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             this.Size = new Size(590, 454);
             gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
             gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
-            vypisGarant_Mid.Location = VypisOborMid.Location = vypisPopisPredmetMid.Location = new Point(186, 78);
-            vypisGarant_Mid.Visible = VypisOborMid.Visible = vypisPopisPredmetMid.Visible = false;
+            vypisGarant_Mid.Location = VypisOborMid1.Location = vypisPopisPredmetMid.Location = new Point(186, 78);
+            vypisGarant_Mid.Visible = VypisOborMid1.Visible = vypisPopisPredmetMid.Visible = false;
             switch (vyber)
             {
                 case 1:
