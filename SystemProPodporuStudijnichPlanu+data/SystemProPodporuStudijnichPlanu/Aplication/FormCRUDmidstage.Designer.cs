@@ -58,7 +58,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_povin = new System.Windows.Forms.ComboBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMID = new System.Windows.Forms.MenuStrip();
             this.povolitSprávuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hromadnéNačteníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +70,7 @@
             this.gb_o.SuspendLayout();
             this.gb_g.SuspendLayout();
             this.gb_p.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMID.SuspendLayout();
             this.SuspendLayout();
             // 
             // bt_close
@@ -403,16 +403,16 @@
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
             this.cmb_povin.TabIndex = 20;
             // 
-            // menuStrip1
+            // menuStripMID
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMID.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.povolitSprávuToolStripMenuItem,
             this.hromadnéNačteníToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1126, 24);
-            this.menuStrip1.TabIndex = 25;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMID.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMID.Name = "menuStripMID";
+            this.menuStripMID.Size = new System.Drawing.Size(1126, 24);
+            this.menuStripMID.TabIndex = 25;
+            this.menuStripMID.Text = "menuStrip1";
             // 
             // povolitSprávuToolStripMenuItem
             // 
@@ -496,9 +496,9 @@
             this.Controls.Add(this.bt_novy);
             this.Controls.Add(this.bt_smazat);
             this.Controls.Add(this.bt_close);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStripMID;
             this.Name = "FormCRUDmidstage";
             this.Text = "FormCRUDmidstage";
             this.Load += new System.EventHandler(this.FormCRUDmidstage_Load);
@@ -512,8 +512,8 @@
             this.gb_g.PerformLayout();
             this.gb_p.ResumeLayout(false);
             this.gb_p.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMID.ResumeLayout(false);
+            this.menuStripMID.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,7 +551,7 @@
         private System.Windows.Forms.ComboBox cmb_kat_gar;
         private System.Windows.Forms.Label label2;
         private Komponenty.VypisPopisPredmet vypisPopisPredmetMid;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMID;
         private System.Windows.Forms.ToolStripMenuItem povolitSprávuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hromadnéNačteníToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;

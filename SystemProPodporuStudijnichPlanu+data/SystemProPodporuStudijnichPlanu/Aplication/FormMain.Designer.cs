@@ -359,9 +359,9 @@
             this.btn_pridat.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_pridat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_pridat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_pridat.Location = new System.Drawing.Point(574, 12);
+            this.btn_pridat.Location = new System.Drawing.Point(574, 9);
             this.btn_pridat.Name = "btn_pridat";
-            this.btn_pridat.Size = new System.Drawing.Size(104, 21);
+            this.btn_pridat.Size = new System.Drawing.Size(104, 26);
             this.btn_pridat.TabIndex = 20;
             this.btn_pridat.Text = "&Přidat";
             this.btn_pridat.UseVisualStyleBackColor = false;
@@ -641,11 +641,11 @@
             this.bt_zobrazDGar.BackColor = System.Drawing.Color.AntiqueWhite;
             this.bt_zobrazDGar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_zobrazDGar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_zobrazDGar.Location = new System.Drawing.Point(680, 378);
+            this.bt_zobrazDGar.Location = new System.Drawing.Point(682, 383);
             this.bt_zobrazDGar.Name = "bt_zobrazDGar";
-            this.bt_zobrazDGar.Size = new System.Drawing.Size(77, 47);
+            this.bt_zobrazDGar.Size = new System.Drawing.Size(97, 26);
             this.bt_zobrazDGar.TabIndex = 82;
-            this.bt_zobrazDGar.Text = "Zobraz informace garanta";
+            this.bt_zobrazDGar.Text = "Detail Garanta";
             this.bt_zobrazDGar.UseVisualStyleBackColor = false;
             this.bt_zobrazDGar.Visible = false;
             this.bt_zobrazDGar.Click += new System.EventHandler(this.Bt_zobrazDGar_Click);
@@ -656,9 +656,9 @@
             this.vypisGarant1.G = null;
             this.vypisGarant1.Katedra = "";
             this.vypisGarant1.Konzultace = "";
-            this.vypisGarant1.Location = new System.Drawing.Point(782, 536);
+            this.vypisGarant1.Location = new System.Drawing.Point(780, 483);
             this.vypisGarant1.Name = "vypisGarant1";
-            this.vypisGarant1.Size = new System.Drawing.Size(287, 114);
+            this.vypisGarant1.Size = new System.Drawing.Size(289, 114);
             this.vypisGarant1.TabIndex = 81;
             this.vypisGarant1.Telefon = "";
             // 

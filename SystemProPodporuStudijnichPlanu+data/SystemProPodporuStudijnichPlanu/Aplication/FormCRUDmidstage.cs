@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -15,6 +16,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCRUDmidstage()
         {
             InitializeComponent();
+            menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {

@@ -427,7 +427,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             vypisPopisPredmet.Left = i > 6 ? 684 : 428;
             vypisGarant1.Left = i > 6 ?786:428;
-            bt_zobrazDGar.Left = i > 6 ? 684 : 428;
+            bt_zobrazDGar.Left = i > 6 ? 682 : 428;
             vypisPopisPredmet.Visible = false;
             vypisGarant1.Visible = false;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1013 : 762;
@@ -436,7 +436,7 @@ namespace SystemProPodporuStudijnichPlanu
             l_pvk.Left = i > 6 ? 867 : 612;
             l_vk.Left = i > 6 ? 860 : 605;
             gb_max.Size = i > 6 ? new Size(1080, 654) : new Size(822, 654);
-            this.Size = i > 6 ? new Size(1122, 731) : new Size(860, 731);
+            this.Size = i > 6 ? new Size(1122, 731) : new Size(862, 731);
             Tma();
         }
         private void Viditelnost(int i)
