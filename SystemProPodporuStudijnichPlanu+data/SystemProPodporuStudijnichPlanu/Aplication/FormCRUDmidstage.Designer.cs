@@ -82,7 +82,7 @@
             this.bt_close.Location = new System.Drawing.Point(653, 337);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 16;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -95,7 +95,7 @@
             this.bt_smazat.Location = new System.Drawing.Point(165, 337);
             this.bt_smazat.Name = "bt_smazat";
             this.bt_smazat.Size = new System.Drawing.Size(75, 23);
-            this.bt_smazat.TabIndex = 4;
+            this.bt_smazat.TabIndex = 15;
             this.bt_smazat.Text = "Smazat";
             this.bt_smazat.UseVisualStyleBackColor = false;
             this.bt_smazat.Visible = false;
@@ -109,7 +109,7 @@
             this.bt_novy.Location = new System.Drawing.Point(3, 337);
             this.bt_novy.Name = "bt_novy";
             this.bt_novy.Size = new System.Drawing.Size(75, 23);
-            this.bt_novy.TabIndex = 5;
+            this.bt_novy.TabIndex = 13;
             this.bt_novy.Text = "Nový";
             this.bt_novy.UseVisualStyleBackColor = false;
             this.bt_novy.Visible = false;
@@ -123,7 +123,7 @@
             this.bt_upravit.Location = new System.Drawing.Point(84, 337);
             this.bt_upravit.Name = "bt_upravit";
             this.bt_upravit.Size = new System.Drawing.Size(75, 23);
-            this.bt_upravit.TabIndex = 6;
+            this.bt_upravit.TabIndex = 14;
             this.bt_upravit.Text = "Upravit";
             this.bt_upravit.UseVisualStyleBackColor = false;
             this.bt_upravit.Visible = false;
@@ -135,7 +135,7 @@
             this.rb_predmet.Location = new System.Drawing.Point(599, 19);
             this.rb_predmet.Name = "rb_predmet";
             this.rb_predmet.Size = new System.Drawing.Size(65, 17);
-            this.rb_predmet.TabIndex = 9;
+            this.rb_predmet.TabIndex = 4;
             this.rb_predmet.TabStop = true;
             this.rb_predmet.Text = "Předmět";
             this.rb_predmet.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.rb_obor.Location = new System.Drawing.Point(244, 19);
             this.rb_obor.Name = "rb_obor";
             this.rb_obor.Size = new System.Drawing.Size(48, 17);
-            this.rb_obor.TabIndex = 10;
+            this.rb_obor.TabIndex = 2;
             this.rb_obor.TabStop = true;
             this.rb_obor.Text = "Obor";
             this.rb_obor.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@
             this.rb_katedra.Location = new System.Drawing.Point(18, 19);
             this.rb_katedra.Name = "rb_katedra";
             this.rb_katedra.Size = new System.Drawing.Size(62, 17);
-            this.rb_katedra.TabIndex = 11;
+            this.rb_katedra.TabIndex = 1;
             this.rb_katedra.TabStop = true;
             this.rb_katedra.Text = "Katedra";
             this.rb_katedra.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             this.rb_garant.Location = new System.Drawing.Point(418, 19);
             this.rb_garant.Name = "rb_garant";
             this.rb_garant.Size = new System.Drawing.Size(57, 17);
-            this.rb_garant.TabIndex = 12;
+            this.rb_garant.TabIndex = 3;
             this.rb_garant.TabStop = true;
             this.rb_garant.Text = "Garant";
             this.rb_garant.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             this.cb_kat.Location = new System.Drawing.Point(13, 30);
             this.cb_kat.Name = "cb_kat";
             this.cb_kat.Size = new System.Drawing.Size(168, 21);
-            this.cb_kat.TabIndex = 21;
+            this.cb_kat.TabIndex = 5;
             this.cb_kat.DropDown += new System.EventHandler(this.Cb_katedra_Hledani);
             // 
             // gb_o
@@ -242,7 +242,7 @@
             this.cb_obo.Location = new System.Drawing.Point(6, 30);
             this.cb_obo.Name = "cb_obo";
             this.cb_obo.Size = new System.Drawing.Size(168, 21);
-            this.cb_obo.TabIndex = 22;
+            this.cb_obo.TabIndex = 6;
             this.cb_obo.DropDown += new System.EventHandler(this.Cb_obor_Hledani);
             // 
             // gb_g
@@ -273,7 +273,7 @@
             this.cmb_kat_gar.Location = new System.Drawing.Point(6, 30);
             this.cmb_kat_gar.Name = "cmb_kat_gar";
             this.cmb_kat_gar.Size = new System.Drawing.Size(168, 21);
-            this.cmb_kat_gar.TabIndex = 29;
+            this.cmb_kat_gar.TabIndex = 8;
             this.cmb_kat_gar.DropDown += new System.EventHandler(this.Cmb_kat_gar_hledaní);
             this.cmb_kat_gar.SelectedIndexChanged += new System.EventHandler(this.Cmb_kat_gar_SelectedIndexChanged);
             // 
@@ -292,7 +292,7 @@
             this.cb_garant.Location = new System.Drawing.Point(6, 68);
             this.cb_garant.Name = "cb_garant";
             this.cb_garant.Size = new System.Drawing.Size(169, 21);
-            this.cb_garant.TabIndex = 20;
+            this.cb_garant.TabIndex = 7;
             this.cb_garant.DropDown += new System.EventHandler(this.Cb_garant_Hledani);
             this.cb_garant.SelectedIndexChanged += new System.EventHandler(this.Cb_garant_SelectedIndexChanged);
             // 
@@ -328,7 +328,7 @@
             this.cmb_obo_pre.Location = new System.Drawing.Point(6, 30);
             this.cmb_obo_pre.Name = "cmb_obo_pre";
             this.cmb_obo_pre.Size = new System.Drawing.Size(168, 21);
-            this.cmb_obo_pre.TabIndex = 24;
+            this.cmb_obo_pre.TabIndex = 10;
             this.cmb_obo_pre.DropDown += new System.EventHandler(this.Cmb_obo_pre_Hledání);
             this.cmb_obo_pre.SelectedIndexChanged += new System.EventHandler(this.Cmb_obo_pre_SelectedIndexChanged);
             // 
@@ -338,7 +338,7 @@
             this.cb_pre.Location = new System.Drawing.Point(6, 67);
             this.cb_pre.Name = "cb_pre";
             this.cb_pre.Size = new System.Drawing.Size(168, 21);
-            this.cb_pre.TabIndex = 22;
+            this.cb_pre.TabIndex = 9;
             this.cb_pre.DropDown += new System.EventHandler(this.Cb_predmet_Hledani);
             this.cb_pre.SelectedIndexChanged += new System.EventHandler(this.Cb_pre_SelectedIndexChanged);
             // 
@@ -358,7 +358,7 @@
             this.cb_semestry.Location = new System.Drawing.Point(63, 121);
             this.cb_semestry.Name = "cb_semestry";
             this.cb_semestry.Size = new System.Drawing.Size(111, 21);
-            this.cb_semestry.TabIndex = 23;
+            this.cb_semestry.TabIndex = 12;
             this.cb_semestry.SelectedIndexChanged += new System.EventHandler(this.Cb_semestry_SelectedIndexChanged);
             // 
             // label6
@@ -401,7 +401,7 @@
             this.cmb_povin.Location = new System.Drawing.Point(63, 94);
             this.cmb_povin.Name = "cmb_povin";
             this.cmb_povin.Size = new System.Drawing.Size(111, 21);
-            this.cmb_povin.TabIndex = 20;
+            this.cmb_povin.TabIndex = 11;
             // 
             // menuStripMID
             // 
@@ -451,11 +451,12 @@
             this.vypisGarant_Mid.G = null;
             this.vypisGarant_Mid.Katedra = "";
             this.vypisGarant_Mid.Konzultace = "";
-            this.vypisGarant_Mid.Location = new System.Drawing.Point(322, 254);
+            this.vypisGarant_Mid.Location = new System.Drawing.Point(254, 194);
             this.vypisGarant_Mid.Name = "vypisGarant_Mid";
             this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 114);
             this.vypisGarant_Mid.TabIndex = 26;
             this.vypisGarant_Mid.Telefon = "";
+            this.vypisGarant_Mid.Visible = false;
             // 
             // vypisPopisPredmetMid
             // 

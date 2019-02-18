@@ -718,6 +718,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Cb_garant_SelectedIndexChanged(object sender, EventArgs e)
         {
+            vypisGarant_Mid.Visible = true;
+            if (cb_garant.SelectedIndex == -1)
+                vypisGarant_Mid.Visible = false;
             Filling f = new Filling();
             f.FillGarantDetail(cb_garant, vypisGarant_Mid);
         }
