@@ -1,9 +1,9 @@
-- strana 2 - na konci řádku nesmí být jednoslabičná předložka či spojka
-
+- strana 2 - na konci řádku nesmí být jednoslabičná předložka či spojka - snad odstarněno
+ 
 - strana 6 - spojky
 
 - ve vlastní práci moc stručné, skoro žádný vysvětlující komentář. Pro BP by nebylo přípustné
 
-- strana 8 - mezi kapitolou 2 a 2.1 aspoň odstavec textu
+- strana 8 - mezi kapitolou 2 a 2.1 aspoň odstavec textu - rozděleno a přidán kousek textu(nejspíš budu muset dopsat ještě neco k tomu)
 
-Kapitolu 2.1.1 rozdělit na více tabulek a popsat.
+Kapitolu 2.1.1 rozdělit na více tabulek a popsat. - kapitola rozdrobena
