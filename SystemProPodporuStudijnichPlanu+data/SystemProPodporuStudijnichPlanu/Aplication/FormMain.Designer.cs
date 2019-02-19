@@ -68,29 +68,29 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.l_s8 = new System.Windows.Forms.Label();
+            this.l_s12 = new System.Windows.Forms.Label();
+            this.l_s11 = new System.Windows.Forms.Label();
+            this.l_s10 = new System.Windows.Forms.Label();
+            this.l_s9 = new System.Windows.Forms.Label();
+            this.l_s7 = new System.Windows.Forms.Label();
+            this.l_s6 = new System.Windows.Forms.Label();
+            this.l_s5 = new System.Windows.Forms.Label();
+            this.l_s4 = new System.Windows.Forms.Label();
+            this.l_s3 = new System.Windows.Forms.Label();
+            this.l_s2 = new System.Windows.Forms.Label();
+            this.l_s1 = new System.Windows.Forms.Label();
             this.bt_zobrazDGar = new System.Windows.Forms.Button();
+            this.vypisGarant1 = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
-            this.l_s1 = new System.Windows.Forms.Label();
-            this.l_s2 = new System.Windows.Forms.Label();
-            this.l_s3 = new System.Windows.Forms.Label();
-            this.l_s4 = new System.Windows.Forms.Label();
-            this.l_s5 = new System.Windows.Forms.Label();
-            this.l_s6 = new System.Windows.Forms.Label();
-            this.l_s7 = new System.Windows.Forms.Label();
-            this.l_s9 = new System.Windows.Forms.Label();
-            this.l_s10 = new System.Windows.Forms.Label();
-            this.l_s11 = new System.Windows.Forms.Label();
-            this.l_s12 = new System.Windows.Forms.Label();
-            this.l_s8 = new System.Windows.Forms.Label();
-            this.vypisGarant1 = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -660,6 +660,114 @@
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
+            // l_s8
+            // 
+            this.l_s8.AutoSize = true;
+            this.l_s8.Location = new System.Drawing.Point(368, 147);
+            this.l_s8.Name = "l_s8";
+            this.l_s8.Size = new System.Drawing.Size(54, 13);
+            this.l_s8.TabIndex = 94;
+            this.l_s8.Text = "Semestr 8";
+            // 
+            // l_s12
+            // 
+            this.l_s12.AutoSize = true;
+            this.l_s12.Location = new System.Drawing.Point(362, 554);
+            this.l_s12.Name = "l_s12";
+            this.l_s12.Size = new System.Drawing.Size(60, 13);
+            this.l_s12.TabIndex = 93;
+            this.l_s12.Text = "Semestr 12";
+            // 
+            // l_s11
+            // 
+            this.l_s11.AutoSize = true;
+            this.l_s11.Location = new System.Drawing.Point(362, 451);
+            this.l_s11.Name = "l_s11";
+            this.l_s11.Size = new System.Drawing.Size(60, 13);
+            this.l_s11.TabIndex = 92;
+            this.l_s11.Text = "Semestr 11";
+            // 
+            // l_s10
+            // 
+            this.l_s10.AutoSize = true;
+            this.l_s10.Location = new System.Drawing.Point(362, 350);
+            this.l_s10.Name = "l_s10";
+            this.l_s10.Size = new System.Drawing.Size(60, 13);
+            this.l_s10.TabIndex = 91;
+            this.l_s10.Text = "Semestr 10";
+            // 
+            // l_s9
+            // 
+            this.l_s9.AutoSize = true;
+            this.l_s9.Location = new System.Drawing.Point(368, 247);
+            this.l_s9.Name = "l_s9";
+            this.l_s9.Size = new System.Drawing.Size(54, 13);
+            this.l_s9.TabIndex = 90;
+            this.l_s9.Text = "Semestr 9";
+            // 
+            // l_s7
+            // 
+            this.l_s7.AutoSize = true;
+            this.l_s7.Location = new System.Drawing.Point(368, 45);
+            this.l_s7.Name = "l_s7";
+            this.l_s7.Size = new System.Drawing.Size(54, 13);
+            this.l_s7.TabIndex = 89;
+            this.l_s7.Text = "Semestr 7";
+            // 
+            // l_s6
+            // 
+            this.l_s6.AutoSize = true;
+            this.l_s6.Location = new System.Drawing.Point(22, 554);
+            this.l_s6.Name = "l_s6";
+            this.l_s6.Size = new System.Drawing.Size(54, 13);
+            this.l_s6.TabIndex = 88;
+            this.l_s6.Text = "Semestr 6";
+            // 
+            // l_s5
+            // 
+            this.l_s5.AutoSize = true;
+            this.l_s5.Location = new System.Drawing.Point(22, 451);
+            this.l_s5.Name = "l_s5";
+            this.l_s5.Size = new System.Drawing.Size(54, 13);
+            this.l_s5.TabIndex = 87;
+            this.l_s5.Text = "Semestr 5";
+            // 
+            // l_s4
+            // 
+            this.l_s4.AutoSize = true;
+            this.l_s4.Location = new System.Drawing.Point(22, 350);
+            this.l_s4.Name = "l_s4";
+            this.l_s4.Size = new System.Drawing.Size(54, 13);
+            this.l_s4.TabIndex = 86;
+            this.l_s4.Text = "Semestr 4";
+            // 
+            // l_s3
+            // 
+            this.l_s3.AutoSize = true;
+            this.l_s3.Location = new System.Drawing.Point(22, 247);
+            this.l_s3.Name = "l_s3";
+            this.l_s3.Size = new System.Drawing.Size(54, 13);
+            this.l_s3.TabIndex = 85;
+            this.l_s3.Text = "Semestr 3";
+            // 
+            // l_s2
+            // 
+            this.l_s2.AutoSize = true;
+            this.l_s2.Location = new System.Drawing.Point(22, 147);
+            this.l_s2.Name = "l_s2";
+            this.l_s2.Size = new System.Drawing.Size(54, 13);
+            this.l_s2.TabIndex = 84;
+            this.l_s2.Text = "Semestr 2";
+            // 
+            // l_s1
+            // 
+            this.l_s1.AutoSize = true;
+            this.l_s1.Location = new System.Drawing.Point(22, 45);
+            this.l_s1.Name = "l_s1";
+            this.l_s1.Size = new System.Drawing.Size(54, 13);
+            this.l_s1.TabIndex = 83;
+            this.l_s1.Text = "Semestr 1";
+            // 
             // bt_zobrazDGar
             // 
             this.bt_zobrazDGar.BackColor = System.Drawing.Color.AntiqueWhite;
@@ -673,6 +781,18 @@
             this.bt_zobrazDGar.UseVisualStyleBackColor = false;
             this.bt_zobrazDGar.Visible = false;
             this.bt_zobrazDGar.Click += new System.EventHandler(this.Bt_zobrazDGar_Click);
+            // 
+            // vypisGarant1
+            // 
+            this.vypisGarant1.Email = "";
+            this.vypisGarant1.G = null;
+            this.vypisGarant1.Katedra = "";
+            this.vypisGarant1.Konzultace = "";
+            this.vypisGarant1.Location = new System.Drawing.Point(780, 380);
+            this.vypisGarant1.Name = "vypisGarant1";
+            this.vypisGarant1.Size = new System.Drawing.Size(290, 114);
+            this.vypisGarant1.TabIndex = 81;
+            this.vypisGarant1.Telefon = "";
             // 
             // l_vk
             // 
@@ -700,6 +820,28 @@
             this.l_pkr.Size = new System.Drawing.Size(150, 13);
             this.l_pkr.TabIndex = 78;
             this.l_pkr.Text = "Kredity z povinných předmětů:";
+            // 
+            // vypisPopisPredmet
+            // 
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 38);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Semestr = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 337);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Visible = false;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
             // 
             // nud_vKr
             // 
@@ -785,148 +927,6 @@
             0,
             0,
             0});
-            // 
-            // l_s1
-            // 
-            this.l_s1.AutoSize = true;
-            this.l_s1.Location = new System.Drawing.Point(24, 43);
-            this.l_s1.Name = "l_s1";
-            this.l_s1.Size = new System.Drawing.Size(54, 13);
-            this.l_s1.TabIndex = 83;
-            this.l_s1.Text = "Semestr 1";
-            // 
-            // l_s2
-            // 
-            this.l_s2.AutoSize = true;
-            this.l_s2.Location = new System.Drawing.Point(24, 145);
-            this.l_s2.Name = "l_s2";
-            this.l_s2.Size = new System.Drawing.Size(54, 13);
-            this.l_s2.TabIndex = 84;
-            this.l_s2.Text = "Semestr 2";
-            // 
-            // l_s3
-            // 
-            this.l_s3.AutoSize = true;
-            this.l_s3.Location = new System.Drawing.Point(24, 245);
-            this.l_s3.Name = "l_s3";
-            this.l_s3.Size = new System.Drawing.Size(54, 13);
-            this.l_s3.TabIndex = 85;
-            this.l_s3.Text = "Semestr 3";
-            // 
-            // l_s4
-            // 
-            this.l_s4.AutoSize = true;
-            this.l_s4.Location = new System.Drawing.Point(24, 349);
-            this.l_s4.Name = "l_s4";
-            this.l_s4.Size = new System.Drawing.Size(54, 13);
-            this.l_s4.TabIndex = 86;
-            this.l_s4.Text = "Semestr 4";
-            // 
-            // l_s5
-            // 
-            this.l_s5.AutoSize = true;
-            this.l_s5.Location = new System.Drawing.Point(24, 448);
-            this.l_s5.Name = "l_s5";
-            this.l_s5.Size = new System.Drawing.Size(54, 13);
-            this.l_s5.TabIndex = 87;
-            this.l_s5.Text = "Semestr 5";
-            // 
-            // l_s6
-            // 
-            this.l_s6.AutoSize = true;
-            this.l_s6.Location = new System.Drawing.Point(24, 550);
-            this.l_s6.Name = "l_s6";
-            this.l_s6.Size = new System.Drawing.Size(54, 13);
-            this.l_s6.TabIndex = 88;
-            this.l_s6.Text = "Semestr 6";
-            // 
-            // l_s7
-            // 
-            this.l_s7.AutoSize = true;
-            this.l_s7.Location = new System.Drawing.Point(368, 44);
-            this.l_s7.Name = "l_s7";
-            this.l_s7.Size = new System.Drawing.Size(54, 13);
-            this.l_s7.TabIndex = 89;
-            this.l_s7.Text = "Semestr 7";
-            // 
-            // l_s9
-            // 
-            this.l_s9.AutoSize = true;
-            this.l_s9.Location = new System.Drawing.Point(368, 245);
-            this.l_s9.Name = "l_s9";
-            this.l_s9.Size = new System.Drawing.Size(54, 13);
-            this.l_s9.TabIndex = 90;
-            this.l_s9.Text = "Semestr 9";
-            // 
-            // l_s10
-            // 
-            this.l_s10.AutoSize = true;
-            this.l_s10.Location = new System.Drawing.Point(362, 350);
-            this.l_s10.Name = "l_s10";
-            this.l_s10.Size = new System.Drawing.Size(60, 13);
-            this.l_s10.TabIndex = 91;
-            this.l_s10.Text = "Semestr 10";
-            // 
-            // l_s11
-            // 
-            this.l_s11.AutoSize = true;
-            this.l_s11.Location = new System.Drawing.Point(362, 450);
-            this.l_s11.Name = "l_s11";
-            this.l_s11.Size = new System.Drawing.Size(60, 13);
-            this.l_s11.TabIndex = 92;
-            this.l_s11.Text = "Semestr 11";
-            // 
-            // l_s12
-            // 
-            this.l_s12.AutoSize = true;
-            this.l_s12.Location = new System.Drawing.Point(362, 551);
-            this.l_s12.Name = "l_s12";
-            this.l_s12.Size = new System.Drawing.Size(60, 13);
-            this.l_s12.TabIndex = 93;
-            this.l_s12.Text = "Semestr 12";
-            // 
-            // l_s8
-            // 
-            this.l_s8.AutoSize = true;
-            this.l_s8.Location = new System.Drawing.Point(368, 143);
-            this.l_s8.Name = "l_s8";
-            this.l_s8.Size = new System.Drawing.Size(54, 13);
-            this.l_s8.TabIndex = 94;
-            this.l_s8.Text = "Semestr 8";
-            // 
-            // vypisGarant1
-            // 
-            this.vypisGarant1.Email = "";
-            this.vypisGarant1.G = null;
-            this.vypisGarant1.Katedra = "";
-            this.vypisGarant1.Konzultace = "";
-            this.vypisGarant1.Location = new System.Drawing.Point(780, 380);
-            this.vypisGarant1.Name = "vypisGarant1";
-            this.vypisGarant1.Size = new System.Drawing.Size(289, 114);
-            this.vypisGarant1.TabIndex = 81;
-            this.vypisGarant1.Telefon = "";
-            // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Cviceni = "";
-            this.vypisPopisPredmet.Garant = "";
-            this.vypisPopisPredmet.Jazyk = "";
-            this.vypisPopisPredmet.Kombi = "";
-            this.vypisPopisPredmet.Kredit = "";
-            this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 38);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.P = null;
-            this.vypisPopisPredmet.Popis = "";
-            this.vypisPopisPredmet.Povinnost = "";
-            this.vypisPopisPredmet.Prednaska = "";
-            this.vypisPopisPredmet.Prerekvizita = "";
-            this.vypisPopisPredmet.Semestr = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 337);
-            this.vypisPopisPredmet.TabIndex = 77;
-            this.vypisPopisPredmet.Visible = false;
-            this.vypisPopisPredmet.Zakončení = "";
-            this.vypisPopisPredmet.Zkr = "";
             // 
             // FormMain
             // 
