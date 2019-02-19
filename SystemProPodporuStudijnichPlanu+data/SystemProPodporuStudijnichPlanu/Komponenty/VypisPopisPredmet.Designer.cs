@@ -80,8 +80,10 @@
             // 
             // rtb_popis
             // 
+            this.rtb_popis.BackColor = System.Drawing.Color.White;
             this.rtb_popis.Location = new System.Drawing.Point(185, 83);
             this.rtb_popis.Name = "rtb_popis";
+            this.rtb_popis.ReadOnly = true;
             this.rtb_popis.Size = new System.Drawing.Size(194, 249);
             this.rtb_popis.TabIndex = 22;
             this.rtb_popis.Text = "";
@@ -111,8 +113,10 @@
             // 
             // tb_kredity
             // 
+            this.tb_kredity.BackColor = System.Drawing.Color.White;
             this.tb_kredity.Location = new System.Drawing.Point(73, 64);
             this.tb_kredity.Name = "tb_kredity";
+            this.tb_kredity.ReadOnly = true;
             this.tb_kredity.Size = new System.Drawing.Size(100, 20);
             this.tb_kredity.TabIndex = 22;
             // 
@@ -145,8 +149,10 @@
             // 
             // tb_jazyk
             // 
+            this.tb_jazyk.BackColor = System.Drawing.Color.White;
             this.tb_jazyk.Location = new System.Drawing.Point(73, 168);
             this.tb_jazyk.Name = "tb_jazyk";
+            this.tb_jazyk.ReadOnly = true;
             this.tb_jazyk.Size = new System.Drawing.Size(100, 20);
             this.tb_jazyk.TabIndex = 13;
             // 
@@ -161,36 +167,46 @@
             // 
             // tb_prerek
             // 
+            this.tb_prerek.BackColor = System.Drawing.Color.White;
             this.tb_prerek.Location = new System.Drawing.Point(73, 142);
             this.tb_prerek.Name = "tb_prerek";
+            this.tb_prerek.ReadOnly = true;
             this.tb_prerek.Size = new System.Drawing.Size(100, 20);
             this.tb_prerek.TabIndex = 12;
             // 
             // tb_zakonc
             // 
+            this.tb_zakonc.BackColor = System.Drawing.Color.White;
             this.tb_zakonc.Location = new System.Drawing.Point(73, 116);
             this.tb_zakonc.Name = "tb_zakonc";
+            this.tb_zakonc.ReadOnly = true;
             this.tb_zakonc.Size = new System.Drawing.Size(100, 20);
             this.tb_zakonc.TabIndex = 11;
             // 
             // tb_povinn
             // 
+            this.tb_povinn.BackColor = System.Drawing.Color.White;
             this.tb_povinn.Location = new System.Drawing.Point(73, 90);
             this.tb_povinn.Name = "tb_povinn";
+            this.tb_povinn.ReadOnly = true;
             this.tb_povinn.Size = new System.Drawing.Size(100, 20);
             this.tb_povinn.TabIndex = 10;
             // 
             // tb_semestr
             // 
+            this.tb_semestr.BackColor = System.Drawing.Color.White;
             this.tb_semestr.Location = new System.Drawing.Point(73, 38);
             this.tb_semestr.Name = "tb_semestr";
+            this.tb_semestr.ReadOnly = true;
             this.tb_semestr.Size = new System.Drawing.Size(100, 20);
             this.tb_semestr.TabIndex = 8;
             // 
             // tb_zkratka
             // 
+            this.tb_zkratka.BackColor = System.Drawing.Color.White;
             this.tb_zkratka.Location = new System.Drawing.Point(73, 12);
             this.tb_zkratka.Name = "tb_zkratka";
+            this.tb_zkratka.ReadOnly = true;
             this.tb_zkratka.Size = new System.Drawing.Size(100, 20);
             this.tb_zkratka.TabIndex = 7;
             // 
@@ -276,29 +292,37 @@
             // 
             // tb_laborator
             // 
+            this.tb_laborator.BackColor = System.Drawing.Color.White;
             this.tb_laborator.Location = new System.Drawing.Point(73, 91);
             this.tb_laborator.Name = "tb_laborator";
+            this.tb_laborator.ReadOnly = true;
             this.tb_laborator.Size = new System.Drawing.Size(100, 20);
             this.tb_laborator.TabIndex = 18;
             // 
             // tb_kombi
             // 
+            this.tb_kombi.BackColor = System.Drawing.Color.White;
             this.tb_kombi.Location = new System.Drawing.Point(73, 65);
             this.tb_kombi.Name = "tb_kombi";
+            this.tb_kombi.ReadOnly = true;
             this.tb_kombi.Size = new System.Drawing.Size(100, 20);
             this.tb_kombi.TabIndex = 17;
             // 
             // tb_cviceni
             // 
+            this.tb_cviceni.BackColor = System.Drawing.Color.White;
             this.tb_cviceni.Location = new System.Drawing.Point(73, 39);
             this.tb_cviceni.Name = "tb_cviceni";
+            this.tb_cviceni.ReadOnly = true;
             this.tb_cviceni.Size = new System.Drawing.Size(100, 20);
             this.tb_cviceni.TabIndex = 16;
             // 
             // tb_prednaska
             // 
+            this.tb_prednaska.BackColor = System.Drawing.Color.White;
             this.tb_prednaska.Location = new System.Drawing.Point(73, 13);
             this.tb_prednaska.Name = "tb_prednaska";
+            this.tb_prednaska.ReadOnly = true;
             this.tb_prednaska.Size = new System.Drawing.Size(100, 20);
             this.tb_prednaska.TabIndex = 15;
             // 
@@ -313,8 +337,10 @@
             // 
             // tb_garant
             // 
+            this.tb_garant.BackColor = System.Drawing.Color.White;
             this.tb_garant.Location = new System.Drawing.Point(185, 44);
             this.tb_garant.Name = "tb_garant";
+            this.tb_garant.ReadOnly = true;
             this.tb_garant.Size = new System.Drawing.Size(194, 20);
             this.tb_garant.TabIndex = 9;
             // 

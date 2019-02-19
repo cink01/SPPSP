@@ -42,29 +42,37 @@
             // 
             // tb_konz
             // 
+            this.tb_konz.BackColor = System.Drawing.Color.White;
             this.tb_konz.Location = new System.Drawing.Point(73, 13);
             this.tb_konz.Name = "tb_konz";
+            this.tb_konz.ReadOnly = true;
             this.tb_konz.Size = new System.Drawing.Size(206, 20);
             this.tb_konz.TabIndex = 0;
             // 
             // tb_email
             // 
+            this.tb_email.BackColor = System.Drawing.Color.White;
             this.tb_email.Location = new System.Drawing.Point(73, 39);
             this.tb_email.Name = "tb_email";
+            this.tb_email.ReadOnly = true;
             this.tb_email.Size = new System.Drawing.Size(206, 20);
             this.tb_email.TabIndex = 1;
             // 
             // tb_tel
             // 
+            this.tb_tel.BackColor = System.Drawing.Color.White;
             this.tb_tel.Location = new System.Drawing.Point(73, 65);
             this.tb_tel.Name = "tb_tel";
+            this.tb_tel.ReadOnly = true;
             this.tb_tel.Size = new System.Drawing.Size(206, 20);
             this.tb_tel.TabIndex = 2;
             // 
             // tb_kat
             // 
+            this.tb_kat.BackColor = System.Drawing.Color.White;
             this.tb_kat.Location = new System.Drawing.Point(73, 91);
             this.tb_kat.Name = "tb_kat";
+            this.tb_kat.ReadOnly = true;
             this.tb_kat.Size = new System.Drawing.Size(206, 20);
             this.tb_kat.TabIndex = 3;
             // 

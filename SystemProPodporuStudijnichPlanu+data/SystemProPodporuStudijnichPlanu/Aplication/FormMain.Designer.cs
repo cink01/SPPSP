@@ -110,7 +110,7 @@
             this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1102, 23);
+            this.menuStripMain.Size = new System.Drawing.Size(1094, 23);
             this.menuStripMain.TabIndex = 1;
             // 
             // souborToolStripMenuItem
@@ -230,7 +230,7 @@
             this.nud_celkemKred.BackColor = System.Drawing.Color.White;
             this.nud_celkemKred.Enabled = false;
             this.nud_celkemKred.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_celkemKred.Location = new System.Drawing.Point(1014, 547);
+            this.nud_celkemKred.Location = new System.Drawing.Point(1012, 547);
             this.nud_celkemKred.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -348,7 +348,7 @@
             // lb_celkem
             // 
             this.lb_celkem.AutoSize = true;
-            this.lb_celkem.Location = new System.Drawing.Point(927, 549);
+            this.lb_celkem.Location = new System.Drawing.Point(925, 549);
             this.lb_celkem.Name = "lb_celkem";
             this.lb_celkem.Size = new System.Drawing.Size(81, 13);
             this.lb_celkem.TabIndex = 14;
@@ -632,7 +632,7 @@
             this.gb_max.Controls.Add(this.lb_semestr2);
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
-            this.gb_max.Size = new System.Drawing.Size(1080, 654);
+            this.gb_max.Size = new System.Drawing.Size(1074, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
@@ -653,7 +653,7 @@
             // l_vk
             // 
             this.l_vk.AutoSize = true;
-            this.l_vk.Location = new System.Drawing.Point(857, 627);
+            this.l_vk.Location = new System.Drawing.Point(855, 627);
             this.l_vk.Name = "l_vk";
             this.l_vk.Size = new System.Drawing.Size(151, 13);
             this.l_vk.TabIndex = 80;
@@ -662,7 +662,7 @@
             // l_pvk
             // 
             this.l_pvk.AutoSize = true;
-            this.l_pvk.Location = new System.Drawing.Point(864, 601);
+            this.l_pvk.Location = new System.Drawing.Point(862, 601);
             this.l_pvk.Name = "l_pvk";
             this.l_pvk.Size = new System.Drawing.Size(144, 13);
             this.l_pvk.TabIndex = 79;
@@ -671,7 +671,7 @@
             // l_pkr
             // 
             this.l_pkr.AutoSize = true;
-            this.l_pkr.Location = new System.Drawing.Point(858, 575);
+            this.l_pkr.Location = new System.Drawing.Point(856, 575);
             this.l_pkr.Name = "l_pkr";
             this.l_pkr.Size = new System.Drawing.Size(150, 13);
             this.l_pkr.TabIndex = 78;
@@ -682,7 +682,7 @@
             this.nud_vKr.BackColor = System.Drawing.Color.White;
             this.nud_vKr.Enabled = false;
             this.nud_vKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_vKr.Location = new System.Drawing.Point(1014, 625);
+            this.nud_vKr.Location = new System.Drawing.Point(1012, 625);
             this.nud_vKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -699,7 +699,7 @@
             this.nud_pvKr.BackColor = System.Drawing.Color.White;
             this.nud_pvKr.Enabled = false;
             this.nud_pvKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pvKr.Location = new System.Drawing.Point(1014, 599);
+            this.nud_pvKr.Location = new System.Drawing.Point(1012, 599);
             this.nud_pvKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -717,7 +717,7 @@
             this.nud_pKr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nud_pKr.Enabled = false;
             this.nud_pKr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_pKr.Location = new System.Drawing.Point(1014, 573);
+            this.nud_pKr.Location = new System.Drawing.Point(1012, 573);
             this.nud_pKr.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -783,7 +783,7 @@
             this.vypisPopisPredmet.Kombi = "";
             this.vypisPopisPredmet.Kredit = "";
             this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 34);
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 38);
             this.vypisPopisPredmet.Name = "vypisPopisPredmet";
             this.vypisPopisPredmet.P = null;
             this.vypisPopisPredmet.Popis = "";
@@ -791,7 +791,7 @@
             this.vypisPopisPredmet.Prednaska = "";
             this.vypisPopisPredmet.Prerekvizita = "";
             this.vypisPopisPredmet.Semestr = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 343);
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 337);
             this.vypisPopisPredmet.TabIndex = 77;
             this.vypisPopisPredmet.Visible = false;
             this.vypisPopisPredmet.Zakončení = "";
@@ -802,7 +802,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1102, 688);
+            this.ClientSize = new System.Drawing.Size(1094, 688);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

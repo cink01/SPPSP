@@ -749,24 +749,29 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Zobrazovacka(int vyber)
         {
-            this.Size = new Size(590, 454);
+
             gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
             gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
-            vypisGarant_Mid.Location = VypisOborMid.Location = vypisPopisPredmetMid.Location = new Point(186, 78);
+            cb_garant.Text = cb_kat.Text = cb_obo.Text = cb_pre.Text = "";
+            vypisGarant_Mid.Location = VypisOborMid.Location = vypisPopisPredmetMid.Location = new Point(186, 30/*78*/);
             vypisGarant_Mid.Visible = VypisOborMid.Visible = vypisPopisPredmetMid.Visible = false;
             switch (vyber)
             {
                 case 1:
                     gb_o.Visible = true;
+                    this.Size = new Size(590, 454);
                     break;
                 case 2:
                     gb_k.Visible =true;
+                    this.Size = new Size(205, 454);
                     break;
                 case 3:
                     gb_g.Visible =true;
+                    this.Size = new Size(491, 454);
                     break;
                 case 4:
                     gb_p.Visible = true;
+                    this.Size = new Size(590, 454);
                     break;
                 default:
                     break;

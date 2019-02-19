@@ -65,8 +65,10 @@
             // 
             // rtb_praxe
             // 
+            this.rtb_praxe.BackColor = System.Drawing.Color.White;
             this.rtb_praxe.Location = new System.Drawing.Point(6, 141);
             this.rtb_praxe.Name = "rtb_praxe";
+            this.rtb_praxe.ReadOnly = true;
             this.rtb_praxe.Size = new System.Drawing.Size(371, 76);
             this.rtb_praxe.TabIndex = 22;
             this.rtb_praxe.Text = "";
@@ -86,8 +88,10 @@
             // 
             // tb_zkratka
             // 
+            this.tb_zkratka.BackColor = System.Drawing.Color.White;
             this.tb_zkratka.Location = new System.Drawing.Point(93, 19);
             this.tb_zkratka.Name = "tb_zkratka";
+            this.tb_zkratka.ReadOnly = true;
             this.tb_zkratka.Size = new System.Drawing.Size(100, 20);
             this.tb_zkratka.TabIndex = 7;
             // 
@@ -111,8 +115,10 @@
             // 
             // tb_rok
             // 
+            this.tb_rok.BackColor = System.Drawing.Color.White;
             this.tb_rok.Location = new System.Drawing.Point(93, 45);
             this.tb_rok.Name = "tb_rok";
+            this.tb_rok.ReadOnly = true;
             this.tb_rok.Size = new System.Drawing.Size(100, 20);
             this.tb_rok.TabIndex = 8;
             // 
@@ -171,29 +177,37 @@
             // 
             // tb_s
             // 
+            this.tb_s.BackColor = System.Drawing.Color.White;
             this.tb_s.Location = new System.Drawing.Point(103, 91);
             this.tb_s.Name = "tb_s";
+            this.tb_s.ReadOnly = true;
             this.tb_s.Size = new System.Drawing.Size(57, 20);
             this.tb_s.TabIndex = 18;
             // 
             // tb_v
             // 
+            this.tb_v.BackColor = System.Drawing.Color.White;
             this.tb_v.Location = new System.Drawing.Point(103, 65);
             this.tb_v.Name = "tb_v";
+            this.tb_v.ReadOnly = true;
             this.tb_v.Size = new System.Drawing.Size(57, 20);
             this.tb_v.TabIndex = 17;
             // 
             // tb_pv
             // 
+            this.tb_pv.BackColor = System.Drawing.Color.White;
             this.tb_pv.Location = new System.Drawing.Point(103, 39);
             this.tb_pv.Name = "tb_pv";
+            this.tb_pv.ReadOnly = true;
             this.tb_pv.Size = new System.Drawing.Size(57, 20);
             this.tb_pv.TabIndex = 16;
             // 
             // tb_p
             // 
+            this.tb_p.BackColor = System.Drawing.Color.White;
             this.tb_p.Location = new System.Drawing.Point(103, 13);
             this.tb_p.Name = "tb_p";
+            this.tb_p.ReadOnly = true;
             this.tb_p.Size = new System.Drawing.Size(57, 20);
             this.tb_p.TabIndex = 15;
             // 
