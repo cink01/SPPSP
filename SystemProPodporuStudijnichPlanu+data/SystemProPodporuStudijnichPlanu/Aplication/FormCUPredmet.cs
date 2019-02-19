@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
@@ -11,7 +10,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
         public List<Predmet> predmets = new List<Predmet>();
-    //    Filling fill = new Filling();
+        //    Filling fill = new Filling();
 
         public FormCUPredmet()
         {
@@ -25,7 +24,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             fill.NaplnComboBox<Obor>(cb_obor, obors);
             fill.NaplnComboBox<Predmet>(cb_prerek, predmets);
         }
-        private void FormCUPredmet_Load(object sender, EventArgs e){}
+        private void FormCUPredmet_Load(object sender, EventArgs e) { }
         public Predmet P
         {
             get
@@ -84,7 +83,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => Convert.ToInt32(nud_p.Value);
             set => nud_p.Value = Convert.ToDecimal(value);
         }
-        public int Cv 
+        public int Cv
         {
             get => Convert.ToInt32(nud_cv.Value);
             set => nud_cv.Value = Convert.ToDecimal(value);
@@ -94,7 +93,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get => Convert.ToInt32(nud_cvk.Value);
             set => nud_cvk.Value = Convert.ToDecimal(value);
         }
-        public int Lab 
+        public int Lab
         {
             get => Convert.ToInt32(nud_lab.Value);
             set => nud_lab.Value = Convert.ToDecimal(value);
@@ -117,12 +116,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     cb_zakončení.SelectedIndex = cb_zakončení.FindString("Zkouška");
             }
         }
-        public string Povinnost 
+        public string Povinnost
         {
             get => cb_povinnost.GetItemText(cb_povinnost.SelectedItem);
             set => cb_povinnost.SelectedIndex = cb_povinnost.FindString(value);
         }
-        public int Obor 
+        public int Obor
         {
             get
             {
@@ -131,7 +130,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
             set
             {
-     //           fill.NastavIndexCombo<Obor>(cb_obor, obors, value);
+                //           fill.NastavIndexCombo<Obor>(cb_obor, obors, value);
                 foreach (Obor k in obors)
                     if (k.Id_obor == value)
                         cb_obor.SelectedIndex = cb_obor.FindStringExact(k.ToString());
@@ -171,9 +170,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 if (value != -1)
                 {
-                foreach (Predmet k in predmets)
-                    if (k.Id_predmet == value)
-                        cb_prerek.SelectedItem = cb_prerek.FindString(k.ToString());
+                    foreach (Predmet k in predmets)
+                        if (k.Id_predmet == value)
+                            cb_prerek.SelectedItem = cb_prerek.FindString(k.ToString());
                 }
             }
         }
@@ -205,9 +204,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Cb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataAccess da = new DataAccess();
-            foreach(Obor o in obors)
-                if(o.Name_obor==cb_obor.SelectedItem.ToString())
-                    predmets=da.GetPredmetFullByObor(o.Id_obor);
+            foreach (Obor o in obors)
+                if (o.Name_obor == cb_obor.SelectedItem.ToString())
+                    predmets = da.GetPredmetFullByObor(o.Id_obor);
         }
     }
 }

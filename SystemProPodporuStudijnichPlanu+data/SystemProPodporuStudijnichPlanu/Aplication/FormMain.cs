@@ -41,7 +41,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value + nud_KredSem7.Value + nud_KredSem8.Value + nud_KredSem9.Value + nud_KredSem10.Value + nud_KredSem11.Value + nud_KredSem12.Value;
             nud_KredSem1.BackColor = nud_KredSem1.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem2.BackColor = nud_KredSem2.Value+ nud_KredSem1.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem2.BackColor = nud_KredSem2.Value + nud_KredSem1.Value < 40 ? Color.LightCoral : Color.LightGreen;
             nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < 40 ? Color.LightCoral : Color.LightGreen;
             nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < 40 ? Color.LightCoral : Color.LightGreen;
             nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < 40 ? Color.LightCoral : Color.LightGreen;
@@ -341,13 +341,13 @@ namespace SystemProPodporuStudijnichPlanu
                         x.InsertZaznam(Zaznam.Zaz);
                         for (int i = 1; i <= Zaznam.Semestr; i++)
                             x.InsertPS(Zaznam.Zkr, i);
+                        zkratka = Zaznam.Zkr;
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    zkratka = Zaznam.Zkr;
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             RefreshZaznamy(zkratka);
@@ -404,20 +404,20 @@ namespace SystemProPodporuStudijnichPlanu
                                     x.InsertZaznam(Zaznam.Zaz);
                                     for (int i = 1; i <= Zaznam.Semestr; i++)
                                         x.InsertPS(Zaznam.Zkr, i);
+                                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 catch (Exception ex)
                                 {
                                     MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+                            Zzkr = Zaznam.Zkr;
+                            MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        Zzkr = Zaznam.Zkr;
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 RefreshZaznamy(Zzkr);
@@ -431,9 +431,9 @@ namespace SystemProPodporuStudijnichPlanu
         private void ZměnyVeliZic(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 680 : 428;
-            vypisGarant1.Left = i > 6 ? 780 : 528;
+            vypisGarantMain.Left = i > 6 ? 780 : 528;
             bt_zobrazDGar.Left = i > 6 ? 682 : 428;
-            vypisPopisPredmet.Visible = vypisGarant1.Visible = bt_zobrazDGar.Visible = bt_smaz.Visible = false;
+            vypisPopisPredmet.Visible = vypisGarantMain.Visible = bt_zobrazDGar.Visible = bt_smaz.Visible = false;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1012 : 761;
             lb_celkem.Left = i > 6 ? 929 : 674;
             l_pkr.Left = i > 6 ? 860 : 605;
@@ -529,7 +529,7 @@ namespace SystemProPodporuStudijnichPlanu
             bt_smaz.Visible = true;
             bt_zobrazDGar.Visible = true;
             vypisPopisPredmet.Visible = true;
-            vypisGarant1.Visible = false;
+            vypisGarantMain.Visible = false;
             switch (i)
             {
                 case 55:
@@ -905,9 +905,9 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_zobrazDGar_Click(object sender, EventArgs e)
         {
-            vypisGarant1.Visible = true;
+            vypisGarantMain.Visible = true;
             Filling f = new Filling();
-            f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarant1);
+            f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarantMain);
         }
     }
 }

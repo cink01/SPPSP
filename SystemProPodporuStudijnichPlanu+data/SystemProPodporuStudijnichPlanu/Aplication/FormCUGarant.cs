@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
@@ -8,8 +7,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUGarant : Form
     {
-        Filling fill = new Filling();
-        List<Katedra> katedras = new List<Katedra>();
+        private Filling fill = new Filling();
+        private List<Katedra> katedras = new List<Katedra>();
         public FormCUGarant()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             get
             {
                 return new Garant(Id, Jmeno, Email, Tel, Konz, Kat);
-        	}
+            }
             set
             {
                 G = value;
@@ -74,20 +73,17 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         return k.Id_k;
                 return 0;
             }
-
             set
             {
-                foreach(Katedra k in katedras)
-                    if(k.Id_k==value)
+                foreach (Katedra k in katedras)
+                    if (k.Id_k == value)
                         cmb_katedra.SelectedIndex = cmb_katedra.FindStringExact(k.Naz_k);
             }
         }
-
         private void Bt_close_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void Kat_Hledani(object sender, EventArgs e)
         {
             fill.NajdiVComboBoxu<Katedra>(cmb_katedra, katedras);

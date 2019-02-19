@@ -81,7 +81,7 @@
             this.l_s2 = new System.Windows.Forms.Label();
             this.l_s1 = new System.Windows.Forms.Label();
             this.bt_zobrazDGar = new System.Windows.Forms.Button();
-            this.vypisGarant1 = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
+            this.vypisGarantMain = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
@@ -614,7 +614,7 @@
             this.gb_max.Controls.Add(this.l_s2);
             this.gb_max.Controls.Add(this.l_s1);
             this.gb_max.Controls.Add(this.bt_zobrazDGar);
-            this.gb_max.Controls.Add(this.vypisGarant1);
+            this.gb_max.Controls.Add(this.vypisGarantMain);
             this.gb_max.Controls.Add(this.l_vk);
             this.gb_max.Controls.Add(this.l_pvk);
             this.gb_max.Controls.Add(this.l_pkr);
@@ -782,17 +782,17 @@
             this.bt_zobrazDGar.Visible = false;
             this.bt_zobrazDGar.Click += new System.EventHandler(this.Bt_zobrazDGar_Click);
             // 
-            // vypisGarant1
+            // vypisGarantMain
             // 
-            this.vypisGarant1.Email = "";
-            this.vypisGarant1.G = null;
-            this.vypisGarant1.Katedra = "";
-            this.vypisGarant1.Konzultace = "";
-            this.vypisGarant1.Location = new System.Drawing.Point(780, 380);
-            this.vypisGarant1.Name = "vypisGarant1";
-            this.vypisGarant1.Size = new System.Drawing.Size(290, 114);
-            this.vypisGarant1.TabIndex = 81;
-            this.vypisGarant1.Telefon = "";
+            this.vypisGarantMain.Email = "";
+            this.vypisGarantMain.G = null;
+            this.vypisGarantMain.Katedra = "";
+            this.vypisGarantMain.Konzultace = "";
+            this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
+            this.vypisGarantMain.Name = "vypisGarantMain";
+            this.vypisGarantMain.Size = new System.Drawing.Size(290, 114);
+            this.vypisGarantMain.TabIndex = 81;
+            this.vypisGarantMain.Telefon = "";
             // 
             // l_vk
             // 
@@ -1018,7 +1018,7 @@
         private System.Windows.Forms.Label l_pkr;
         private Komponenty.VypisPopisPredmet vypisPopisPredmet;
         private System.Windows.Forms.Button bt_zobrazDGar;
-        private Komponenty.VypisGarant vypisGarant1;
+        private Komponenty.VypisGarant vypisGarantMain;
         private System.Windows.Forms.Label l_s8;
         private System.Windows.Forms.Label l_s12;
         private System.Windows.Forms.Label l_s11;

@@ -65,14 +65,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DataAccess da = new DataAccess();
             Filling fill = new Filling();
             InitializeComponent();
-
             errorProvider_Zaznam_zkratka.SetIconAlignment(tb_zkr, ErrorIconAlignment.MiddleRight);
             errorProvider_Zaznam_zkratka.SetIconPadding(tb_zkr, 2);
             errorProvider_Zaznam_zkratka.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
             errorProvider_Zaznam_obor.SetIconAlignment(cmb_obor, ErrorIconAlignment.MiddleRight);
             errorProvider_Zaznam_obor.SetIconPadding(cmb_obor, 2);
             errorProvider_Zaznam_obor.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-
             obors = da.GetFullObor();
             obors.RemoveAt(0);
             fill.NaplnComboBox<Obor>(cmb_obor, obors);
@@ -100,8 +98,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cmb_obor_DropDown(object sender, EventArgs e)
         {
-           /* Filling f = new Filling();
-            f.DynSirka<Obor>(cmb_obor, obors);*/
+            /* Filling f = new Filling();
+             f.DynSirka<Obor>(cmb_obor, obors);*/
         }
         private void Tb_zkr_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {

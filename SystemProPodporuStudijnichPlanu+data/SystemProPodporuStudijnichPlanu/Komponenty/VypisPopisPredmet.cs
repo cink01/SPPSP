@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Komponenty
 {
@@ -9,7 +8,7 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
         {
             InitializeComponent();
         }
-        public Predmet P{ get;set;}
+        public Predmet P { get; set; }
         public string Zkr
         {
             get => tb_zkratka.Text;
@@ -51,7 +50,6 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
             get => tb_jazyk.Text;
             set => tb_jazyk.Text = value;
         }
-
         public string Prednaska
         {
             get => tb_prednaska.Text;
@@ -76,11 +74,6 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
         {
             get => tb_semestr.Text;
             set => tb_semestr.Text = value;
-        }
-
-        private void Gb_popis_pr_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

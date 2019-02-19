@@ -76,7 +76,6 @@
             this.gb_popis_pr.TabIndex = 0;
             this.gb_popis_pr.TabStop = false;
             this.gb_popis_pr.Text = "Detaily vybraného předmětu";
-            this.gb_popis_pr.Enter += new System.EventHandler(this.Gb_popis_pr_Enter);
             // 
             // rtb_popis
             // 

@@ -66,12 +66,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertGarant(g.G);
                         DataAccess da = new DataAccess();
                         garants = da.GetFullGarant();
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -89,12 +89,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertPredmet(p.P);
                         ZaridVyber();
                         cb_pre.SelectedIndex = cb_pre.FindStringExact(p.P.ToString());
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -119,12 +119,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                               o.Praxe));
                         DataAccess da = new DataAccess();
                         obors = da.GetFullObor();
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -143,12 +143,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                     k.Nazev);
                         DataAccess da = new DataAccess();
                         katedras = da.GetFullKatedra();
+                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -269,12 +269,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.UpdateGarant(Gara.G);
                         garants = a.GetFullGarant();
                         cb_garant.Text = Gara.G.ToString();
+                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -317,12 +317,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         ZaridVyber();
                         cb_pre.Text = Pred.P.ToString();
                         f.FillDetail(vypisPopisPredmetMid, Pred.P);
+                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -360,13 +360,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateObor(Obo.O);
                             obors = a.GetFullObor();
                             cb_obo.Text = Obo.O.ToString();
-
+                            MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -396,13 +395,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateKatedra(Kat.K);
                             katedras = a.GetFullKatedra();
                             cb_kat.Text = Kat.K.ToString();
-
+                            MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -443,12 +441,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             garants = da.GetFullGarant();
                             cb_garant.Text = "";
+                            MessageBox.Show("Smazání garanta proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Smazání garanta proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
                 }
             }
@@ -459,7 +457,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 foreach (Predmet o in predmets)
                 {
-
                     if (o.ToString() == cb_pre.SelectedItem.ToString())
                     {
                         try
@@ -469,12 +466,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             predmets = da.GetFullPredmet();
                             cb_pre.Text = "";
+                            MessageBox.Show("Smazání předmětu proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Smazání předmětu proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
                 }
             }
@@ -485,7 +482,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 foreach (Obor o in obors)
                 {
-
                     if (o.ToString() == cb_obo.SelectedItem.ToString())
                     {
                         try
@@ -495,12 +491,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             obors = da.GetFullObor();
                             cb_obo.Text = "";
+                            MessageBox.Show("Smazání oboru proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Smazání oboru proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
                 }
             }
@@ -511,7 +507,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 foreach (Katedra o in katedras)
                 {
-
                     if (o.ToString() == cb_kat.SelectedItem.ToString())
                     {
                         try
@@ -521,12 +516,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             katedras = da.GetFullKatedra();
                             cb_kat.Text = "";
+                            MessageBox.Show("Smazání katedry proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        MessageBox.Show("Smazání katedry proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
                 }
             }
@@ -632,8 +627,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         }
                     }
                     break;
-                default: break;
-
+                default:
+                    break;
             }
         }
         private int VratIdckoOboru()
@@ -660,9 +655,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             DialogResult x = DialogResult.Cancel;
             if (bt_novy.Visible != true)
-            {
                 x = MessageBox.Show("Opravdu chcete povolit správce?\nÚpravy a mazání záznamů může vést k odstranění vytvořených plánu.\nPokračovat?", "Povolit správu", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            }
             else
             {
                 Schovka();
@@ -735,7 +728,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Filling f = new Filling();
             f.FillOborDetail(cb_obo, VypisOborMid);
         }
-
         private void Rb_obor_CheckedChanged(object sender, EventArgs e)
         {
             if (rb_obor.Checked == true)
@@ -749,7 +741,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Zobrazovacka(int vyber)
         {
-
             gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
             gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
             cb_garant.Text = cb_kat.Text = cb_obo.Text = cb_pre.Text = "";
@@ -759,19 +750,19 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 case 1:
                     gb_o.Visible = true;
-                    this.Size = new Size(590, 454);
+                    this.Size = new Size(590, 426);
                     break;
                 case 2:
-                    gb_k.Visible =true;
-                    this.Size = new Size(205, 454);
+                    gb_k.Visible = true;
+                    this.Size = new Size(205, 426);
                     break;
                 case 3:
-                    gb_g.Visible =true;
-                    this.Size = new Size(491, 454);
+                    gb_g.Visible = true;
+                    this.Size = new Size(491, 426);
                     break;
                 case 4:
                     gb_p.Visible = true;
-                    this.Size = new Size(590, 454);
+                    this.Size = new Size(590, 426);
                     break;
                 default:
                     break;

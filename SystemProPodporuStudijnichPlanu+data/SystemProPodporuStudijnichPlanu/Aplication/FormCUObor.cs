@@ -5,7 +5,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 {
     public partial class FormCUObor : Form
     {
-
         public Obor O
         {
             get
@@ -49,7 +48,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     return -1;
                 else
                     return Convert.ToInt32(tb_id.Text);
-                    }
+            }
             set => tb_id.Text = value.ToString();
         }
         public int P

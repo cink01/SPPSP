@@ -80,7 +80,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(3, 390);
+            this.bt_close.Location = new System.Drawing.Point(110, 305);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 16;
@@ -480,7 +480,7 @@
             this.vypisGarant_Mid.G = null;
             this.vypisGarant_Mid.Katedra = "";
             this.vypisGarant_Mid.Konzultace = "";
-            this.vypisGarant_Mid.Location = new System.Drawing.Point(298, 30);
+            this.vypisGarant_Mid.Location = new System.Drawing.Point(433, 21);
             this.vypisGarant_Mid.Name = "vypisGarant_Mid";
             this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 114);
             this.vypisGarant_Mid.TabIndex = 26;
@@ -489,7 +489,7 @@
             // 
             // VypisOborMid
             // 
-            this.VypisOborMid.Location = new System.Drawing.Point(163, 248);
+            this.VypisOborMid.Location = new System.Drawing.Point(191, 253);
             this.VypisOborMid.Name = "VypisOborMid";
             this.VypisOborMid.P = "";
             this.VypisOborMid.Praxe = "";
@@ -509,7 +509,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(1126, 483);
+            this.ClientSize = new System.Drawing.Size(1126, 387);
             this.Controls.Add(this.VypisOborMid);
             this.Controls.Add(this.vypisPopisPredmetMid);
             this.Controls.Add(this.vypisGarant_Mid);
