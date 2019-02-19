@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Aplication;
 using SystemProPodporuStudijnichPlanu.Logic;
-using SystemProPodporuStudijnichPlanu.Komponenty;
 
 namespace SystemProPodporuStudijnichPlanu
 {
@@ -44,11 +41,17 @@ namespace SystemProPodporuStudijnichPlanu
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value + nud_KredSem7.Value + nud_KredSem8.Value + nud_KredSem9.Value + nud_KredSem10.Value + nud_KredSem11.Value + nud_KredSem12.Value;
             nud_KredSem1.BackColor = nud_KredSem1.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem2.BackColor = nud_KredSem2.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem3.BackColor = nud_KredSem3.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem4.BackColor = nud_KredSem4.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem5.BackColor = nud_KredSem5.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem6.BackColor = nud_KredSem6.Value < 15 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem2.BackColor = nud_KredSem2.Value+ nud_KredSem1.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem6.BackColor = nud_KredSem6.Value + nud_KredSem5.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem7.BackColor = nud_KredSem7.Value + nud_KredSem6.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem8.BackColor = nud_KredSem8.Value + nud_KredSem7.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem9.BackColor = nud_KredSem9.Value + nud_KredSem8.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem10.BackColor = nud_KredSem10.Value + nud_KredSem9.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem11.BackColor = nud_KredSem11.Value + nud_KredSem10.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem12.BackColor = nud_KredSem12.Value + nud_KredSem11.Value < 40 ? Color.LightCoral : Color.LightGreen;
             nud_celkemKred.BackColor = nud_celkemKred.Value < 180 ? Color.LightCoral : Color.LightGreen;
         }
 
@@ -59,7 +62,7 @@ namespace SystemProPodporuStudijnichPlanu
                 Application.Exit();
             }
         }
-        private void PripravPresun(int v,int o,int z)
+        private void PripravPresun(int v, int o, int z)
         {
             Sporty.Clear();
             predmetyLichy.Clear();
@@ -120,10 +123,11 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VyplnPotrebnyZeZaznamu()
         {
-            try { 
-            Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
-            Viditelnost(z.PocetSem);
-            nud_PridatDoSem.Maximum = z.PocetSem;
+            try
+            {
+                Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
+                Viditelnost(z.PocetSem);
+                nud_PridatDoSem.Maximum = z.PocetSem;
             }
             catch { }
         }
@@ -427,9 +431,9 @@ namespace SystemProPodporuStudijnichPlanu
         private void ZměnyVeliZic(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 680 : 428;
-            vypisGarant1.Left = i > 6 ?780:528;
+            vypisGarant1.Left = i > 6 ? 780 : 528;
             bt_zobrazDGar.Left = i > 6 ? 682 : 428;
-            vypisPopisPredmet.Visible = vypisGarant1.Visible = bt_zobrazDGar.Visible= bt_smaz.Visible = false;
+            vypisPopisPredmet.Visible = vypisGarant1.Visible = bt_zobrazDGar.Visible = bt_smaz.Visible = false;
             nud_celkemKred.Left = nud_pKr.Left = nud_pvKr.Left = nud_vKr.Left = i > 6 ? 1012 : 761;
             lb_celkem.Left = i > 6 ? 929 : 674;
             l_pkr.Left = i > 6 ? 860 : 605;
@@ -441,67 +445,68 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Viditelnost(int i)
         {
+
             ZměnyVeliZic(i);
             switch (i)
             {
                 case 12:
                     {
-                        nud_KredSem12.Visible = lb_semestr12.Visible = true;
+                        nud_KredSem12.Visible = lb_semestr12.Visible = l_s12.Visible = true;
                         goto case 11;
                     }
                 case 11:
                     {
-                        nud_KredSem11.Visible = lb_semestr11.Visible = true;
+                        nud_KredSem11.Visible = lb_semestr11.Visible = l_s11.Visible = true;
                         goto case 10;
                     }
                 case 10:
                     {
-                        nud_KredSem10.Visible = lb_semestr10.Visible = true;
+                        nud_KredSem10.Visible = lb_semestr10.Visible = l_s10.Visible = true;
                         goto case 9;
                     }
                 case 9:
                     {
-                        nud_KredSem9.Visible = lb_semestr9.Visible = true;
+                        nud_KredSem9.Visible = lb_semestr9.Visible = l_s9.Visible = true;
                         goto case 8;
                     }
                 case 8:
                     {
-                        nud_KredSem8.Visible = lb_semestr8.Visible = true;
+                        nud_KredSem8.Visible = lb_semestr8.Visible = l_s8.Visible = true;
                         goto case 7;
                     }
                 case 7:
                     {
-                        nud_KredSem7.Visible = lb_semestr7.Visible = true;
+                        nud_KredSem7.Visible = lb_semestr7.Visible = l_s7.Visible = true;
                         goto case 6;
                     }
                 case 6:
                     {
-                        nud_KredSem6.Visible = lb_semestr6.Visible = true;
+                        nud_KredSem6.Visible = lb_semestr6.Visible = l_s6.Visible = true;
                         goto case 5;
                     }
                 case 5:
                     {
-                        nud_KredSem5.Visible = lb_semestr5.Visible = true;
+                        nud_KredSem5.Visible = lb_semestr5.Visible = l_s5.Visible = true;
                         goto case 4;
                     }
                 case 4:
                     {
-                        nud_KredSem4.Visible = lb_semestr4.Visible = true;
+                        nud_KredSem4.Visible = lb_semestr4.Visible = l_s4.Visible = true;
                         goto case 3;
                     }
                 case 3:
                     {
-                        nud_KredSem3.Visible = lb_semestr3.Visible = true;
+                        nud_KredSem3.Visible = lb_semestr3.Visible = l_s3.Visible = true;
                         goto case 2;
                     }
                 case 2:
                     {
-                        nud_KredSem2.Visible = lb_semestr2.Visible = true;
+                        nud_KredSem2.Visible = lb_semestr2.Visible = l_s2.Visible = true;
                         goto case 1;
                     }
                 case 1:
                     {
-                        nud_KredSem1.Visible = lb_semestr1.Visible = true;
+                        nud_KredSem1.Visible = lb_semestr1.Visible = l_s1.Visible = true;
                     }
                     break;
                 default:
@@ -514,7 +519,8 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_KredSem7.Visible = nud_KredSem6.Visible = nud_KredSem5.Visible = nud_KredSem4.Visible = nud_KredSem3.Visible =
                 nud_KredSem2.Visible = nud_KredSem1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
                 lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
-                lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible = false;
+                lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible =
+                l_s1.Visible = l_s2.Visible = l_s3.Visible = l_s4.Visible = l_s5.Visible = l_s6.Visible = l_s7.Visible = l_s8.Visible = l_s9.Visible = l_s10.Visible = l_s11.Visible = l_s12.Visible = false;
         }
 
         private int urceniZvolenehoListu;
@@ -897,12 +903,6 @@ namespace SystemProPodporuStudijnichPlanu
                     return -1;
             }
         }
-
-        private void Nud_PridatDoSem_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Bt_zobrazDGar_Click(object sender, EventArgs e)
         {
             vypisGarant1.Visible = true;

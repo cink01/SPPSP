@@ -77,6 +77,18 @@
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
+            this.l_s1 = new System.Windows.Forms.Label();
+            this.l_s2 = new System.Windows.Forms.Label();
+            this.l_s3 = new System.Windows.Forms.Label();
+            this.l_s4 = new System.Windows.Forms.Label();
+            this.l_s5 = new System.Windows.Forms.Label();
+            this.l_s6 = new System.Windows.Forms.Label();
+            this.l_s7 = new System.Windows.Forms.Label();
+            this.l_s9 = new System.Windows.Forms.Label();
+            this.l_s10 = new System.Windows.Forms.Label();
+            this.l_s11 = new System.Windows.Forms.Label();
+            this.l_s12 = new System.Windows.Forms.Label();
+            this.l_s8 = new System.Windows.Forms.Label();
             this.vypisGarant1 = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStripMain.SuspendLayout();
@@ -589,6 +601,18 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.l_s8);
+            this.gb_max.Controls.Add(this.l_s12);
+            this.gb_max.Controls.Add(this.l_s11);
+            this.gb_max.Controls.Add(this.l_s10);
+            this.gb_max.Controls.Add(this.l_s9);
+            this.gb_max.Controls.Add(this.l_s7);
+            this.gb_max.Controls.Add(this.l_s6);
+            this.gb_max.Controls.Add(this.l_s5);
+            this.gb_max.Controls.Add(this.l_s4);
+            this.gb_max.Controls.Add(this.l_s3);
+            this.gb_max.Controls.Add(this.l_s2);
+            this.gb_max.Controls.Add(this.l_s1);
             this.gb_max.Controls.Add(this.bt_zobrazDGar);
             this.gb_max.Controls.Add(this.vypisGarant1);
             this.gb_max.Controls.Add(this.l_vk);
@@ -761,7 +785,114 @@
             0,
             0,
             0});
-            this.nud_PridatDoSem.ValueChanged += new System.EventHandler(this.Nud_PridatDoSem_ValueChanged);
+            // 
+            // l_s1
+            // 
+            this.l_s1.AutoSize = true;
+            this.l_s1.Location = new System.Drawing.Point(24, 43);
+            this.l_s1.Name = "l_s1";
+            this.l_s1.Size = new System.Drawing.Size(54, 13);
+            this.l_s1.TabIndex = 83;
+            this.l_s1.Text = "Semestr 1";
+            // 
+            // l_s2
+            // 
+            this.l_s2.AutoSize = true;
+            this.l_s2.Location = new System.Drawing.Point(24, 145);
+            this.l_s2.Name = "l_s2";
+            this.l_s2.Size = new System.Drawing.Size(54, 13);
+            this.l_s2.TabIndex = 84;
+            this.l_s2.Text = "Semestr 2";
+            // 
+            // l_s3
+            // 
+            this.l_s3.AutoSize = true;
+            this.l_s3.Location = new System.Drawing.Point(24, 245);
+            this.l_s3.Name = "l_s3";
+            this.l_s3.Size = new System.Drawing.Size(54, 13);
+            this.l_s3.TabIndex = 85;
+            this.l_s3.Text = "Semestr 3";
+            // 
+            // l_s4
+            // 
+            this.l_s4.AutoSize = true;
+            this.l_s4.Location = new System.Drawing.Point(24, 349);
+            this.l_s4.Name = "l_s4";
+            this.l_s4.Size = new System.Drawing.Size(54, 13);
+            this.l_s4.TabIndex = 86;
+            this.l_s4.Text = "Semestr 4";
+            // 
+            // l_s5
+            // 
+            this.l_s5.AutoSize = true;
+            this.l_s5.Location = new System.Drawing.Point(24, 448);
+            this.l_s5.Name = "l_s5";
+            this.l_s5.Size = new System.Drawing.Size(54, 13);
+            this.l_s5.TabIndex = 87;
+            this.l_s5.Text = "Semestr 5";
+            // 
+            // l_s6
+            // 
+            this.l_s6.AutoSize = true;
+            this.l_s6.Location = new System.Drawing.Point(24, 550);
+            this.l_s6.Name = "l_s6";
+            this.l_s6.Size = new System.Drawing.Size(54, 13);
+            this.l_s6.TabIndex = 88;
+            this.l_s6.Text = "Semestr 6";
+            // 
+            // l_s7
+            // 
+            this.l_s7.AutoSize = true;
+            this.l_s7.Location = new System.Drawing.Point(368, 44);
+            this.l_s7.Name = "l_s7";
+            this.l_s7.Size = new System.Drawing.Size(54, 13);
+            this.l_s7.TabIndex = 89;
+            this.l_s7.Text = "Semestr 7";
+            // 
+            // l_s9
+            // 
+            this.l_s9.AutoSize = true;
+            this.l_s9.Location = new System.Drawing.Point(368, 245);
+            this.l_s9.Name = "l_s9";
+            this.l_s9.Size = new System.Drawing.Size(54, 13);
+            this.l_s9.TabIndex = 90;
+            this.l_s9.Text = "Semestr 9";
+            // 
+            // l_s10
+            // 
+            this.l_s10.AutoSize = true;
+            this.l_s10.Location = new System.Drawing.Point(362, 350);
+            this.l_s10.Name = "l_s10";
+            this.l_s10.Size = new System.Drawing.Size(60, 13);
+            this.l_s10.TabIndex = 91;
+            this.l_s10.Text = "Semestr 10";
+            // 
+            // l_s11
+            // 
+            this.l_s11.AutoSize = true;
+            this.l_s11.Location = new System.Drawing.Point(362, 450);
+            this.l_s11.Name = "l_s11";
+            this.l_s11.Size = new System.Drawing.Size(60, 13);
+            this.l_s11.TabIndex = 92;
+            this.l_s11.Text = "Semestr 11";
+            // 
+            // l_s12
+            // 
+            this.l_s12.AutoSize = true;
+            this.l_s12.Location = new System.Drawing.Point(362, 551);
+            this.l_s12.Name = "l_s12";
+            this.l_s12.Size = new System.Drawing.Size(60, 13);
+            this.l_s12.TabIndex = 93;
+            this.l_s12.Text = "Semestr 12";
+            // 
+            // l_s8
+            // 
+            this.l_s8.AutoSize = true;
+            this.l_s8.Location = new System.Drawing.Point(368, 143);
+            this.l_s8.Name = "l_s8";
+            this.l_s8.Size = new System.Drawing.Size(54, 13);
+            this.l_s8.TabIndex = 94;
+            this.l_s8.Text = "Semestr 8";
             // 
             // vypisGarant1
             // 
@@ -805,7 +936,7 @@
             this.ClientSize = new System.Drawing.Size(1094, 688);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripMain;
@@ -888,6 +1019,18 @@
         private Komponenty.VypisPopisPredmet vypisPopisPredmet;
         private System.Windows.Forms.Button bt_zobrazDGar;
         private Komponenty.VypisGarant vypisGarant1;
+        private System.Windows.Forms.Label l_s8;
+        private System.Windows.Forms.Label l_s12;
+        private System.Windows.Forms.Label l_s11;
+        private System.Windows.Forms.Label l_s10;
+        private System.Windows.Forms.Label l_s9;
+        private System.Windows.Forms.Label l_s7;
+        private System.Windows.Forms.Label l_s6;
+        private System.Windows.Forms.Label l_s5;
+        private System.Windows.Forms.Label l_s4;
+        private System.Windows.Forms.Label l_s3;
+        private System.Windows.Forms.Label l_s2;
+        private System.Windows.Forms.Label l_s1;
     }
 }
 

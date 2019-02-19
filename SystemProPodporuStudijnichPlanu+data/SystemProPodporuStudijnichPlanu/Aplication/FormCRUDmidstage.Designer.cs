@@ -523,6 +523,7 @@
             this.Controls.Add(this.bt_smazat);
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.menuStripMID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMID;
             this.Name = "FormCRUDmidstage";
