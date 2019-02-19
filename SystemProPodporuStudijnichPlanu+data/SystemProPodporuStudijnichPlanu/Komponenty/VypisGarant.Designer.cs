@@ -127,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_gar);
             this.Name = "VypisGarant";
-            this.Size = new System.Drawing.Size(287, 114);
+            this.Size = new System.Drawing.Size(287, 113);
             this.gb_gar.ResumeLayout(false);
             this.gb_gar.PerformLayout();
             this.ResumeLayout(false);

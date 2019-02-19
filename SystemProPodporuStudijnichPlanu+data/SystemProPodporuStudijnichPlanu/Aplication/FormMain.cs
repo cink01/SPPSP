@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Aplication;
 using SystemProPodporuStudijnichPlanu.Logic;
+using SystemProPodporuStudijnichPlanu.Komponenty;
 
 namespace SystemProPodporuStudijnichPlanu
 {

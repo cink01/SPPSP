@@ -96,7 +96,7 @@
             this.gb_kat.Controls.Add(this.tb_pocG);
             this.gb_kat.Location = new System.Drawing.Point(2, -2);
             this.gb_kat.Name = "gb_kat";
-            this.gb_kat.Size = new System.Drawing.Size(222, 102);
+            this.gb_kat.Size = new System.Drawing.Size(222, 101);
             this.gb_kat.TabIndex = 9;
             this.gb_kat.TabStop = false;
             this.gb_kat.Text = "Informace katedry";

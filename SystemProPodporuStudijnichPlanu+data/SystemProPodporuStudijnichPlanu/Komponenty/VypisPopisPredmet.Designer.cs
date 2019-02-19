@@ -333,7 +333,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_popis_pr);
             this.Name = "VypisPopisPredmet";
-            this.Size = new System.Drawing.Size(387, 337);
+            this.Size = new System.Drawing.Size(387, 338);
             this.gb_popis_pr.ResumeLayout(false);
             this.gb_popis_pr.PerformLayout();
             this.gb_základ.ResumeLayout(false);

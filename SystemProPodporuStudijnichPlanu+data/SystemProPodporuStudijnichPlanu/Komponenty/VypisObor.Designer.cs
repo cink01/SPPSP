@@ -212,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_obor);
             this.Name = "VypisObor";
-            this.Size = new System.Drawing.Size(386, 223);
+            this.Size = new System.Drawing.Size(386, 221);
             this.gb_obor.ResumeLayout(false);
             this.gb_obor.PerformLayout();
             this.gb_základ.ResumeLayout(false);
