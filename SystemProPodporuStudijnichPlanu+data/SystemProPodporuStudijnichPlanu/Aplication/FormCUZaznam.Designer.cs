@@ -57,7 +57,7 @@
             this.nud_semestr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_semestr.Location = new System.Drawing.Point(95, 44);
             this.nud_semestr.Maximum = new decimal(new int[] {
-            12,
+            11,
             0,
             0,
             0});
@@ -214,10 +214,10 @@
             // 
             this.errorProvider_Zaznam_obor.ContainerControl = this;
             // 
-            // vypisObor1
+            // VypisObor_Zaznam
             // 
             this.VypisObor_Zaznam.Location = new System.Drawing.Point(271, 2);
-            this.VypisObor_Zaznam.Name = "vypisObor1";
+            this.VypisObor_Zaznam.Name = "VypisObor_Zaznam";
             this.VypisObor_Zaznam.P = "";
             this.VypisObor_Zaznam.Praxe = "";
             this.VypisObor_Zaznam.Pv = "";

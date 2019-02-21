@@ -75,17 +75,20 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_proved_Click(object sender, EventArgs e)
         {
             DataCrud data = new DataCrud();
+           // DataAccess da = new DataAccess();
             VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
             int vyber = (int)nud_PridatDoSem.Value;
             PripravPresun(vyber, id_o, id_z);
             FormPridavani FP = new FormPridavani();
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
             {
-                predmetyLichy.AddRange(Sporty);
-                FP.PredmetySeznam = predmetyLichy;
+                 predmetyLichy.AddRange(Sporty);
+                 FP.PredmetySeznam = predmetyLichy;
+               // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
             }
             else
             {
+               // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
                 predmetySudy.AddRange(Sporty);
                 FP.PredmetySeznam = predmetySudy;
             }
@@ -537,6 +540,7 @@ namespace SystemProPodporuStudijnichPlanu
                         Filling fill = new Filling();
                         fill.FillDetail(VratListBox(i), vypisPopisPredmet);
                         urceniZvolenehoListu = i;
+                        nud_PridatDoSem.Value =(decimal)i;
                         break;
                     }
                 case 12:

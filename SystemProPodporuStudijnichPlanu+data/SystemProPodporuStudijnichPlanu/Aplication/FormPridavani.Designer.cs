@@ -75,7 +75,6 @@
             this.bt_add.Name = "bt_add";
             this.bt_add.Size = new System.Drawing.Size(53, 53);
             this.bt_add.TabIndex = 2;
-            this.bt_add.Text = "button1";
             this.bt_add.UseVisualStyleBackColor = false;
             this.bt_add.Click += new System.EventHandler(this.Bt_add_Click);
             // 
@@ -87,7 +86,6 @@
             this.bt_rem.Name = "bt_rem";
             this.bt_rem.Size = new System.Drawing.Size(53, 53);
             this.bt_rem.TabIndex = 3;
-            this.bt_rem.Text = "button2";
             this.bt_rem.UseVisualStyleBackColor = false;
             this.bt_rem.Click += new System.EventHandler(this.Bt_rem_Click);
             // 
@@ -151,6 +149,7 @@
             this.vypisPopisPredmet.Povinnost = "";
             this.vypisPopisPredmet.Prednaska = "";
             this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Semestr = "";
             this.vypisPopisPredmet.Size = new System.Drawing.Size(388, 341);
             this.vypisPopisPredmet.TabIndex = 9;
             this.vypisPopisPredmet.Zakončení = "";

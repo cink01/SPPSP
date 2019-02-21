@@ -447,5 +447,50 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
+
+        public List<Predmet> TestLichy(int semestr, int id_obor,  int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"(Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}' AND [predmet].id_predmet NOT IN" +
+                    $"(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps" +
+                    $"WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
+                    $"ORDER BY semestr_predmet,povinnost)" +
+                    $"INTERSECT" +
+                    $"(Select [predmet].* " +
+                    $"FROM [predmet] " +
+                    $" where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet NOT IN " +
+                    $" (SELECT [predmet].id_predmet " +
+                    $" FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps " +
+                    $" WHERE [plansemestr].id_zaznam='{izaz}' AND [plansemestr].sem_ps='{semestr}'))").ToList();
+                return vystup;
+            }
+        }
+        public List<Predmet> TestSudy(int semestr, int id_obor, int izaz)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>($"(Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6) " +
+                    $"AND [predmet].id_predmet NOT IN(" +
+                    $"SELECT [predmet].id_predmet " +
+                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                    $"WHERE [plansemestr].id_zaznam='{izaz}' AND [predmet].id_predmet NOT IN" +
+                    $"(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps" +
+                    $"WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
+                    $"ORDER BY semestr_predmet,povinnost)" +
+                    $"INTERSECT" +
+                    $"(Select [predmet].* " +
+                    $"FROM [predmet] " +
+                    $" where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet NOT IN " +
+                    $" (SELECT [predmet].id_predmet " +
+                    $" FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps " +
+                    $" WHERE [plansemestr].id_zaznam='{izaz}' AND [plansemestr].sem_ps='{semestr}'))").ToList();
+                return vystup;
+            }
+        }
     }
 }
