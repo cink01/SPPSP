@@ -53,7 +53,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(367, 58);
+            this.bt_close.Location = new System.Drawing.Point(375, 58);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
             this.bt_close.TabIndex = 3;
@@ -64,15 +64,15 @@
             // bt_ok
             // 
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
-            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(291, 58);
+            this.bt_ok.Location = new System.Drawing.Point(285, 58);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
             this.bt_ok.TabIndex = 2;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
+            this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // gb_garant
             // 

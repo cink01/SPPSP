@@ -95,7 +95,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(126, 124);
+            this.bt_close.Location = new System.Drawing.Point(145, 189);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
             this.bt_close.TabIndex = 5;
@@ -108,7 +108,7 @@
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(50, 124);
+            this.bt_ok.Location = new System.Drawing.Point(42, 189);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
             this.bt_ok.TabIndex = 4;
@@ -118,10 +118,7 @@
             // 
             // gb_Zaznam
             // 
-            this.gb_Zaznam.Controls.Add(this.bt_info);
-            this.gb_Zaznam.Controls.Add(this.bt_close);
             this.gb_Zaznam.Controls.Add(this.cmb_obor);
-            this.gb_Zaznam.Controls.Add(this.bt_ok);
             this.gb_Zaznam.Controls.Add(this.nud_semestr);
             this.gb_Zaznam.Controls.Add(this.label2);
             this.gb_Zaznam.Controls.Add(this.tb_id);
@@ -130,9 +127,9 @@
             this.gb_Zaznam.Controls.Add(this.l_id);
             this.gb_Zaznam.Controls.Add(this.tb_zkr);
             this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gb_Zaznam.Location = new System.Drawing.Point(7, 24);
+            this.gb_Zaznam.Location = new System.Drawing.Point(12, 34);
             this.gb_Zaznam.Name = "gb_Zaznam";
-            this.gb_Zaznam.Size = new System.Drawing.Size(260, 159);
+            this.gb_Zaznam.Size = new System.Drawing.Size(260, 128);
             this.gb_Zaznam.TabIndex = 12;
             this.gb_Zaznam.TabStop = false;
             this.gb_Zaznam.Text = "Záznam Plánu";
@@ -142,7 +139,7 @@
             this.bt_info.BackColor = System.Drawing.Color.Azure;
             this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_info.Location = new System.Drawing.Point(120, 124);
+            this.bt_info.Location = new System.Drawing.Point(126, 189);
             this.bt_info.Name = "bt_info";
             this.bt_info.Size = new System.Drawing.Size(19, 23);
             this.bt_info.TabIndex = 6;
@@ -236,8 +233,11 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(663, 233);
+            this.Controls.Add(this.bt_close);
+            this.Controls.Add(this.bt_info);
             this.Controls.Add(this.VypisObor_Zaznam);
             this.Controls.Add(this.gb_Zaznam);
+            this.Controls.Add(this.bt_ok);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCUZaznam";
             this.Text = "FormCUZaznam";

@@ -86,8 +86,10 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Bt_ok_Click(object sender, EventArgs e)
         {
-            if (tb_nazev.Text == "" || tb_zkr.Text == "")
-                MessageBox.Show("Musíte zadat název i zkratku katedry", "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (tb_nazev.Text == "" || tb_zkr.Text == "" || tb_rok.Text=="")
+                MessageBox.Show("Všechny údaje musí být vyplněny, aby se zajistilo bezpečné uložení", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                this.DialogResult = DialogResult.OK;
         }
     }
 }

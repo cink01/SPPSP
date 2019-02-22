@@ -48,6 +48,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (tb_název.Text == "" || tb_zkr.Text == "")
                 MessageBox.Show("Musíte zadat název i zkratku katedry", "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                this.DialogResult = DialogResult.OK;
         }
         private void Bt_close_Click(object sender, EventArgs e)
         {

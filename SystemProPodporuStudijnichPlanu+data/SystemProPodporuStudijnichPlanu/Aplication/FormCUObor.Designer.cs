@@ -64,7 +64,7 @@
             this.bt_close.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(230, 189);
+            this.bt_close.Location = new System.Drawing.Point(262, 189);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(69, 23);
             this.bt_close.TabIndex = 3;
@@ -75,11 +75,10 @@
             // bt_ok
             // 
             this.bt_ok.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(169, 189);
+            this.bt_ok.Location = new System.Drawing.Point(139, 189);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(63, 23);
             this.bt_ok.TabIndex = 2;
