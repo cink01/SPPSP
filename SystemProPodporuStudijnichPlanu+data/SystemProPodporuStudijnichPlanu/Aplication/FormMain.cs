@@ -16,7 +16,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             InitializeComponent();
             RefreshZaznamy("Doporučené AI");
-            menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
+          //  menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
             if (cmb_zaznam.Items.Count <= 0)
@@ -80,6 +80,7 @@ namespace SystemProPodporuStudijnichPlanu
             int vyber = (int)nud_PridatDoSem.Value;
             PripravPresun(vyber, id_o, id_z);
             FormPridavani FP = new FormPridavani();
+            FP.Text = "Přidání předmětu do " + vyber+". semestru";
             if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
             {
                  predmetyLichy.AddRange(Sporty);
@@ -415,7 +416,6 @@ namespace SystemProPodporuStudijnichPlanu
                                 }
                             }
                             Zzkr = Zaznam.Zkr;
-                            MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -429,7 +429,10 @@ namespace SystemProPodporuStudijnichPlanu
         private void SprávaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCRUDmidstage x = new FormCRUDmidstage();
-            x.Show();
+            { 
+                x.Text = "Vyhledávání";
+                x.Show();
+            }
         }
         private void ZměnyVeliZic(int i)
         {
@@ -525,7 +528,6 @@ namespace SystemProPodporuStudijnichPlanu
                 lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible =
                 l_s1.Visible = l_s2.Visible = l_s3.Visible = l_s4.Visible = l_s5.Visible = l_s6.Visible = l_s7.Visible = l_s8.Visible = l_s9.Visible = l_s10.Visible = l_s11.Visible = l_s12.Visible = false;
         }
-
         private int urceniZvolenehoListu;
         private void DeselectnutiListu(int i)
         {

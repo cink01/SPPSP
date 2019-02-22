@@ -12,11 +12,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         List<Obor> obors = new List<Obor>();
         List<Garant> garants = new List<Garant>();
         List<Predmet> predmets = new List<Predmet>();
-        public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
+     //   public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCRUDmidstage()
         {
             InitializeComponent();
-            menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
+           // menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {
@@ -332,7 +332,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 using (FormCUObor Obo = new FormCUObor())
                 {
-                    Obo.Text = "Upravit Katedru";
+                    Obo.Text = "Upravit Obor";
                     try
                     {
                         Obor o = (Obor)cb_obo.SelectedItem;
@@ -419,7 +419,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             {
                 DeleteObor();
             }
-
             if (rb_katedra.Checked == true)
             {
                 DeleteKatedra();
