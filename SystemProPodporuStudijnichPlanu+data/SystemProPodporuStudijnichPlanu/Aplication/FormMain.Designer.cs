@@ -186,8 +186,9 @@
             this.lb_semestr2.Location = new System.Drawing.Point(82, 144);
             this.lb_semestr2.Name = "lb_semestr2";
             this.lb_semestr2.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr2.TabIndex = 1;
+            this.lb_semestr2.TabIndex = 2;
             this.lb_semestr2.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr2_SelectedIndexChanged);
+            this.lb_semestr2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr3
             // 
@@ -198,8 +199,9 @@
             this.lb_semestr3.Location = new System.Drawing.Point(82, 246);
             this.lb_semestr3.Name = "lb_semestr3";
             this.lb_semestr3.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr3.TabIndex = 2;
+            this.lb_semestr3.TabIndex = 3;
             this.lb_semestr3.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr3_SelectedIndexChanged);
+            this.lb_semestr3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr4
             // 
@@ -210,8 +212,9 @@
             this.lb_semestr4.Location = new System.Drawing.Point(82, 348);
             this.lb_semestr4.Name = "lb_semestr4";
             this.lb_semestr4.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr4.TabIndex = 3;
+            this.lb_semestr4.TabIndex = 4;
             this.lb_semestr4.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr4_SelectedIndexChanged);
+            this.lb_semestr4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr5
             // 
@@ -222,8 +225,9 @@
             this.lb_semestr5.Location = new System.Drawing.Point(82, 449);
             this.lb_semestr5.Name = "lb_semestr5";
             this.lb_semestr5.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr5.TabIndex = 4;
+            this.lb_semestr5.TabIndex = 5;
             this.lb_semestr5.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr5_SelectedIndexChanged);
+            this.lb_semestr5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr6
             // 
@@ -234,8 +238,9 @@
             this.lb_semestr6.Location = new System.Drawing.Point(82, 550);
             this.lb_semestr6.Name = "lb_semestr6";
             this.lb_semestr6.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr6.TabIndex = 5;
+            this.lb_semestr6.TabIndex = 6;
             this.lb_semestr6.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr6_SelectedIndexChanged);
+            this.lb_semestr6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // nud_celkemKred
             // 
@@ -374,7 +379,7 @@
             this.btn_pridat.Location = new System.Drawing.Point(574, 9);
             this.btn_pridat.Name = "btn_pridat";
             this.btn_pridat.Size = new System.Drawing.Size(104, 26);
-            this.btn_pridat.TabIndex = 20;
+            this.btn_pridat.TabIndex = 14;
             this.btn_pridat.Text = "&Přidat";
             this.btn_pridat.UseVisualStyleBackColor = false;
             this.btn_pridat.Click += new System.EventHandler(this.Bt_proved_Click);
@@ -388,8 +393,9 @@
             this.lb_semestr1.Location = new System.Drawing.Point(82, 44);
             this.lb_semestr1.Name = "lb_semestr1";
             this.lb_semestr1.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr1.TabIndex = 34;
+            this.lb_semestr1.TabIndex = 1;
             this.lb_semestr1.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr1_SelectedIndexChanged);
+            this.lb_semestr1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr8
             // 
@@ -400,8 +406,9 @@
             this.lb_semestr8.Location = new System.Drawing.Point(428, 143);
             this.lb_semestr8.Name = "lb_semestr8";
             this.lb_semestr8.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr8.TabIndex = 35;
+            this.lb_semestr8.TabIndex = 8;
             this.lb_semestr8.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr8_SelectedIndexChanged);
+            this.lb_semestr8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr9
             // 
@@ -412,8 +419,9 @@
             this.lb_semestr9.Location = new System.Drawing.Point(429, 245);
             this.lb_semestr9.Name = "lb_semestr9";
             this.lb_semestr9.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr9.TabIndex = 36;
+            this.lb_semestr9.TabIndex = 9;
             this.lb_semestr9.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr9_SelectedIndexChanged);
+            this.lb_semestr9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr10
             // 
@@ -424,8 +432,9 @@
             this.lb_semestr10.Location = new System.Drawing.Point(428, 347);
             this.lb_semestr10.Name = "lb_semestr10";
             this.lb_semestr10.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr10.TabIndex = 37;
+            this.lb_semestr10.TabIndex = 10;
             this.lb_semestr10.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr10_SelectedIndexChanged);
+            this.lb_semestr10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr11
             // 
@@ -436,8 +445,9 @@
             this.lb_semestr11.Location = new System.Drawing.Point(428, 448);
             this.lb_semestr11.Name = "lb_semestr11";
             this.lb_semestr11.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr11.TabIndex = 38;
+            this.lb_semestr11.TabIndex = 11;
             this.lb_semestr11.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr11_SelectedIndexChanged);
+            this.lb_semestr11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // lb_semestr12
             // 
@@ -448,8 +458,9 @@
             this.lb_semestr12.Location = new System.Drawing.Point(428, 549);
             this.lb_semestr12.Name = "lb_semestr12";
             this.lb_semestr12.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr12.TabIndex = 39;
+            this.lb_semestr12.TabIndex = 12;
             this.lb_semestr12.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr12_SelectedIndexChanged);
+            this.lb_semestr12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // nud_KredSem7
             // 
@@ -563,8 +574,9 @@
             this.lb_semestr7.Location = new System.Drawing.Point(428, 43);
             this.lb_semestr7.Name = "lb_semestr7";
             this.lb_semestr7.Size = new System.Drawing.Size(189, 94);
-            this.lb_semestr7.TabIndex = 58;
+            this.lb_semestr7.TabIndex = 7;
             this.lb_semestr7.SelectedIndexChanged += new System.EventHandler(this.Lb_semestr7_SelectedIndexChanged);
+            this.lb_semestr7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListyZmacknutiKlavesy);
             // 
             // bt_smaz
             // 
@@ -574,7 +586,7 @@
             this.bt_smaz.Location = new System.Drawing.Point(684, 9);
             this.bt_smaz.Name = "bt_smaz";
             this.bt_smaz.Size = new System.Drawing.Size(104, 26);
-            this.bt_smaz.TabIndex = 60;
+            this.bt_smaz.TabIndex = 16;
             this.bt_smaz.Text = "Smaž vybraný";
             this.bt_smaz.UseVisualStyleBackColor = false;
             this.bt_smaz.Visible = false;
@@ -583,6 +595,7 @@
             // cmb_zaznam
             // 
             this.cmb_zaznam.FormattingEnabled = true;
+            this.cmb_zaznam.ItemHeight = 13;
             this.cmb_zaznam.Location = new System.Drawing.Point(159, 12);
             this.cmb_zaznam.Name = "cmb_zaznam";
             this.cmb_zaznam.Size = new System.Drawing.Size(113, 21);
@@ -776,7 +789,7 @@
             this.bt_zobrazDGar.Location = new System.Drawing.Point(682, 383);
             this.bt_zobrazDGar.Name = "bt_zobrazDGar";
             this.bt_zobrazDGar.Size = new System.Drawing.Size(97, 26);
-            this.bt_zobrazDGar.TabIndex = 82;
+            this.bt_zobrazDGar.TabIndex = 15;
             this.bt_zobrazDGar.Text = "Detail Garanta";
             this.bt_zobrazDGar.UseVisualStyleBackColor = false;
             this.bt_zobrazDGar.Visible = false;
@@ -920,7 +933,7 @@
             0});
             this.nud_PridatDoSem.Name = "nud_PridatDoSem";
             this.nud_PridatDoSem.Size = new System.Drawing.Size(55, 20);
-            this.nud_PridatDoSem.TabIndex = 69;
+            this.nud_PridatDoSem.TabIndex = 13;
             this.nud_PridatDoSem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nud_PridatDoSem.Value = new decimal(new int[] {
             1,

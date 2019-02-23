@@ -43,15 +43,15 @@
             // bt_ok
             // 
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
-            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(527, 347);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
-            this.bt_ok.TabIndex = 0;
+            this.bt_ok.TabIndex = 5;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
+            this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // bt_close
             // 
@@ -62,7 +62,7 @@
             this.bt_close.Location = new System.Drawing.Point(667, 348);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 1;
+            this.bt_close.TabIndex = 6;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -85,7 +85,7 @@
             this.bt_rem.Location = new System.Drawing.Point(608, 177);
             this.bt_rem.Name = "bt_rem";
             this.bt_rem.Size = new System.Drawing.Size(53, 53);
-            this.bt_rem.TabIndex = 3;
+            this.bt_rem.TabIndex = 4;
             this.bt_rem.UseVisualStyleBackColor = false;
             this.bt_rem.Click += new System.EventHandler(this.Bt_rem_Click);
             // 
@@ -96,8 +96,9 @@
             this.lb_vypis.Location = new System.Drawing.Point(394, 12);
             this.lb_vypis.Name = "lb_vypis";
             this.lb_vypis.Size = new System.Drawing.Size(208, 329);
-            this.lb_vypis.TabIndex = 4;
+            this.lb_vypis.TabIndex = 1;
             this.lb_vypis.SelectedIndexChanged += new System.EventHandler(this.Lb_vypis_SelectedIndexChanged);
+            this.lb_vypis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_vypis_KeyPress);
             // 
             // lb_chci
             // 
@@ -106,11 +107,14 @@
             this.lb_chci.Location = new System.Drawing.Point(667, 13);
             this.lb_chci.Name = "lb_chci";
             this.lb_chci.Size = new System.Drawing.Size(208, 329);
-            this.lb_chci.TabIndex = 5;
+            this.lb_chci.TabIndex = 3;
             this.lb_chci.SelectedIndexChanged += new System.EventHandler(this.Lb_chci_SelectedIndexChanged);
+            this.lb_chci.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_chci_KeyPress);
             // 
             // nud_kredity
             // 
+            this.nud_kredity.BackColor = System.Drawing.Color.White;
+            this.nud_kredity.Enabled = false;
             this.nud_kredity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nud_kredity.Location = new System.Drawing.Point(835, 347);
             this.nud_kredity.Maximum = new decimal(new int[] {

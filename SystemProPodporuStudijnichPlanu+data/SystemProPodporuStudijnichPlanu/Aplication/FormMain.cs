@@ -74,35 +74,37 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_proved_Click(object sender, EventArgs e)
         {
-            DataCrud data = new DataCrud();
-           // DataAccess da = new DataAccess();
+            // DataAccess da = new DataAccess();
             VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
             int vyber = (int)nud_PridatDoSem.Value;
             PripravPresun(vyber, id_o, id_z);
-            FormPridavani FP = new FormPridavani();
-            FP.Text = "Přidání předmětu do " + vyber+". semestru";
-            if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
+            using (FormPridavani FP = new FormPridavani())
             {
-                 predmetyLichy.AddRange(Sporty);
-                 FP.PredmetySeznam = predmetyLichy;
-               // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
-            }
-            else
-            {
-               // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
-                predmetySudy.AddRange(Sporty);
-                FP.PredmetySeznam = predmetySudy;
-            }
-            FP.RefreshSeznam();
-            DialogResult potvrzeni = FP.ShowDialog();
-            if (potvrzeni == DialogResult.OK)
-            {
-                foreach (Predmet p in FP.PredmetyAdd)
+                FP.Text = "Přidání předmětu do " + vyber + ". semestru";
+                if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
                 {
-                    data.InsertVyber(p.Id_predmet, vyber, id_z);
+                    predmetyLichy.AddRange(Sporty);
+                    FP.PredmetySeznam = predmetyLichy;
+                    // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
                 }
-                RefreshList(VratListBox(vyber), vyber);
-                ObnovPovinn(id_o, PocSem);
+                else
+                {
+                    // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
+                    predmetySudy.AddRange(Sporty);
+                    FP.PredmetySeznam = predmetySudy;
+                }
+                FP.RefreshSeznam();
+                DialogResult potvrzeni = FP.ShowDialog();
+                if (potvrzeni == DialogResult.OK)
+                {
+                    DataCrud data = new DataCrud();
+                    foreach (Predmet p in FP.PredmetyAdd)
+                    {
+                        data.InsertVyber(p.Id_predmet, vyber, id_z);
+                    }
+                    RefreshList(VratListBox(vyber), vyber);
+                    ObnovPovinn(id_o, PocSem);
+                }
             }
         }
         public void ObnovPovinn(int id_o, int PocSem)
@@ -914,6 +916,20 @@ namespace SystemProPodporuStudijnichPlanu
             vypisGarantMain.Visible = true;
             Filling f = new Filling();
             f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarantMain);
+        }
+
+        private void ListyZmacknutiKlavesy(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                bt_zobrazDGar.PerformClick();
+                return;
+            }
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                bt_smaz.PerformClick();
+                return;
+            }
         }
     }
 }

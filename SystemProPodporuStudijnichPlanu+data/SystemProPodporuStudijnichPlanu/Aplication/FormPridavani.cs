@@ -101,5 +101,22 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch { }
         }
+
+        private void Lb_vypis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                bt_add.PerformClick();
+        }
+
+        private void Lb_chci_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                bt_rem.PerformClick();
+        }
+
+        private void Bt_ok_Click(object sender, EventArgs e)
+        {
+            this.DialogResult=DialogResult.OK;
+        }
     }
 }
