@@ -16,7 +16,7 @@ namespace SystemProPodporuStudijnichPlanu
         {
             InitializeComponent();
             RefreshZaznamy("Doporučené AI");
-          //  menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
+            //  menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
             urceniZvolenehoListu = 0;
             if (cmb_zaznam.Items.Count <= 0)
@@ -431,10 +431,8 @@ namespace SystemProPodporuStudijnichPlanu
         private void SprávaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCRUDmidstage x = new FormCRUDmidstage();
-            { 
-                x.Text = "Vyhledávání";
-                x.Show();
-            }
+            x.Text = "Vyhledávání";
+            x.Show();
         }
         private void ZměnyVeliZic(int i)
         {
@@ -544,7 +542,7 @@ namespace SystemProPodporuStudijnichPlanu
                         Filling fill = new Filling();
                         fill.FillDetail(VratListBox(i), vypisPopisPredmet);
                         urceniZvolenehoListu = i;
-                        nud_PridatDoSem.Value =(decimal)i;
+                        nud_PridatDoSem.Value = (decimal)i;
                         break;
                     }
                 case 12:
