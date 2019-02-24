@@ -1,0 +1,34 @@
+IMPLEMENTAČNÍ BP
+
+Zadáno:
+analýza a (alespoň v hrubých rysech) návrh řešení problému 
+u relativně jednodušších systémů mohou být analýza a návrh řešení buď obecně známé či vzniknou relativně rutinní cestou (například návrh podpůrné databáze v informačním systému pomocí CASE nástrojů)
+
+Výsledek
+hotový, použitelný produkt, HW (karta, zařízení, ...) nebo SW (program, knihovní modul, ...), jehož funkčnost je autor případně schopen demonstrovat při obhajobě BP (nemusí k tomu dojít)
+funkčnost systému je ověřena vedoucím a oponentem BP
+
+Obsahuje:
+diskusi a zdůvodnění volby konkrétního implementačního prostředí (jazyku, knihovny, použitého nástroje a generátoru, síťové technologie, atd.) - v případě volby mezi různými implementačními prostředími či technologiemi 
+základní testy funkčnosti a výkonnosti produktu (důležitá část)
+
+popis rozhraní produktu (u interaktivních systémů typicky grafické) 
+dokumentaci 
+uživatelskou příručku 
+kompletní dokumentace se přikládá jako příloha na přiloženém CD (zahrnuje zdrojový, případně přeložený kód, instalační či uživatelskou příručku, zvl. v případě složitějšího ovládání produktu, atd.)
+
+
+Doporučené schéma implementační BP
+
+Úvod charakterizující kontext zadání. 
+Popis řešeného problému, vymezení cílů BP a požadavků na implementovaný systém. 
+Popis struktury BP ve vztahu k vytyčeným cílům. 
+Rešeršní zpracování existujících implementací, pokud jsou známy. 
+Analýza a návrh implementace (včetně diskuse různých alternativ a volby implementačního prostředí). 
+Popis implementace / realizace se zaměřením na nestandardní části řešení. Jednoduchý návod (max. 2 strany), Podmínky instalace, spuštění.
+Výsledky testování.
+Srovnání s existujícími řešeními, pokud jsou známy. 
+Závěr (zhodnocení splnění cílů BP, vlastního přínosu, doporučení dalšího pokračování práce.) V případě web. aplikace kde na Internetu je možné aplikaci spustit. 
+Seznam použité literatury. 
+Přílohy.
+CD s kódem
