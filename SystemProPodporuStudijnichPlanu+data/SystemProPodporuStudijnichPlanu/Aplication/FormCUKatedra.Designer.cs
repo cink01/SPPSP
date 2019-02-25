@@ -48,7 +48,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(171, 58);
+            this.bt_close.Location = new System.Drawing.Point(102, 90);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 3;
@@ -62,7 +62,7 @@
             this.bt_ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(87, 58);
+            this.bt_ok.Location = new System.Drawing.Point(18, 90);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
             this.bt_ok.TabIndex = 2;
@@ -72,14 +72,14 @@
             // 
             // tb_zkr
             // 
-            this.tb_zkr.Location = new System.Drawing.Point(60, 32);
+            this.tb_zkr.Location = new System.Drawing.Point(54, 64);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
             this.tb_zkr.TabIndex = 4;
             // 
             // tb_název
             // 
-            this.tb_název.Location = new System.Drawing.Point(204, 32);
+            this.tb_název.Location = new System.Drawing.Point(54, 38);
             this.tb_název.Name = "tb_název";
             this.tb_název.Size = new System.Drawing.Size(138, 20);
             this.tb_název.TabIndex = 5;
@@ -87,7 +87,7 @@
             // tb_id
             // 
             this.tb_id.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tb_id.Location = new System.Drawing.Point(6, 32);
+            this.tb_id.Location = new System.Drawing.Point(54, 15);
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
@@ -96,29 +96,29 @@
             // l_id
             // 
             this.l_id.AutoSize = true;
-            this.l_id.Location = new System.Drawing.Point(20, 16);
+            this.l_id.Location = new System.Drawing.Point(30, 18);
             this.l_id.Name = "l_id";
-            this.l_id.Size = new System.Drawing.Size(18, 13);
+            this.l_id.Size = new System.Drawing.Size(21, 13);
             this.l_id.TabIndex = 7;
-            this.l_id.Text = "ID";
+            this.l_id.Text = "ID:";
             // 
             // l_zkr
             // 
             this.l_zkr.AutoSize = true;
-            this.l_zkr.Location = new System.Drawing.Point(104, 18);
+            this.l_zkr.Location = new System.Drawing.Point(6, 41);
             this.l_zkr.Name = "l_zkr";
-            this.l_zkr.Size = new System.Drawing.Size(42, 13);
+            this.l_zkr.Size = new System.Drawing.Size(47, 13);
             this.l_zkr.TabIndex = 8;
-            this.l_zkr.Text = "zkratka";
+            this.l_zkr.Text = "Zkratka:";
             // 
             // l_nazev
             // 
             this.l_nazev.AutoSize = true;
-            this.l_nazev.Location = new System.Drawing.Point(254, 18);
+            this.l_nazev.Location = new System.Drawing.Point(12, 67);
             this.l_nazev.Name = "l_nazev";
-            this.l_nazev.Size = new System.Drawing.Size(36, 13);
+            this.l_nazev.Size = new System.Drawing.Size(41, 13);
             this.l_nazev.TabIndex = 9;
-            this.l_nazev.Text = "název";
+            this.l_nazev.Text = "Název:";
             // 
             // gb_katedra
             // 
@@ -131,9 +131,9 @@
             this.gb_katedra.Controls.Add(this.l_id);
             this.gb_katedra.Controls.Add(this.tb_zkr);
             this.gb_katedra.Controls.Add(this.tb_název);
-            this.gb_katedra.Location = new System.Drawing.Point(1, 2);
+            this.gb_katedra.Location = new System.Drawing.Point(12, 12);
             this.gb_katedra.Name = "gb_katedra";
-            this.gb_katedra.Size = new System.Drawing.Size(349, 94);
+            this.gb_katedra.Size = new System.Drawing.Size(200, 124);
             this.gb_katedra.TabIndex = 10;
             this.gb_katedra.TabStop = false;
             this.gb_katedra.Text = "Katedra";
@@ -145,7 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(351, 102);
+            this.ClientSize = new System.Drawing.Size(223, 147);
             this.Controls.Add(this.gb_katedra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

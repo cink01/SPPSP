@@ -18,10 +18,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public Garant G
         {
-            get
-            {
-                return new Garant(Id, Jmeno, Email, Tel, Konz, Kat);
-            }
+            get => new Garant(Id, Jmeno, Email, Tel, Konz, Kat);
             set
             {
                 G = value;
@@ -88,7 +85,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             fill.NajdiVComboBoxu<Katedra>(cmb_katedra, katedras);
         }
-
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if(tb_jm.Text==""||cmb_katedra.SelectedIndex==-1)

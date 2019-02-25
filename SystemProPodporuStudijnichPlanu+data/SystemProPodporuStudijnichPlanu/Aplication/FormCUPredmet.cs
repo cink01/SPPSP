@@ -10,8 +10,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public List<Obor> obors = new List<Obor>();
         public List<Garant> garants = new List<Garant>();
         public List<Predmet> predmets = new List<Predmet>();
-        //    Filling fill = new Filling();
-
         public FormCUPredmet()
         {
             Filling fill = new Filling();
@@ -27,10 +25,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void FormCUPredmet_Load(object sender, EventArgs e) { }
         public Predmet P
         {
-            get
-            {
-                return new Predmet(Id, Nazev, Zkr, Kredit, Obor, Garant, Semestr, Orig, Povinnost, Prednaska, Cv, Cvk, Lab, Jazyk, Zakonceni, Popis, Prerek);
-            }
+            get => new Predmet(Id, Nazev, Zkr, Kredit, Obor, Garant, Semestr, Orig, Povinnost, Prednaska, Cv, Cvk, Lab, Jazyk, Zakonceni, Popis, Prerek);
         }
         public string Nazev
         {
@@ -192,15 +187,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Cb_povinnost_Hledaní(object sender, EventArgs e)
         {
-
         }
-
         private void Cb_prerek_Hledani(object sender, EventArgs e)
         {
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Predmet>(cb_prerek, predmets);
         }
-
         private void Cb_obor_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataAccess da = new DataAccess();
@@ -208,7 +200,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 if (o.Name_obor == cb_obor.SelectedItem.ToString())
                     predmets = da.GetPredmetFullByObor(o.Id_obor);
         }
-
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if(tb_nazev.Text==""||tb_zkr.Text==""||cb_garant.SelectedIndex==-1||cb_obor.SelectedIndex==-1||cb_povinnost.SelectedIndex==-1||cb_zakončení.SelectedIndex==-1||tb_orig.Text==""||tb_jazyk.Text=="")

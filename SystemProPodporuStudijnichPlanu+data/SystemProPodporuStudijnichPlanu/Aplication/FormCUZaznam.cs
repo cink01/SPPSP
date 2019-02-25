@@ -9,10 +9,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
     {
         public Zaznam Zaz
         {
-            get
-            {
-                return new Zaznam(Id, Zkr, Obor, Semestr);
-            }
+            get =>new Zaznam(Id, Zkr, Obor, Semestr);
         }
         public List<Obor> obors = new List<Obor>();
         public bool Schov { get; set; }

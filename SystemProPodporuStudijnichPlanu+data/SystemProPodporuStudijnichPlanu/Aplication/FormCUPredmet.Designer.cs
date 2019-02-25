@@ -79,28 +79,28 @@
             // 
             // nud_cvk
             // 
-            this.nud_cvk.Location = new System.Drawing.Point(331, 192);
+            this.nud_cvk.Location = new System.Drawing.Point(335, 204);
             this.nud_cvk.Name = "nud_cvk";
             this.nud_cvk.Size = new System.Drawing.Size(69, 20);
             this.nud_cvk.TabIndex = 20;
             // 
             // nud_lab
             // 
-            this.nud_lab.Location = new System.Drawing.Point(331, 166);
+            this.nud_lab.Location = new System.Drawing.Point(335, 178);
             this.nud_lab.Name = "nud_lab";
             this.nud_lab.Size = new System.Drawing.Size(69, 20);
             this.nud_lab.TabIndex = 19;
             // 
             // nud_cv
             // 
-            this.nud_cv.Location = new System.Drawing.Point(331, 140);
+            this.nud_cv.Location = new System.Drawing.Point(335, 152);
             this.nud_cv.Name = "nud_cv";
             this.nud_cv.Size = new System.Drawing.Size(69, 20);
             this.nud_cv.TabIndex = 18;
             // 
             // nud_p
             // 
-            this.nud_p.Location = new System.Drawing.Point(331, 114);
+            this.nud_p.Location = new System.Drawing.Point(335, 126);
             this.nud_p.Name = "nud_p";
             this.nud_p.Size = new System.Drawing.Size(69, 20);
             this.nud_p.TabIndex = 17;
@@ -108,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(247, 194);
+            this.label5.Location = new System.Drawing.Point(251, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 16;
@@ -117,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(263, 167);
+            this.label4.Location = new System.Drawing.Point(267, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 15;
@@ -126,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 141);
+            this.label3.Location = new System.Drawing.Point(282, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 14;
@@ -135,7 +135,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(264, 115);
+            this.label1.Location = new System.Drawing.Point(268, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 13;
@@ -147,7 +147,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(578, 230);
+            this.bt_close.Location = new System.Drawing.Point(574, 256);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(70, 23);
             this.bt_close.TabIndex = 3;
@@ -160,7 +160,7 @@
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(452, 230);
+            this.bt_ok.Location = new System.Drawing.Point(456, 256);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(70, 23);
             this.bt_ok.TabIndex = 2;
@@ -305,7 +305,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(407, 31);
+            this.label11.Location = new System.Drawing.Point(407, 29);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(36, 13);
             this.label11.TabIndex = 35;
@@ -313,9 +313,9 @@
             // 
             // rtb_popis
             // 
-            this.rtb_popis.Location = new System.Drawing.Point(410, 47);
+            this.rtb_popis.Location = new System.Drawing.Point(410, 45);
             this.rtb_popis.Name = "rtb_popis";
-            this.rtb_popis.Size = new System.Drawing.Size(278, 177);
+            this.rtb_popis.Size = new System.Drawing.Size(278, 205);
             this.rtb_popis.TabIndex = 34;
             this.rtb_popis.Text = "";
             // 
@@ -382,7 +382,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(277, 89);
+            this.label7.Location = new System.Drawing.Point(281, 101);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 27;
@@ -391,7 +391,7 @@
             // lb_kredity
             // 
             this.lb_kredity.AutoSize = true;
-            this.lb_kredity.Location = new System.Drawing.Point(283, 64);
+            this.lb_kredity.Location = new System.Drawing.Point(287, 76);
             this.lb_kredity.Name = "lb_kredity";
             this.lb_kredity.Size = new System.Drawing.Size(42, 13);
             this.lb_kredity.TabIndex = 26;
@@ -399,7 +399,7 @@
             // 
             // nud_semestr
             // 
-            this.nud_semestr.Location = new System.Drawing.Point(331, 88);
+            this.nud_semestr.Location = new System.Drawing.Point(335, 100);
             this.nud_semestr.Name = "nud_semestr";
             this.nud_semestr.Size = new System.Drawing.Size(69, 20);
             this.nud_semestr.TabIndex = 25;
@@ -436,7 +436,7 @@
             // 
             // nud_kredit
             // 
-            this.nud_kredit.Location = new System.Drawing.Point(331, 62);
+            this.nud_kredit.Location = new System.Drawing.Point(335, 74);
             this.nud_kredit.Name = "nud_kredit";
             this.nud_kredit.Size = new System.Drawing.Size(69, 20);
             this.nud_kredit.TabIndex = 21;

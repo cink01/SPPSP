@@ -53,7 +53,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(375, 58);
+            this.bt_close.Location = new System.Drawing.Point(143, 193);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
             this.bt_close.TabIndex = 3;
@@ -66,7 +66,7 @@
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(285, 58);
+            this.bt_ok.Location = new System.Drawing.Point(53, 193);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
             this.bt_ok.TabIndex = 2;
@@ -77,9 +77,7 @@
             // gb_garant
             // 
             this.gb_garant.Controls.Add(this.label3);
-            this.gb_garant.Controls.Add(this.bt_close);
             this.gb_garant.Controls.Add(this.cmb_katedra);
-            this.gb_garant.Controls.Add(this.bt_ok);
             this.gb_garant.Controls.Add(this.label1);
             this.gb_garant.Controls.Add(this.label2);
             this.gb_garant.Controls.Add(this.tb_tel);
@@ -90,9 +88,9 @@
             this.gb_garant.Controls.Add(this.l_id);
             this.gb_garant.Controls.Add(this.tb_jm);
             this.gb_garant.Controls.Add(this.tb_email);
-            this.gb_garant.Location = new System.Drawing.Point(2, 2);
+            this.gb_garant.Location = new System.Drawing.Point(12, 12);
             this.gb_garant.Name = "gb_garant";
-            this.gb_garant.Size = new System.Drawing.Size(776, 94);
+            this.gb_garant.Size = new System.Drawing.Size(269, 175);
             this.gb_garant.TabIndex = 11;
             this.gb_garant.TabStop = false;
             this.gb_garant.Text = "Garant";
@@ -100,56 +98,56 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(683, 15);
+            this.label3.Location = new System.Drawing.Point(64, 147);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Katedra";
+            this.label3.Text = "Katedra:";
             // 
             // cmb_katedra
             // 
             this.cmb_katedra.FormattingEnabled = true;
-            this.cmb_katedra.Location = new System.Drawing.Point(636, 31);
+            this.cmb_katedra.Location = new System.Drawing.Point(117, 144);
             this.cmb_katedra.Name = "cmb_katedra";
-            this.cmb_katedra.Size = new System.Drawing.Size(134, 21);
+            this.cmb_katedra.Size = new System.Drawing.Size(138, 21);
             this.cmb_katedra.TabIndex = 14;
             this.cmb_katedra.DropDown += new System.EventHandler(this.Kat_Hledani);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(509, 18);
+            this.label1.Location = new System.Drawing.Point(10, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Konzultační hodiny";
+            this.label1.Text = "Konzultační hodiny:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(392, 18);
+            this.label2.Location = new System.Drawing.Point(65, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Telefon";
+            this.label2.Text = "Telefon:";
             // 
             // tb_tel
             // 
-            this.tb_tel.Location = new System.Drawing.Point(348, 32);
+            this.tb_tel.Location = new System.Drawing.Point(117, 92);
             this.tb_tel.Name = "tb_tel";
             this.tb_tel.Size = new System.Drawing.Size(138, 20);
             this.tb_tel.TabIndex = 10;
             // 
             // tb_konz
             // 
-            this.tb_konz.Location = new System.Drawing.Point(492, 32);
+            this.tb_konz.Location = new System.Drawing.Point(117, 118);
             this.tb_konz.Name = "tb_konz";
             this.tb_konz.Size = new System.Drawing.Size(138, 20);
             this.tb_konz.TabIndex = 11;
             // 
             // tb_id
             // 
-            this.tb_id.Location = new System.Drawing.Point(6, 32);
+            this.tb_id.Location = new System.Drawing.Point(117, 14);
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
@@ -158,40 +156,40 @@
             // l_email
             // 
             this.l_email.AutoSize = true;
-            this.l_email.Location = new System.Drawing.Point(254, 18);
+            this.l_email.Location = new System.Drawing.Point(76, 69);
             this.l_email.Name = "l_email";
-            this.l_email.Size = new System.Drawing.Size(31, 13);
+            this.l_email.Size = new System.Drawing.Size(35, 13);
             this.l_email.TabIndex = 9;
-            this.l_email.Text = "email";
+            this.l_email.Text = "Email:";
             // 
             // l_zkr
             // 
             this.l_zkr.AutoSize = true;
-            this.l_zkr.Location = new System.Drawing.Point(104, 18);
+            this.l_zkr.Location = new System.Drawing.Point(70, 43);
             this.l_zkr.Name = "l_zkr";
-            this.l_zkr.Size = new System.Drawing.Size(35, 13);
+            this.l_zkr.Size = new System.Drawing.Size(41, 13);
             this.l_zkr.TabIndex = 8;
-            this.l_zkr.Text = "jméno";
+            this.l_zkr.Text = "Jméno:";
             // 
             // l_id
             // 
             this.l_id.AutoSize = true;
-            this.l_id.Location = new System.Drawing.Point(20, 16);
+            this.l_id.Location = new System.Drawing.Point(90, 17);
             this.l_id.Name = "l_id";
-            this.l_id.Size = new System.Drawing.Size(18, 13);
+            this.l_id.Size = new System.Drawing.Size(21, 13);
             this.l_id.TabIndex = 7;
-            this.l_id.Text = "ID";
+            this.l_id.Text = "ID:";
             // 
             // tb_jm
             // 
-            this.tb_jm.Location = new System.Drawing.Point(60, 32);
+            this.tb_jm.Location = new System.Drawing.Point(117, 40);
             this.tb_jm.Name = "tb_jm";
             this.tb_jm.Size = new System.Drawing.Size(138, 20);
             this.tb_jm.TabIndex = 4;
             // 
             // tb_email
             // 
-            this.tb_email.Location = new System.Drawing.Point(204, 32);
+            this.tb_email.Location = new System.Drawing.Point(117, 66);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(138, 20);
             this.tb_email.TabIndex = 5;
@@ -203,8 +201,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(780, 101);
+            this.ClientSize = new System.Drawing.Size(291, 224);
             this.Controls.Add(this.gb_garant);
+            this.Controls.Add(this.bt_close);
+            this.Controls.Add(this.bt_ok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

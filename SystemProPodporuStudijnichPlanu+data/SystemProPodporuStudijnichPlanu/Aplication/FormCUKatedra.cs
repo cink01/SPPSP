@@ -12,10 +12,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         public Katedra K
         {
-            get
-            {
-                return new Katedra(Id, tb_zkr.Text, tb_název.Text);
-            }
+            get => new Katedra(Id, tb_zkr.Text, tb_název.Text);
             set
             {
                 tb_id.Text = K.Id_k.ToString();
