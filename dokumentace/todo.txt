@@ -1,4 +1,6 @@
-NuGet Baličky - https://en.wikipedia.org/wiki/NuGet NUGET.ORG
+NuGet Baličky - https://en.wikipedia.org/wiki/NuGet NUGET.ORG - https://docs.microsoft.com/cs-cz/nuget/what-is-nuget
+
+
 Dapper - https://github.com/StackExchange/Dapper | https://www.nuget.org/packages/Dapper/1.50.7
 Lokální databáze mdf
 VS 2019?
