@@ -35,13 +35,13 @@
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_Zaznam = new System.Windows.Forms.GroupBox();
-            this.bt_info = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_id = new System.Windows.Forms.TextBox();
             this.l_email = new System.Windows.Forms.Label();
             this.l_zkr = new System.Windows.Forms.Label();
             this.l_id = new System.Windows.Forms.Label();
             this.tb_zkr = new System.Windows.Forms.TextBox();
+            this.bt_info = new System.Windows.Forms.Button();
             this.errorProvider_Zaznam_zkratka = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_Zaznam_obor = new System.Windows.Forms.ErrorProvider(this.components);
             this.VypisObor_Zaznam = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
@@ -95,7 +95,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(145, 189);
+            this.bt_close.Location = new System.Drawing.Point(147, 198);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
             this.bt_close.TabIndex = 5;
@@ -108,7 +108,7 @@
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(42, 189);
+            this.bt_ok.Location = new System.Drawing.Point(44, 198);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
             this.bt_ok.TabIndex = 4;
@@ -127,26 +127,12 @@
             this.gb_Zaznam.Controls.Add(this.l_id);
             this.gb_Zaznam.Controls.Add(this.tb_zkr);
             this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gb_Zaznam.Location = new System.Drawing.Point(12, 34);
+            this.gb_Zaznam.Location = new System.Drawing.Point(6, 0);
             this.gb_Zaznam.Name = "gb_Zaznam";
             this.gb_Zaznam.Size = new System.Drawing.Size(260, 128);
             this.gb_Zaznam.TabIndex = 12;
             this.gb_Zaznam.TabStop = false;
             this.gb_Zaznam.Text = "Záznam Plánu";
-            // 
-            // bt_info
-            // 
-            this.bt_info.BackColor = System.Drawing.Color.Azure;
-            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_info.Location = new System.Drawing.Point(126, 189);
-            this.bt_info.Name = "bt_info";
-            this.bt_info.Size = new System.Drawing.Size(19, 23);
-            this.bt_info.TabIndex = 6;
-            this.bt_info.Text = "?";
-            this.bt_info.UseVisualStyleBackColor = false;
-            this.bt_info.Visible = false;
-            this.bt_info.Click += new System.EventHandler(this.Bt_info_Click);
             // 
             // label2
             // 
@@ -202,6 +188,20 @@
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
             this.tb_zkr.TabIndex = 1;
             this.tb_zkr.Validating += new System.ComponentModel.CancelEventHandler(this.Tb_zkr_Validating);
+            // 
+            // bt_info
+            // 
+            this.bt_info.BackColor = System.Drawing.Color.Azure;
+            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_info.Location = new System.Drawing.Point(128, 198);
+            this.bt_info.Name = "bt_info";
+            this.bt_info.Size = new System.Drawing.Size(19, 23);
+            this.bt_info.TabIndex = 6;
+            this.bt_info.Text = "?";
+            this.bt_info.UseVisualStyleBackColor = false;
+            this.bt_info.Visible = false;
+            this.bt_info.Click += new System.EventHandler(this.Bt_info_Click);
             // 
             // errorProvider_Zaznam_zkratka
             // 
