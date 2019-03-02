@@ -74,36 +74,39 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Bt_proved_Click(object sender, EventArgs e)
         {
-            // DataAccess da = new DataAccess();
-            VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
-            int vyber = (int)nud_PridatDoSem.Value;
-            PripravPresun(vyber, id_o, id_z);
-            using (FormPridavani FP = new FormPridavani())
+            if (cmb_zaznam.SelectedIndex >= 0)
             {
-                FP.Text = "Přidání předmětu do " + vyber + ". semestru";
-                if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
+                // DataAccess da = new DataAccess();
+                VratZaznamData(out int id_z, out _, out int id_o, out int PocSem);
+                int vyber = (int)nud_PridatDoSem.Value;
+                PripravPresun(vyber, id_o, id_z);
+                using (FormPridavani FP = new FormPridavani())
                 {
-                    predmetyLichy.AddRange(Sporty);
-                    FP.PredmetySeznam = predmetyLichy;
-                    // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
-                }
-                else
-                {
-                    // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
-                    predmetySudy.AddRange(Sporty);
-                    FP.PredmetySeznam = predmetySudy;
-                }
-                FP.RefreshSeznam();
-                DialogResult potvrzeni = FP.ShowDialog();
-                if (potvrzeni == DialogResult.OK)
-                {
-                    DataCrud data = new DataCrud();
-                    foreach (Predmet p in FP.PredmetyAdd)
+                    FP.Text = "Přidání předmětu do " + vyber + ". semestru";
+                    if (vyber == 1 || vyber == 3 || vyber == 5 || vyber == 7 || vyber == 9 || vyber == 11)
                     {
-                        data.InsertVyber(p.Id_predmet, vyber, id_z);
+                        predmetyLichy.AddRange(Sporty);
+                        FP.PredmetySeznam = predmetyLichy;
+                        // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
                     }
-                    RefreshList(VratListBox(vyber), vyber);
-                    ObnovPovinn(id_o, PocSem);
+                    else
+                    {
+                        // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
+                        predmetySudy.AddRange(Sporty);
+                        FP.PredmetySeznam = predmetySudy;
+                    }
+                    FP.RefreshSeznam();
+                    DialogResult potvrzeni = FP.ShowDialog();
+                    if (potvrzeni == DialogResult.OK)
+                    {
+                        DataCrud data = new DataCrud();
+                        foreach (Predmet p in FP.PredmetyAdd)
+                        {
+                            data.InsertVyber(p.Id_predmet, vyber, id_z);
+                        }
+                        RefreshList(VratListBox(vyber), vyber);
+                        ObnovPovinn(id_o, PocSem);
+                    }
                 }
             }
         }
@@ -120,8 +123,10 @@ namespace SystemProPodporuStudijnichPlanu
         private void Cmb_zaznam_SelectedIndexChanged(object sender, EventArgs e)
         {
             VyplnPotrebnyZeZaznamu();
+            bt_delZaz.Visible = false;
             if (cmb_zaznam.SelectedIndex >= 0)
             {
+                bt_delZaz.Visible = true;
                 FillHlavniListy();
                 Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
                 ObnovPovinn(z.Id_obor, z.PocetSem);
@@ -149,11 +154,20 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out int PocSem)
         {
-            Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
-            id_z = z.Id_zaznam;
-            zkr = z.Zkr_zaznam;
-            id_o = z.Id_obor;
-            PocSem = z.PocetSem;
+            id_z = id_o = PocSem = -1;
+            zkr = "";
+            try
+            {
+                Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
+                id_z = z.Id_zaznam;
+                zkr = z.Zkr_zaznam;
+                id_o = z.Id_obor;
+                PocSem = z.PocetSem;
+            }
+            catch
+            {
+                MessageBox.Show("Není vybrán žádný záznam plánu.");
+            }
         }
         private void FillHlavniListy()
         {
@@ -927,6 +941,20 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 bt_smaz.PerformClick();
                 return;
+            }
+        }
+
+        private void Bt_delZaz_Click(object sender, EventArgs e)
+        {
+            if (cmb_zaznam.SelectedIndex != -1)
+            {
+                try
+                {
+                    DataCrud dc = new DataCrud();
+                    dc.DeleteZaznam(((Zaznam)cmb_zaznam.SelectedItem).Id_zaznam);
+                    RefreshZaznamy();
+                }
+                catch { }
             }
         }
     }

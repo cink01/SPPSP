@@ -68,6 +68,7 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
+            this.bt_delZaz = new System.Windows.Forms.Button();
             this.l_s8 = new System.Windows.Forms.Label();
             this.l_s12 = new System.Windows.Forms.Label();
             this.l_s11 = new System.Windows.Forms.Label();
@@ -614,6 +615,7 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.bt_delZaz);
             this.gb_max.Controls.Add(this.l_s8);
             this.gb_max.Controls.Add(this.l_s12);
             this.gb_max.Controls.Add(this.l_s11);
@@ -667,11 +669,23 @@
             this.gb_max.Controls.Add(this.lb_semestr4);
             this.gb_max.Controls.Add(this.lb_semestr3);
             this.gb_max.Controls.Add(this.lb_semestr2);
+            this.gb_max.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gb_max.Location = new System.Drawing.Point(12, 26);
             this.gb_max.Name = "gb_max";
             this.gb_max.Size = new System.Drawing.Size(1074, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
+            // 
+            // bt_delZaz
+            // 
+            this.bt_delZaz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_delZaz.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.X;
+            this.bt_delZaz.Location = new System.Drawing.Point(278, 11);
+            this.bt_delZaz.Name = "bt_delZaz";
+            this.bt_delZaz.Size = new System.Drawing.Size(22, 22);
+            this.bt_delZaz.TabIndex = 95;
+            this.bt_delZaz.UseVisualStyleBackColor = true;
+            this.bt_delZaz.Click += new System.EventHandler(this.Bt_delZaz_Click);
             // 
             // l_s8
             // 
@@ -1044,6 +1058,7 @@
         private System.Windows.Forms.Label l_s3;
         private System.Windows.Forms.Label l_s2;
         private System.Windows.Forms.Label l_s1;
+        private System.Windows.Forms.Button bt_delZaz;
     }
 }
 

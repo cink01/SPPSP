@@ -107,5 +107,15 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
                 return ResourceManager.GetString("EXIT_TITLE", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X {
+            get {
+                object obj = ResourceManager.GetObject("X", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -43,6 +43,7 @@
             // bt_ok
             // 
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
+            this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_ok.Location = new System.Drawing.Point(527, 347);
@@ -146,7 +147,7 @@
             this.vypisPopisPredmet.Kombi = "";
             this.vypisPopisPredmet.Kredit = "";
             this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(-1, 3);
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(4, 7);
             this.vypisPopisPredmet.Name = "vypisPopisPredmet";
             this.vypisPopisPredmet.P = null;
             this.vypisPopisPredmet.Popis = "";
