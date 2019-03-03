@@ -68,7 +68,6 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
-            this.bt_delZaz = new System.Windows.Forms.Button();
             this.l_s8 = new System.Windows.Forms.Label();
             this.l_s12 = new System.Windows.Forms.Label();
             this.l_s11 = new System.Windows.Forms.Label();
@@ -82,16 +81,18 @@
             this.l_s2 = new System.Windows.Forms.Label();
             this.l_s1 = new System.Windows.Forms.Label();
             this.bt_zobrazDGar = new System.Windows.Forms.Button();
-            this.vypisGarantMain = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
-            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.nud_vKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pvKr = new System.Windows.Forms.NumericUpDown();
             this.nud_pKr = new System.Windows.Forms.NumericUpDown();
             this.lb_vyber = new System.Windows.Forms.Label();
             this.nud_PridatDoSem = new System.Windows.Forms.NumericUpDown();
+            this.bt_addZaz = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.bt_delZaz = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.vypisGarantMain = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
+            this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -615,6 +616,7 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.bt_addZaz);
             this.gb_max.Controls.Add(this.bt_delZaz);
             this.gb_max.Controls.Add(this.l_s8);
             this.gb_max.Controls.Add(this.l_s12);
@@ -675,17 +677,6 @@
             this.gb_max.Size = new System.Drawing.Size(1074, 654);
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
-            // 
-            // bt_delZaz
-            // 
-            this.bt_delZaz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_delZaz.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.X;
-            this.bt_delZaz.Location = new System.Drawing.Point(278, 11);
-            this.bt_delZaz.Name = "bt_delZaz";
-            this.bt_delZaz.Size = new System.Drawing.Size(22, 22);
-            this.bt_delZaz.TabIndex = 95;
-            this.bt_delZaz.UseVisualStyleBackColor = true;
-            this.bt_delZaz.Click += new System.EventHandler(this.Bt_delZaz_Click);
             // 
             // l_s8
             // 
@@ -809,18 +800,6 @@
             this.bt_zobrazDGar.Visible = false;
             this.bt_zobrazDGar.Click += new System.EventHandler(this.Bt_zobrazDGar_Click);
             // 
-            // vypisGarantMain
-            // 
-            this.vypisGarantMain.Email = "";
-            this.vypisGarantMain.G = null;
-            this.vypisGarantMain.Katedra = "";
-            this.vypisGarantMain.Konzultace = "";
-            this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
-            this.vypisGarantMain.Name = "vypisGarantMain";
-            this.vypisGarantMain.Size = new System.Drawing.Size(290, 114);
-            this.vypisGarantMain.TabIndex = 81;
-            this.vypisGarantMain.Telefon = "";
-            // 
             // l_vk
             // 
             this.l_vk.AutoSize = true;
@@ -847,28 +826,6 @@
             this.l_pkr.Size = new System.Drawing.Size(150, 13);
             this.l_pkr.TabIndex = 78;
             this.l_pkr.Text = "Kredity z povinných předmětů:";
-            // 
-            // vypisPopisPredmet
-            // 
-            this.vypisPopisPredmet.Cviceni = "";
-            this.vypisPopisPredmet.Garant = "";
-            this.vypisPopisPredmet.Jazyk = "";
-            this.vypisPopisPredmet.Kombi = "";
-            this.vypisPopisPredmet.Kredit = "";
-            this.vypisPopisPredmet.Lab = "";
-            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 38);
-            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
-            this.vypisPopisPredmet.P = null;
-            this.vypisPopisPredmet.Popis = "";
-            this.vypisPopisPredmet.Povinnost = "";
-            this.vypisPopisPredmet.Prednaska = "";
-            this.vypisPopisPredmet.Prerekvizita = "";
-            this.vypisPopisPredmet.Semestr = "";
-            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 337);
-            this.vypisPopisPredmet.TabIndex = 77;
-            this.vypisPopisPredmet.Visible = false;
-            this.vypisPopisPredmet.Zakončení = "";
-            this.vypisPopisPredmet.Zkr = "";
             // 
             // nud_vKr
             // 
@@ -954,6 +911,66 @@
             0,
             0,
             0});
+            // 
+            // bt_addZaz
+            // 
+            this.bt_addZaz.BackColor = System.Drawing.Color.White;
+            this.bt_addZaz.FlatAppearance.BorderSize = 0;
+            this.bt_addZaz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_addZaz.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources._;
+            this.bt_addZaz.Location = new System.Drawing.Point(275, 10);
+            this.bt_addZaz.Name = "bt_addZaz";
+            this.bt_addZaz.Size = new System.Drawing.Size(25, 25);
+            this.bt_addZaz.TabIndex = 63;
+            this.bt_addZaz.UseVisualStyleBackColor = false;
+            this.bt_addZaz.Click += new System.EventHandler(this.Bt_addZaz_Click);
+            // 
+            // bt_delZaz
+            // 
+            this.bt_delZaz.BackColor = System.Drawing.Color.White;
+            this.bt_delZaz.FlatAppearance.BorderSize = 0;
+            this.bt_delZaz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_delZaz.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.X;
+            this.bt_delZaz.Location = new System.Drawing.Point(304, 10);
+            this.bt_delZaz.Name = "bt_delZaz";
+            this.bt_delZaz.Size = new System.Drawing.Size(25, 25);
+            this.bt_delZaz.TabIndex = 64;
+            this.bt_delZaz.UseVisualStyleBackColor = false;
+            this.bt_delZaz.Click += new System.EventHandler(this.Bt_delZaz_Click);
+            // 
+            // vypisGarantMain
+            // 
+            this.vypisGarantMain.Email = "";
+            this.vypisGarantMain.G = null;
+            this.vypisGarantMain.Katedra = "";
+            this.vypisGarantMain.Konzultace = "";
+            this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
+            this.vypisGarantMain.Name = "vypisGarantMain";
+            this.vypisGarantMain.Size = new System.Drawing.Size(290, 114);
+            this.vypisGarantMain.TabIndex = 81;
+            this.vypisGarantMain.Telefon = "";
+            // 
+            // vypisPopisPredmet
+            // 
+            this.vypisPopisPredmet.Cviceni = "";
+            this.vypisPopisPredmet.Garant = "";
+            this.vypisPopisPredmet.Jazyk = "";
+            this.vypisPopisPredmet.Kombi = "";
+            this.vypisPopisPredmet.Kredit = "";
+            this.vypisPopisPredmet.Lab = "";
+            this.vypisPopisPredmet.Location = new System.Drawing.Point(680, 38);
+            this.vypisPopisPredmet.Name = "vypisPopisPredmet";
+            this.vypisPopisPredmet.P = null;
+            this.vypisPopisPredmet.Popis = "";
+            this.vypisPopisPredmet.Povinnost = "";
+            this.vypisPopisPredmet.Prednaska = "";
+            this.vypisPopisPredmet.Prerekvizita = "";
+            this.vypisPopisPredmet.Semestr = "";
+            this.vypisPopisPredmet.Size = new System.Drawing.Size(389, 337);
+            this.vypisPopisPredmet.TabIndex = 77;
+            this.vypisPopisPredmet.Visible = false;
+            this.vypisPopisPredmet.Zakončení = "";
+            this.vypisPopisPredmet.Zkr = "";
             // 
             // FormMain
             // 
@@ -1058,7 +1075,8 @@
         private System.Windows.Forms.Label l_s3;
         private System.Windows.Forms.Label l_s2;
         private System.Windows.Forms.Label l_s1;
-        private System.Windows.Forms.Button bt_delZaz;
+        private Icons.KulateButton bt_delZaz;
+        private Icons.KulateButton bt_addZaz;
     }
 }
 

@@ -163,6 +163,9 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\DataCrud.cs" />
     <Compile Include="Aplication\Program.cs" />
+    <Compile Include="Icons\KulateButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Komponenty\VypisGarant.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -305,6 +308,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseApp.mdf</DependentUpon>
     </Content>
+    <None Include="Icons\+.png" />
     <None Include="Icons\X.png" />
     <None Include="Icons\ButtonR53.png" />
     <None Include="Icons\ButtonL53.png" />

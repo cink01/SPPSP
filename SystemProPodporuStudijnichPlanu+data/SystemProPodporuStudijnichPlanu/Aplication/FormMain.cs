@@ -957,5 +957,10 @@ namespace SystemProPodporuStudijnichPlanu
                 catch { }
             }
         }
+
+        private void Bt_addZaz_Click(object sender, EventArgs e)
+        {
+            vytvořitNovýZáznamToolStripMenuItem.PerformClick();
+        }
     }
 }
