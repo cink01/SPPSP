@@ -189,11 +189,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(437, 16);
+            this.label6.Location = new System.Drawing.Point(406, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Semestr:";
+            this.label6.Text = "Vybrat semestr:";
             // 
             // FormPridavani
             // 

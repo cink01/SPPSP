@@ -41,20 +41,19 @@ namespace SystemProPodporuStudijnichPlanu
         {
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value + nud_KredSem7.Value + nud_KredSem8.Value + nud_KredSem9.Value + nud_KredSem10.Value + nud_KredSem11.Value + nud_KredSem12.Value;
             nud_KredSem1.BackColor = nud_KredSem1.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem2.BackColor = nud_KredSem2.Value + nud_KredSem1.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem6.BackColor = nud_KredSem6.Value + nud_KredSem5.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem7.BackColor = nud_KredSem7.Value + nud_KredSem6.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem8.BackColor = nud_KredSem8.Value + nud_KredSem7.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem9.BackColor = nud_KredSem9.Value + nud_KredSem8.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem10.BackColor = nud_KredSem10.Value + nud_KredSem9.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem11.BackColor = nud_KredSem11.Value + nud_KredSem10.Value < 40 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem12.BackColor = nud_KredSem12.Value + nud_KredSem11.Value < 40 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem2.BackColor = nud_KredSem2.Value + nud_KredSem1.Value < 40 || nud_KredSem2.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < 40 || nud_KredSem3.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < 40 || nud_KredSem4.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < 40 || nud_KredSem5.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem6.BackColor = nud_KredSem6.Value + nud_KredSem5.Value < 40 || nud_KredSem6.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem7.BackColor = nud_KredSem7.Value + nud_KredSem6.Value < 40 || nud_KredSem7.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem8.BackColor = nud_KredSem8.Value + nud_KredSem7.Value < 40 || nud_KredSem8.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem9.BackColor = nud_KredSem9.Value + nud_KredSem8.Value < 40 || nud_KredSem9.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem10.BackColor = nud_KredSem10.Value + nud_KredSem9.Value < 40 || nud_KredSem10.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem11.BackColor = nud_KredSem11.Value + nud_KredSem10.Value < 40 || nud_KredSem11.Value == 20 ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem12.BackColor = nud_KredSem12.Value + nud_KredSem11.Value < 40 || nud_KredSem12.Value == 20 ? Color.LightCoral : Color.LightGreen;
             nud_celkemKred.BackColor = nud_celkemKred.Value < 180 ? Color.LightCoral : Color.LightGreen;
         }
-
         private void UkonceniProgramu(object sender, EventArgs e)
         {
             if (MessageBox.Show(Properties.Resources.EXIT_MESSAGE, Properties.Resources.EXIT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
