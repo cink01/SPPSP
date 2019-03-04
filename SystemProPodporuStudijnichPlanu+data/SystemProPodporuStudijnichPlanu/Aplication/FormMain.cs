@@ -176,7 +176,7 @@ namespace SystemProPodporuStudijnichPlanu
             Viditelnost(semestry);
             nud_PridatDoSem.Maximum = semestry;
             for (int i = 1; i <= semestry; i++)
-                NaplnitIndividualy(i);
+                RefreshList(VratListBox(i), i);
         }
         private void Lb_semestr1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -238,62 +238,6 @@ namespace SystemProPodporuStudijnichPlanu
             if (VratListBox(12).SelectedIndex != -1)
                 DeselectnutiListu(12);
         }
-        private void NaplnitIndividualy(int semestry = 0)
-        {
-            try
-            {
-                var test = new List<Predmet>();
-                if (1 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (2 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (3 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (4 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (5 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (6 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (7 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (8 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (9 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (10 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (11 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-                if (12 <= semestry)
-                {
-                    RefreshList(VratListBox(semestry), semestry);
-                }
-            }
-            catch { }
-        }
         private void Bt_smaz_Click(object sender, EventArgs e)
         {
             try
@@ -307,7 +251,6 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 MessageBox.Show("není vybrán žádný plán");
             }
-
         }
         public void MazatZVyberu(ListBox LB, int id_z, int sem, int id_o)
         //přesunuto z DataAccess do main vyresit zapis a nebo reset lichy a sudy aby se to dalo presunout pryc
@@ -465,7 +408,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void Viditelnost(int i)
         {
-
             ZměnyVeliZic(i);
             switch (i)
             {
@@ -695,7 +637,6 @@ namespace SystemProPodporuStudijnichPlanu
                     break;
             }
             return null;
-
         }
         private void NaplnVybranyList(int i, List<Predmet> p)
         {
@@ -929,7 +870,6 @@ namespace SystemProPodporuStudijnichPlanu
             Filling f = new Filling();
             f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarantMain);
         }
-
         private void ListyZmacknutiKlavesy(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -943,7 +883,6 @@ namespace SystemProPodporuStudijnichPlanu
                 return;
             }
         }
-
         private void Bt_delZaz_Click(object sender, EventArgs e)
         {
             if (cmb_zaznam.SelectedIndex != -1)
@@ -957,7 +896,6 @@ namespace SystemProPodporuStudijnichPlanu
                 catch { }
             }
         }
-
         private void Bt_addZaz_Click(object sender, EventArgs e)
         {
             vytvořitNovýZáznamToolStripMenuItem.PerformClick();

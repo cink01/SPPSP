@@ -37,28 +37,15 @@ namespace SystemProPodporuStudijnichPlanu
                     cmb_semestr.Items.Remove("3");
                     cmb_semestr.Items.Remove("5");
                 }
+                cmb_semestr.SelectedIndex = cmb_semestr.FindStringExact("Všechny");
             }
         }
-        public FormPridavani()
-        {
-            InitializeComponent();
-        }
-        private void FormPridavani_Load(object sender, EventArgs e)
-        {
-            cmb_semestr.SelectedItem = cmb_semestr.FindStringExact("Všechny");
-        }
-        private void Bt_close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        public FormPridavani() => InitializeComponent();
+        private void Bt_close_Click(object sender, EventArgs e) => Close();
         private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filling fill = new Filling();
             fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);
-        }
-        private void Lb_chci_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         private void Lb_vypis_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -71,16 +58,8 @@ namespace SystemProPodporuStudijnichPlanu
             if (e.KeyChar == (char)Keys.Space)
                 bt_rem.PerformClick();
         }
-
-        private void Bt_ok_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e) //upravit funkci aby se brala jako refresh 
-        {
-            RefreshR();
-        }
+        private void Bt_ok_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
+        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e) => RefreshR();
         public void RefreshAdd()
         {
             lb_chci.DataSource = null;
@@ -166,4 +145,3 @@ namespace SystemProPodporuStudijnichPlanu
         }
     }
 }
-

@@ -91,7 +91,6 @@
             this.lb_chci.Name = "lb_chci";
             this.lb_chci.Size = new System.Drawing.Size(208, 303);
             this.lb_chci.TabIndex = 3;
-            this.lb_chci.SelectedIndexChanged += new System.EventHandler(this.Lb_chci_SelectedIndexChanged);
             this.lb_chci.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_chci_KeyPress);
             // 
             // nud_kredity
@@ -219,7 +218,6 @@
             this.MaximizeBox = false;
             this.Name = "FormPridavani";
             this.Text = "FormPridavani";
-            this.Load += new System.EventHandler(this.FormPridavani_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
