@@ -37,19 +37,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (rb_garant.Checked == true)
             {
                 NewGarant();
+                return;
             }
             if (rb_predmet.Checked == true)
             {
                 NewPredmet();
+                return;
             }
             if (rb_obor.Checked == true)
             {
                 NewObor();
+                return;
             }
-
             if (rb_katedra.Checked == true)
             {
                 NewKatedra();
+                return;
             }
         }
         private void NewGarant()
@@ -226,18 +229,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (rb_garant.Checked == true && cb_garant.SelectedIndex != -1)
             {
                 EditGarant();
+                return;
             }
             if (rb_predmet.Checked == true && cb_pre.SelectedIndex != -1)
             {
                 EditPredmet();
+                return;
             }
             if (rb_obor.Checked == true && cb_obo.SelectedIndex != -1)
             {
                 EditObor();
+                return;
             }
             if (rb_katedra.Checked == true && cb_kat.SelectedIndex != -1)
             {
                 EditKatedra();
+                return;
             }
         }
         private void EditGarant()
@@ -317,6 +324,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         ZaridVyber();
                         cb_pre.Text = Pred.P.ToString();
                         f.FillDetail(vypisPopisPredmetMid, Pred.P);
+                        predmets = a.GetFullPredmet();
                         MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -410,18 +418,22 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             if (rb_garant.Checked == true)
             {
                 DeleteGarant();
+                return;
             }
             if (rb_predmet.Checked == true)
             {
                 DeletePredmet();
+                return;
             }
             if (rb_obor.Checked == true)
             {
                 DeleteObor();
+                return;
             }
             if (rb_katedra.Checked == true)
             {
                 DeleteKatedra();
+                return;
             }
         }
         public void DeleteGarant()
