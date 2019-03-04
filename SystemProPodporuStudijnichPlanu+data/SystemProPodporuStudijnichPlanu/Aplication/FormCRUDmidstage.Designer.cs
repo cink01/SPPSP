@@ -66,6 +66,9 @@
             this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.vypisGarant_Mid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
+            this.kb_e = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.kb_n = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.kb_d = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -80,7 +83,7 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(110, 305);
+            this.bt_close.Location = new System.Drawing.Point(110, 306);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 16;
@@ -93,7 +96,7 @@
             this.bt_smazat.BackColor = System.Drawing.Color.Bisque;
             this.bt_smazat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_smazat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_smazat.Location = new System.Drawing.Point(3, 361);
+            this.bt_smazat.Location = new System.Drawing.Point(9, 481);
             this.bt_smazat.Name = "bt_smazat";
             this.bt_smazat.Size = new System.Drawing.Size(75, 23);
             this.bt_smazat.TabIndex = 15;
@@ -107,7 +110,7 @@
             this.bt_novy.BackColor = System.Drawing.Color.GreenYellow;
             this.bt_novy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_novy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_novy.Location = new System.Drawing.Point(3, 305);
+            this.bt_novy.Location = new System.Drawing.Point(9, 425);
             this.bt_novy.Name = "bt_novy";
             this.bt_novy.Size = new System.Drawing.Size(75, 23);
             this.bt_novy.TabIndex = 13;
@@ -121,7 +124,7 @@
             this.bt_upravit.BackColor = System.Drawing.Color.LemonChiffon;
             this.bt_upravit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_upravit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_upravit.Location = new System.Drawing.Point(3, 333);
+            this.bt_upravit.Location = new System.Drawing.Point(9, 453);
             this.bt_upravit.Name = "bt_upravit";
             this.bt_upravit.Size = new System.Drawing.Size(75, 23);
             this.bt_upravit.TabIndex = 14;
@@ -503,6 +506,48 @@
             this.VypisOborMid.Vs = "";
             this.VypisOborMid.Zkr = "";
             // 
+            // kb_e
+            // 
+            this.kb_e.BackColor = System.Drawing.Color.DarkOrange;
+            this.kb_e.FlatAppearance.BorderSize = 0;
+            this.kb_e.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kb_e.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.edit;
+            this.kb_e.Location = new System.Drawing.Point(39, 306);
+            this.kb_e.Name = "kb_e";
+            this.kb_e.Size = new System.Drawing.Size(25, 25);
+            this.kb_e.TabIndex = 98;
+            this.kb_e.UseVisualStyleBackColor = false;
+            this.kb_e.Visible = false;
+            this.kb_e.Click += new System.EventHandler(this.Bt_upravit_Click);
+            // 
+            // kb_n
+            // 
+            this.kb_n.BackColor = System.Drawing.Color.White;
+            this.kb_n.FlatAppearance.BorderSize = 0;
+            this.kb_n.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kb_n.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources._;
+            this.kb_n.Location = new System.Drawing.Point(9, 305);
+            this.kb_n.Name = "kb_n";
+            this.kb_n.Size = new System.Drawing.Size(25, 25);
+            this.kb_n.TabIndex = 96;
+            this.kb_n.UseVisualStyleBackColor = false;
+            this.kb_n.Visible = false;
+            this.kb_n.Click += new System.EventHandler(this.Bt_novy_Click);
+            // 
+            // kb_d
+            // 
+            this.kb_d.BackColor = System.Drawing.Color.White;
+            this.kb_d.FlatAppearance.BorderSize = 0;
+            this.kb_d.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kb_d.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.X;
+            this.kb_d.Location = new System.Drawing.Point(68, 306);
+            this.kb_d.Name = "kb_d";
+            this.kb_d.Size = new System.Drawing.Size(25, 25);
+            this.kb_d.TabIndex = 97;
+            this.kb_d.UseVisualStyleBackColor = false;
+            this.kb_d.Visible = false;
+            this.kb_d.Click += new System.EventHandler(this.Bt_smazat_Click);
+            // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,6 +556,9 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(1113, 512);
+            this.Controls.Add(this.kb_e);
+            this.Controls.Add(this.kb_n);
+            this.Controls.Add(this.kb_d);
             this.Controls.Add(this.VypisOborMid);
             this.Controls.Add(this.vypisPopisPredmetMid);
             this.Controls.Add(this.vypisGarant_Mid);
@@ -586,5 +634,8 @@
         private System.Windows.Forms.ToolStripMenuItem přidatPopisyKPředmětůmToolStripMenuItem;
         private Komponenty.VypisGarant vypisGarant_Mid;
         private Komponenty.VypisObor VypisOborMid;
+        private Icons.KulateButton kb_e;
+        private Icons.KulateButton kb_n;
+        private Icons.KulateButton kb_d;
     }
 }

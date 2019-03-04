@@ -101,6 +101,16 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete ukončit program? Veškerý neuložený postup bude ztracen!.
         /// </summary>
         internal static string EXIT_MESSAGE {

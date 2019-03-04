@@ -672,6 +672,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             bt_novy.Visible = bt_novy.Visible != true;
             bt_upravit.Visible = bt_upravit.Visible != true;
             bt_smazat.Visible = bt_smazat.Visible != true;
+            kb_d.Visible = kb_d.Visible != true;
+            kb_e.Visible = kb_e.Visible != true;
+            kb_n.Visible = kb_n.Visible != true;
         }
         private string cesta = @"D:\VEJSKA\SPPSP\dokumentace\pomocné soubory\vspj_predmety_bez_anotace.txt";
         private void NaplnitDatabáziToolStripMenuItem_Click(object sender, EventArgs e)

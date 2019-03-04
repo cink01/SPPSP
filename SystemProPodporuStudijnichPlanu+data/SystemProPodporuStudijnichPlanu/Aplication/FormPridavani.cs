@@ -116,7 +116,37 @@ namespace SystemProPodporuStudijnichPlanu
 
         private void Bt_ok_Click(object sender, EventArgs e)
         {
-            this.DialogResult=DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string vyber = cmb_semestr.SelectedItem.ToString();
+            int semestr;
+            if (vyber!="všechny")
+            {
+                try
+                {
+                    semestr = Convert.ToInt32(vyber);
+                }
+                catch 
+                {
+                    semestr = 0;
+                }
+                lb_vypis.DataSource = null;
+                lb_vypis.Items.Clear();
+                foreach (Predmet p in predmetySeznam)
+                {
+                    if (p.Semestr_predmet ==semestr)
+                    {
+                        lb_vypis.Items.Add(p.ToString());
+                    }
+                }
+                return;
+            }
+            else
+                RefreshSeznam();
         }
     }
 }
+

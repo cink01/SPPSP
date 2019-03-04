@@ -37,6 +37,8 @@
             this.vypisPopisPredmet = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.bt_add = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.bt_rem = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.cmb_semestr = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +76,9 @@
             // 
             this.lb_vypis.FormattingEnabled = true;
             this.lb_vypis.HorizontalScrollbar = true;
-            this.lb_vypis.Location = new System.Drawing.Point(394, 12);
+            this.lb_vypis.Location = new System.Drawing.Point(394, 38);
             this.lb_vypis.Name = "lb_vypis";
-            this.lb_vypis.Size = new System.Drawing.Size(208, 329);
+            this.lb_vypis.Size = new System.Drawing.Size(208, 303);
             this.lb_vypis.TabIndex = 1;
             this.lb_vypis.SelectedIndexChanged += new System.EventHandler(this.Lb_vypis_SelectedIndexChanged);
             this.lb_vypis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_vypis_KeyPress);
@@ -85,9 +87,9 @@
             // 
             this.lb_chci.FormattingEnabled = true;
             this.lb_chci.HorizontalScrollbar = true;
-            this.lb_chci.Location = new System.Drawing.Point(667, 13);
+            this.lb_chci.Location = new System.Drawing.Point(667, 39);
             this.lb_chci.Name = "lb_chci";
-            this.lb_chci.Size = new System.Drawing.Size(208, 329);
+            this.lb_chci.Size = new System.Drawing.Size(208, 303);
             this.lb_chci.TabIndex = 3;
             this.lb_chci.SelectedIndexChanged += new System.EventHandler(this.Lb_chci_SelectedIndexChanged);
             this.lb_chci.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_chci_KeyPress);
@@ -166,6 +168,34 @@
             this.bt_rem.UseVisualStyleBackColor = false;
             this.bt_rem.Click += new System.EventHandler(this.Bt_rem_Click);
             // 
+            // cmb_semestr
+            // 
+            this.cmb_semestr.DropDownWidth = 50;
+            this.cmb_semestr.FormattingEnabled = true;
+            this.cmb_semestr.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "Nezařazené",
+            "Všechny"});
+            this.cmb_semestr.Location = new System.Drawing.Point(491, 13);
+            this.cmb_semestr.Name = "cmb_semestr";
+            this.cmb_semestr.Size = new System.Drawing.Size(111, 21);
+            this.cmb_semestr.TabIndex = 13;
+            this.cmb_semestr.SelectedIndexChanged += new System.EventHandler(this.Cb_semestry_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(437, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Semestr:";
+            // 
             // FormPridavani
             // 
             this.AcceptButton = this.bt_ok;
@@ -174,6 +204,8 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_ok;
             this.ClientSize = new System.Drawing.Size(884, 378);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmb_semestr);
             this.Controls.Add(this.bt_rem);
             this.Controls.Add(this.bt_add);
             this.Controls.Add(this.vypisPopisPredmet);
@@ -204,5 +236,7 @@
         private Komponenty.VypisPopisPredmet vypisPopisPredmet;
         private Icons.KulateButton bt_add;
         private Icons.KulateButton bt_rem;
+        private System.Windows.Forms.ComboBox cmb_semestr;
+        private System.Windows.Forms.Label label6;
     }
 }

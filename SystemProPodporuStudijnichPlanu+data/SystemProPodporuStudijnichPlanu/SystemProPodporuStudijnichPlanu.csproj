@@ -308,6 +308,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseApp.mdf</DependentUpon>
     </Content>
+    <None Include="Icons\edit.png" />
     <None Include="Icons\+.png" />
     <None Include="Icons\X.png" />
     <None Include="Icons\ButtonR53.png" />
