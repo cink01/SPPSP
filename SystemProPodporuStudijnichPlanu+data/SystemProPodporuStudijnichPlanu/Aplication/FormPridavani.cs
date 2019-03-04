@@ -21,9 +21,65 @@ namespace SystemProPodporuStudijnichPlanu
             set => this.predmetyAdd = value;
             get => predmetyAdd;
         }
+        public bool Lichy
+        {
+            set
+            {
+                if (value == true)
+                {
+                    cmb_semestr.Items.Remove("2");
+                    cmb_semestr.Items.Remove("4");
+                    cmb_semestr.Items.Remove("6");
+                }
+                else
+                {
+                    cmb_semestr.Items.Remove("1");
+                    cmb_semestr.Items.Remove("3");
+                    cmb_semestr.Items.Remove("5");
+                }
+            }
+        }
         public FormPridavani()
         {
             InitializeComponent();
+        }
+        private void FormPridavani_Load(object sender, EventArgs e)
+        {
+            cmb_semestr.SelectedItem = cmb_semestr.FindStringExact("Všechny");
+        }
+        private void Bt_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filling fill = new Filling();
+            fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);
+        }
+        private void Lb_chci_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Lb_vypis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                bt_add.PerformClick();
+        }
+
+        private void Lb_chci_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                bt_rem.PerformClick();
+        }
+
+        private void Bt_ok_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e) //upravit funkci aby se brala jako refresh 
+        {
+            RefreshR();
         }
         public void RefreshAdd()
         {
@@ -46,27 +102,38 @@ namespace SystemProPodporuStudijnichPlanu
                 lb_vypis.Items.Add(n.ToString());
             }
         }
-        private void Bt_close_Click(object sender, EventArgs e)
+        private void RefreshR()
         {
-            Close();
-        }
-        private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Filling fill = new Filling();
-            fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);
-        }
-        private void Lb_chci_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            string vyber = cmb_semestr.SelectedItem.ToString();
+            int semestr;
+            if (vyber != "Všechny")
+            {
+                try
+                {
+                    semestr = Convert.ToInt32(vyber);
+                }
+                catch
+                {
+                    semestr = 0;
+                }
+                lb_vypis.DataSource = null;
+                lb_vypis.Items.Clear();
+                foreach (Predmet p in predmetySeznam)
+                {
+                    if (p.Semestr_predmet == semestr)
+                    {
+                        lb_vypis.Items.Add(p.ToString());
+                    }
+                }
+                return;
+            }
+            else
+                RefreshSeznam();
         }
         private void Bt_add_Click(object sender, EventArgs e)
         {
             try
             {
-                /*  Predmet temp = (Predmet)lb_vypis.SelectedItem;
-                  var moveables = predmetySeznam.Where(x => x.ToString() == temp.ToString());
-                  predmetyAdd.AddRange(moveables);
-                  predmetySeznam = predmetySeznam.Except(predmetyAdd).ToList();*/
                 foreach (Predmet n in predmetySeznam)
                 {
                     if ((object)lb_vypis.SelectedItem == (object)(n.ToString()))
@@ -76,7 +143,7 @@ namespace SystemProPodporuStudijnichPlanu
                         predmetySeznam = predmetySeznam.Except(predmetyAdd).ToList();
                     }
                 }
-                RefreshSeznam(); RefreshAdd();
+                RefreshR(); RefreshAdd();
             }
             catch { }
         }
@@ -84,10 +151,6 @@ namespace SystemProPodporuStudijnichPlanu
         {
             try
             {
-                /*    Predmet temp = (Predmet)lb_chci.SelectedItem;
-                    var moveables = predmetyAdd.Where(x => x.ToString() == temp.ToString());
-                    predmetySeznam.AddRange(moveables);
-                    predmetyAdd = predmetyAdd.Except(predmetySeznam).ToList();*/
                 foreach (Predmet n in predmetyAdd)
                 {
                     if ((object)lb_chci.SelectedItem == (object)(n.Name_predmet))
@@ -97,55 +160,9 @@ namespace SystemProPodporuStudijnichPlanu
                         predmetyAdd = predmetyAdd.Except(predmetySeznam).ToList();
                     }
                 }
-                RefreshSeznam(); RefreshAdd();
+                RefreshR(); RefreshAdd();
             }
             catch { }
-        }
-
-        private void Lb_vypis_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Space)
-                bt_add.PerformClick();
-        }
-
-        private void Lb_chci_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Space)
-                bt_rem.PerformClick();
-        }
-
-        private void Bt_ok_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void Cb_semestry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string vyber = cmb_semestr.SelectedItem.ToString();
-            int semestr;
-            if (vyber!="všechny")
-            {
-                try
-                {
-                    semestr = Convert.ToInt32(vyber);
-                }
-                catch 
-                {
-                    semestr = 0;
-                }
-                lb_vypis.DataSource = null;
-                lb_vypis.Items.Clear();
-                foreach (Predmet p in predmetySeznam)
-                {
-                    if (p.Semestr_predmet ==semestr)
-                    {
-                        lb_vypis.Items.Add(p.ToString());
-                    }
-                }
-                return;
-            }
-            else
-                RefreshSeznam();
         }
     }
 }

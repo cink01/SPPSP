@@ -219,6 +219,7 @@
             this.MaximizeBox = false;
             this.Name = "FormPridavani";
             this.Text = "FormPridavani";
+            this.Load += new System.EventHandler(this.FormPridavani_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -87,13 +87,13 @@ namespace SystemProPodporuStudijnichPlanu
                     {
                         predmetyLichy.AddRange(Sporty);
                         FP.PredmetySeznam = predmetyLichy;
-                        // FP.PredmetySeznam = da.TestLichy(vyber, id_o, id_z);
+                        FP.Lichy = true;
                     }
                     else
                     {
-                        // FP.PredmetySeznam = da.TestSudy(vyber, id_o, id_z);
                         predmetySudy.AddRange(Sporty);
                         FP.PredmetySeznam = predmetySudy;
+                        FP.Lichy = false;
                     }
                     FP.RefreshSeznam();
                     DialogResult potvrzeni = FP.ShowDialog();
