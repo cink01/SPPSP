@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCRUDmidstage));
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_smazat = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             this.kb_e = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_n = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_d = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.toolTip_crud = new System.Windows.Forms.ToolTip(this.components);
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -88,6 +90,7 @@
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 16;
             this.bt_close.Text = "Zavřít";
+            this.toolTip_crud.SetToolTip(this.bt_close, "Zavřít okno vyhledávání");
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
             // 
@@ -193,6 +196,7 @@
             this.gb_vyber.TabIndex = 13;
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
+            this.toolTip_crud.SetToolTip(this.gb_vyber, "Zde zvolte pro zobrazení");
             // 
             // gb_k
             // 
@@ -430,6 +434,7 @@
             this.povolitSprávuToolStripMenuItem.Name = "povolitSprávuToolStripMenuItem";
             this.povolitSprávuToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.povolitSprávuToolStripMenuItem.Text = "Povolit správu";
+            this.povolitSprávuToolStripMenuItem.ToolTipText = "Povolí režim správce. Pro hromadné načítání a práci s jednotlivými daty";
             this.povolitSprávuToolStripMenuItem.Click += new System.EventHandler(this.PovolitSprávuToolStripMenuItem_Click);
             // 
             // hromadnéNačteníToolStripMenuItem
@@ -516,6 +521,7 @@
             this.kb_e.Name = "kb_e";
             this.kb_e.Size = new System.Drawing.Size(25, 25);
             this.kb_e.TabIndex = 98;
+            this.toolTip_crud.SetToolTip(this.kb_e, "Upravit vybraný");
             this.kb_e.UseVisualStyleBackColor = false;
             this.kb_e.Visible = false;
             this.kb_e.Click += new System.EventHandler(this.Bt_upravit_Click);
@@ -530,6 +536,7 @@
             this.kb_n.Name = "kb_n";
             this.kb_n.Size = new System.Drawing.Size(25, 25);
             this.kb_n.TabIndex = 96;
+            this.toolTip_crud.SetToolTip(this.kb_n, "Vytvořit nový");
             this.kb_n.UseVisualStyleBackColor = false;
             this.kb_n.Visible = false;
             this.kb_n.Click += new System.EventHandler(this.Bt_novy_Click);
@@ -544,6 +551,7 @@
             this.kb_d.Name = "kb_d";
             this.kb_d.Size = new System.Drawing.Size(25, 25);
             this.kb_d.TabIndex = 97;
+            this.toolTip_crud.SetToolTip(this.kb_d, "smazat vybraný");
             this.kb_d.UseVisualStyleBackColor = false;
             this.kb_d.Visible = false;
             this.kb_d.Click += new System.EventHandler(this.Bt_smazat_Click);
@@ -637,5 +645,6 @@
         private Icons.KulateButton kb_e;
         private Icons.KulateButton kb_n;
         private Icons.KulateButton kb_d;
+        private System.Windows.Forms.ToolTip toolTip_crud;
     }
 }
