@@ -192,6 +192,7 @@
             // bt_info
             // 
             this.bt_info.BackColor = System.Drawing.Color.Azure;
+            this.bt_info.Cursor = System.Windows.Forms.Cursors.Help;
             this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_info.Location = new System.Drawing.Point(128, 198);

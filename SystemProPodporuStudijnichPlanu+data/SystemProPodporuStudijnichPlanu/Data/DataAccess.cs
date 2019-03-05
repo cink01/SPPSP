@@ -288,9 +288,11 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
+    }
+}
 
-
-        public string GetOborRok(int o)
+/*
+         public string GetOborRok(int o)
         {
             SqlCommand get_ID_obor = new SqlCommand("SELECT rok_obor FROM [obor] WHERE ([id_obor] = @obor)", GetConnection());
             get_ID_obor.Parameters.AddWithValue("@obor", o);
@@ -492,5 +494,4 @@ namespace SystemProPodporuStudijnichPlanu
                 return vystup;
             }
         }
-    }
-}
+ */
