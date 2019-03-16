@@ -7,13 +7,17 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class DataCrud
     {
+        private const string NazevDB = "SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString";
+
         public void InsertKat(string zkratka, string nazev)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            DataAccess da = new DataAccess();
+            //kontrola, zda katedra již neexistuje v databázi
+            da.CheckExistKatedra(nazev, out int exist);
+            if (exist <= 0)
             {
-                DataAccess da = new DataAccess();
-                da.CheckExistKatedra(nazev, out int exist);
-                if (exist <= 0)
+                //když neexistuje otevře se connection s databází a provede se dotaz na vložení
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
                     SqlCommand kat = new SqlCommand("insert into [katedra]([zkr_k],[naz_k]) values(@zkr_k,@naz_k)", conn);
                     kat.Parameters.AddWithValue("@zkr_k", zkratka);
@@ -31,15 +35,18 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
-        public void InsertObor(Obor o)
+        public void InsertObor(Obor o)//využití přepravky Oboru na přenos všech údajů
         {
             DataAccess da = new DataAccess();
+            //kontrola, zda obor již neexistuje v databázi
             da.CheckExistObor(o.Name_obor, out int exist);
-            if (exist <= 0)
+            if (exist <= 0)//když neexistuje otevře se connection s databází a provede se dotaz na vložení
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
-                    SqlCommand obor = new SqlCommand("insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor,praxe) values(@zkr,@naz,@rok,@p,@pv,@v,@vs,@praxe)", conn);
+                    const string CmdText = "insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor,praxe) " +
+                                           "values(@zkr,@naz,@rok,@p,@pv,@v,@vs,@praxe)";
+                    SqlCommand obor = new SqlCommand(cmdText: CmdText, connection: conn);
                     obor.Parameters.AddWithValue("@zkr", o.Zkr_obor);
                     obor.Parameters.AddWithValue("@naz", o.Name_obor);
                     obor.Parameters.AddWithValue("@rok", o.Rok_obor);
@@ -67,7 +74,7 @@ namespace SystemProPodporuStudijnichPlanu
             da.CheckExistGarant(g.Jmeno_v, out int exit);
             if (exit <= 0)
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
                     //kontrola jestli neexistuje již existuje
                     SqlCommand garant = new SqlCommand("insert into [garant](jmeno_v,email_v,tel_v,konz_v,id_k) values(@jmeno_v,@email_v,@tel_v,@konz_v,@id_k)", conn);
@@ -95,10 +102,13 @@ namespace SystemProPodporuStudijnichPlanu
             da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
             if (exist <= 0)
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
-                    SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni]) " +
-                        "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)", conn);
+                    SqlCommand pred = new SqlCommand(
+                        "INSERT INTO [predmet]"+
+                        "([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni])"+
+                        "VALUES(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)"
+                        ,conn);
                     pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
                     pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
                     pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
@@ -135,7 +145,7 @@ namespace SystemProPodporuStudijnichPlanu
                 da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
                 if (exist <= 0)
                 {
-                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                     {
                         SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[prerekvizita],[popis]) " +
                             "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@prerekvizita,@popis)", conn);
@@ -174,7 +184,7 @@ namespace SystemProPodporuStudijnichPlanu
                 da.CheckExistPredmet(p.Name_predmet, p.Id_obor, out int exist);
                 if (exist <= 0)
                 {
-                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                    using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                     {
                         SqlCommand pred = new SqlCommand("insert into [predmet]([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni],[popis]) " +
                             "values(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni,@popis)", conn);
@@ -209,7 +219,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void InsertPopis(Predmet p)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand pop = new SqlCommand("update [predmet] set [popis]=@popis where [id_predmet]=@id_predmet", conn);
                 pop.Parameters.AddWithValue("@popis", p.Popis);
@@ -228,7 +238,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void InsertZaznam(Zaznam Z)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zaz = new SqlCommand("insert into zaznam(zkr_zaznam,id_obor,pocetSem) values(@zkr_zaznam,@id_obor,@pocetSem)", conn);
                 zaz.Parameters.AddWithValue("@zkr_zaznam", Z.Zkr_zaznam);
@@ -248,7 +258,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeleteZaznam(int id)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zaz = new SqlCommand("DELETE FROM [zaznam] WHERE [id_zaznam]=@id_zaznam", conn);
                 zaz.Parameters.AddWithValue("@id_zaznam", id);
@@ -266,7 +276,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void UpdateZaznam(int id_z, string nazev, int PS)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zaz = new SqlCommand("UPDATE zaznam " +
                     "SET zkr_zaznam=@zz, pocetSem=@pocetSem " +
@@ -288,7 +298,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void UpdateKatedra(Katedra K)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zaz = new SqlCommand("UPDATE [katedra] " +
                     "SET zkr_k=@zkr_k, naz_k=@naz_k " +
@@ -310,7 +320,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void UpdateObor(Obor Ob)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand Uobor = new SqlCommand("UPDATE [obor] " +
                     "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
@@ -341,7 +351,7 @@ namespace SystemProPodporuStudijnichPlanu
             int i = P.Prerekvizita;
             if (i == -1)
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
                     SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
                         "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet,id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni,popis=@popis " +
@@ -377,7 +387,7 @@ namespace SystemProPodporuStudijnichPlanu
             }
             else
             {
-                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+                using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
                     SqlCommand pred = new SqlCommand("UPDATE [predmet] " +
                         "SET name_predmet=@name_predmet, zkr_predmet=@zkr_predmet, kredit_predmet=@kredit_predmet, id_obor=@id_obor,semestr_predmet=@semestr_predmet,id_orig=@id_orig,povinnost=@povinnost, prednaska=@prednaska , cviceni=@cviceni , kombi=@kombi , lab=@lab , jazyk=@jazyk , zakonceni=@zakonceni , prerekvizita=@prerekvizita, popis=@popis " +
@@ -414,7 +424,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void UpdateGarant(Garant G)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand Ugarant = new SqlCommand("UPDATE [garant] " +
                     "SET jmeno_v=@jmeno_v, email_v=@email_v, tel_v=@tel_v, konz_v=@konz_v,id_k=@id_k " +
@@ -440,7 +450,7 @@ namespace SystemProPodporuStudijnichPlanu
         public void InsertPS(string zaznam, int Semestr)
         {
             DataAccess da = new DataAccess();
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zaz = new SqlCommand("insert into plansemestr(sem_ps,id_zaznam) values(@sem_ps,@id_zaznam)", conn);
                 zaz.Parameters.AddWithValue("@sem_ps", Semestr);
@@ -460,7 +470,7 @@ namespace SystemProPodporuStudijnichPlanu
         public void DeletePlanSemestr(int id_z, int Semestr)
         {
             DataAccess da = new DataAccess();
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand zazD = new SqlCommand("DELETE FROM [plansemestr] WHERE [id_ps]=@id_ps", conn);
                 zazD.Parameters.AddWithValue("@id_ps", da.GetPSId(id_z, Semestr));
@@ -479,7 +489,7 @@ namespace SystemProPodporuStudijnichPlanu
         public void InsertVyber(int ipredmet, int semestr, int zaz)
         {
             DataAccess da = new DataAccess();
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vyb = new SqlCommand("insert into vyber(id_predmet,id_ps) values(@id_p,@id_ps)", conn);
                 vyb.Parameters.AddWithValue("@id_p", ipredmet);
@@ -498,7 +508,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeleteVyber(int id)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [vyber] WHERE [id_vyber]=@id_vyber", conn);
                 vybD.Parameters.AddWithValue("@id_vyber", id);
@@ -516,7 +526,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeleteKatedra(int id_k)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [katedra] WHERE [id_k]=@id_k", conn);
                 vybD.Parameters.AddWithValue("@id_k", id_k);
@@ -534,7 +544,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeleteObor(int id_obor)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [obor] WHERE [id_obor]=@id_obor", conn);
                 vybD.Parameters.AddWithValue("@id_obor", id_obor);
@@ -552,7 +562,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeletePredmet(int id_predmet)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [predmet] WHERE [id_predmet]=@id_predmet", conn);
                 vybD.Parameters.AddWithValue("@id_predmet", id_predmet);
@@ -570,7 +580,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void DeleteGarant(int id_v)
         {
-            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand vybD = new SqlCommand("DELETE FROM [garant] WHERE [id_v]=@id_v", conn);
                 vybD.Parameters.AddWithValue("@id_v", id_v);
