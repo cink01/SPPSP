@@ -128,7 +128,8 @@
     <value>..\Icons\ButtonL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EXIT_MESSAGE" xml:space="preserve">
-    <value>Opravdu chcete ukončit program? Veškerý neuložený postup bude ztracen!</value>
+    <value>Opravdu chcete ukončit program? 
+Veškerý neuložený postup bude ztracen!</value>
   </data>
   <data name="EXIT_TITLE" xml:space="preserve">
     <value>Ukončit</value>
@@ -141,5 +142,86 @@
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AllNeed_MESSAGE" xml:space="preserve">
+    <value>Všechny údaje musí být vyplněny, aby se zajistilo bezpečné uložení</value>
+  </data>
+  <data name="Chyba_TITLE" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="ChybneNacteni_MESSAGE" xml:space="preserve">
+    <value>Načtení dat skončilo s chybou:</value>
+  </data>
+  <data name="Delete_MESSAGE" xml:space="preserve">
+    <value>Smazání proběhlo úspěšně</value>
+  </data>
+  <data name="Delete_TITLE" xml:space="preserve">
+    <value>Smazáno</value>
+  </data>
+  <data name="HromadneNacitani_MESSAGE" xml:space="preserve">
+    <value>Opravdu chcete hromadně načítat? 
+Tato operace může trvat i několik minut, podle velikosti souboru.
+
+Po stisknutí tlačítka {OK} vyčkejte prosím do další zprávy potvrzující dokončení úkolu.</value>
+  </data>
+  <data name="HromadneNacitani_TITLE" xml:space="preserve">
+    <value>Probíhá hromadné načítání</value>
+  </data>
+  <data name="Info_TITLE" xml:space="preserve">
+    <value>Infromace</value>
+  </data>
+  <data name="MocSportu" xml:space="preserve">
+    <value>Máte zapsáno více sportů a počet volitelných není dostatečný</value>
+  </data>
+  <data name="Načtení_MESSAGE" xml:space="preserve">
+    <value>Načtení dat skončilo s chybou: </value>
+  </data>
+  <data name="NeedforGar_MESSAGE" xml:space="preserve">
+    <value>Alespoň Jméno a Katedra musí být vyplněna, aby došlo k uložení.</value>
+  </data>
+  <data name="NelzeSmazat_MESSAGE" xml:space="preserve">
+    <value>Nelze smazat.</value>
+  </data>
+  <data name="NelzeUlozit_MESSAGE" xml:space="preserve">
+    <value>Nelze ulozit: </value>
+  </data>
+  <data name="NevybranZaznam_MESSAGE" xml:space="preserve">
+    <value>Není vybrán žádný záznam plánu.</value>
+  </data>
+  <data name="PovoleniSpravce_MESSAGE" xml:space="preserve">
+    <value>Opravdu chcete povolit správce?
+Úpravy a mazání záznamů může vést k odstranění vytvořených plánu.
+Pokračovat?"</value>
+  </data>
+  <data name="PovoleniSpravce_TITLE" xml:space="preserve">
+    <value>Povolit správu</value>
+  </data>
+  <data name="SuccNact_MESSAGE" xml:space="preserve">
+    <value>Načtení dat do databáze proběhlo úspešně</value>
+  </data>
+  <data name="Upozorneni_TITLE" xml:space="preserve">
+    <value>Upozornění</value>
+  </data>
+  <data name="Uprava_MESSAGE" xml:space="preserve">
+    <value>Úprava proběhla úspěšně</value>
+  </data>
+  <data name="Uprava_TITLE" xml:space="preserve">
+    <value>Upraveno</value>
+  </data>
+  <data name="Uvod_MESSAGE" xml:space="preserve">
+    <value>Není založen žádný plán.
+Chcete vytvořit nový?</value>
+  </data>
+  <data name="Uvod_TITLE" xml:space="preserve">
+    <value>Žádné plány</value>
+  </data>
+  <data name="Vlozeno_MESSAGE" xml:space="preserve">
+    <value>Vložení proběhlo úspěšně</value>
+  </data>
+  <data name="Vlozeno_TITLE" xml:space="preserve">
+    <value>Vloženo</value>
+  </data>
+  <data name="ZmenaOboru_WAR_MESSAGE" xml:space="preserve">
+    <value>Změna oboru povede k smazání zadaných předmětů v semestrech.</value>
   </data>
 </root>

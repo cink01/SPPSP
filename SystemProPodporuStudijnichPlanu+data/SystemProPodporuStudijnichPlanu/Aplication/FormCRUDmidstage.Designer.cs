@@ -71,6 +71,7 @@
             this.kb_n = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_d = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.toolTip_crud = new System.Windows.Forms.ToolTip(this.components);
+            this.progressBar_nacitani = new System.Windows.Forms.ProgressBar();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -556,6 +557,13 @@
             this.kb_d.Visible = false;
             this.kb_d.Click += new System.EventHandler(this.Bt_smazat_Click);
             // 
+            // progressBar_nacitani
+            // 
+            this.progressBar_nacitani.Location = new System.Drawing.Point(3, 337);
+            this.progressBar_nacitani.Name = "progressBar_nacitani";
+            this.progressBar_nacitani.Size = new System.Drawing.Size(182, 23);
+            this.progressBar_nacitani.TabIndex = 99;
+            // 
             // FormCRUDmidstage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +572,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
             this.ClientSize = new System.Drawing.Size(1113, 512);
+            this.Controls.Add(this.progressBar_nacitani);
             this.Controls.Add(this.kb_e);
             this.Controls.Add(this.kb_n);
             this.Controls.Add(this.kb_d);
@@ -646,5 +655,6 @@
         private Icons.KulateButton kb_n;
         private Icons.KulateButton kb_d;
         private System.Windows.Forms.ToolTip toolTip_crud;
+        private System.Windows.Forms.ProgressBar progressBar_nacitani;
     }
 }

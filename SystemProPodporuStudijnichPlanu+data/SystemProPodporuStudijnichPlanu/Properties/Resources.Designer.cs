@@ -71,6 +71,15 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Všechny údaje musí být vyplněny, aby se zajistilo bezpečné uložení.
+        /// </summary>
+        internal static string AllNeed_MESSAGE {
+            get {
+                return ResourceManager.GetString("AllNeed_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ButtonL {
@@ -101,6 +110,42 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Chyba.
+        /// </summary>
+        internal static string Chyba_TITLE {
+            get {
+                return ResourceManager.GetString("Chyba_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Načtení dat skončilo s chybou:.
+        /// </summary>
+        internal static string ChybneNacteni_MESSAGE {
+            get {
+                return ResourceManager.GetString("ChybneNacteni_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Smazání proběhlo úspěšně.
+        /// </summary>
+        internal static string Delete_MESSAGE {
+            get {
+                return ResourceManager.GetString("Delete_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Smazáno.
+        /// </summary>
+        internal static string Delete_TITLE {
+            get {
+                return ResourceManager.GetString("Delete_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap edit {
@@ -111,7 +156,8 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete ukončit program? Veškerý neuložený postup bude ztracen!.
+        ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete ukončit program? 
+        ///Veškerý neuložený postup bude ztracen!.
         /// </summary>
         internal static string EXIT_MESSAGE {
             get {
@@ -129,12 +175,198 @@ namespace SystemProPodporuStudijnichPlanu.Properties {
         }
         
         /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete hromadně načítat? 
+        ///Tato operace může trvat i několik minut, podle velikosti souboru.
+        ///
+        ///Po stisknutí tlačítka {OK} vyčkejte prosím do další zprávy potvrzující dokončení úkolu..
+        /// </summary>
+        internal static string HromadneNacitani_MESSAGE {
+            get {
+                return ResourceManager.GetString("HromadneNacitani_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Probíhá hromadné načítání.
+        /// </summary>
+        internal static string HromadneNacitani_TITLE {
+            get {
+                return ResourceManager.GetString("HromadneNacitani_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Infromace.
+        /// </summary>
+        internal static string Info_TITLE {
+            get {
+                return ResourceManager.GetString("Info_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Máte zapsáno více sportů a počet volitelných není dostatečný.
+        /// </summary>
+        internal static string MocSportu {
+            get {
+                return ResourceManager.GetString("MocSportu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Načtení dat skončilo s chybou: .
+        /// </summary>
+        internal static string Načtení_MESSAGE {
+            get {
+                return ResourceManager.GetString("Načtení_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Alespoň Jméno a Katedra musí být vyplněna, aby došlo k uložení..
+        /// </summary>
+        internal static string NeedforGar_MESSAGE {
+            get {
+                return ResourceManager.GetString("NeedforGar_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Nelze smazat..
+        /// </summary>
+        internal static string NelzeSmazat_MESSAGE {
+            get {
+                return ResourceManager.GetString("NelzeSmazat_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Nelze ulozit: .
+        /// </summary>
+        internal static string NelzeUlozit_MESSAGE {
+            get {
+                return ResourceManager.GetString("NelzeUlozit_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Není vybrán žádný záznam plánu..
+        /// </summary>
+        internal static string NevybranZaznam_MESSAGE {
+            get {
+                return ResourceManager.GetString("NevybranZaznam_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Opravdu chcete povolit správce?
+        ///Úpravy a mazání záznamů může vést k odstranění vytvořených plánu.
+        ///Pokračovat?&quot;.
+        /// </summary>
+        internal static string PovoleniSpravce_MESSAGE {
+            get {
+                return ResourceManager.GetString("PovoleniSpravce_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Povolit správu.
+        /// </summary>
+        internal static string PovoleniSpravce_TITLE {
+            get {
+                return ResourceManager.GetString("PovoleniSpravce_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Načtení dat do databáze proběhlo úspešně.
+        /// </summary>
+        internal static string SuccNact_MESSAGE {
+            get {
+                return ResourceManager.GetString("SuccNact_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Upozornění.
+        /// </summary>
+        internal static string Upozorneni_TITLE {
+            get {
+                return ResourceManager.GetString("Upozorneni_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Úprava proběhla úspěšně.
+        /// </summary>
+        internal static string Uprava_MESSAGE {
+            get {
+                return ResourceManager.GetString("Uprava_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Upraveno.
+        /// </summary>
+        internal static string Uprava_TITLE {
+            get {
+                return ResourceManager.GetString("Uprava_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Není založen žádný plán.
+        ///Chcete vytvořit nový?.
+        /// </summary>
+        internal static string Uvod_MESSAGE {
+            get {
+                return ResourceManager.GetString("Uvod_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Žádné plány.
+        /// </summary>
+        internal static string Uvod_TITLE {
+            get {
+                return ResourceManager.GetString("Uvod_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Vložení proběhlo úspěšně.
+        /// </summary>
+        internal static string Vlozeno_MESSAGE {
+            get {
+                return ResourceManager.GetString("Vlozeno_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Vloženo.
+        /// </summary>
+        internal static string Vlozeno_TITLE {
+            get {
+                return ResourceManager.GetString("Vlozeno_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap X {
             get {
                 object obj = ResourceManager.GetObject("X", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný Změna oboru povede k smazání zadaných předmětů v semestrech..
+        /// </summary>
+        internal static string ZmenaOboru_WAR_MESSAGE {
+            get {
+                return ResourceManager.GetString("ZmenaOboru_WAR_MESSAGE", resourceCulture);
             }
         }
     }

@@ -14,8 +14,9 @@
             Zkr_k = zkr_k;
             Naz_k = naz_k;
         }
-        //full constructor
+
         public Katedra(int id_k, string zkr_k, string naz_k)
+        //full constructor
         {
             Id_k = id_k;
             Zkr_k = zkr_k;

@@ -4,6 +4,7 @@
     {
         public Garant() { }
         public Garant(string jmeno_v, string email_V, string kat,string tel_v= "neuveden", string konz_v="neuvedeny")
+        //Konstruktor bez umělého klíče se získáním id katedry podle nazvu
         {
             DataAccess da = new DataAccess();
             Jmeno_v = jmeno_v;
@@ -13,6 +14,7 @@
             Id_k = da.GetKatedraId(kat);
         }
         public Garant(int id_v,string jmeno_v, string email_V, string kat,string tel_v= "neuveden", string konz_v="neuvedeny")
+        //Konsturktor s umělým klíčem se získáním id katedry podle nazvu
         {
             DataAccess da = new DataAccess();
             Id_v=id_v;
@@ -23,6 +25,7 @@
             Id_k = da.GetKatedraId(kat);
         }
         public Garant(int id_v, string jmeno_v, string email_V, string tel_v, string konz_v, int id_k)
+        //full Konstruktor
         {
             Id_v = id_v;
             Jmeno_v = jmeno_v;

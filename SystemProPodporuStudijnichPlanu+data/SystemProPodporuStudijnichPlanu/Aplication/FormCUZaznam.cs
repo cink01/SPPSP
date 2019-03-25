@@ -91,7 +91,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Bt_info_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Změna oboru povede k smazání zadaných předmětů v semestrech.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Properties.Resources.ZmenaOboru_WAR_MESSAGE, Properties.Resources.Upozorneni_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void Cmb_obor_DropDown(object sender, EventArgs e)
         {

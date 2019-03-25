@@ -21,9 +21,7 @@ namespace SystemProPodporuStudijnichPlanu
             urceniZvolenehoListu = 0;
             if (cmb_zaznam.Items.Count <= 1)
             {
-                string text = "Není založen žádný plán. Chcete vytvořit nový?";
-                string titul = "Prázný záznam";
-                DialogResult res = MessageBox.Show(text, titul, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult res = MessageBox.Show(Properties.Resources.Uvod_MESSAGE, Properties.Resources.Uvod_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                     VytvorZaznam();
             }
@@ -153,8 +151,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VratZaznamData(out int id_z, out string zkr, out int id_o, out int PocSem)
         {
-            id_z = id_o = PocSem = -1;
-            zkr = "";
             try
             {
                 Zaznam z = (Zaznam)cmb_zaznam.SelectedItem;
@@ -165,7 +161,9 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch
             {
-                MessageBox.Show("Není vybrán žádný záznam plánu.");
+                id_z = id_o = PocSem = -1;
+                zkr = "";
+                MessageBox.Show(Properties.Resources.NevybranZaznam_MESSAGE);
             }
         }
         private void FillHlavniListy()
@@ -248,7 +246,7 @@ namespace SystemProPodporuStudijnichPlanu
             }
             catch (Exception)
             {
-                MessageBox.Show("není vybrán žádný plán");
+                MessageBox.Show(Properties.Resources.NevybranZaznam_MESSAGE);
             }
         }
         public void MazatZVyberu(ListBox LB, int id_z, int sem, int id_o)
@@ -304,11 +302,11 @@ namespace SystemProPodporuStudijnichPlanu
                         for (int i = 1; i <= Zaznam.Semestr; i++)
                             x.InsertPS(Zaznam.Zkr, i);
                         zkratka = Zaznam.Zkr;
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -366,18 +364,18 @@ namespace SystemProPodporuStudijnichPlanu
                                     x.InsertZaznam(Zaznam.Zaz);
                                     for (int i = 1; i <= Zaznam.Semestr; i++)
                                         x.InsertPS(Zaznam.Zkr, i);
-                                    MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             Zzkr = Zaznam.Zkr;
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

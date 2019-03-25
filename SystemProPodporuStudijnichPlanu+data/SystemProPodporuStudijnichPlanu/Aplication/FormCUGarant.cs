@@ -87,8 +87,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         }
         private void Bt_ok_Click(object sender, EventArgs e)
         {
-            if(tb_jm.Text==""||cmb_katedra.SelectedIndex==-1)
-                MessageBox.Show("Alespoň Jméno a Katedra musí být vyplněna, aby došlo k uložení.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (tb_jm.Text == "" || cmb_katedra.SelectedIndex == -1)
+                MessageBox.Show(Properties.Resources.NeedforGar_MESSAGE, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 this.DialogResult = DialogResult.OK;
         }

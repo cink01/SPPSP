@@ -3,6 +3,7 @@
     public class Obor
     {
         public Obor(string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="")
+        //Konstruktor bez umělého klíče
         {
             Zkr_obor = zkr_obor;
             Name_obor = name_obor;
@@ -14,6 +15,7 @@
             Praxe = praxe;
         }
         public Obor(int id_obor, string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="")
+        //full Konstructor
         {
             Id_obor = id_obor;
             Zkr_obor = zkr_obor;

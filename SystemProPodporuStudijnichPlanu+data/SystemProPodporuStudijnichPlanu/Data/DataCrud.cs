@@ -29,7 +29,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -62,7 +62,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -90,7 +90,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -130,7 +130,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -172,7 +172,7 @@ namespace SystemProPodporuStudijnichPlanu
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         conn.Close();
                     }
@@ -210,7 +210,7 @@ namespace SystemProPodporuStudijnichPlanu
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         conn.Close();
                     }
@@ -231,7 +231,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)//kdyz neprobehne tak se vypíše chyba
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -251,7 +251,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -269,7 +269,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -291,7 +291,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -313,7 +313,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -341,7 +341,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -380,7 +380,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -416,7 +416,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -442,7 +442,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -462,7 +462,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -481,7 +481,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -501,7 +501,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -519,7 +519,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -537,7 +537,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -555,7 +555,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -573,7 +573,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -591,7 +591,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Načtení dat skončilo s chybou: " + ex, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }

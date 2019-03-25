@@ -12,11 +12,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         List<Obor> obors = new List<Obor>();
         List<Garant> garants = new List<Garant>();
         List<Predmet> predmets = new List<Predmet>();
-     //   public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
+        //   public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCRUDmidstage()
         {
             InitializeComponent();
-           // menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
+            // menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {
@@ -69,11 +69,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertGarant(g.G);
                         DataAccess da = new DataAccess();
                         garants = da.GetFullGarant();
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -92,11 +92,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertPredmet(p.P);
                         ZaridVyber();
                         cb_pre.SelectedIndex = cb_pre.FindStringExact(p.P.ToString());
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -122,11 +122,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                               o.Praxe));
                         DataAccess da = new DataAccess();
                         obors = da.GetFullObor();
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -146,11 +146,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                     k.Nazev);
                         DataAccess da = new DataAccess();
                         katedras = da.GetFullKatedra();
-                        MessageBox.Show("Vložení proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -264,7 +264,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Gara.ShowDialog();
@@ -280,7 +280,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -325,11 +325,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         cb_pre.Text = Pred.P.ToString();
                         f.FillDetail(vypisPopisPredmetMid, Pred.P);
                         predmets = a.GetFullPredmet();
-                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -353,10 +353,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         Obo.V = o.V_obor;
                         Obo.Vs = o.Vs_obor;
                         Obo.Praxe = o.Praxe;
+                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     DataAccess a = new DataAccess();
                     DialogResult potvrzeni = Obo.ShowDialog();
@@ -368,11 +369,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateObor(Obo.O);
                             obors = a.GetFullObor();
                             cb_obo.Text = Obo.O.ToString();
-                            MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -403,11 +404,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateKatedra(Kat.K);
                             katedras = a.GetFullKatedra();
                             cb_kat.Text = Kat.K.ToString();
-                            MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze uložit " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -452,11 +453,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             garants = da.GetFullGarant();
                             cb_garant.Text = "";
-                            MessageBox.Show("Smazání garanta proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -477,11 +478,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             predmets = da.GetFullPredmet();
                             cb_pre.Text = "";
-                            MessageBox.Show("Smazání předmětu proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -502,11 +503,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             obors = da.GetFullObor();
                             cb_obo.Text = "";
-                            MessageBox.Show("Smazání oboru proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -527,11 +528,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             DataAccess da = new DataAccess();
                             katedras = da.GetFullKatedra();
                             cb_kat.Text = "";
-                            MessageBox.Show("Smazání katedry proběhlo úspěšně", "Smazáno", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Nelze smazat\n " + ex, "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -666,7 +667,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             DialogResult x = DialogResult.Cancel;
             if (bt_novy.Visible != true)
-                x = MessageBox.Show("Opravdu chcete povolit správce?\nÚpravy a mazání záznamů může vést k odstranění vytvořených plánu.\nPokračovat?", "Povolit správu", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                x = MessageBox.Show(Properties.Resources.PovoleniSpravce_MESSAGE, Properties.Resources.PovoleniSpravce_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             else
             {
                 Schovka();
@@ -699,9 +700,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    cesta = openFileDialog.FileName;
-                    NacteniDat nd = new NacteniDat();
-                    nd.Proved(cesta);
+                    if (MessageBox.Show(Properties.Resources.HromadneNacitani_MESSAGE, Properties.Resources.HromadneNacitani_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+                    {
+                        cesta = openFileDialog.FileName;
+                        NacteniDat nd = new NacteniDat();
+                        nd.Proved(cesta);
+                    }
                 }
             }
         }
@@ -716,9 +720,12 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    cesta = openFileDialog.FileName;
-                    NacteniDat nd = new NacteniDat();
-                    nd.ProvedPopis(cesta);
+                    if (MessageBox.Show(Properties.Resources.HromadneNacitani_MESSAGE, Properties.Resources.HromadneNacitani_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+                    {
+                        cesta = openFileDialog.FileName;
+                        NacteniDat nd = new NacteniDat();
+                        nd.ProvedPopis(cesta);
+                    }
                 }
             }
         }

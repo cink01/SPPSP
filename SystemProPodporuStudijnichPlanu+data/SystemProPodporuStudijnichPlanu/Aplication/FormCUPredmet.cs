@@ -203,7 +203,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if(tb_nazev.Text==""||tb_zkr.Text==""||cb_garant.SelectedIndex==-1||cb_obor.SelectedIndex==-1||cb_povinnost.SelectedIndex==-1||cb_zakončení.SelectedIndex==-1||tb_orig.Text==""||tb_jazyk.Text=="")
-                MessageBox.Show("Všechny údaje musí být vyplněny, aby se zajistilo bezpečné uložení", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Properties.Resources.AllNeed_MESSAGE, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 this.DialogResult = DialogResult.OK;
         }

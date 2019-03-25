@@ -23,7 +23,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Chyba" + ex);
+                MessageBox.Show(Properties.Resources.Chyba_TITLE+": "+ ex);
             }
         }
         public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
@@ -57,7 +57,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             x.DropDownWidth = sirka;
         }
         public void FillSemestrLB(ListBox x, int izaz, int sem, out Kredity kr, out List<Predmet> predmets)
-        //misto sum udelat prepravku pro nekolik promennych
         {
             x.DataSource = null;
             x.Items.Clear();
@@ -76,23 +75,12 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Chyba" + ex);
+                    MessageBox.Show(Properties.Resources.Chyba_TITLE + ": " + ex);
                 }
             else
                 tmp = null;
             predmets = tmp;
         }
-/*        public void FillKatedraDetail(ComboBox cb, VypisKatedra v)
-        {
-            try
-            {
-                Katedra k = (Katedra)cb.SelectedItem;
-                DataAccess da = new DataAccess();
-                v.Zkr = k.Zkr_k;
-                v.
-            }
-            catch { }
-        }*/
         public void FillOborDetail(ComboBox cb, VypisObor v)
         {
             try
@@ -305,13 +293,10 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             NUDV.BackColor = obor.V_obor <= temp ? Color.LightGreen : Color.LightCoral;
             if (kredity.Suma >= 180)
                 if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
-                    MessageBox.Show("Máte zapsáno více sportů a počet volitelných není dostatečný");
+                    MessageBox.Show(Properties.Resources.MocSportu);
         }
         public void NastavIndexCombo<T>(ComboBox x, /*List<T> t,*/ string z)
         {
-            /*  foreach (T k in t)
-                  if (k.ToString() == z)
-                      x.SelectedIndex = x.FindString(k.ToString());*/
             x.SelectedIndex = x.FindString(z);
         }
         public void NastavIndexCombo<T>(ComboBox x, List<T> t, int z)

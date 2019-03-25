@@ -13,6 +13,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             Sport = 0;
         }
         public Kredity(decimal suma, decimal povinne, decimal pVolitelny, decimal volitelny, decimal sport)
+        //full konstruktor
         {
             Suma = suma;
             Povinne = povinne;

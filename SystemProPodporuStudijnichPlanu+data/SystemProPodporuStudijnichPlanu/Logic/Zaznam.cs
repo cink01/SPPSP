@@ -3,7 +3,7 @@
     public class Zaznam
     {
         public Zaznam(string zkr_zaznam, int id_obor, int pocetSem)
-        //constructor bez id
+        //constructor bez umělého klíče
         {
             Zkr_zaznam = zkr_zaznam;
             Id_obor = id_obor;

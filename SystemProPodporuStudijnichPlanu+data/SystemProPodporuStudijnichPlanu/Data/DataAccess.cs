@@ -167,7 +167,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Chyba" + ex);
+                    MessageBox.Show(Properties.Resources.Chyba_TITLE+": " + ex);
                     Exist = -1;
                 }
             }

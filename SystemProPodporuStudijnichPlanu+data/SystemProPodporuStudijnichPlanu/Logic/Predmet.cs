@@ -21,9 +21,11 @@ namespace SystemProPodporuStudijnichPlanu
         public string Zakonceni { get; set; }
         public string Popis { get; set; }
         public int Prerekvizita { get; set; }
-        public Predmet() { }//prazdný constructor
-        //constructor bez umělého klíče id_predmet jako přepravka pro vkladaní do db hleda cizí klíče takže funkce neptřebuje
+        public Predmet()//prazdný constructor
+        { }
+
         public Predmet(string name_predmet, string zkr_predmet, string kredit_predmet, string obor, string garant, string semestr_predmet, string id_orig, string povinnost, string prednaska, string cviceni, string kombi, string lab, string jazyk, string zakonceni)
+        //constructor bez umělého klíče id_predmet jako přepravka pro vkladaní do db hleda cizí klíče takže funkce neptřebuje
         {
             DataAccess da = new DataAccess();
             Name_predmet = name_predmet;
@@ -56,8 +58,9 @@ namespace SystemProPodporuStudijnichPlanu
             else
                 Lab = Convert.ToInt32(lab);
         }
-        //full constructor
+
         public Predmet(int id_predmet, string name_predmet, string zkr_predmet, int kredit_predmet, int id_obor, int id_v, int semestr_predmet, int id_orig, string povinnost, int prednaska, int cviceni, int kombi, int lab, string jazyk, string zakonceni, string popis,int prerekvizita)
+        //full constructor
         {
             Id_predmet = id_predmet;
             Name_predmet = name_predmet;
@@ -78,6 +81,7 @@ namespace SystemProPodporuStudijnichPlanu
             Prerekvizita = prerekvizita;
         }
         public Predmet(string name_predmet,string popis, string obor)
+        //Konstruktor pro popis
         {
             DataAccess da = new DataAccess();
             Id_predmet = da.GetPredmetId(name_predmet, obor);

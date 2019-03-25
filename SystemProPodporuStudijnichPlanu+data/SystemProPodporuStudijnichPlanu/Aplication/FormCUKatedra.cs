@@ -44,7 +44,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if (tb_název.Text == "" || tb_zkr.Text == "")
-                MessageBox.Show("Musíte zadat název i zkratku katedry", "chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Properties.Resources.AllNeed_MESSAGE, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 this.DialogResult = DialogResult.OK;
         }
