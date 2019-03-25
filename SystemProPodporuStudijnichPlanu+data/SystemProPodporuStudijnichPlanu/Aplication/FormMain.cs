@@ -287,34 +287,40 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void VytvorZaznam()
         {
-            string zkratka = "";
             using (FormCUZaznam Zaznam = new FormCUZaznam())
             {
                 Zaznam.Text = "Vytvořit nový záznam";
                 Zaznam.Schov = true;
                 DialogResult potvrzeni = Zaznam.ShowDialog();
-                if (potvrzeni == DialogResult.OK)
+                if (potvrzeni == DialogResult.OK)//po potvrzení okna záznamu
                 {
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertZaznam(Zaznam.Zaz);
+                        x.InsertZaznam(Zaznam.Zaz);//vytvoření záznamu
+                        //vytvoření jednotlivých plánů
                         for (int i = 1; i <= Zaznam.Semestr; i++)
                             x.InsertPS(Zaznam.Zkr, i);
-                        zkratka = Zaznam.Zkr;
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //po uložení se obnoví seznam záznamu a na tento záznam se nastaví combobox Záznamů
+                        RefreshZaznamy(Zaznam.Zkr);
+                        //zpráva o úspěšném načtení
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                                        Properties.Resources.Vlozeno_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
+                    //Zachycení chybové zprávy
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            RefreshZaznamy(zkratka);
+
         }
         private void UpravitZáznamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string Zzkr = "";
             if (cmb_zaznam.SelectedIndex != -1)
             {
                 VratZaznamData(out int id_z, out string zkr, out int ido, out int PocSem);
@@ -335,51 +341,59 @@ namespace SystemProPodporuStudijnichPlanu
                         int oborNew = Zaznam.Obor;
                         try
                         {
-                            id_z = Convert.ToInt32(Zaznam.Id);
-                            if (oborNew == oborOld)
+                            id_z = Convert.ToInt32(Zaznam.Id);//převod identifikačního čísla na INT
+                            if (oborNew == oborOld)//pakliže se obor nezmění
                             {
-                                PocSem = Zaznam.Semestr;
-                                int stare = a.GetZaznamSemestr(id_z);
+                                PocSem = Zaznam.Semestr;//zjisti počet nových semestrů
+                                int stare = a.GetZaznamSemestr(id_z);//zjištění stavajícího počtu
+                                //úprava záznamu
                                 x.UpdateZaznam(id_z,
                                                Zaznam.Zkr,
                                                PocSem);
-                                if (stare > PocSem)
+                                if (stare > PocSem)//pakliže se počet semestrů sníží
                                     while (stare > PocSem)
+                                    //mažeme nejvyšší semestry do doby než počty nejsou stejné
                                     {
                                         x.DeletePlanSemestr(id_z, stare);
                                         stare--;
                                     }
-                                if (stare < PocSem)
+                                if (stare < PocSem)//když se počet semestrů zvýší
                                     while (stare < PocSem)
+                                    //přidáváme plán semestru od původní položky až do nové
                                     {
                                         x.InsertPS(Zaznam.Zkr, stare);
                                         stare++;
                                     }
                             }
-                            else
+                            else//když se obor změní
                             {
                                 try
                                 {
-                                    x.DeleteZaznam(id_z);
-                                    x.InsertZaznam(Zaznam.Zaz);
+                                    x.DeleteZaznam(id_z);//smazání starého
+                                    x.InsertZaznam(Zaznam.Zaz);//založení nového
                                     for (int i = 1; i <= Zaznam.Semestr; i++)
                                         x.InsertPS(Zaznam.Zkr, i);
-                                    MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                                                    Properties.Resources.Vlozeno_TITLE,
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                                    Properties.Resources.Chyba_TITLE,
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-                            Zzkr = Zaznam.Zkr;
+                            RefreshZaznamy(Zaznam.Zkr);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                            Properties.Resources.Chyba_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
-                RefreshZaznamy(Zzkr);
             }
         }
         private void SprávaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -479,7 +493,8 @@ namespace SystemProPodporuStudijnichPlanu
                 nud_KredSem2.Visible = nud_KredSem1.Visible = lb_semestr12.Visible = lb_semestr11.Visible = lb_semestr10.Visible =
                 lb_semestr9.Visible = lb_semestr8.Visible = lb_semestr7.Visible = lb_semestr6.Visible = lb_semestr5.Visible =
                 lb_semestr4.Visible = lb_semestr3.Visible = lb_semestr2.Visible = lb_semestr1.Visible =
-                l_s1.Visible = l_s2.Visible = l_s3.Visible = l_s4.Visible = l_s5.Visible = l_s6.Visible = l_s7.Visible = l_s8.Visible = l_s9.Visible = l_s10.Visible = l_s11.Visible = l_s12.Visible = false;
+                l_s1.Visible = l_s2.Visible = l_s3.Visible = l_s4.Visible = l_s5.Visible = l_s6.Visible =
+                l_s7.Visible = l_s8.Visible = l_s9.Visible = l_s10.Visible = l_s11.Visible = l_s12.Visible = false;
         }
         private int urceniZvolenehoListu;
         private void DeselectnutiListu(int i)
@@ -500,7 +515,17 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                 case 12:
                     {
-                        lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
+                        lb_semestr1.SelectedIndex =
+                        lb_semestr2.SelectedIndex =
+                        lb_semestr3.SelectedIndex =
+                        lb_semestr4.SelectedIndex =
+                        lb_semestr5.SelectedIndex =
+                        lb_semestr6.SelectedIndex =
+                        lb_semestr7.SelectedIndex =
+                        lb_semestr8.SelectedIndex =
+                        lb_semestr9.SelectedIndex =
+                        lb_semestr10.SelectedIndex =
+                        lb_semestr11.SelectedIndex = -1;
                         goto case 55;
                     }
                 case 11:
@@ -670,17 +695,14 @@ namespace SystemProPodporuStudijnichPlanu
                 case 5:
                     {
                         predmetyS5 = p; break;
-
                     }
                 case 4:
                     {
                         predmetyS4 = p; break;
-
                     }
                 case 3:
                     {
                         predmetyS3 = p; break;
-
                     }
                 case 2:
                     {
@@ -728,17 +750,14 @@ namespace SystemProPodporuStudijnichPlanu
                 case 5:
                     {
                         return lb_semestr5;
-
                     }
                 case 4:
                     {
                         return lb_semestr4;
-
                     }
                 case 3:
                     {
                         return lb_semestr3;
-
                     }
                 case 2:
                     {
