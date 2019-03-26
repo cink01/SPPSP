@@ -23,7 +23,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.Chyba_TITLE+": "+ ex);
+                MessageBox.Show(Properties.Resources.Chyba_TITLE + ": " + ex);
             }
         }
         public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
@@ -91,8 +91,8 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Rok = o.Rok_obor;
                 v.P = o.P_obor.ToString();
                 v.Pv = o.Pv_obor.ToString();
-                v.V=o.V_obor.ToString();
-                v.Vs =o.Vs_obor.ToString();
+                v.V = o.V_obor.ToString();
+                v.Vs = o.Vs_obor.ToString();
                 v.Praxe = o.Praxe;
             }
             catch { }
@@ -302,8 +302,30 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public void NastavIndexCombo<T>(ComboBox x, List<T> t, int z)
         {
             foreach (T k in t)
-                if (Convert.ToInt32(k)== z)
-                         x.SelectedIndex = x.FindString(k.ToString());
+                if (Convert.ToInt32(k) == z)
+                    x.SelectedIndex = x.FindString(k.ToString());
+        }
+
+        public void NovyZaznam(Zaznam zaz, int mazat = 0)
+        {
+            try
+            {
+                DataCrud x = new DataCrud();
+                if (mazat == 1)
+                    x.DeleteZaznam(zaz.Id_zaznam);//smazání starého
+                x.InsertZaznam(zaz);//založení nového
+                for (int i = 1; i <= zaz.PocetSem; i++)
+                    x.InsertPS(zaz.Zkr_zaznam, i);
+                MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                                Properties.Resources.Vlozeno_TITLE,
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                Properties.Resources.Chyba_TITLE,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

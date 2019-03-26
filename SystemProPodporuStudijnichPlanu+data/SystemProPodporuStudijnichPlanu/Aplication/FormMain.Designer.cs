@@ -69,7 +69,7 @@
             this.cmb_zaznam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gb_max = new System.Windows.Forms.GroupBox();
-            this.kulateButton1 = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.kb_edit = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.bt_addZaz = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.bt_delZaz = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.l_s8 = new System.Windows.Forms.Label();
@@ -630,7 +630,7 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
-            this.gb_max.Controls.Add(this.kulateButton1);
+            this.gb_max.Controls.Add(this.kb_edit);
             this.gb_max.Controls.Add(this.bt_addZaz);
             this.gb_max.Controls.Add(this.bt_delZaz);
             this.gb_max.Controls.Add(this.l_s8);
@@ -693,19 +693,20 @@
             this.gb_max.TabIndex = 0;
             this.gb_max.TabStop = false;
             // 
-            // kulateButton1
+            // kb_edit
             // 
-            this.kulateButton1.BackColor = System.Drawing.Color.DarkOrange;
-            this.kulateButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.kulateButton1.FlatAppearance.BorderSize = 0;
-            this.kulateButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kulateButton1.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.edit;
-            this.kulateButton1.Location = new System.Drawing.Point(305, 11);
-            this.kulateButton1.Name = "kulateButton1";
-            this.kulateButton1.Size = new System.Drawing.Size(25, 25);
-            this.kulateButton1.TabIndex = 95;
-            this.toolTip_edit.SetToolTip(this.kulateButton1, "Upravit záznam");
-            this.kulateButton1.UseVisualStyleBackColor = false;
+            this.kb_edit.BackColor = System.Drawing.Color.DarkOrange;
+            this.kb_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.kb_edit.FlatAppearance.BorderSize = 0;
+            this.kb_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kb_edit.Image = global::SystemProPodporuStudijnichPlanu.Properties.Resources.edit;
+            this.kb_edit.Location = new System.Drawing.Point(305, 11);
+            this.kb_edit.Name = "kb_edit";
+            this.kb_edit.Size = new System.Drawing.Size(25, 25);
+            this.kb_edit.TabIndex = 95;
+            this.toolTip_edit.SetToolTip(this.kb_edit, "Upravit záznam");
+            this.kb_edit.UseVisualStyleBackColor = false;
+            this.kb_edit.Click += new System.EventHandler(this.KulateButton1_Click);
             // 
             // bt_addZaz
             // 
@@ -1113,7 +1114,7 @@
         private System.Windows.Forms.Label l_s1;
         private Icons.KulateButton bt_delZaz;
         private Icons.KulateButton bt_addZaz;
-        private Icons.KulateButton kulateButton1;
+        private Icons.KulateButton kb_edit;
         private System.Windows.Forms.ToolTip toolTip_edit;
         private System.Windows.Forms.ToolTip toolTip_new;
         private System.Windows.Forms.ToolTip toolTip_del;

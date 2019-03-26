@@ -292,29 +292,12 @@ namespace SystemProPodporuStudijnichPlanu
                 Zaznam.Text = "Vytvořit nový záznam";
                 Zaznam.Schov = true;
                 DialogResult potvrzeni = Zaznam.ShowDialog();
-                if (potvrzeni == DialogResult.OK)//po potvrzení okna záznamu
+                if (potvrzeni == DialogResult.OK)
+                //po potvrzení okna záznamu
                 {
-                    DataCrud x = new DataCrud();
-                    try
-                    {
-                        x.InsertZaznam(Zaznam.Zaz);//vytvoření záznamu
-                        //vytvoření jednotlivých plánů
-                        for (int i = 1; i <= Zaznam.Semestr; i++)
-                            x.InsertPS(Zaznam.Zkr, i);
-                        //po uložení se obnoví seznam záznamu a na tento záznam se nastaví combobox Záznamů
-                        RefreshZaznamy(Zaznam.Zkr);
-                        //zpráva o úspěšném načtení
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
-                                        Properties.Resources.Vlozeno_TITLE,
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    //Zachycení chybové zprávy
-                    {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
-                                        Properties.Resources.Chyba_TITLE,
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Filling fill = new Filling();
+                    fill.NovyZaznam(Zaznam.Zaz);
+                    RefreshZaznamy(Zaznam.Zkr);
                 }
             }
 
@@ -367,22 +350,8 @@ namespace SystemProPodporuStudijnichPlanu
                             }
                             else//když se obor změní
                             {
-                                try
-                                {
-                                    x.DeleteZaznam(id_z);//smazání starého
-                                    x.InsertZaznam(Zaznam.Zaz);//založení nového
-                                    for (int i = 1; i <= Zaznam.Semestr; i++)
-                                        x.InsertPS(Zaznam.Zkr, i);
-                                    MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
-                                                    Properties.Resources.Vlozeno_TITLE,
-                                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
-                                                    Properties.Resources.Chyba_TITLE,
-                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                Filling fill = new Filling();
+                                fill.NovyZaznam(Zaznam.Zaz, 1);
                             }
                             RefreshZaznamy(Zaznam.Zkr);
                         }
@@ -635,17 +604,14 @@ namespace SystemProPodporuStudijnichPlanu
                 case 5:
                     {
                         return predmetyS5;
-
                     }
                 case 4:
                     {
                         return predmetyS4;
-
                     }
                 case 3:
                     {
-                        return predmetyS3;
-
+                       return predmetyS3;
                     }
                 case 2:
                     {
@@ -915,6 +881,11 @@ namespace SystemProPodporuStudijnichPlanu
         private void Bt_addZaz_Click(object sender, EventArgs e)
         {
             vytvořitNovýZáznamToolStripMenuItem.PerformClick();
+        }
+
+        private void KulateButton1_Click(object sender, EventArgs e)
+        {
+            upravitZáznamToolStripMenuItem.PerformClick();
         }
     }
 }
