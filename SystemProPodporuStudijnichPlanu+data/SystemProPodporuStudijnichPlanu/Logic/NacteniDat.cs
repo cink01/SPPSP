@@ -48,11 +48,15 @@ namespace SystemProPodporuStudijnichPlanu
                                                         fulldata[22],//jazyk
                                                         fulldata[4]));//zakončení
                 }
-                MessageBox.Show(Properties.Resources.SuccNact_MESSAGE, Properties.Resources.Info_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.SuccNact_MESSAGE, 
+                				Properties.Resources.Info_TITLE, 
+                				MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)//zachycení chyby
             {
-                MessageBox.Show(Properties.Resources.ChybneNacteni_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Properties.Resources.ChybneNacteni_MESSAGE + ex, 
+                				Properties.Resources.Chyba_TITLE, 
+                				MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private const int PocetPrvku = 5;
@@ -60,8 +64,10 @@ namespace SystemProPodporuStudijnichPlanu
         {
             DataCrud DC = new DataCrud();
             List<string> fulldata = new List<string>();
-            fulldata = File.ReadAllText(path).Split('~').ToList();//načtení celého textu do stringu
-            for (int i = 0; i < fulldata.Count(); i += PocetPrvku)//procázení pole a zápis do db krok po každých šesti datech
+            //načtení celého textu do stringu
+            fulldata = File.ReadAllText(path).Split('~').ToList();
+            //procházení pole a zápis do db krok po každých šesti datech
+            for (int i = 0; i < fulldata.Count(); i += PocetPrvku)
             {
                 try
                 {
@@ -69,11 +75,15 @@ namespace SystemProPodporuStudijnichPlanu
                     DC.InsertPopis(new Predmet(fulldata[i + 1],//nazev predmetu
                                                fulldata[i + 3],//text popisu
                                                fulldata[i + 4]));//rok oboru/označení
-                    MessageBox.Show(Properties.Resources.SuccNact_MESSAGE, Properties.Resources.Info_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Properties.Resources.SuccNact_MESSAGE, 
+                                    Properties.Resources.Info_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)//zachycení chyby
                 {
-                    MessageBox.Show("Načtení dat skončilo na indexu: " + i + "s chybou: " + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Načtení dat skončilo na indexu: " + i + "s chybou: " + ex, 
+                                    Properties.Resources.Chyba_TITLE, 
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
