@@ -12,12 +12,11 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class DataAccess
     {
+        public static string ConnValue(string nazev)=> ConfigurationManager.ConnectionStrings[nazev].ConnectionString;
+
+        private const string Nazev = "SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString";
         private static SqlConnection conn = null;
-        private readonly string ConnectionString = ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString");
-        public static string ConnValue(string nazev)
-        {
-            return ConfigurationManager.ConnectionStrings[nazev].ConnectionString;
-        }
+        private readonly string ConnectionString = ConnValue(Nazev);
         public SqlConnection GetConnection()
         {
             if (conn == null)
@@ -29,42 +28,42 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Katedra> GetFullKatedra()
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Katedra>($"Select * from [katedra]").ToList();
             }
         }
         public List<Zaznam> GetFullZaznam()
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Zaznam>($"SELECT * FROM [zaznam]").ToList();
             }
         }
         public List<Obor> GetFullObor()
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Obor>($"Select * from [obor]").ToList();
             }
         }
         public List<Garant> GetFullGarant()
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Garant>($"Select * from [garant]").ToList();
             }
         }
         public List<Predmet> GetFullPredmet()
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Predmet>($"Select * from [predmet]").ToList();
             }
         }
         public List<Predmet> GetPredmetFullByObor(int obor)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{obor}'").ToList();
                 return vystup;
@@ -73,14 +72,14 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Garant> GetGarantByKatedra(int ikatedra)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Garant>($"SELECT * FROM [garant] WHERE id_k='{ikatedra}'").ToList();
             }
         }
         public List<Predmet> GetPredmetBySemestr(int semestr_predmet, int id_obor)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"Select * from predmet where id_obor='{id_obor}' AND semestr_predmet='{ semestr_predmet }'").ToList();
                 return vystup;
@@ -88,7 +87,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Predmet> SportyNotInVyber(int semestr, int id_obor, int id_z)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from [predmet] where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet NOT IN(Select [predmet].id_predmet from ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE [plansemestr].id_zaznam='{id_z}' AND [plansemestr].sem_ps='{semestr}' )").ToList();
                 return vystup;
@@ -96,7 +95,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Predmet> GetPredmetBySemestrFull(int semestr_predmet)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 List<Predmet> vystup = connection.Query<Predmet>($"SELECT * FROM predmet WHERE semestr_predmet='{ semestr_predmet }'").ToList();
                 return vystup;
@@ -104,7 +103,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Predmet> GetPredmetZVyberu(int seme, int izaz)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 List<Predmet> vystup = connection.Query<Predmet>(
                     $"SELECT [predmet].* " +
@@ -115,33 +114,51 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public List<Predmet> GetPredmetFullLichyVyberKromeSportu(int id_obor, int izaz)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
-                    $"AND [predmet].id_predmet NOT IN(" +
-                    $"SELECT [predmet].id_predmet " +
-                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
-                    $"WHERE [plansemestr].id_zaznam='{izaz}' AND [predmet].id_predmet NOT IN(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"Select [predmet].* from predmet where id_obor='{id_obor}' " +
+                    $"AND (semestr_predmet=1 OR semestr_predmet=3 OR semestr_predmet=5) " +
+                    $"AND [predmet].id_predmet " +
+                    $"NOT IN(" +
+                        $"SELECT [predmet].id_predmet " +
+                        $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) " +
+                        $"JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                        $"WHERE [plansemestr].id_zaznam='{izaz}' AND [predmet].id_predmet " +
+                        $"NOT IN(" +
+                            $"SELECT [predmet].id_predmet FROM ([predmet] " +
+                            $"JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) " +
+                            $"JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps " +
+                            $"WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
                     $"ORDER BY semestr_predmet,povinnost").ToList();
                 return vystup;
             }
         }
         public List<Predmet> GetPredmetFullSudyVyberKromeSportu(int id_obor, int izaz)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from predmet where id_obor='{id_obor}' AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
-                    $"AND [predmet].id_predmet NOT IN(" +
-                    $"SELECT [predmet].id_predmet " +
-                    $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
-                    $"WHERE [plansemestr].id_zaznam='{izaz}'  AND [predmet].id_predmet NOT IN(SELECT [predmet].id_predmet FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"Select [predmet].* from predmet where id_obor='{id_obor}' " +
+                    $"AND(semestr_predmet=2 OR semestr_predmet=4 OR semestr_predmet=6)" +
+                    $"AND [predmet].id_predmet " +
+                    $"NOT IN(" +
+                        $"SELECT [predmet].id_predmet " +
+                        $"FROM ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) " +
+                        $"JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps  " +
+                        $"WHERE [plansemestr].id_zaznam='{izaz}'  AND [predmet].id_predmet " +
+                        $"NOT IN(" +
+                            $"SELECT [predmet].id_predmet FROM ([predmet] " +
+                            $"JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) " +
+                            $"JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps " +
+                            $"WHERE  [plansemestr].id_zaznam='{izaz}' AND [predmet].semestr_predmet=0  ))" +
                     $"ORDER BY semestr_predmet,povinnost").ToList();
                 return vystup;
             }
         }
         public void CheckExistObor(string x, out int Exist)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand checkObor = new SqlCommand("" +
                     "SELECT COUNT(*) " +
@@ -154,7 +171,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistVyber(int seme, int izaz, out int Exist)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 try
                 {
@@ -174,7 +191,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistPredmet(string name_predmet, int id_obor, out int Exist)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand checkPredmet = new SqlCommand("SELECT COUNT(*) FROM [predmet] WHERE ([name_predmet] = @name_predmet)AND([id_obor]=@id_obor)", GetConnection());
                 checkPredmet.Parameters.AddWithValue("@name_predmet", name_predmet);
@@ -185,7 +202,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistKatedra(string x, out int Exist)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand checkKat = new SqlCommand("SELECT COUNT(*) FROM [katedra] WHERE ([naz_k] = @naz_k)", GetConnection());
                 checkKat.Parameters.AddWithValue("@naz_k", x);
@@ -195,7 +212,7 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public void CheckExistGarant(string x, out int Exist)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand checkGarant = new SqlCommand("SELECT COUNT(*) FROM [garant] WHERE ([jmeno_v] = @x)", GetConnection());
                 checkGarant.Parameters.AddWithValue("@x", x);
@@ -219,14 +236,14 @@ namespace SystemProPodporuStudijnichPlanu
         }
         public Obor GetOborById(int id_obor)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Obor>($"SELECT * FROM [obor]  WHERE id_obor='{id_obor}'").SingleOrDefault();
             }
         }
         public Garant GetFullGarantById(int id_v)
         {
-            using (IDbConnection connection = new SqlConnection(ConnValue("SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString")))
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
                 return connection.Query<Garant>($"SELECT * FROM [garant]  WHERE id_v='{id_v}'").SingleOrDefault();
             }
