@@ -596,6 +596,24 @@ namespace SystemProPodporuStudijnichPlanu
                 conn.Close();
             }
         }
+        public void UpdateZaznamPrepocet(int id_z,string Zkr,int PocSem,int stare)
+        {
+            UpdateZaznam(id_z,Zkr,PocSem);
+            if (stare > PocSem)//pakliže se počet semestrů sníží
+                while (stare > PocSem)
+                //mažeme nejvyšší semestry do doby než počty nejsou stejné
+                {
+                    DeletePlanSemestr(id_z, stare);
+                    stare--;
+                }
+            if (stare < PocSem)//když se počet semestrů zvýší
+                while (stare < PocSem)
+                //přidáváme plán semestru od původní položky až do nové
+                {
+                    InsertPS(Zkr, stare);
+                    stare++;
+                }
+        }
 /*         
            public void InsertVyber(string predmet, int semestr, string rok, int zaz)
            {

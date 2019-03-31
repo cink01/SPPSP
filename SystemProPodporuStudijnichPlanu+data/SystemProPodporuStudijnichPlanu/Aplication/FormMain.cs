@@ -9,6 +9,9 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public partial class FormMain : Form
     {
+        private const int ZaDvaSemestry = 40;
+        private const int ZaJedenSemestr = 20;
+        private const int ZaPrvniSemestr = 15;
         public List<Predmet> predmetyLichy = new List<Predmet>();
         public List<Predmet> predmetySudy = new List<Predmet>();
         public List<Predmet> Sporty = new List<Predmet>();
@@ -37,20 +40,23 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void ZmenaKredituVNUD(object sender, EventArgs e)
         {
+            //celkové kredity
             nud_celkemKred.Value = nud_KredSem1.Value + nud_KredSem2.Value + nud_KredSem3.Value + nud_KredSem4.Value + nud_KredSem5.Value + nud_KredSem6.Value + nud_KredSem7.Value + nud_KredSem8.Value + nud_KredSem9.Value + nud_KredSem10.Value + nud_KredSem11.Value + nud_KredSem12.Value;
-            nud_KredSem1.BackColor = nud_KredSem1.Value < 15 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem2.BackColor = nud_KredSem2.Value + nud_KredSem1.Value < 40 || nud_KredSem2.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < 40 || nud_KredSem3.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < 40 || nud_KredSem4.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < 40 || nud_KredSem5.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem6.BackColor = nud_KredSem6.Value + nud_KredSem5.Value < 40 || nud_KredSem6.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem7.BackColor = nud_KredSem7.Value + nud_KredSem6.Value < 40 || nud_KredSem7.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem8.BackColor = nud_KredSem8.Value + nud_KredSem7.Value < 40 || nud_KredSem8.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem9.BackColor = nud_KredSem9.Value + nud_KredSem8.Value < 40 || nud_KredSem9.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem10.BackColor = nud_KredSem10.Value + nud_KredSem9.Value < 40 || nud_KredSem10.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem11.BackColor = nud_KredSem11.Value + nud_KredSem10.Value < 40 || nud_KredSem11.Value == 20 ? Color.LightCoral : Color.LightGreen;
-            nud_KredSem12.BackColor = nud_KredSem12.Value + nud_KredSem11.Value < 40 || nud_KredSem12.Value == 20 ? Color.LightCoral : Color.LightGreen;
             nud_celkemKred.BackColor = nud_celkemKred.Value < 180 ? Color.LightCoral : Color.LightGreen;
+            //individuální semestry
+            nud_KredSem1.BackColor = nud_KredSem1.Value < ZaPrvniSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem2.BackColor = nud_KredSem2.Value + nud_KredSem1.Value < ZaDvaSemestry || nud_KredSem2.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem3.BackColor = nud_KredSem3.Value + nud_KredSem2.Value < ZaDvaSemestry || nud_KredSem3.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem4.BackColor = nud_KredSem4.Value + nud_KredSem3.Value < ZaDvaSemestry || nud_KredSem4.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem5.BackColor = nud_KredSem5.Value + nud_KredSem4.Value < ZaDvaSemestry || nud_KredSem5.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem6.BackColor = nud_KredSem6.Value + nud_KredSem5.Value < ZaDvaSemestry || nud_KredSem6.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem7.BackColor = nud_KredSem7.Value + nud_KredSem6.Value < ZaDvaSemestry || nud_KredSem7.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem8.BackColor = nud_KredSem8.Value + nud_KredSem7.Value < ZaDvaSemestry || nud_KredSem8.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem9.BackColor = nud_KredSem9.Value + nud_KredSem8.Value < ZaDvaSemestry || nud_KredSem9.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem10.BackColor = nud_KredSem10.Value + nud_KredSem9.Value < ZaDvaSemestry || nud_KredSem10.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem11.BackColor = nud_KredSem11.Value + nud_KredSem10.Value < ZaDvaSemestry || nud_KredSem11.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+            nud_KredSem12.BackColor = nud_KredSem12.Value + nud_KredSem11.Value < ZaDvaSemestry || nud_KredSem12.Value == ZaJedenSemestr ? Color.LightCoral : Color.LightGreen;
+
         }
         private void UkonceniProgramu(object sender, EventArgs e)
         {
@@ -320,33 +326,14 @@ namespace SystemProPodporuStudijnichPlanu
                     DialogResult potvrzeni = Zaznam.ShowDialog();
                     if (potvrzeni == DialogResult.OK)
                     {
-                        DataCrud x = new DataCrud();
+                        DataCrud dc = new DataCrud();
                         int oborNew = Zaznam.Obor;
                         try
                         {
-                            id_z = Convert.ToInt32(Zaznam.Id);//převod identifikačního čísla na INT
                             if (oborNew == oborOld)//pakliže se obor nezmění
                             {
-                                PocSem = Zaznam.Semestr;//zjisti počet nových semestrů
-                                int stare = a.GetZaznamSemestr(id_z);//zjištění stavajícího počtu
                                 //úprava záznamu
-                                x.UpdateZaznam(id_z,
-                                               Zaznam.Zkr,
-                                               PocSem);
-                                if (stare > PocSem)//pakliže se počet semestrů sníží
-                                    while (stare > PocSem)
-                                    //mažeme nejvyšší semestry do doby než počty nejsou stejné
-                                    {
-                                        x.DeletePlanSemestr(id_z, stare);
-                                        stare--;
-                                    }
-                                if (stare < PocSem)//když se počet semestrů zvýší
-                                    while (stare < PocSem)
-                                    //přidáváme plán semestru od původní položky až do nové
-                                    {
-                                        x.InsertPS(Zaznam.Zkr, stare);
-                                        stare++;
-                                    }
+                                dc.UpdateZaznamPrepocet(Convert.ToInt32(Zaznam.Id), Zaznam.Zkr, Zaznam.Semestr, a.GetZaznamSemestr(id_z));
                             }
                             else//když se obor změní
                             {
@@ -474,14 +461,6 @@ namespace SystemProPodporuStudijnichPlanu
             vypisGarantMain.Visible = false;
             switch (i)
             {
-                case 55:
-                    {
-                        Filling fill = new Filling();
-                        fill.FillDetail(VratListBox(i), vypisPopisPredmet);
-                        urceniZvolenehoListu = i;
-                        nud_PridatDoSem.Value = (decimal)i;
-                        break;
-                    }
                 case 12:
                     {
                         lb_semestr1.SelectedIndex =
@@ -495,68 +474,82 @@ namespace SystemProPodporuStudijnichPlanu
                         lb_semestr9.SelectedIndex =
                         lb_semestr10.SelectedIndex =
                         lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 11:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr12.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 10:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 9:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 8:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 7:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 6:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 5:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 4:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 3:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 2:
                     {
                         lb_semestr1.SelectedIndex = lb_semestr12.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 case 1:
                     {
                         lb_semestr12.SelectedIndex = lb_semestr2.SelectedIndex = lb_semestr3.SelectedIndex = lb_semestr4.SelectedIndex = lb_semestr5.SelectedIndex = lb_semestr6.SelectedIndex = lb_semestr7.SelectedIndex = lb_semestr8.SelectedIndex = lb_semestr9.SelectedIndex = lb_semestr10.SelectedIndex = lb_semestr11.SelectedIndex = -1;
-                        goto case 55;
+                        break;
                     }
                 default:
                     break;
             }
+            try
+            {
+                Filling fill = new Filling();
+                fill.FillDetail(VratListBox(i), vypisPopisPredmet);
+                urceniZvolenehoListu = i;
+                nud_PridatDoSem.Value = (decimal)i;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.ChybneNacteni_MESSAGE, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         //listy na plnění listboxu a praci kolem něch(mazání a vypis popisu)
+        /// <summary>
+        /// tato část inicializuje listi pro každý semestr
+        /// </summary>
         List<Predmet> predmetyS1 = new List<Predmet>();
         List<Predmet> predmetyS2 = new List<Predmet>();
         List<Predmet> predmetyS3 = new List<Predmet>();
@@ -869,13 +862,11 @@ namespace SystemProPodporuStudijnichPlanu
         {
             if (cmb_zaznam.SelectedIndex != -1)
             {
-                try
-                {
+                try{
                     DataCrud dc = new DataCrud();
                     dc.DeleteZaznam(((Zaznam)cmb_zaznam.SelectedItem).Id_zaznam);
                     RefreshZaznamy();
-                }
-                catch { }
+                }catch { }
             }
         }
         private void Bt_addZaz_Click(object sender, EventArgs e)
