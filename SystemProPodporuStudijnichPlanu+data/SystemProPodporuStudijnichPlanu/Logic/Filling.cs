@@ -14,8 +14,10 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public Filling() => da = new DataAccess();
         public void NaplnComboBox<T>(ComboBox cb, List<T> li)
         {
+            //vyčištění dat v comboboxu
             cb.DataSource = null;
             cb.Items.Clear();
+            //pro každou položku v listu se přidá jako item 
             try
             {
                 foreach (T temp in li)
@@ -28,13 +30,18 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         }
         public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
         {
+            //uvolnění ComboBoxu
             x.Items.Clear();
+            //nastavení defaultní šírky
             int sirka = 1;
             foreach (T o in temp)
+            //prohledávání všech prvků v listu a porovnávání se zadaným textem
             {
                 if (o.ToString().IndexOf(x.Text, Comp) >= 0)
+                //pakliže se najde prvek obsahující x.Text, tak se přidá do ComboBoxu
                 {
                     x.Items.Add(o);
+                    //přepočítání šířky rozbalené komponenty
                     int tmp = TextRenderer.MeasureText(o.ToString(), x.Font).Width;
                     if (sirka < tmp)
                         sirka = tmp;
