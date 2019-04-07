@@ -355,9 +355,16 @@ namespace SystemProPodporuStudijnichPlanu
         }
         private void SprávaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCRUDmidstage x = new FormCRUDmidstage();
-            x.Text = "Vyhledávání";
-            x.Show();
+            using (FormCRUDmidstage x = new FormCRUDmidstage())
+            {
+                string zaznamText = cmb_zaznam.SelectedItem.ToString();
+                x.Text = "Vyhledávání";
+                //x.Show();
+                if (DialogResult.Cancel == x.ShowDialog())
+                {
+                    RefreshZaznamy(zaznamText);
+                }
+            }
         }
         private void ZměnyVeliZic(int i)
         {
