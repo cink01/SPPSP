@@ -271,7 +271,6 @@
             this.gb_g.TabIndex = 5;
             this.gb_g.TabStop = false;
             this.gb_g.Text = "Výběr a vyhledávání garantů";
-            this.gb_g.Enter += new System.EventHandler(this.Gb_g_Enter);
             // 
             // label3
             // 
@@ -554,6 +553,7 @@
             this.VypisOborMid.TabIndex = 100;
             this.VypisOborMid.V = "";
             this.VypisOborMid.Vs = "";
+            this.VypisOborMid.Zaver = "";
             this.VypisOborMid.Zkr = "";
             // 
             // FormCRUDmidstage

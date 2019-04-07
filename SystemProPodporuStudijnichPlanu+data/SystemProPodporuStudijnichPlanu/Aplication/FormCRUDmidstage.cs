@@ -355,7 +355,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         Obo.Vs = o.Vs_obor;
                         Obo.Praxe = o.Praxe;
                         Obo.Zaver = o.Zaver;
-                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -792,11 +791,6 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 default:
                     break;
             }
-        }
-
-        private void Gb_g_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
