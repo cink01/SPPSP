@@ -213,7 +213,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
             catch { }
         }
-        public void FillDetail(VypisPopisPredmet v, Predmet x)
+        public static void FillDetail(VypisPopisPredmet v, Predmet x)
         {
             DataAccess da = new DataAccess();
             if (x.Prerekvizita <= 0)
@@ -232,6 +232,25 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             v.Kombi = x.Kombi.ToString();
             v.Lab = x.Lab.ToString();
             v.Garant = da.GetGarantById(x.Id_v);
+        }
+        public static void FillOborDetail(Obor o, VypisObor v)
+        {
+            v.Zkr = o.Zkr_obor;
+            v.Rok = o.Rok_obor;
+            v.P = o.P_obor.ToString();
+            v.Pv = o.Pv_obor.ToString();
+            v.V = o.V_obor.ToString();
+            v.Vs = o.Vs_obor.ToString();
+            v.Praxe = o.Praxe;
+            v.Zaver = o.Zaver;
+        }
+        public static void FillGarantDetail(Garant g, VypisGarant v)
+        {
+            DataAccess da = new DataAccess();
+            v.Konzultace = g.Konz_v;
+            v.Telefon = g.Tel_v;
+            v.Email = g.Email_V;
+            v.Katedra = da.GetKatedraById(g.Id_k);
         }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {

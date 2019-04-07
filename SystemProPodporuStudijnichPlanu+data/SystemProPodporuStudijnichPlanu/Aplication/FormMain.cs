@@ -882,7 +882,11 @@ namespace SystemProPodporuStudijnichPlanu
 
         private void OAplikaciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Properties.Resources.oApp_MESSAGE, Properties.Resources.oApp_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Properties.Resources.oApp_MESSAGE, 
+                                Properties.Resources.oApp_TITLE, 
+                                MessageBoxButtons.YesNo, 
+                                MessageBoxIcon.Question) 
+                == DialogResult.Yes)
             {
                 Process.Start("https://github.com/cink01/SPPSP/blob/master/dokumentace/ZP_VSPJ_SPPSP.docx");
             }

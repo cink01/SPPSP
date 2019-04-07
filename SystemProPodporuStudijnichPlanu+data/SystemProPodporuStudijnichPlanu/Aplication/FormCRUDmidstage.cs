@@ -12,11 +12,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         List<Obor> obors = new List<Obor>();
         List<Garant> garants = new List<Garant>();
         List<Predmet> predmets = new List<Predmet>();
-        //   public StringComparison Comp { get; set; } = StringComparison.OrdinalIgnoreCase;
         public FormCRUDmidstage()
         {
             InitializeComponent();
-            // menuStripMID.BackColor = ColorTranslator.FromHtml("#e8212e");
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {
@@ -69,11 +67,15 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertGarant(g.G);
                         DataAccess da = new DataAccess();
                         garants = da.GetFullGarant();
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                            Properties.Resources.Vlozeno_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                            Properties.Resources.Chyba_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -92,11 +94,15 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.InsertPredmet(p.P);
                         ZaridVyber();
                         cb_pre.SelectedIndex = cb_pre.FindStringExact(p.P.ToString());
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                            Properties.Resources.Vlozeno_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                            Properties.Resources.Chyba_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -112,22 +118,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertObor(new Obor(o.Zkr,
-                                              o.Nazev,
-                                              o.Rok,
-                                              o.P,
-                                              o.Pv,
-                                              o.V,
-                                              o.Vs,
-                                              o.Praxe,
-                                              o.Zaver));
+                        x.InsertObor(o.O);
                         DataAccess da = new DataAccess();
                         obors = da.GetFullObor();
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                            Properties.Resources.Vlozeno_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                            Properties.Resources.Chyba_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -143,15 +145,18 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        x.InsertKat(k.Zkr,
-                                    k.Nazev);
+                        x.InsertKat(k.Zkr, k.Nazev);
                         DataAccess da = new DataAccess();
                         katedras = da.GetFullKatedra();
-                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE,
+                            Properties.Resources.Vlozeno_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                            Properties.Resources.Chyba_TITLE,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -265,7 +270,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 DataAccess a = new DataAccess();
                 DialogResult potvrzeni = Gara.ShowDialog();
@@ -277,11 +284,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         x.UpdateGarant(Gara.G);
                         garants = a.GetFullGarant();
                         cb_garant.Text = Gara.G.ToString();
-                        MessageBox.Show("Úprava proběhlo úspěšně", "Vloženo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Filling.FillGarantDetail(Gara.G, vypisGarant_Mid);
+                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE,
+                                        Properties.Resources.Vlozeno_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -320,17 +332,21 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     DataCrud x = new DataCrud();
                     try
                     {
-                        Filling f = new Filling();
+
                         x.UpdatePredmet(Pred.P);
                         ZaridVyber();
                         cb_pre.Text = Pred.P.ToString();
-                        f.FillDetail(vypisPopisPredmetMid, Pred.P);
+                        Filling.FillDetail(vypisPopisPredmetMid, Pred.P);
                         predmets = a.GetFullPredmet();
-                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.Uprava_MESSAGE,
+                                        Properties.Resources.Uprava_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -358,7 +374,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     DataAccess a = new DataAccess();
                     DialogResult potvrzeni = Obo.ShowDialog();
@@ -370,11 +388,16 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateObor(Obo.O);
                             obors = a.GetFullObor();
                             cb_obo.Text = Obo.O.ToString();
-                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Filling.FillOborDetail(Obo.O, VypisOborMid);
+                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE,
+                                            Properties.Resources.Uprava_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                            Properties.Resources.Chyba_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -405,11 +428,15 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                             x.UpdateKatedra(Kat.K);
                             katedras = a.GetFullKatedra();
                             cb_kat.Text = Kat.K.ToString();
-                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(Properties.Resources.Uprava_MESSAGE,
+                                            Properties.Resources.Uprava_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.NelzeUlozit_MESSAGE + ex,
+                                            Properties.Resources.Chyba_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -766,7 +793,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
             gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
             cb_garant.Text = cb_kat.Text = cb_obo.Text = cb_pre.Text = "";
-            vypisGarant_Mid.Location =  new Point(186, 30);
+            vypisGarant_Mid.Location = new Point(186, 30);
             VypisOborMid.Location = new Point(186, 29);
             vypisPopisPredmetMid.Location = new Point(186, 28);
             vypisGarant_Mid.Visible = VypisOborMid.Visible = vypisPopisPredmetMid.Visible = false;
