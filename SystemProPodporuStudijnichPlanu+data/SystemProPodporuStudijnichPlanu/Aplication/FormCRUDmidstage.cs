@@ -162,7 +162,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             }
         }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
-        private void Cb_garant_Hledani(object sender, EventArgs e)//garant funguje
+        private void Cb_garant_Hledani(object sender, EventArgs e)
         {
             if (cmb_kat_gar.Text == "")
             {
@@ -188,7 +188,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Filling fill = new Filling();
             fill.NaplnComboBox<Garant>(cb_garant, garants);
         }
-        private void Cb_predmet_Hledani(object sender, EventArgs e)//pred nefunguje
+        private void Cb_predmet_Hledani(object sender, EventArgs e)
         {
             if (cmb_obo_pre.Text == "")
             {
@@ -199,14 +199,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             fill.NajdiVComboBoxu<Predmet>(cb_pre, predmets);
             rb_predmet.Checked = true;
         }
-        private void Cb_obor_Hledani(object sender, EventArgs e) //obor funguje
+        private void Cb_obor_Hledani(object sender, EventArgs e)
         {
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Obor>(cb_obo, obors);
             rb_obor.Checked = true;
         }
 
-        private void Cb_katedra_Hledani(object sender, EventArgs e)//kat nefunguje
+        private void Cb_katedra_Hledani(object sender, EventArgs e)
         {
             Filling fill = new Filling();
             fill.NajdiVComboBoxu<Katedra>(cb_kat, katedras);
@@ -469,25 +469,24 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (cb_garant.SelectedIndex != -1)
             {
-                foreach (Garant o in garants)
+                try
                 {
-
-                    if (o.ToString() == cb_garant.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            DataCrud dc = new DataCrud();
-                            dc.DeleteGarant(o.Id_v);
-                            DataAccess da = new DataAccess();
-                            garants = da.GetFullGarant();
-                            cb_garant.Text = "";
-                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Garant temp = (Garant)cb_garant.SelectedItem;
+                    DataCrud dc = new DataCrud();
+                    dc.DeleteGarant(temp.Id_v);
+                    DataAccess da = new DataAccess();
+                    garants = da.GetFullGarant();
+                    cb_garant.Text = "";
+                    Filling.ClearGarantDetail(vypisGarant_Mid);
+                    MessageBox.Show(Properties.Resources.Delete_MESSAGE,
+                        Properties.Resources.Delete_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex,
+                        Properties.Resources.Chyba_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -495,24 +494,24 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (cb_pre.SelectedIndex != -1)
             {
-                foreach (Predmet o in predmets)
+                try
                 {
-                    if (o.ToString() == cb_pre.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            DataCrud dc = new DataCrud();
-                            dc.DeletePredmet(o.Id_predmet);
-                            DataAccess da = new DataAccess();
-                            predmets = da.GetFullPredmet();
-                            cb_pre.Text = "";
-                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Predmet temp = (Predmet)cb_pre.SelectedItem;
+                    DataCrud dc = new DataCrud();
+                    DataAccess da = new DataAccess();
+                    dc.DeletePredmet(temp.Id_predmet);
+                    predmets = da.GetFullPredmet();
+                    cb_pre.Text = "";
+                    Filling.ClearDetail(vypisPopisPredmetMid);
+                    MessageBox.Show(Properties.Resources.Delete_MESSAGE,
+                        Properties.Resources.Delete_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex,
+                        Properties.Resources.Chyba_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -520,24 +519,24 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (cb_obo.SelectedIndex != -1)
             {
-                foreach (Obor o in obors)
+                try
                 {
-                    if (o.ToString() == cb_obo.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            DataCrud dc = new DataCrud();
-                            dc.DeleteObor(o.Id_obor);
-                            DataAccess da = new DataAccess();
-                            obors = da.GetFullObor();
-                            cb_obo.Text = "";
-                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Obor temp = (Obor)cb_obo.SelectedItem;
+                    DataCrud dc = new DataCrud();
+                    DataAccess da = new DataAccess();
+                    dc.DeleteObor(temp.Id_obor);
+                    obors = da.GetFullObor();
+                    cb_obo.Text = "";
+                    Filling.ClearOborDetail(VypisOborMid);
+                    MessageBox.Show(Properties.Resources.Delete_MESSAGE,
+                                    Properties.Resources.Delete_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -545,24 +544,23 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             if (cb_kat.SelectedIndex != -1)
             {
-                foreach (Katedra o in katedras)
+                try
                 {
-                    if (o.ToString() == cb_kat.SelectedItem.ToString())
-                    {
-                        try
-                        {
-                            DataCrud dc = new DataCrud();
-                            dc.DeleteKatedra(o.Id_k);
-                            DataAccess da = new DataAccess();
-                            katedras = da.GetFullKatedra();
-                            cb_kat.Text = "";
-                            MessageBox.Show(Properties.Resources.Delete_MESSAGE, Properties.Resources.Delete_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    Katedra temp = (Katedra)cb_kat.SelectedItem;
+                    DataCrud dc = new DataCrud();
+                    dc.DeleteKatedra(temp.Id_k);
+                    DataAccess da = new DataAccess();
+                    katedras = da.GetFullKatedra();
+                    cb_kat.Text = "";
+                    MessageBox.Show(Properties.Resources.Delete_MESSAGE,
+                        Properties.Resources.Delete_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Properties.Resources.NelzeSmazat_MESSAGE + ex,
+                        Properties.Resources.Chyba_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

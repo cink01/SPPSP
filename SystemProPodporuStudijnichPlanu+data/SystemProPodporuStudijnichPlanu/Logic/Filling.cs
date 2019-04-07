@@ -252,6 +252,30 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             v.Email = g.Email_V;
             v.Katedra = da.GetKatedraById(g.Id_k);
         }
+        public static void ClearDetail(VypisPopisPredmet v)
+        {
+            v.Prerekvizita =
+            v.Popis =
+            v.Semestr =
+            v.Kredit =
+            v.Povinnost =
+            v.Zkr =
+            v.Zakončení =
+            v.Jazyk =
+            v.Prednaska =
+            v.Cviceni =
+            v.Kombi =
+            v.Lab =
+            v.Garant = "";
+        }
+        public static void ClearOborDetail(VypisObor v)
+        {
+            v.Rok = v.Zkr = v.P = v.Pv = v.V = v.Vs = v.Praxe = v.Zaver = "";
+        }
+        public static void ClearGarantDetail(VypisGarant v)
+        {
+            v.Konzultace = v.Telefon = v.Email = v.Katedra = "";
+        }
         public void VypoctiPovinnostiKredity(List<Predmet> collection, Kredity kr)
         {
             try
