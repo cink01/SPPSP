@@ -44,8 +44,8 @@ namespace SystemProPodporuStudijnichPlanu
             {
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
-                    const string CmdText = "insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor,praxe) " +
-                                           "values(@zkr,@naz,@rok,@p,@pv,@v,@vs,@praxe)";
+                    const string CmdText = "insert into obor(zkr_obor,name_obor,rok_obor,p_obor,pv_obor,v_obor,vs_obor,praxe,zaver) " +
+                                           "values(@zkr,@naz,@rok,@p,@pv,@v,@vs,@praxe,@zaver)";
                     SqlCommand obor = new SqlCommand(cmdText: CmdText, connection: conn);
                     obor.Parameters.AddWithValue("@zkr", o.Zkr_obor);
                     obor.Parameters.AddWithValue("@naz", o.Name_obor);
@@ -55,6 +55,8 @@ namespace SystemProPodporuStudijnichPlanu
                     obor.Parameters.AddWithValue("@v", o.V_obor);
                     obor.Parameters.AddWithValue("@vs", o.Vs_obor);
                     obor.Parameters.AddWithValue("@praxe", o.Praxe);
+                    obor.Parameters.AddWithValue("@zaver", o.Zaver);
+
                     try
                     {
                         conn.Open();
@@ -323,7 +325,7 @@ namespace SystemProPodporuStudijnichPlanu
             using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
             {
                 SqlCommand Uobor = new SqlCommand("UPDATE [obor] " +
-                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe " +
+                    "SET zkr_obor=@zkr_obor, name_obor=@name_obor, rok_obor=@rok_obor, p_obor=@p_obor,pv_obor=@pv_obor,v_obor=@v_obor,vs_obor=@vs_obor, praxe=@praxe, zaver=@zaver " +
                     "WHERE id_obor=@id_obor", conn);
                 Uobor.Parameters.AddWithValue("@zkr_obor", Ob.Zkr_obor);
                 Uobor.Parameters.AddWithValue("@Name_obor", Ob.Name_obor);
@@ -334,6 +336,8 @@ namespace SystemProPodporuStudijnichPlanu
                 Uobor.Parameters.AddWithValue("@vs_obor", Ob.Vs_obor);
                 Uobor.Parameters.AddWithValue("@praxe", Ob.Praxe);
                 Uobor.Parameters.AddWithValue("@rok_obor", Ob.Rok_obor);
+                Uobor.Parameters.AddWithValue("@zaver", Ob.Zaver);
+
                 try
                 {
                     conn.Open();

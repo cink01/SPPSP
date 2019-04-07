@@ -39,6 +39,11 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
             get => rtb_praxe.Text;
             set => rtb_praxe.Text = value;
         }
+        public string Zaver
+        {
+            get => rtb_zaver.Text;
+            set => rtb_zaver.Text = value;
+        }
         public VypisObor()
         {
             InitializeComponent();

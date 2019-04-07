@@ -82,28 +82,28 @@
             this.nud_cvk.Location = new System.Drawing.Point(335, 204);
             this.nud_cvk.Name = "nud_cvk";
             this.nud_cvk.Size = new System.Drawing.Size(69, 20);
-            this.nud_cvk.TabIndex = 20;
+            this.nud_cvk.TabIndex = 15;
             // 
             // nud_lab
             // 
             this.nud_lab.Location = new System.Drawing.Point(335, 178);
             this.nud_lab.Name = "nud_lab";
             this.nud_lab.Size = new System.Drawing.Size(69, 20);
-            this.nud_lab.TabIndex = 19;
+            this.nud_lab.TabIndex = 14;
             // 
             // nud_cv
             // 
             this.nud_cv.Location = new System.Drawing.Point(335, 152);
             this.nud_cv.Name = "nud_cv";
             this.nud_cv.Size = new System.Drawing.Size(69, 20);
-            this.nud_cv.TabIndex = 18;
+            this.nud_cv.TabIndex = 13;
             // 
             // nud_p
             // 
             this.nud_p.Location = new System.Drawing.Point(335, 126);
             this.nud_p.Name = "nud_p";
             this.nud_p.Size = new System.Drawing.Size(69, 20);
-            this.nud_p.TabIndex = 17;
+            this.nud_p.TabIndex = 12;
             // 
             // label5
             // 
@@ -150,7 +150,7 @@
             this.bt_close.Location = new System.Drawing.Point(574, 256);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(70, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 18;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -163,7 +163,7 @@
             this.bt_ok.Location = new System.Drawing.Point(456, 256);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(70, 23);
-            this.bt_ok.TabIndex = 2;
+            this.bt_ok.TabIndex = 17;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
@@ -183,7 +183,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(69, 20);
-            this.tb_id.TabIndex = 6;
+            this.tb_id.TabIndex = 0;
             // 
             // l_email
             // 
@@ -217,7 +217,7 @@
             this.tb_zkr.Location = new System.Drawing.Point(74, 45);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(139, 20);
-            this.tb_zkr.TabIndex = 4;
+            this.tb_zkr.TabIndex = 1;
             // 
             // gb_predmet
             // 
@@ -282,7 +282,7 @@
             this.cb_prerek.Location = new System.Drawing.Point(75, 256);
             this.cb_prerek.Name = "cb_prerek";
             this.cb_prerek.Size = new System.Drawing.Size(139, 21);
-            this.cb_prerek.TabIndex = 38;
+            this.cb_prerek.TabIndex = 9;
             this.cb_prerek.DropDown += new System.EventHandler(this.Cb_prerek_Hledani);
             this.cb_prerek.Enter += new System.EventHandler(this.Cb_prerek_Hledani);
             // 
@@ -300,7 +300,7 @@
             this.tb_jazyk.Location = new System.Drawing.Point(75, 230);
             this.tb_jazyk.Name = "tb_jazyk";
             this.tb_jazyk.Size = new System.Drawing.Size(139, 20);
-            this.tb_jazyk.TabIndex = 36;
+            this.tb_jazyk.TabIndex = 8;
             // 
             // label11
             // 
@@ -316,7 +316,7 @@
             this.rtb_popis.Location = new System.Drawing.Point(410, 45);
             this.rtb_popis.Name = "rtb_popis";
             this.rtb_popis.Size = new System.Drawing.Size(278, 205);
-            this.rtb_popis.TabIndex = 34;
+            this.rtb_popis.TabIndex = 16;
             this.rtb_popis.Text = "";
             // 
             // label10
@@ -337,7 +337,7 @@
             this.cb_zakončení.Location = new System.Drawing.Point(75, 204);
             this.cb_zakončení.Name = "cb_zakončení";
             this.cb_zakončení.Size = new System.Drawing.Size(139, 21);
-            this.cb_zakončení.TabIndex = 32;
+            this.cb_zakončení.TabIndex = 7;
             // 
             // label9
             // 
@@ -360,7 +360,7 @@
             this.cb_povinnost.Location = new System.Drawing.Point(75, 177);
             this.cb_povinnost.Name = "cb_povinnost";
             this.cb_povinnost.Size = new System.Drawing.Size(139, 21);
-            this.cb_povinnost.TabIndex = 30;
+            this.cb_povinnost.TabIndex = 6;
             this.cb_povinnost.DropDown += new System.EventHandler(this.Cb_povinnost_Hledaní);
             // 
             // label8
@@ -377,7 +377,7 @@
             this.tb_orig.Location = new System.Drawing.Point(75, 151);
             this.tb_orig.Name = "tb_orig";
             this.tb_orig.Size = new System.Drawing.Size(139, 20);
-            this.tb_orig.TabIndex = 28;
+            this.tb_orig.TabIndex = 5;
             // 
             // label7
             // 
@@ -402,7 +402,7 @@
             this.nud_semestr.Location = new System.Drawing.Point(335, 100);
             this.nud_semestr.Name = "nud_semestr";
             this.nud_semestr.Size = new System.Drawing.Size(69, 20);
-            this.nud_semestr.TabIndex = 25;
+            this.nud_semestr.TabIndex = 11;
             // 
             // label6
             // 
@@ -419,7 +419,7 @@
             this.cb_obor.Location = new System.Drawing.Point(75, 124);
             this.cb_obor.Name = "cb_obor";
             this.cb_obor.Size = new System.Drawing.Size(139, 21);
-            this.cb_obor.TabIndex = 23;
+            this.cb_obor.TabIndex = 4;
             this.cb_obor.DropDown += new System.EventHandler(this.Cb_obor_Hledání);
             this.cb_obor.SelectedIndexChanged += new System.EventHandler(this.Cb_obor_SelectedIndexChanged);
             this.cb_obor.Enter += new System.EventHandler(this.Cb_obor_Hledání);
@@ -430,7 +430,7 @@
             this.cb_garant.Location = new System.Drawing.Point(75, 97);
             this.cb_garant.Name = "cb_garant";
             this.cb_garant.Size = new System.Drawing.Size(139, 21);
-            this.cb_garant.TabIndex = 22;
+            this.cb_garant.TabIndex = 3;
             this.cb_garant.DropDown += new System.EventHandler(this.Cb_garant_Hledání);
             this.cb_garant.Enter += new System.EventHandler(this.Cb_garant_Hledání);
             // 
@@ -439,14 +439,14 @@
             this.nud_kredit.Location = new System.Drawing.Point(335, 74);
             this.nud_kredit.Name = "nud_kredit";
             this.nud_kredit.Size = new System.Drawing.Size(69, 20);
-            this.nud_kredit.TabIndex = 21;
+            this.nud_kredit.TabIndex = 10;
             // 
             // tb_nazev
             // 
             this.tb_nazev.Location = new System.Drawing.Point(74, 71);
             this.tb_nazev.Name = "tb_nazev";
             this.tb_nazev.Size = new System.Drawing.Size(139, 20);
-            this.tb_nazev.TabIndex = 5;
+            this.tb_nazev.TabIndex = 2;
             // 
             // databaseAppDataSet
             // 
@@ -466,6 +466,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCUPredmet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCUPredmet";
             this.Load += new System.EventHandler(this.FormCUPredmet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_cvk)).EndInit();

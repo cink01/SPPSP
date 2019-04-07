@@ -137,7 +137,7 @@
             this.vypisPopisPredmet.Prerekvizita = "";
             this.vypisPopisPredmet.Semestr = "";
             this.vypisPopisPredmet.Size = new System.Drawing.Size(388, 341);
-            this.vypisPopisPredmet.TabIndex = 9;
+            this.vypisPopisPredmet.TabIndex = 20;
             this.vypisPopisPredmet.Zakončení = "";
             this.vypisPopisPredmet.Zkr = "";
             // 
@@ -217,6 +217,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormPridavani";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormPridavani";
             ((System.ComponentModel.ISupportInitialize)(this.nud_kredity)).EndInit();
             this.ResumeLayout(false);

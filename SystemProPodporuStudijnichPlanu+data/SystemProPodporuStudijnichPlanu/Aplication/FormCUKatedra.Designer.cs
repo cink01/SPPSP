@@ -51,7 +51,7 @@
             this.bt_close.Location = new System.Drawing.Point(102, 90);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 4;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -65,7 +65,7 @@
             this.bt_ok.Location = new System.Drawing.Point(18, 90);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(75, 23);
-            this.bt_ok.TabIndex = 2;
+            this.bt_ok.TabIndex = 3;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
@@ -75,14 +75,14 @@
             this.tb_zkr.Location = new System.Drawing.Point(54, 64);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
-            this.tb_zkr.TabIndex = 4;
+            this.tb_zkr.TabIndex = 2;
             // 
             // tb_název
             // 
             this.tb_název.Location = new System.Drawing.Point(54, 38);
             this.tb_název.Name = "tb_název";
             this.tb_název.Size = new System.Drawing.Size(138, 20);
-            this.tb_název.TabIndex = 5;
+            this.tb_název.TabIndex = 1;
             // 
             // tb_id
             // 
@@ -91,7 +91,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
-            this.tb_id.TabIndex = 6;
+            this.tb_id.TabIndex = 0;
             // 
             // l_id
             // 
@@ -151,6 +151,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCUKatedra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCUKatedra";
             this.gb_katedra.ResumeLayout(false);
             this.gb_katedra.PerformLayout();

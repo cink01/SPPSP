@@ -101,6 +101,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.V = o.V_obor.ToString();
                 v.Vs = o.Vs_obor.ToString();
                 v.Praxe = o.Praxe;
+                v.Zaver = o.Zaver;
             }
             catch { }
         }

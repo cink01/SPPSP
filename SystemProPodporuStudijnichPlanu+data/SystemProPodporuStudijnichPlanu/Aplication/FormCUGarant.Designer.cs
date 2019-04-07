@@ -56,7 +56,7 @@
             this.bt_close.Location = new System.Drawing.Point(143, 193);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 7;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -69,7 +69,7 @@
             this.bt_ok.Location = new System.Drawing.Point(53, 193);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
-            this.bt_ok.TabIndex = 2;
+            this.bt_ok.TabIndex = 6;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
@@ -110,7 +110,7 @@
             this.cmb_katedra.Location = new System.Drawing.Point(117, 144);
             this.cmb_katedra.Name = "cmb_katedra";
             this.cmb_katedra.Size = new System.Drawing.Size(138, 21);
-            this.cmb_katedra.TabIndex = 14;
+            this.cmb_katedra.TabIndex = 5;
             this.cmb_katedra.DropDown += new System.EventHandler(this.Kat_Hledani);
             // 
             // label1
@@ -136,14 +136,14 @@
             this.tb_tel.Location = new System.Drawing.Point(117, 92);
             this.tb_tel.Name = "tb_tel";
             this.tb_tel.Size = new System.Drawing.Size(138, 20);
-            this.tb_tel.TabIndex = 10;
+            this.tb_tel.TabIndex = 3;
             // 
             // tb_konz
             // 
             this.tb_konz.Location = new System.Drawing.Point(117, 118);
             this.tb_konz.Name = "tb_konz";
             this.tb_konz.Size = new System.Drawing.Size(138, 20);
-            this.tb_konz.TabIndex = 11;
+            this.tb_konz.TabIndex = 4;
             // 
             // tb_id
             // 
@@ -151,7 +151,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
-            this.tb_id.TabIndex = 6;
+            this.tb_id.TabIndex = 0;
             // 
             // l_email
             // 
@@ -185,14 +185,14 @@
             this.tb_jm.Location = new System.Drawing.Point(117, 40);
             this.tb_jm.Name = "tb_jm";
             this.tb_jm.Size = new System.Drawing.Size(138, 20);
-            this.tb_jm.TabIndex = 4;
+            this.tb_jm.TabIndex = 1;
             // 
             // tb_email
             // 
             this.tb_email.Location = new System.Drawing.Point(117, 66);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(138, 20);
-            this.tb_email.TabIndex = 5;
+            this.tb_email.TabIndex = 2;
             // 
             // FormCUGarant
             // 
@@ -209,6 +209,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCUGarant";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCUGarant";
             this.gb_garant.ResumeLayout(false);
             this.gb_garant.PerformLayout();

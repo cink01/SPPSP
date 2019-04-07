@@ -32,6 +32,8 @@
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
             this.gb_obor = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rtb_zaver = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rtb_praxe = new System.Windows.Forms.RichTextBox();
             this.nud_vs = new System.Windows.Forms.NumericUpDown();
@@ -64,10 +66,10 @@
             this.bt_close.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(262, 189);
+            this.bt_close.Location = new System.Drawing.Point(252, 249);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(69, 23);
-            this.bt_close.TabIndex = 3;
+            this.bt_close.TabIndex = 11;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -78,16 +80,18 @@
             this.bt_ok.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(139, 189);
+            this.bt_ok.Location = new System.Drawing.Point(142, 249);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(63, 23);
-            this.bt_ok.TabIndex = 2;
+            this.bt_ok.TabIndex = 10;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
             // 
             // gb_obor
             // 
+            this.gb_obor.Controls.Add(this.label7);
+            this.gb_obor.Controls.Add(this.rtb_zaver);
             this.gb_obor.Controls.Add(this.label6);
             this.gb_obor.Controls.Add(this.rtb_praxe);
             this.gb_obor.Controls.Add(this.nud_vs);
@@ -110,10 +114,27 @@
             this.gb_obor.Controls.Add(this.tb_nazev);
             this.gb_obor.Location = new System.Drawing.Point(4, 2);
             this.gb_obor.Name = "gb_obor";
-            this.gb_obor.Size = new System.Drawing.Size(469, 218);
+            this.gb_obor.Size = new System.Drawing.Size(469, 285);
             this.gb_obor.TabIndex = 12;
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Obor";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 186);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Informace o závěrečné zkoušce";
+            // 
+            // rtb_zaver
+            // 
+            this.rtb_zaver.Location = new System.Drawing.Point(17, 202);
+            this.rtb_zaver.Name = "rtb_zaver";
+            this.rtb_zaver.Size = new System.Drawing.Size(436, 41);
+            this.rtb_zaver.TabIndex = 5;
+            this.rtb_zaver.Text = "";
             // 
             // label6
             // 
@@ -129,7 +150,7 @@
             this.rtb_praxe.Location = new System.Drawing.Point(17, 142);
             this.rtb_praxe.Name = "rtb_praxe";
             this.rtb_praxe.Size = new System.Drawing.Size(436, 41);
-            this.rtb_praxe.TabIndex = 21;
+            this.rtb_praxe.TabIndex = 4;
             this.rtb_praxe.Text = "";
             // 
             // nud_vs
@@ -142,7 +163,7 @@
             0});
             this.nud_vs.Name = "nud_vs";
             this.nud_vs.Size = new System.Drawing.Size(59, 20);
-            this.nud_vs.TabIndex = 20;
+            this.nud_vs.TabIndex = 9;
             // 
             // nud_v
             // 
@@ -154,7 +175,7 @@
             0});
             this.nud_v.Name = "nud_v";
             this.nud_v.Size = new System.Drawing.Size(59, 20);
-            this.nud_v.TabIndex = 19;
+            this.nud_v.TabIndex = 8;
             // 
             // nud_pv
             // 
@@ -166,7 +187,7 @@
             0});
             this.nud_pv.Name = "nud_pv";
             this.nud_pv.Size = new System.Drawing.Size(59, 20);
-            this.nud_pv.TabIndex = 18;
+            this.nud_pv.TabIndex = 7;
             // 
             // nud_p
             // 
@@ -178,7 +199,7 @@
             0});
             this.nud_p.Name = "nud_p";
             this.nud_p.Size = new System.Drawing.Size(59, 20);
-            this.nud_p.TabIndex = 17;
+            this.nud_p.TabIndex = 6;
             // 
             // label5
             // 
@@ -230,7 +251,7 @@
             this.tb_rok.Location = new System.Drawing.Point(67, 97);
             this.tb_rok.Name = "tb_rok";
             this.tb_rok.Size = new System.Drawing.Size(138, 20);
-            this.tb_rok.TabIndex = 10;
+            this.tb_rok.TabIndex = 3;
             // 
             // tb_id
             // 
@@ -238,7 +259,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(63, 20);
-            this.tb_id.TabIndex = 6;
+            this.tb_id.TabIndex = 0;
             // 
             // l_email
             // 
@@ -272,14 +293,14 @@
             this.tb_zkr.Location = new System.Drawing.Point(67, 45);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
-            this.tb_zkr.TabIndex = 4;
+            this.tb_zkr.TabIndex = 1;
             // 
             // tb_nazev
             // 
             this.tb_nazev.Location = new System.Drawing.Point(67, 71);
             this.tb_nazev.Name = "tb_nazev";
             this.tb_nazev.Size = new System.Drawing.Size(138, 20);
-            this.tb_nazev.TabIndex = 5;
+            this.tb_nazev.TabIndex = 2;
             // 
             // FormCUObor
             // 
@@ -288,12 +309,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(476, 232);
+            this.ClientSize = new System.Drawing.Size(476, 290);
             this.Controls.Add(this.gb_obor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCUObor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCUObor";
             this.gb_obor.ResumeLayout(false);
             this.gb_obor.PerformLayout();
@@ -328,5 +350,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox rtb_praxe;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox rtb_zaver;
     }
 }

@@ -68,7 +68,7 @@
             0});
             this.nud_semestr.Name = "nud_semestr";
             this.nud_semestr.Size = new System.Drawing.Size(48, 20);
-            this.nud_semestr.TabIndex = 3;
+            this.nud_semestr.TabIndex = 1;
             this.nud_semestr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nud_semestr.Value = new decimal(new int[] {
             6,
@@ -84,7 +84,7 @@
             this.cmb_obor.Location = new System.Drawing.Point(95, 96);
             this.cmb_obor.Name = "cmb_obor";
             this.cmb_obor.Size = new System.Drawing.Size(138, 21);
-            this.cmb_obor.TabIndex = 2;
+            this.cmb_obor.TabIndex = 3;
             this.cmb_obor.DropDown += new System.EventHandler(this.Cmb_obor_DropDown);
             this.cmb_obor.SelectedIndexChanged += new System.EventHandler(this.Cmb_obor_SelectedIndexChanged);
             this.cmb_obor.Validating += new System.ComponentModel.CancelEventHandler(this.Cmb_obor_Validating);
@@ -95,10 +95,10 @@
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_close.Location = new System.Drawing.Point(147, 198);
+            this.bt_close.Location = new System.Drawing.Point(144, 263);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 23);
-            this.bt_close.TabIndex = 5;
+            this.bt_close.TabIndex = 6;
             this.bt_close.Text = "Zavřít";
             this.bt_close.UseVisualStyleBackColor = false;
             this.bt_close.Click += new System.EventHandler(this.Bt_close_Click);
@@ -108,10 +108,10 @@
             this.bt_ok.BackColor = System.Drawing.Color.Lime;
             this.bt_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_ok.Location = new System.Drawing.Point(44, 198);
+            this.bt_ok.Location = new System.Drawing.Point(41, 263);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(84, 23);
-            this.bt_ok.TabIndex = 4;
+            this.bt_ok.TabIndex = 5;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.Bt_ok_Click);
@@ -127,7 +127,7 @@
             this.gb_Zaznam.Controls.Add(this.l_id);
             this.gb_Zaznam.Controls.Add(this.tb_zkr);
             this.gb_Zaznam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gb_Zaznam.Location = new System.Drawing.Point(6, 0);
+            this.gb_Zaznam.Location = new System.Drawing.Point(3, 65);
             this.gb_Zaznam.Name = "gb_Zaznam";
             this.gb_Zaznam.Size = new System.Drawing.Size(260, 128);
             this.gb_Zaznam.TabIndex = 12;
@@ -150,7 +150,7 @@
             this.tb_id.Name = "tb_id";
             this.tb_id.ReadOnly = true;
             this.tb_id.Size = new System.Drawing.Size(48, 20);
-            this.tb_id.TabIndex = 7;
+            this.tb_id.TabIndex = 0;
             this.tb_id.Text = "-";
             // 
             // l_email
@@ -186,7 +186,7 @@
             this.tb_zkr.Location = new System.Drawing.Point(95, 70);
             this.tb_zkr.Name = "tb_zkr";
             this.tb_zkr.Size = new System.Drawing.Size(138, 20);
-            this.tb_zkr.TabIndex = 1;
+            this.tb_zkr.TabIndex = 2;
             this.tb_zkr.Validating += new System.ComponentModel.CancelEventHandler(this.Tb_zkr_Validating);
             // 
             // bt_info
@@ -195,10 +195,10 @@
             this.bt_info.Cursor = System.Windows.Forms.Cursors.Help;
             this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bt_info.Location = new System.Drawing.Point(128, 198);
+            this.bt_info.Location = new System.Drawing.Point(125, 263);
             this.bt_info.Name = "bt_info";
             this.bt_info.Size = new System.Drawing.Size(19, 23);
-            this.bt_info.TabIndex = 6;
+            this.bt_info.TabIndex = 4;
             this.bt_info.Text = "?";
             this.bt_info.UseVisualStyleBackColor = false;
             this.bt_info.Visible = false;
@@ -214,16 +214,17 @@
             // 
             // VypisObor_Zaznam
             // 
-            this.VypisObor_Zaznam.Location = new System.Drawing.Point(271, 2);
+            this.VypisObor_Zaznam.Location = new System.Drawing.Point(269, 2);
             this.VypisObor_Zaznam.Name = "VypisObor_Zaznam";
             this.VypisObor_Zaznam.P = "";
             this.VypisObor_Zaznam.Praxe = "";
             this.VypisObor_Zaznam.Pv = "";
             this.VypisObor_Zaznam.Rok = "";
-            this.VypisObor_Zaznam.Size = new System.Drawing.Size(388, 229);
-            this.VypisObor_Zaznam.TabIndex = 13;
+            this.VypisObor_Zaznam.Size = new System.Drawing.Size(386, 317);
+            this.VypisObor_Zaznam.TabIndex = 10;
             this.VypisObor_Zaznam.V = "";
             this.VypisObor_Zaznam.Vs = "";
+            this.VypisObor_Zaznam.Zaver = "";
             this.VypisObor_Zaznam.Zkr = "";
             // 
             // FormCUZaznam
@@ -233,10 +234,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(663, 233);
+            this.ClientSize = new System.Drawing.Size(658, 321);
+            this.Controls.Add(this.VypisObor_Zaznam);
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.bt_info);
-            this.Controls.Add(this.VypisObor_Zaznam);
             this.Controls.Add(this.gb_Zaznam);
             this.Controls.Add(this.bt_ok);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

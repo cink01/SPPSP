@@ -45,6 +45,8 @@
             this.tb_pv = new System.Windows.Forms.TextBox();
             this.tb_p = new System.Windows.Forms.TextBox();
             this.l_popis = new System.Windows.Forms.Label();
+            this.rtb_zaver = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gb_obor.SuspendLayout();
             this.gb_základ.SuspendLayout();
             this.gb_vyuc.SuspendLayout();
@@ -52,13 +54,15 @@
             // 
             // gb_obor
             // 
+            this.gb_obor.Controls.Add(this.rtb_zaver);
+            this.gb_obor.Controls.Add(this.label1);
             this.gb_obor.Controls.Add(this.rtb_praxe);
             this.gb_obor.Controls.Add(this.gb_základ);
             this.gb_obor.Controls.Add(this.gb_vyuc);
             this.gb_obor.Controls.Add(this.l_popis);
             this.gb_obor.Location = new System.Drawing.Point(1, -2);
             this.gb_obor.Name = "gb_obor";
-            this.gb_obor.Size = new System.Drawing.Size(383, 224);
+            this.gb_obor.Size = new System.Drawing.Size(383, 318);
             this.gb_obor.TabIndex = 1;
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Informace oboru";
@@ -220,13 +224,32 @@
             this.l_popis.TabIndex = 6;
             this.l_popis.Text = "Praxe:";
             // 
+            // rtb_zaver
+            // 
+            this.rtb_zaver.BackColor = System.Drawing.Color.White;
+            this.rtb_zaver.Location = new System.Drawing.Point(6, 238);
+            this.rtb_zaver.Name = "rtb_zaver";
+            this.rtb_zaver.ReadOnly = true;
+            this.rtb_zaver.Size = new System.Drawing.Size(371, 76);
+            this.rtb_zaver.TabIndex = 24;
+            this.rtb_zaver.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Státní závěrečná zkouška:";
+            // 
             // VypisObor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_obor);
             this.Name = "VypisObor";
-            this.Size = new System.Drawing.Size(386, 221);
+            this.Size = new System.Drawing.Size(386, 317);
             this.gb_obor.ResumeLayout(false);
             this.gb_obor.PerformLayout();
             this.gb_základ.ResumeLayout(false);
@@ -256,5 +279,7 @@
         private System.Windows.Forms.TextBox tb_pv;
         private System.Windows.Forms.TextBox tb_p;
         private System.Windows.Forms.Label l_popis;
+        private System.Windows.Forms.RichTextBox rtb_zaver;
+        private System.Windows.Forms.Label label1;
     }
 }

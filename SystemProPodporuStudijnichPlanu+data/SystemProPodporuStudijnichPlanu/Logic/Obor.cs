@@ -2,7 +2,7 @@
 {
     public class Obor
     {
-        public Obor(string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="")
+        public Obor(string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="",string zaver ="")
         //Konstruktor bez umělého klíče
         {
             Zkr_obor = zkr_obor;
@@ -13,8 +13,9 @@
             V_obor = v_obor;
             Vs_obor = vs_obor;
             Praxe = praxe;
+            Zaver = zaver;
         }
-        public Obor(int id_obor, string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="")
+        public Obor(int id_obor, string zkr_obor, string name_obor, string rok_obor, int p_obor, int pv_obor, int v_obor, int vs_obor,string praxe="",string zaver="")
         //full Konstructor
         {
             Id_obor = id_obor;
@@ -26,6 +27,7 @@
             V_obor = v_obor;
             Vs_obor = vs_obor;
             Praxe = praxe;
+            Zaver = zaver;
         }
         public override string ToString() => Name_obor;
         public int ToInt() => Id_obor;
@@ -38,5 +40,6 @@
         public int V_obor { get; set; }
         public int Vs_obor { get; set; }
         public string Praxe { get; set; }
+        public string Zaver { get; set; }
     }
 }

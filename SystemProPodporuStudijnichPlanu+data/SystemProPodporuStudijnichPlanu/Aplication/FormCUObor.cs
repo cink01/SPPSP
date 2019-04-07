@@ -9,7 +9,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get
             {
-                return new Obor(Id, tb_zkr.Text, tb_nazev.Text, tb_rok.Text, Convert.ToInt32(nud_p.Value), Convert.ToInt32(nud_pv.Value), Convert.ToInt32(nud_v.Value), Convert.ToInt32(nud_vs.Value), rtb_praxe.Text);
+                return new Obor(Id, tb_zkr.Text, tb_nazev.Text, tb_rok.Text, Convert.ToInt32(nud_p.Value), Convert.ToInt32(nud_pv.Value), Convert.ToInt32(nud_v.Value), Convert.ToInt32(nud_vs.Value), rtb_praxe.Text, rtb_zaver.Text);
             }
             set
             {
@@ -23,6 +23,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                 nud_v.Value = O.V_obor;
                 nud_vs.Value = O.Vs_obor;
                 rtb_praxe.Text = O.Praxe;
+                rtb_zaver.Text = O.Zaver;
             }
         }
         public string Rok
@@ -75,6 +76,11 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             get => rtb_praxe.Text;
             set => rtb_praxe.Text = value;
+        }
+        public string Zaver
+        {
+            get => rtb_zaver.Text;
+            set => rtb_zaver.Text = value;
         }
         public FormCUObor()
         {

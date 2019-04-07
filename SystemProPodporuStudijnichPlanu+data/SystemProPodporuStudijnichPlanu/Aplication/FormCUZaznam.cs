@@ -119,9 +119,14 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if (tb_zkr.Text != "" && cmb_obor.SelectedIndex != -1)
+            {
                 this.DialogResult = DialogResult.OK;
-            /*else
-                MessageBox.Show("Všechny požadované políčka musí byt vyplněny.");*/
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Všechny požadované políčka musí byt vyplněny.");
+            }
         }
 
         private void Bt_close_Click(object sender, EventArgs e)

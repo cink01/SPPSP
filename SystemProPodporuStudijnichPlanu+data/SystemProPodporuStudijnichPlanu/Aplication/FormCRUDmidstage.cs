@@ -119,7 +119,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                                               o.Pv,
                                               o.V,
                                               o.Vs,
-                                              o.Praxe));
+                                              o.Praxe,
+                                              o.Zaver));
                         DataAccess da = new DataAccess();
                         obors = da.GetFullObor();
                         MessageBox.Show(Properties.Resources.Vlozeno_MESSAGE, Properties.Resources.Vlozeno_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -353,6 +354,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
                         Obo.V = o.V_obor;
                         Obo.Vs = o.Vs_obor;
                         Obo.Praxe = o.Praxe;
+                        Obo.Zaver = o.Zaver;
                         MessageBox.Show(Properties.Resources.Uprava_MESSAGE, Properties.Resources.Uprava_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -765,29 +767,36 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             gb_g.Visible = gb_k.Visible = gb_o.Visible = gb_p.Visible = false;
             gb_g.Left = gb_k.Left = gb_o.Left = gb_p.Left = 3;
             cb_garant.Text = cb_kat.Text = cb_obo.Text = cb_pre.Text = "";
-            vypisGarant_Mid.Location = VypisOborMid.Location = vypisPopisPredmetMid.Location = new Point(186, 30/*78*/);
+            vypisGarant_Mid.Location =  new Point(186, 30);
+            VypisOborMid.Location = new Point(186, 29);
+            vypisPopisPredmetMid.Location = new Point(186, 28);
             vypisGarant_Mid.Visible = VypisOborMid.Visible = vypisPopisPredmetMid.Visible = false;
             switch (vyber)
             {
                 case 1:
                     gb_o.Visible = true;
-                    this.Size = new Size(590, 426);
+                    this.Size = new Size(590, 387);
                     break;
                 case 2:
                     gb_k.Visible = true;
-                    this.Size = new Size(205, 426);
+                    this.Size = new Size(205, 370);
                     break;
                 case 3:
                     gb_g.Visible = true;
-                    this.Size = new Size(491, 426);
+                    this.Size = new Size(491, 370);
                     break;
                 case 4:
                     gb_p.Visible = true;
-                    this.Size = new Size(590, 426);
+                    this.Size = new Size(590, 405);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void Gb_g_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

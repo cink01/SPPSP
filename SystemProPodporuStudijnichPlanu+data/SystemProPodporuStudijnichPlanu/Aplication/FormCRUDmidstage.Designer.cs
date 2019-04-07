@@ -66,12 +66,11 @@
             this.přidatPopisyKPředmětůmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.vypisGarant_Mid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
-            this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             this.kb_e = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_n = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_d = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.toolTip_crud = new System.Windows.Forms.ToolTip(this.components);
-            this.progressBar_nacitani = new System.Windows.Forms.ProgressBar();
+            this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             this.gb_vyber.SuspendLayout();
             this.gb_k.SuspendLayout();
             this.gb_o.SuspendLayout();
@@ -89,7 +88,7 @@
             this.bt_close.Location = new System.Drawing.Point(110, 306);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 16;
+            this.bt_close.TabIndex = 6;
             this.bt_close.Text = "Zavřít";
             this.toolTip_crud.SetToolTip(this.bt_close, "Zavřít okno vyhledávání");
             this.bt_close.UseVisualStyleBackColor = false;
@@ -194,7 +193,7 @@
             this.gb_vyber.Location = new System.Drawing.Point(3, 27);
             this.gb_vyber.Name = "gb_vyber";
             this.gb_vyber.Size = new System.Drawing.Size(181, 112);
-            this.gb_vyber.TabIndex = 13;
+            this.gb_vyber.TabIndex = 0;
             this.gb_vyber.TabStop = false;
             this.gb_vyber.Text = "Vyberte s čím chcete pracovat";
             this.toolTip_crud.SetToolTip(this.gb_vyber, "Zde zvolte pro zobrazení");
@@ -206,7 +205,7 @@
             this.gb_k.Location = new System.Drawing.Point(3, 141);
             this.gb_k.Name = "gb_k";
             this.gb_k.Size = new System.Drawing.Size(182, 67);
-            this.gb_k.TabIndex = 20;
+            this.gb_k.TabIndex = 5;
             this.gb_k.TabStop = false;
             this.gb_k.Text = "Výběr a vyhledávání kateder";
             // 
@@ -236,7 +235,7 @@
             this.gb_o.Location = new System.Drawing.Point(186, 141);
             this.gb_o.Name = "gb_o";
             this.gb_o.Size = new System.Drawing.Size(182, 67);
-            this.gb_o.TabIndex = 21;
+            this.gb_o.TabIndex = 5;
             this.gb_o.TabStop = false;
             this.gb_o.Text = "Výběr a vyhledávání oborů";
             // 
@@ -269,9 +268,10 @@
             this.gb_g.Location = new System.Drawing.Point(365, 141);
             this.gb_g.Name = "gb_g";
             this.gb_g.Size = new System.Drawing.Size(182, 106);
-            this.gb_g.TabIndex = 22;
+            this.gb_g.TabIndex = 5;
             this.gb_g.TabStop = false;
             this.gb_g.Text = "Výběr a vyhledávání garantů";
+            this.gb_g.Enter += new System.EventHandler(this.Gb_g_Enter);
             // 
             // label3
             // 
@@ -324,7 +324,7 @@
             this.gb_p.Location = new System.Drawing.Point(546, 141);
             this.gb_p.Name = "gb_p";
             this.gb_p.Size = new System.Drawing.Size(182, 156);
-            this.gb_p.TabIndex = 23;
+            this.gb_p.TabIndex = 5;
             this.gb_p.TabStop = false;
             this.gb_p.Text = "Výběr a vyhledávání předmětů";
             // 
@@ -497,21 +497,6 @@
             this.vypisGarant_Mid.Telefon = "";
             this.vypisGarant_Mid.Visible = false;
             // 
-            // VypisOborMid
-            // 
-            this.VypisOborMid.Location = new System.Drawing.Point(293, 289);
-            this.VypisOborMid.Name = "VypisOborMid";
-            this.VypisOborMid.P = "";
-            this.VypisOborMid.Praxe = "";
-            this.VypisOborMid.Pv = "";
-            this.VypisOborMid.Rok = "";
-            this.VypisOborMid.Size = new System.Drawing.Size(386, 223);
-            this.VypisOborMid.TabIndex = 29;
-            this.VypisOborMid.V = "";
-            this.VypisOborMid.Visible = false;
-            this.VypisOborMid.Vs = "";
-            this.VypisOborMid.Zkr = "";
-            // 
             // kb_e
             // 
             this.kb_e.BackColor = System.Drawing.Color.DarkOrange;
@@ -521,7 +506,7 @@
             this.kb_e.Location = new System.Drawing.Point(39, 306);
             this.kb_e.Name = "kb_e";
             this.kb_e.Size = new System.Drawing.Size(25, 25);
-            this.kb_e.TabIndex = 98;
+            this.kb_e.TabIndex = 8;
             this.toolTip_crud.SetToolTip(this.kb_e, "Upravit vybraný");
             this.kb_e.UseVisualStyleBackColor = false;
             this.kb_e.Visible = false;
@@ -536,7 +521,7 @@
             this.kb_n.Location = new System.Drawing.Point(9, 305);
             this.kb_n.Name = "kb_n";
             this.kb_n.Size = new System.Drawing.Size(25, 25);
-            this.kb_n.TabIndex = 96;
+            this.kb_n.TabIndex = 7;
             this.toolTip_crud.SetToolTip(this.kb_n, "Vytvořit nový");
             this.kb_n.UseVisualStyleBackColor = false;
             this.kb_n.Visible = false;
@@ -551,18 +536,25 @@
             this.kb_d.Location = new System.Drawing.Point(68, 306);
             this.kb_d.Name = "kb_d";
             this.kb_d.Size = new System.Drawing.Size(25, 25);
-            this.kb_d.TabIndex = 97;
+            this.kb_d.TabIndex = 9;
             this.toolTip_crud.SetToolTip(this.kb_d, "smazat vybraný");
             this.kb_d.UseVisualStyleBackColor = false;
             this.kb_d.Visible = false;
             this.kb_d.Click += new System.EventHandler(this.Bt_smazat_Click);
             // 
-            // progressBar_nacitani
+            // VypisOborMid
             // 
-            this.progressBar_nacitani.Location = new System.Drawing.Point(3, 337);
-            this.progressBar_nacitani.Name = "progressBar_nacitani";
-            this.progressBar_nacitani.Size = new System.Drawing.Size(182, 23);
-            this.progressBar_nacitani.TabIndex = 99;
+            this.VypisOborMid.Location = new System.Drawing.Point(323, 303);
+            this.VypisOborMid.Name = "VypisOborMid";
+            this.VypisOborMid.P = "";
+            this.VypisOborMid.Praxe = "";
+            this.VypisOborMid.Pv = "";
+            this.VypisOborMid.Rok = "";
+            this.VypisOborMid.Size = new System.Drawing.Size(386, 317);
+            this.VypisOborMid.TabIndex = 100;
+            this.VypisOborMid.V = "";
+            this.VypisOborMid.Vs = "";
+            this.VypisOborMid.Zkr = "";
             // 
             // FormCRUDmidstage
             // 
@@ -571,12 +563,11 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(1113, 512);
-            this.Controls.Add(this.progressBar_nacitani);
+            this.ClientSize = new System.Drawing.Size(1113, 606);
+            this.Controls.Add(this.VypisOborMid);
             this.Controls.Add(this.kb_e);
             this.Controls.Add(this.kb_n);
             this.Controls.Add(this.kb_d);
-            this.Controls.Add(this.VypisOborMid);
             this.Controls.Add(this.vypisPopisPredmetMid);
             this.Controls.Add(this.vypisGarant_Mid);
             this.Controls.Add(this.gb_p);
@@ -593,6 +584,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMID;
             this.Name = "FormCRUDmidstage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCRUDmidstage";
             this.Load += new System.EventHandler(this.FormCRUDmidstage_Load);
             this.gb_vyber.ResumeLayout(false);
@@ -650,11 +642,10 @@
         private System.Windows.Forms.ToolStripMenuItem naplnitDatabáziToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem přidatPopisyKPředmětůmToolStripMenuItem;
         private Komponenty.VypisGarant vypisGarant_Mid;
-        private Komponenty.VypisObor VypisOborMid;
         private Icons.KulateButton kb_e;
         private Icons.KulateButton kb_n;
         private Icons.KulateButton kb_d;
         private System.Windows.Forms.ToolTip toolTip_crud;
-        private System.Windows.Forms.ProgressBar progressBar_nacitani;
+        private Komponenty.VypisObor VypisOborMid;
     }
 }
