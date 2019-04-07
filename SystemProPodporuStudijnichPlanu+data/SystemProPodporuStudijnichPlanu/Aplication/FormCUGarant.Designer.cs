@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCUGarant));
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_ok = new System.Windows.Forms.Button();
@@ -44,7 +45,9 @@
             this.l_id = new System.Windows.Forms.Label();
             this.tb_jm = new System.Windows.Forms.TextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
+            this.errorProvider_EMAIL = new System.Windows.Forms.ErrorProvider(this.components);
             this.gb_garant.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_EMAIL)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_close
@@ -193,6 +196,11 @@
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(138, 20);
             this.tb_email.TabIndex = 2;
+            this.tb_email.Validating += new System.ComponentModel.CancelEventHandler(this.Tb_email_Validating);
+            // 
+            // errorProvider_EMAIL
+            // 
+            this.errorProvider_EMAIL.ContainerControl = this;
             // 
             // FormCUGarant
             // 
@@ -213,6 +221,7 @@
             this.Text = "FormCUGarant";
             this.gb_garant.ResumeLayout(false);
             this.gb_garant.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_EMAIL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,5 +243,6 @@
         private System.Windows.Forms.Label l_id;
         private System.Windows.Forms.TextBox tb_jm;
         private System.Windows.Forms.TextBox tb_email;
+        private System.Windows.Forms.ErrorProvider errorProvider_EMAIL;
     }
 }

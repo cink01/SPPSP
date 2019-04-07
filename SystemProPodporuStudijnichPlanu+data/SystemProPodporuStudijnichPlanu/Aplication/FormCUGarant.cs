@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
+using System.Net.Mail;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -13,6 +14,9 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             InitializeComponent();
             DataAccess da = new DataAccess();
+            errorProvider_EMAIL.SetIconAlignment(tb_email, ErrorIconAlignment.MiddleRight);
+            errorProvider_EMAIL.SetIconPadding(tb_email, 2);
+            errorProvider_EMAIL.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
             katedras = da.GetFullKatedra();
             fill.NaplnComboBox<Katedra>(cmb_katedra, katedras);
         }
@@ -85,12 +89,34 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             fill.NajdiVComboBoxu<Katedra>(cmb_katedra, katedras);
         }
+        private bool ValidnidEmail(string email)
+        {
+            try
+            {
+                var adresa = new MailAddress(email);
+                return adresa.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void Bt_ok_Click(object sender, EventArgs e)
         {
             if (tb_jm.Text == "" || cmb_katedra.SelectedIndex == -1)
                 MessageBox.Show(Properties.Resources.NeedforGar_MESSAGE, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 this.DialogResult = DialogResult.OK;
+        }
+
+        private void Tb_email_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            errorProvider_EMAIL.Clear();
+            if (ValidnidEmail(tb_email.Text)==false)
+            {
+                errorProvider_EMAIL.SetError(tb_email, "Email není ve správném formátu");
+                e.Cancel = true;
+            }
         }
     }
 }
