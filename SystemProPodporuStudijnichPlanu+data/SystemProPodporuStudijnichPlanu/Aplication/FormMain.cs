@@ -277,6 +277,10 @@ namespace SystemProPodporuStudijnichPlanu
             for (int i = 1; i <= 12; i++)
                 ClearLB(i);
         }
+        /// <summary>
+        /// uvolnění dat v daném listu
+        /// </summary>
+        /// <param name="i">Semestr(označení listu)</param>
         public void ClearLB(int i)
         {
             ListBox x = VratListBox(i);
@@ -292,6 +296,9 @@ namespace SystemProPodporuStudijnichPlanu
         {
             VytvorZaznam();
         }
+        /// <summary>
+        /// funkce na tvorbu nového záznamu
+        /// </summary>
         private void VytvorZaznam()
         {
             using (FormCUZaznam Zaznam = new FormCUZaznam())
@@ -366,6 +373,10 @@ namespace SystemProPodporuStudijnichPlanu
                 }
             }
         }
+        /// <summary>
+        /// funkce měnící velikosti oken a zobrazování seznamů podle počtu semestrů
+        /// </summary>
+        /// <param name="i">Počet semestrů</param>
         private void ZměnyVeliZic(int i)
         {
             vypisPopisPredmet.Left = i > 6 ? 680 : 428;
@@ -381,6 +392,10 @@ namespace SystemProPodporuStudijnichPlanu
             this.Size = i > 6 ? new Size(1116, 731) : new Size(860, 731);
             Tma();
         }
+        /// <summary>
+        /// Funkce schovávající nepotřebná okna podle počtu semestrů
+        /// </summary>
+        /// <param name="i">Počet semstrů</param>
         private void Viditelnost(int i)
         {
             ZměnyVeliZic(i);
@@ -450,6 +465,9 @@ namespace SystemProPodporuStudijnichPlanu
                     break;
             }
         }
+        /// <summary>
+        /// Funkce schovávájící všechny komponenty na hlavním okně
+        /// </summary>
         public void Tma()
         {
             nud_KredSem12.Visible = nud_KredSem11.Visible = nud_KredSem10.Visible = nud_KredSem9.Visible = nud_KredSem8.Visible =
@@ -612,7 +630,7 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                 case 3:
                     {
-                       return predmetyS3;
+                        return predmetyS3;
                     }
                 case 2:
                     {
@@ -682,6 +700,11 @@ namespace SystemProPodporuStudijnichPlanu
                 default: break;
             }
         }
+        /// <summary>
+        /// funkce vrátí daný lisbox k danému semestru
+        /// </summary>
+        /// <param name="i">Semestr</param>
+        /// <returns></returns>
         private ListBox VratListBox(int i)
         {
             switch (i)
@@ -737,6 +760,11 @@ namespace SystemProPodporuStudijnichPlanu
             }
             return null;
         }
+        /// <summary>
+        /// funkce nastavý daný NumericUpDown na hodnotu sum
+        /// </summary>
+        /// <param name="sum">Požadováná hodnota</param>
+        /// <param name="vyber">Číslo NUDu podle semestru</param>
         private void VyberNudVal(decimal sum, int vyber)
         {
             switch (vyber)
@@ -791,6 +819,11 @@ namespace SystemProPodporuStudijnichPlanu
                     }
             }
         }
+        /// <summary>
+        /// Funkce vrátí decimal hodnotu daného NUD
+        /// </summary>
+        /// <param name="vyber">Semestr</param>
+        /// <returns></returns>
         private decimal VratNudVal(int vyber)
         {
             switch (vyber)
@@ -853,6 +886,14 @@ namespace SystemProPodporuStudijnichPlanu
             Filling f = new Filling();
             f.FillGarantDetail(VratListBox(urceniZvolenehoListu), vypisGarantMain);
         }
+        /// <summary>
+        /// funkce obsluhující stisknutí tlačítka na hlavním okně
+        /// 
+        /// Enter pro zobrazení detailu garanta vybraného semestru
+        /// Backspace  pro odstranění předmětu z listboxu semestru
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListyZmacknutiKlavesy(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -870,29 +911,29 @@ namespace SystemProPodporuStudijnichPlanu
         {
             if (cmb_zaznam.SelectedIndex != -1)
             {
-                try{
+                try
+                {
                     DataCrud dc = new DataCrud();
                     dc.DeleteZaznam(((Zaznam)cmb_zaznam.SelectedItem).Id_zaznam);
                     RefreshZaznamy();
-                }catch { }
+                }
+                catch { }
             }
         }
         private void Bt_addZaz_Click(object sender, EventArgs e)
         {
             vytvořitNovýZáznamToolStripMenuItem.PerformClick();
         }
-
         private void KulateButton1_Click(object sender, EventArgs e)
         {
             upravitZáznamToolStripMenuItem.PerformClick();
         }
-
         private void OAplikaciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Properties.Resources.oApp_MESSAGE, 
-                                Properties.Resources.oApp_TITLE, 
-                                MessageBoxButtons.YesNo, 
-                                MessageBoxIcon.Question) 
+            if (MessageBox.Show(Properties.Resources.oApp_MESSAGE,
+                                Properties.Resources.oApp_TITLE,
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
                 Process.Start("https://github.com/cink01/SPPSP/blob/master/dokumentace/ZP_VSPJ_SPPSP.docx");

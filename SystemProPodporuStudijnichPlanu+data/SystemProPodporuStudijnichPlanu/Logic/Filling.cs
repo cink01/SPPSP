@@ -282,25 +282,14 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             {
                 foreach (Predmet n in collection)
                 {
-                    if (n.Povinnost == "Povinný předmět" || n.Povinnost == "Cizí jazyk")
+                    switch (n.Povinnost)
                     {
-                        kr.Povinne += n.Kredit_predmet;
-                        continue;
-                    }
-                    if (n.Povinnost == "Volitelný předmět")
-                    {
-                        kr.Volitelny += n.Kredit_predmet;
-                        continue;
-                    }
-                    if (n.Povinnost == "Povinně volitelný")
-                    {
-                        kr.PVolitelny += n.Kredit_predmet;
-                        continue;
-                    }
-                    if (n.Povinnost == "Volitelný předmět (sportovní aktivita)")
-                    {
-                        kr.Sport += n.Kredit_predmet;
-                        continue;
+                        case "Povinný předmět": 
+                        case "Cizí jazyk": kr.Povinne += n.Kredit_predmet; break;
+                        case "Povinně volitelný": kr.PVolitelny += n.Kredit_predmet; break;
+                        case "Volitelný předmět": kr.Volitelny += n.Kredit_predmet; break;
+                        case "Volitelný předmět (sportovní aktivita)": kr.Sport += n.Kredit_predmet; break;
+                        default: break;
                     }
                 }
             }
