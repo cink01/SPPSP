@@ -16,6 +16,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             InitializeComponent();
             DataAccess da = new DataAccess();
             this.BackColor = Color.White;
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
             errorProvider_EMAIL.SetIconAlignment(tb_email, ErrorIconAlignment.MiddleRight);
             errorProvider_EMAIL.SetIconPadding(tb_email, 2);
             errorProvider_EMAIL.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;

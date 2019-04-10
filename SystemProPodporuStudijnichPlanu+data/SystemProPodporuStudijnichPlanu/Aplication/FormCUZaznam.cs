@@ -64,6 +64,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             Filling fill = new Filling();
             InitializeComponent();
             this.BackColor = Color.White;
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
             errorProvider_Zaznam_zkratka.SetIconAlignment(tb_zkr, ErrorIconAlignment.MiddleRight);
             errorProvider_Zaznam_zkratka.SetIconPadding(tb_zkr, 2);
             errorProvider_Zaznam_zkratka.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
@@ -135,6 +136,8 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
 
         private void Bt_close_Click(object sender, EventArgs e)
         {
+            errorProvider_Zaznam_zkratka.Clear();
+            errorProvider_Zaznam_obor.Clear();
             Close();
         }
     }
