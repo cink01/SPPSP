@@ -185,7 +185,7 @@
             // oAplikaciToolStripMenuItem
             // 
             this.oAplikaciToolStripMenuItem.Name = "oAplikaciToolStripMenuItem";
-            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oAplikaciToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.oAplikaciToolStripMenuItem.Text = "O aplikaci";
             this.oAplikaciToolStripMenuItem.Click += new System.EventHandler(this.OAplikaciToolStripMenuItem_Click);
             // 
@@ -1014,7 +1014,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1094, 688);
             this.Controls.Add(this.gb_max);
             this.Controls.Add(this.menuStripMain);

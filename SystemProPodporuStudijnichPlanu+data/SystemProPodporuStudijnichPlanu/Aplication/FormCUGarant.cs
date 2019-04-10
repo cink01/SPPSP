@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 using System.Net.Mail;
+using System.Drawing;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -14,6 +15,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             InitializeComponent();
             DataAccess da = new DataAccess();
+            this.BackColor = Color.White;
             errorProvider_EMAIL.SetIconAlignment(tb_email, ErrorIconAlignment.MiddleRight);
             errorProvider_EMAIL.SetIconPadding(tb_email, 2);
             errorProvider_EMAIL.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;

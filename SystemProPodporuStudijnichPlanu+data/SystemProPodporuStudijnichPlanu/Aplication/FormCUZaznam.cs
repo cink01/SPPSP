@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
@@ -62,6 +63,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
             DataAccess da = new DataAccess();
             Filling fill = new Filling();
             InitializeComponent();
+            this.BackColor = Color.White;
             errorProvider_Zaznam_zkratka.SetIconAlignment(tb_zkr, ErrorIconAlignment.MiddleRight);
             errorProvider_Zaznam_zkratka.SetIconPadding(tb_zkr, 2);
             errorProvider_Zaznam_zkratka.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;

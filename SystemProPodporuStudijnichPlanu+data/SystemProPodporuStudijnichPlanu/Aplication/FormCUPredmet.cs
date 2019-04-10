@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
+using System.Drawing;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
 {
@@ -14,6 +15,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         {
             Filling fill = new Filling();
             InitializeComponent();
+            this.BackColor = Color.White;
             DataAccess da = new DataAccess();
             obors = da.GetFullObor();
             garants = da.GetFullGarant();

@@ -19,6 +19,7 @@ namespace SystemProPodporuStudijnichPlanu
         public FormMain()
         {
             InitializeComponent();
+            this.BackColor = Color.White;
             RefreshZaznamy("Doporučené AI");
             //  menuStripMain.BackColor = ColorTranslator.FromHtml("#e8212e");
             VyplnPotrebnyZeZaznamu();
@@ -936,7 +937,7 @@ namespace SystemProPodporuStudijnichPlanu
                                 MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
-                Process.Start("https://github.com/cink01/SPPSP/blob/master/dokumentace/ZP_VSPJ_SPPSP.docx");
+                Process.Start("https://github.com/cink01/SPPSP/blob/master/dokumentace/ZP_VSPJ_SPPSP-2.docx");
             }
         }
     }

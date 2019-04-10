@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
 
@@ -9,6 +10,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCUKatedra()
         {
             InitializeComponent();
+             this.BackColor = Color.White;
         }
         public Katedra K
         {

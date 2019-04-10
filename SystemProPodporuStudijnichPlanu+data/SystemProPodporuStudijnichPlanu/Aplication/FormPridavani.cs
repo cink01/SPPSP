@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using SystemProPodporuStudijnichPlanu.Logic;
@@ -40,7 +41,11 @@ namespace SystemProPodporuStudijnichPlanu
                 cmb_semestr.SelectedIndex = cmb_semestr.FindStringExact("Všechny");
             }
         }
-        public FormPridavani() => InitializeComponent();
+        public FormPridavani()
+        {
+            InitializeComponent();
+            this.BackColor = Color.White;
+        }
         private void Bt_close_Click(object sender, EventArgs e) => Close();
         private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
         {

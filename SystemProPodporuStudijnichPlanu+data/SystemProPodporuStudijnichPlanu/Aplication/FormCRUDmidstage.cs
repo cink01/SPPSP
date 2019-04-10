@@ -15,6 +15,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCRUDmidstage()
         {
             InitializeComponent();
+            this.BackColor = Color.White;
         }
         private void FormCRUDmidstage_Load(object sender, EventArgs e)
         {

@@ -254,19 +254,9 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         }
         public static void ClearDetail(VypisPopisPredmet v)
         {
-            v.Prerekvizita =
-            v.Popis =
-            v.Semestr =
-            v.Kredit =
-            v.Povinnost =
-            v.Zkr =
-            v.Zakončení =
-            v.Jazyk =
-            v.Prednaska =
-            v.Cviceni =
-            v.Kombi =
-            v.Lab =
-            v.Garant = "";
+            v.Prerekvizita = v.Popis = v.Semestr = v.Kredit =
+            v.Povinnost = v.Zkr = v.Zakončení = v.Jazyk =
+            v.Prednaska = v.Cviceni = v.Kombi = v.Lab = v.Garant = "";
         }
         public static void ClearOborDetail(VypisObor v)
         {

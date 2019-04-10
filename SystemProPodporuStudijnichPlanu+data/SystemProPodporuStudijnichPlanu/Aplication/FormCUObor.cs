@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SystemProPodporuStudijnichPlanu.Aplication
@@ -85,6 +86,7 @@ namespace SystemProPodporuStudijnichPlanu.Aplication
         public FormCUObor()
         {
             InitializeComponent();
+            this.BackColor = Color.White;
         }
         private void Bt_close_Click(object sender, EventArgs e)
         {

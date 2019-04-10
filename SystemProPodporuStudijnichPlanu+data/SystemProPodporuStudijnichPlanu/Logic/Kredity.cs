@@ -26,7 +26,8 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             Volitelny = volitelny;
             Sport = sport;
         }
-        public void NaplnNUD(NumericUpDown sum, NumericUpDown pov, NumericUpDown pv, NumericUpDown v, NumericUpDown s)
+      /*public void NaplnNUD(NumericUpDown sum, NumericUpDown pov, NumericUpDown pv, NumericUpDown v, NumericUpDown s) 
+        //funkce již ve třídě filling
         {
             sum.Value = Suma;
             pov.Value = Povinne;
@@ -45,6 +46,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 case 5: Sport += pridavek; break;
                 default: break;
             }
-        }
+        }*/
     }
 }
