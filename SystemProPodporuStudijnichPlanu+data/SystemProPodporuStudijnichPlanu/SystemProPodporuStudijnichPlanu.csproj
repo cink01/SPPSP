@@ -23,9 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>0.8.1.%2a</ApplicationVersion>
+    <ProductName>Systém pro podporu tvorby studijních plánů</ProductName>
+    <PublisherName>Tomáš Cink</PublisherName>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -276,7 +279,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 a x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -287,16 +290,6 @@
     <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
       <Visible>False</Visible>
       <ProductName>SQL Server 2012 Express LocalDB</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x64">
-      <Visible>False</Visible>
-      <ProductName>Visual C++ "14" Runtime Libraries %28x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x86">
-      <Visible>False</Visible>
-      <ProductName>Visual C++ "14" Runtime Libraries %28x86%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
