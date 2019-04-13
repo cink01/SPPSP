@@ -21,8 +21,7 @@ namespace SystemProPodporuStudijnichPlanu
         public string Zakonceni { get; set; }
         public string Popis { get; set; }
         public int Prerekvizita { get; set; }
-        public Predmet()//prazdný constructor
-        { }
+        public Predmet()/*prazdný constructor*/{ }
 
         public Predmet(string name_predmet, string zkr_predmet, string kredit_predmet, string obor, string garant, string semestr_predmet, string id_orig, string povinnost, string prednaska, string cviceni, string kombi, string lab, string jazyk, string zakonceni)
         //constructor bez umělého klíče id_predmet jako přepravka pro vkladaní do db hleda cizí klíče takže funkce neptřebuje

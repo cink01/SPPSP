@@ -12,6 +12,16 @@ namespace SystemProPodporuStudijnichPlanu.Logic
         public DataAccess da;
         public Kredity kr;
         public Filling() => da = new DataAccess();
+        /// <summary>
+        /// Funkce vytvořená na plnění ComboBoxu Listem.
+        /// Data Listů jsou ve formě přepravky a všechny přepravky 
+        /// mají přetíženou funkci ToString(), aby bylo dosaženo
+        /// daného formátování dat v přepravce a tato funkce šla
+        /// použít pro všechny přepravky
+        /// </summary>
+        /// <typeparam name="T">Třída přepravky</typeparam>
+        /// <param name="cb">ComboBox, který má být naplněn</param>
+        /// <param name="li">List s hodnotami</param>
         public void NaplnComboBox<T>(ComboBox cb, List<T> li)
         {
             //vyčištění dat v comboboxu
@@ -28,6 +38,15 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 MessageBox.Show(Properties.Resources.Chyba_TITLE + ": " + ex);
             }
         }
+        /// <summary>
+        /// Funkce využítá k vyhledávání položek v comboboxu.
+        /// K vyhledávání se využívá text v políčku v samotném comboboxu
+        /// a tato hodnota se porovnává s daty v listech
+        /// 
+        /// </summary>
+        /// <typeparam name="T">Třída přepravky</typeparam>
+        /// <param name="x">ComboBox, ve kterém chceme vyhledávat</param>
+        /// <param name="temp">List s položkami ComboBoxu</param>
         public void NajdiVComboBoxu<T>(ComboBox x, List<T> temp)
         {
             //uvolnění ComboBoxu
@@ -50,6 +69,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             x.DropDownWidth = sirka;
         }
         public void DynSirka<T>(ComboBox x, List<T> temp)
+        //funkce nevyužitá/pridana do hledání, aby se nemusely listy procházet vícekrát
         {
             int sirka = 1;
             foreach (T o in temp)
@@ -184,12 +204,13 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             catch { }
         }
         public void FillDetail(ListBox LB, VypisPopisPredmet v, List<Predmet> lp)
+        //nepoužívaná metoda
         {
             try
             {
                 foreach (Predmet x in lp)
                 {
-                    if ((object)LB.SelectedItem == (object)(x.ToString()))
+                    if (LB.SelectedItem == (object)x.ToString())
                     {
                         DataAccess da = new DataAccess();
                         if (x.Prerekvizita <= 0)
@@ -274,7 +295,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 {
                     switch (n.Povinnost)
                     {
-                        case "Povinný předmět": 
+                        case "Povinný předmět":
                         case "Cizí jazyk": kr.Povinne += n.Kredit_predmet; break;
                         case "Povinně volitelný": kr.PVolitelny += n.Kredit_predmet; break;
                         case "Volitelný předmět": kr.Volitelny += n.Kredit_predmet; break;

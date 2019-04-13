@@ -29,7 +29,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -64,7 +66,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -92,7 +96,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -107,10 +113,10 @@ namespace SystemProPodporuStudijnichPlanu
                 using (SqlConnection conn = new SqlConnection(DataAccess.ConnValue(NazevDB)))
                 {
                     SqlCommand pred = new SqlCommand(
-                        "INSERT INTO [predmet]"+
-                        "([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni])"+
+                        "INSERT INTO [predmet]" +
+                        "([name_predmet],[zkr_predmet],[kredit_predmet],[id_obor],[id_v],[semestr_predmet],[id_orig],[povinnost],[prednaska],[cviceni],[kombi],[lab],[jazyk],[zakonceni])" +
                         "VALUES(@name_predmet,@zkr_predmet,@kredit_predmet,@id_obor,@id_v,@semestr_predmet,@id_orig,@povinnost,@prednaska,@cviceni,@kombi,@lab,@jazyk,@zakonceni)"
-                        ,conn);
+                        , conn);
                     pred.Parameters.AddWithValue("@name_predmet", p.Name_predmet);
                     pred.Parameters.AddWithValue("@zkr_predmet", p.Zkr_predmet);
                     pred.Parameters.AddWithValue("@kredit_predmet", p.Kredit_predmet);
@@ -132,7 +138,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -174,7 +182,9 @@ namespace SystemProPodporuStudijnichPlanu
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                            Properties.Resources.Chyba_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         conn.Close();
                     }
@@ -212,7 +222,9 @@ namespace SystemProPodporuStudijnichPlanu
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                            Properties.Resources.Chyba_TITLE,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         conn.Close();
                     }
@@ -233,7 +245,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)//kdyz neprobehne tak se vypíše chyba
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -253,7 +267,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -271,7 +287,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -293,7 +311,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -315,7 +335,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -345,7 +367,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -384,7 +408,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -420,7 +446,9 @@ namespace SystemProPodporuStudijnichPlanu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                        Properties.Resources.Chyba_TITLE,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     conn.Close();
                 }
@@ -446,7 +474,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -466,7 +496,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -485,7 +517,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -505,7 +539,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -523,7 +559,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -541,7 +579,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -559,7 +599,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -577,7 +619,9 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
@@ -595,14 +639,16 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex, Properties.Resources.Chyba_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.Načtení_MESSAGE + ex,
+                                    Properties.Resources.Chyba_TITLE,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 conn.Close();
             }
         }
-        public void UpdateZaznamPrepocet(int id_z,string Zkr,int PocSem,int stare)
+        public void UpdateZaznamPrepocet(int id_z, string Zkr, int PocSem, int stare)
         {
-            UpdateZaznam(id_z,Zkr,PocSem);
+            UpdateZaznam(id_z, Zkr, PocSem);
             if (stare > PocSem)//pakliže se počet semestrů sníží
                 while (stare > PocSem)
                 //mažeme nejvyšší semestry do doby než počty nejsou stejné
@@ -618,6 +664,8 @@ namespace SystemProPodporuStudijnichPlanu
                     stare++;
                 }
         }
+    }
+}
 /*         
            public void InsertVyber(string predmet, int semestr, string rok, int zaz)
            {
@@ -661,5 +709,3 @@ namespace SystemProPodporuStudijnichPlanu
                }
            }
 */
-    }
-}

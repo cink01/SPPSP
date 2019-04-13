@@ -12,7 +12,7 @@ namespace SystemProPodporuStudijnichPlanu
 {
     public class DataAccess
     {
-        public static string ConnValue(string nazev)=> ConfigurationManager.ConnectionStrings[nazev].ConnectionString;
+        public static string ConnValue(string nazev) => ConfigurationManager.ConnectionStrings[nazev].ConnectionString;
 
         private const string Nazev = "SystemProPodporuStudijnichPlanu.Properties.Settings.DatabaseAppConnectionString";
         private static SqlConnection conn = null;
@@ -184,7 +184,7 @@ namespace SystemProPodporuStudijnichPlanu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.Chyba_TITLE+": " + ex);
+                    MessageBox.Show(Properties.Resources.Chyba_TITLE + ": " + ex);
                     Exist = -1;
                 }
             }
@@ -307,7 +307,6 @@ namespace SystemProPodporuStudijnichPlanu
         }
     }
 }
-
 /*
          public string GetOborRok(int o)
         {

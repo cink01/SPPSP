@@ -26,7 +26,10 @@ namespace SystemProPodporuStudijnichPlanu
             urceniZvolenehoListu = 0;
             if (cmb_zaznam.Items.Count <= 1)
             {
-                DialogResult res = MessageBox.Show(Properties.Resources.Uvod_MESSAGE, Properties.Resources.Uvod_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult res = MessageBox.Show(
+                    Properties.Resources.Uvod_MESSAGE,
+                    Properties.Resources.Uvod_TITLE,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                     VytvorZaznam();
             }

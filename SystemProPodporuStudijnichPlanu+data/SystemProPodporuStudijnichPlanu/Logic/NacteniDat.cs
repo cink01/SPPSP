@@ -10,14 +10,13 @@ namespace SystemProPodporuStudijnichPlanu
     {
         public void Proved(string path)
         {
-            string line = "";
             StreamReader reader = new StreamReader(path);//vytvorení čtení řádku ze souboru
             DataCrud DC = new DataCrud();
             try
             {
                 while (reader.Peek() >= 0)//testovavni zda je jeste dalsi radek
                 {
-                    line = reader.ReadLine(); //precteni radku
+                    string line = reader.ReadLine();
                     string[] fulldata = line.Split(';');//rozlozeni prvku v line do prvku pole fulldata k jednoduššímu přístupu 
                     //vložení dat do insertu do databaze
                     //naplnění dat do kateder
@@ -63,9 +62,8 @@ namespace SystemProPodporuStudijnichPlanu
         public void ProvedPopis(string path)
         {
             DataCrud DC = new DataCrud();
-            List<string> fulldata = new List<string>();
             //načtení celého textu do stringu
-            fulldata = File.ReadAllText(path).Split('~').ToList();
+            List<string> fulldata = File.ReadAllText(path).Split('~').ToList();
             //procházení pole a zápis do db krok po každých šesti datech
             for (int i = 0; i < fulldata.Count(); i += PocetPrvku)
             {

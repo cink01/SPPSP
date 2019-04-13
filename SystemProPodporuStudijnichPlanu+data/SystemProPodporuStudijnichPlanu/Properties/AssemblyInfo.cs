@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SystemProPodporuStudijnichPlanu")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Vysoká škola polytechniká Jihlava")]
 [assembly: AssemblyCulture("")]
 
 // Nastavení ComVisible na false způsobí neviditelnost typů v tomto sestavení

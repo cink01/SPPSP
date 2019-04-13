@@ -50,7 +50,7 @@ namespace SystemProPodporuStudijnichPlanu
         private void Lb_vypis_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filling fill = new Filling();
-            fill.FillDetail(lb_vypis, vypisPopisPredmet, predmetySeznam);
+            fill.FillDetail(lb_vypis, vypisPopisPredmet/*, predmetySeznam*/);
         }
         private void Lb_vypis_KeyPress(object sender, KeyPressEventArgs e)
         {
