@@ -305,6 +305,15 @@ namespace SystemProPodporuStudijnichPlanu
             getIdPS.Parameters.AddWithValue("@sem_ps", s);
             return Convert.ToInt32(getIdPS.ExecuteScalar());
         }
+        public List<Predmet> GetPredmetByGarant(Garant G)
+        {
+            using (IDbConnection connection = new SqlConnection(ConnectionString))
+            {
+                List<Predmet> vystup = connection.Query<Predmet>(
+                    $"SELECT DISTINCT [predmet].* FROM [predmet] WHERE id_v='{G.Id_v}' ").ToList();
+                return vystup;
+            }
+        }
     }
 }
 /*

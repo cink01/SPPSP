@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Linq;
+using SystemProPodporuStudijnichPlanu.Logic;
 
 namespace SystemProPodporuStudijnichPlanu.Komponenty
 {
@@ -9,6 +12,14 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
             InitializeComponent();
         }
         public Garant G { get; set; }
+        // public List<Predmet> Garantuje { get; set; }
+
+        public void NaplnComboV(List<Predmet> p,string naz="")//upravit plneni comboboxu tak, aby nevracel stejne zaznamy
+        {
+            Filling f = new Filling();
+            f.NaplnComboBox<Predmet>(cmb_garantuje, p);
+            cmb_garantuje.Text = naz;
+        }
         public string Konzultace
         {
             get => tb_konz.Text;

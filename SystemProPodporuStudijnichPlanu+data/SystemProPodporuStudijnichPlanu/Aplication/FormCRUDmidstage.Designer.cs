@@ -65,10 +65,10 @@
             this.naplnitDatabáziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.přidatPopisyKPředmětůmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip_crud = new System.Windows.Forms.ToolTip(this.components);
-            this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             this.kb_e = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_n = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
             this.kb_d = new SystemProPodporuStudijnichPlanu.Icons.KulateButton();
+            this.VypisOborMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisObor();
             this.vypisPopisPredmetMid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisPopisPredmet();
             this.vypisGarant_Mid = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.gb_vyber.SuspendLayout();
@@ -461,21 +461,6 @@
             this.přidatPopisyKPředmětůmToolStripMenuItem.Text = "Přidat popisy k předmětům";
             this.přidatPopisyKPředmětůmToolStripMenuItem.Click += new System.EventHandler(this.PřidatPopisyKPředmětůmToolStripMenuItem_Click);
             // 
-            // VypisOborMid
-            // 
-            this.VypisOborMid.Location = new System.Drawing.Point(323, 303);
-            this.VypisOborMid.Name = "VypisOborMid";
-            this.VypisOborMid.P = "";
-            this.VypisOborMid.Praxe = "";
-            this.VypisOborMid.Pv = "";
-            this.VypisOborMid.Rok = "";
-            this.VypisOborMid.Size = new System.Drawing.Size(386, 317);
-            this.VypisOborMid.TabIndex = 100;
-            this.VypisOborMid.V = "";
-            this.VypisOborMid.Vs = "";
-            this.VypisOborMid.Zaver = "";
-            this.VypisOborMid.Zkr = "";
-            // 
             // kb_e
             // 
             this.kb_e.BackColor = System.Drawing.Color.DarkOrange;
@@ -521,6 +506,21 @@
             this.kb_d.Visible = false;
             this.kb_d.Click += new System.EventHandler(this.Bt_smazat_Click);
             // 
+            // VypisOborMid
+            // 
+            this.VypisOborMid.Location = new System.Drawing.Point(323, 303);
+            this.VypisOborMid.Name = "VypisOborMid";
+            this.VypisOborMid.P = "";
+            this.VypisOborMid.Praxe = "";
+            this.VypisOborMid.Pv = "";
+            this.VypisOborMid.Rok = "";
+            this.VypisOborMid.Size = new System.Drawing.Size(386, 317);
+            this.VypisOborMid.TabIndex = 100;
+            this.VypisOborMid.V = "";
+            this.VypisOborMid.Vs = "";
+            this.VypisOborMid.Zaver = "";
+            this.VypisOborMid.Zkr = "";
+            // 
             // vypisPopisPredmetMid
             // 
             this.vypisPopisPredmetMid.Cviceni = "";
@@ -549,9 +549,9 @@
             this.vypisGarant_Mid.G = null;
             this.vypisGarant_Mid.Katedra = "";
             this.vypisGarant_Mid.Konzultace = "";
-            this.vypisGarant_Mid.Location = new System.Drawing.Point(0, 194);
+            this.vypisGarant_Mid.Location = new System.Drawing.Point(770, 425);
             this.vypisGarant_Mid.Name = "vypisGarant_Mid";
-            this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 114);
+            this.vypisGarant_Mid.Size = new System.Drawing.Size(287, 150);
             this.vypisGarant_Mid.TabIndex = 26;
             this.vypisGarant_Mid.Telefon = "";
             this.vypisGarant_Mid.Visible = false;

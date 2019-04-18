@@ -54,7 +54,7 @@
             this.tb_zkratka.Name = "tb_zkratka";
             this.tb_zkratka.ReadOnly = true;
             this.tb_zkratka.Size = new System.Drawing.Size(85, 20);
-            this.tb_zkratka.TabIndex = 1;
+            this.tb_zkratka.TabIndex = 3;
             // 
             // label2
             // 
@@ -90,7 +90,7 @@
             this.tb_pocG.Name = "tb_pocG";
             this.tb_pocG.ReadOnly = true;
             this.tb_pocG.Size = new System.Drawing.Size(85, 20);
-            this.tb_pocG.TabIndex = 3;
+            this.tb_pocG.TabIndex = 4;
             // 
             // gb_kat
             // 

@@ -84,7 +84,7 @@
             this.rtb_popis.Name = "rtb_popis";
             this.rtb_popis.ReadOnly = true;
             this.rtb_popis.Size = new System.Drawing.Size(194, 249);
-            this.rtb_popis.TabIndex = 22;
+            this.rtb_popis.TabIndex = 8;
             this.rtb_popis.Text = "";
             // 
             // gb_základ
@@ -106,7 +106,7 @@
             this.gb_základ.Location = new System.Drawing.Point(6, 19);
             this.gb_základ.Name = "gb_základ";
             this.gb_základ.Size = new System.Drawing.Size(177, 190);
-            this.gb_základ.TabIndex = 21;
+            this.gb_základ.TabIndex = 0;
             this.gb_základ.TabStop = false;
             this.gb_základ.Text = "Základní informace";
             // 
@@ -117,7 +117,7 @@
             this.tb_kredity.Name = "tb_kredity";
             this.tb_kredity.ReadOnly = true;
             this.tb_kredity.Size = new System.Drawing.Size(100, 20);
-            this.tb_kredity.TabIndex = 22;
+            this.tb_kredity.TabIndex = 2;
             // 
             // label7
             // 
@@ -153,7 +153,7 @@
             this.tb_jazyk.Name = "tb_jazyk";
             this.tb_jazyk.ReadOnly = true;
             this.tb_jazyk.Size = new System.Drawing.Size(100, 20);
-            this.tb_jazyk.TabIndex = 13;
+            this.tb_jazyk.TabIndex = 6;
             // 
             // label1
             // 
@@ -171,7 +171,7 @@
             this.tb_prerek.Name = "tb_prerek";
             this.tb_prerek.ReadOnly = true;
             this.tb_prerek.Size = new System.Drawing.Size(100, 20);
-            this.tb_prerek.TabIndex = 12;
+            this.tb_prerek.TabIndex = 5;
             // 
             // tb_zakonc
             // 
@@ -180,7 +180,7 @@
             this.tb_zakonc.Name = "tb_zakonc";
             this.tb_zakonc.ReadOnly = true;
             this.tb_zakonc.Size = new System.Drawing.Size(100, 20);
-            this.tb_zakonc.TabIndex = 11;
+            this.tb_zakonc.TabIndex = 4;
             // 
             // tb_povinn
             // 
@@ -189,7 +189,8 @@
             this.tb_povinn.Name = "tb_povinn";
             this.tb_povinn.ReadOnly = true;
             this.tb_povinn.Size = new System.Drawing.Size(100, 20);
-            this.tb_povinn.TabIndex = 10;
+            this.tb_povinn.TabIndex = 3;
+            this.tb_povinn.TextChanged += new System.EventHandler(this.Tb_povinn_TextChanged);
             // 
             // tb_semestr
             // 
@@ -198,7 +199,7 @@
             this.tb_semestr.Name = "tb_semestr";
             this.tb_semestr.ReadOnly = true;
             this.tb_semestr.Size = new System.Drawing.Size(100, 20);
-            this.tb_semestr.TabIndex = 8;
+            this.tb_semestr.TabIndex = 1;
             // 
             // tb_zkratka
             // 
@@ -207,7 +208,7 @@
             this.tb_zkratka.Name = "tb_zkratka";
             this.tb_zkratka.ReadOnly = true;
             this.tb_zkratka.Size = new System.Drawing.Size(100, 20);
-            this.tb_zkratka.TabIndex = 7;
+            this.tb_zkratka.TabIndex = 0;
             // 
             // l_povinnost
             // 
@@ -249,7 +250,7 @@
             this.gb_vyuc.Location = new System.Drawing.Point(6, 215);
             this.gb_vyuc.Name = "gb_vyuc";
             this.gb_vyuc.Size = new System.Drawing.Size(177, 116);
-            this.gb_vyuc.TabIndex = 19;
+            this.gb_vyuc.TabIndex = 9;
             this.gb_vyuc.TabStop = false;
             this.gb_vyuc.Text = "Týdenní dotace hodin";
             // 
@@ -296,7 +297,7 @@
             this.tb_laborator.Name = "tb_laborator";
             this.tb_laborator.ReadOnly = true;
             this.tb_laborator.Size = new System.Drawing.Size(100, 20);
-            this.tb_laborator.TabIndex = 18;
+            this.tb_laborator.TabIndex = 12;
             // 
             // tb_kombi
             // 
@@ -305,7 +306,7 @@
             this.tb_kombi.Name = "tb_kombi";
             this.tb_kombi.ReadOnly = true;
             this.tb_kombi.Size = new System.Drawing.Size(100, 20);
-            this.tb_kombi.TabIndex = 17;
+            this.tb_kombi.TabIndex = 11;
             // 
             // tb_cviceni
             // 
@@ -314,7 +315,7 @@
             this.tb_cviceni.Name = "tb_cviceni";
             this.tb_cviceni.ReadOnly = true;
             this.tb_cviceni.Size = new System.Drawing.Size(100, 20);
-            this.tb_cviceni.TabIndex = 16;
+            this.tb_cviceni.TabIndex = 10;
             // 
             // tb_prednaska
             // 
@@ -323,7 +324,7 @@
             this.tb_prednaska.Name = "tb_prednaska";
             this.tb_prednaska.ReadOnly = true;
             this.tb_prednaska.Size = new System.Drawing.Size(100, 20);
-            this.tb_prednaska.TabIndex = 15;
+            this.tb_prednaska.TabIndex = 9;
             // 
             // l_popis
             // 
@@ -341,7 +342,7 @@
             this.tb_garant.Name = "tb_garant";
             this.tb_garant.ReadOnly = true;
             this.tb_garant.Size = new System.Drawing.Size(194, 20);
-            this.tb_garant.TabIndex = 9;
+            this.tb_garant.TabIndex = 7;
             // 
             // l_garant
             // 

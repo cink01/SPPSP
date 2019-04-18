@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gb_obor = new System.Windows.Forms.GroupBox();
+            this.rtb_zaver = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.rtb_praxe = new System.Windows.Forms.RichTextBox();
             this.gb_základ = new System.Windows.Forms.GroupBox();
             this.tb_zkratka = new System.Windows.Forms.TextBox();
@@ -45,8 +47,6 @@
             this.tb_pv = new System.Windows.Forms.TextBox();
             this.tb_p = new System.Windows.Forms.TextBox();
             this.l_popis = new System.Windows.Forms.Label();
-            this.rtb_zaver = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gb_obor.SuspendLayout();
             this.gb_základ.SuspendLayout();
             this.gb_vyuc.SuspendLayout();
@@ -67,6 +67,25 @@
             this.gb_obor.TabStop = false;
             this.gb_obor.Text = "Informace oboru";
             // 
+            // rtb_zaver
+            // 
+            this.rtb_zaver.BackColor = System.Drawing.Color.White;
+            this.rtb_zaver.Location = new System.Drawing.Point(6, 238);
+            this.rtb_zaver.Name = "rtb_zaver";
+            this.rtb_zaver.ReadOnly = true;
+            this.rtb_zaver.Size = new System.Drawing.Size(371, 76);
+            this.rtb_zaver.TabIndex = 7;
+            this.rtb_zaver.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Státní závěrečná zkouška:";
+            // 
             // rtb_praxe
             // 
             this.rtb_praxe.BackColor = System.Drawing.Color.White;
@@ -74,7 +93,7 @@
             this.rtb_praxe.Name = "rtb_praxe";
             this.rtb_praxe.ReadOnly = true;
             this.rtb_praxe.Size = new System.Drawing.Size(371, 76);
-            this.rtb_praxe.TabIndex = 22;
+            this.rtb_praxe.TabIndex = 6;
             this.rtb_praxe.Text = "";
             // 
             // gb_základ
@@ -97,7 +116,7 @@
             this.tb_zkratka.Name = "tb_zkratka";
             this.tb_zkratka.ReadOnly = true;
             this.tb_zkratka.Size = new System.Drawing.Size(100, 20);
-            this.tb_zkratka.TabIndex = 7;
+            this.tb_zkratka.TabIndex = 0;
             // 
             // l_zkratka
             // 
@@ -124,7 +143,7 @@
             this.tb_rok.Name = "tb_rok";
             this.tb_rok.ReadOnly = true;
             this.tb_rok.Size = new System.Drawing.Size(100, 20);
-            this.tb_rok.TabIndex = 8;
+            this.tb_rok.TabIndex = 1;
             // 
             // gb_vyuc
             // 
@@ -186,7 +205,7 @@
             this.tb_s.Name = "tb_s";
             this.tb_s.ReadOnly = true;
             this.tb_s.Size = new System.Drawing.Size(57, 20);
-            this.tb_s.TabIndex = 18;
+            this.tb_s.TabIndex = 5;
             // 
             // tb_v
             // 
@@ -195,7 +214,7 @@
             this.tb_v.Name = "tb_v";
             this.tb_v.ReadOnly = true;
             this.tb_v.Size = new System.Drawing.Size(57, 20);
-            this.tb_v.TabIndex = 17;
+            this.tb_v.TabIndex = 4;
             // 
             // tb_pv
             // 
@@ -204,7 +223,7 @@
             this.tb_pv.Name = "tb_pv";
             this.tb_pv.ReadOnly = true;
             this.tb_pv.Size = new System.Drawing.Size(57, 20);
-            this.tb_pv.TabIndex = 16;
+            this.tb_pv.TabIndex = 3;
             // 
             // tb_p
             // 
@@ -213,7 +232,7 @@
             this.tb_p.Name = "tb_p";
             this.tb_p.ReadOnly = true;
             this.tb_p.Size = new System.Drawing.Size(57, 20);
-            this.tb_p.TabIndex = 15;
+            this.tb_p.TabIndex = 2;
             // 
             // l_popis
             // 
@@ -223,25 +242,6 @@
             this.l_popis.Size = new System.Drawing.Size(37, 13);
             this.l_popis.TabIndex = 6;
             this.l_popis.Text = "Praxe:";
-            // 
-            // rtb_zaver
-            // 
-            this.rtb_zaver.BackColor = System.Drawing.Color.White;
-            this.rtb_zaver.Location = new System.Drawing.Point(6, 238);
-            this.rtb_zaver.Name = "rtb_zaver";
-            this.rtb_zaver.ReadOnly = true;
-            this.rtb_zaver.Size = new System.Drawing.Size(371, 76);
-            this.rtb_zaver.TabIndex = 24;
-            this.rtb_zaver.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Státní závěrečná zkouška:";
             // 
             // VypisObor
             // 

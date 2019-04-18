@@ -135,6 +135,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Telefon = g.Tel_v;
                 v.Email = g.Email_V;
                 v.Katedra = da.GetKatedraById(g.Id_k);
+                v.NaplnComboV(da.GetPredmetByGarant(g));
             }
             catch { }
         }
@@ -149,6 +150,7 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 v.Katedra = da.GetKatedraById(g.Id_k);
                 v.Email = g.Email_V;
                 v.Telefon = g.Tel_v;
+                v.NaplnComboV(da.GetPredmetByGarant(g));
             }
             catch { }
         }

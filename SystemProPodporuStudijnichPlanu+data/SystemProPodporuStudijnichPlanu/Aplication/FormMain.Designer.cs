@@ -871,7 +871,7 @@
             this.vypisGarantMain.Konzultace = "";
             this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
             this.vypisGarantMain.Name = "vypisGarantMain";
-            this.vypisGarantMain.Size = new System.Drawing.Size(290, 114);
+            this.vypisGarantMain.Size = new System.Drawing.Size(290, 142);
             this.vypisGarantMain.TabIndex = 81;
             this.vypisGarantMain.Telefon = "";
             // 

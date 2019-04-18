@@ -75,5 +75,10 @@ namespace SystemProPodporuStudijnichPlanu.Komponenty
             get => tb_semestr.Text;
             set => tb_semestr.Text = value;
         }
+
+        private void Tb_povinn_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

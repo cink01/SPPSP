@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gb_gar = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_garantuje = new System.Windows.Forms.ComboBox();
             this.gb_gar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,6 +116,8 @@
             // 
             // gb_gar
             // 
+            this.gb_gar.Controls.Add(this.cmb_garantuje);
+            this.gb_gar.Controls.Add(this.label5);
             this.gb_gar.Controls.Add(this.label4);
             this.gb_gar.Controls.Add(this.label3);
             this.gb_gar.Controls.Add(this.tb_konz);
@@ -124,10 +128,27 @@
             this.gb_gar.Controls.Add(this.tb_kat);
             this.gb_gar.Location = new System.Drawing.Point(1, -3);
             this.gb_gar.Name = "gb_gar";
-            this.gb_gar.Size = new System.Drawing.Size(285, 116);
+            this.gb_gar.Size = new System.Drawing.Size(285, 143);
             this.gb_gar.TabIndex = 8;
             this.gb_gar.TabStop = false;
             this.gb_gar.Text = "Informace garanta";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 120);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Garantuje:";
+            // 
+            // comboBox1
+            // 
+            this.cmb_garantuje.FormattingEnabled = true;
+            this.cmb_garantuje.Location = new System.Drawing.Point(73, 117);
+            this.cmb_garantuje.Name = "comboBox1";
+            this.cmb_garantuje.Size = new System.Drawing.Size(206, 21);
+            this.cmb_garantuje.TabIndex = 4;
             // 
             // VypisGarant
             // 
@@ -135,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_gar);
             this.Name = "VypisGarant";
-            this.Size = new System.Drawing.Size(287, 113);
+            this.Size = new System.Drawing.Size(287, 141);
             this.gb_gar.ResumeLayout(false);
             this.gb_gar.PerformLayout();
             this.ResumeLayout(false);
@@ -153,5 +174,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gb_gar;
+        private System.Windows.Forms.ComboBox cmb_garantuje;
+        private System.Windows.Forms.Label label5;
     }
 }
