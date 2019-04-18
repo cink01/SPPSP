@@ -334,8 +334,17 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             NUDV.BackColor = obor.V_obor <= NUDV.Value ? Color.LightGreen : Color.LightCoral;
             celkem.BackColor = 180 <= celkem.Value ? Color.LightGreen : Color.LightCoral;
         }
+        /// <summary>
+        /// Nasavení kreditních hodnot do NumericUpDown komponent.
+        /// Po vložení se kontrolují splnění požadavek podle oboru.
+        /// Barva červená pro nesplnění a zelená pro splnění.
+        /// </summary>
+        /// <param name="NUDP">Komponenta pro povinné předměty</param>
+        /// <param name="NUDPV">Komponenta pro povinně-volitelné předměty</param>
+        /// <param name="NUDV">Komponenta pro volitelné předměty</param>
+        /// <param name="kredity">Přepravka kreditů s vypočtenými hodnotami kreditů v plánu</param>
+        /// <param name="obor">Obor z něhož chceme vzít kontrolní data k porovnání</param>
         public void NaplnNUDyPovinn(NumericUpDown NUDP, NumericUpDown NUDPV, NumericUpDown NUDV, Kredity kredity, Obor obor)
-        //vložit kontrolu podle oboru a požadavků
         {
             NUDP.Value = kredity.Povinne;
             NUDPV.Value = kredity.PVolitelny;
@@ -348,17 +357,40 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                 if (kredity.Sport > obor.Vs_obor && kredity.Volitelny < (obor.V_obor / 2))
                     MessageBox.Show(Properties.Resources.MocSportu);
         }
+        /// <summary>
+        /// Nastavení indexu v ComboBoxu x podle zadaného stringu z
+        /// </summary>
+        /// <typeparam name="T">Typ třídy</typeparam>
+        /// <param name="x">combobox, ve kterém chceme vybrat položku</param>
+        /// <param name="z">daný text na výběr</param>
         public void NastavIndexCombo<T>(ComboBox x, /*List<T> t,*/ string z)
         {
             x.SelectedIndex = x.FindString(z);
         }
+       
+        /// <summary>
+        /// Nastavení požadovaného indexu z do daného comboboxu x z listu t. Nefunguje.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="x"></param>
+        /// <param name="t"></param>
+        /// <param name="z"></param>
         public void NastavIndexCombo<T>(ComboBox x, List<T> t, int z)
+            //nefunguje
         {
             foreach (T k in t)
                 if (Convert.ToInt32(k) == z)
                     x.SelectedIndex = x.FindString(k.ToString());
         }
+        
 
+        /// <summary>
+        /// Funkce vytváří nový záznam v databázi, pakliže se má původní záznam smazat,
+        /// tak se nejprve provede smazání podle id a poté se tento záznam přidá 
+        /// a je mu přiděleno nové id
+        /// </summary>
+        /// <param name="zaz">Položka záznamu s údaji</param>
+        /// <param name="mazat">zda se má původní smazat implicitně na 0 když chceme mazat nastavíme na 1</param>
         public void NovyZaznam(Zaznam zaz, int mazat = 0)
         {
             try
@@ -381,7 +413,13 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             }
         }
 
+        /// <summary>
+        /// Funkce dodaný list naplní do comboxu a přepočítá šířku dropdownlistu
+        /// </summary>
+        /// <param name="cb">ComboBox</param>
+        /// <param name="li">List předmětů</param>
         public void NaplnComboBoxDetailGarant(ComboBox cb, List<Predmet> li)
+        //funkce relativne spomaluje nacteni jelikoz po selectu na predmet to udela dalsi select na garanta a ten pak provede novy select na predmety, ktery se pak vyuzije v teto funkci
         {
             //vyčištění dat v comboboxu
             cb.DataSource = null;
