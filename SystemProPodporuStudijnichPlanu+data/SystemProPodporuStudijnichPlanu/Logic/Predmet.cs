@@ -90,6 +90,13 @@ namespace SystemProPodporuStudijnichPlanu
         public int ToInt() => Id_predmet;
         public string FullInfo => $"{Name_predmet} - {Zkr_predmet} - {Id_predmet} - {Semestr_predmet} - {Kredit_predmet} ";
         public string NazInfo => $"{Name_predmet} - {Zkr_predmet}";
+
+        public string GetNazOb()
+        {
+            DataAccess da = new DataAccess();
+            return $"{Name_predmet} - {da.GetOborById(Id_obor).Rok_obor}";
+        }
+
         public string PredmetPopis => $"{Name_predmet}\nNěco:{Kredit_predmet}\nPopis:{Popis}";
     }
 }

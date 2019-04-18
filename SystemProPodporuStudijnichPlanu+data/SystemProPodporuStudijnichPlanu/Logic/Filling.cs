@@ -380,5 +380,22 @@ namespace SystemProPodporuStudijnichPlanu.Logic
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void NaplnComboBoxDetailGarant(ComboBox cb, List<Predmet> li)
+        {
+            //vyčištění dat v comboboxu
+            cb.DataSource = null;
+            cb.Items.Clear();
+            //pro každou položku v listu se přidá jako item 
+            try
+            {
+                foreach (Predmet temp in li)
+                    cb.Items.Add(temp.GetNazOb());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.Chyba_TITLE + ": " + ex);
+            }
+        }
     }
 }
