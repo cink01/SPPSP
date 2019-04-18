@@ -85,7 +85,6 @@
             this.l_s2 = new System.Windows.Forms.Label();
             this.l_s1 = new System.Windows.Forms.Label();
             this.bt_zobrazDGar = new System.Windows.Forms.Button();
-            this.vypisGarantMain = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.l_vk = new System.Windows.Forms.Label();
             this.l_pvk = new System.Windows.Forms.Label();
             this.l_pkr = new System.Windows.Forms.Label();
@@ -102,6 +101,7 @@
             this.toolTip_smaz = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_garant = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_sem = new System.Windows.Forms.ToolTip(this.components);
+            this.vypisGarantMain = new SystemProPodporuStudijnichPlanu.Komponenty.VypisGarant();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_celkemKred)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_KredSem1)).BeginInit();
@@ -631,6 +631,7 @@
             // gb_max
             // 
             this.gb_max.BackColor = System.Drawing.Color.Transparent;
+            this.gb_max.Controls.Add(this.vypisGarantMain);
             this.gb_max.Controls.Add(this.kb_edit);
             this.gb_max.Controls.Add(this.bt_addZaz);
             this.gb_max.Controls.Add(this.bt_delZaz);
@@ -647,7 +648,6 @@
             this.gb_max.Controls.Add(this.l_s2);
             this.gb_max.Controls.Add(this.l_s1);
             this.gb_max.Controls.Add(this.bt_zobrazDGar);
-            this.gb_max.Controls.Add(this.vypisGarantMain);
             this.gb_max.Controls.Add(this.l_vk);
             this.gb_max.Controls.Add(this.l_pvk);
             this.gb_max.Controls.Add(this.l_pkr);
@@ -863,18 +863,6 @@
             this.bt_zobrazDGar.Visible = false;
             this.bt_zobrazDGar.Click += new System.EventHandler(this.Bt_zobrazDGar_Click);
             // 
-            // vypisGarantMain
-            // 
-            this.vypisGarantMain.Email = "";
-            this.vypisGarantMain.G = null;
-            this.vypisGarantMain.Katedra = "";
-            this.vypisGarantMain.Konzultace = "";
-            this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
-            this.vypisGarantMain.Name = "vypisGarantMain";
-            this.vypisGarantMain.Size = new System.Drawing.Size(290, 142);
-            this.vypisGarantMain.TabIndex = 81;
-            this.vypisGarantMain.Telefon = "";
-            // 
             // l_vk
             // 
             this.l_vk.AutoSize = true;
@@ -1010,6 +998,18 @@
             0,
             0});
             // 
+            // vypisGarantMain
+            // 
+            this.vypisGarantMain.Email = "";
+            this.vypisGarantMain.G = null;
+            this.vypisGarantMain.Katedra = "";
+            this.vypisGarantMain.Konzultace = "";
+            this.vypisGarantMain.Location = new System.Drawing.Point(780, 380);
+            this.vypisGarantMain.Name = "vypisGarantMain";
+            this.vypisGarantMain.Size = new System.Drawing.Size(287, 141);
+            this.vypisGarantMain.TabIndex = 95;
+            this.vypisGarantMain.Telefon = "";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1101,7 +1101,6 @@
         private System.Windows.Forms.Label l_pkr;
         private Komponenty.VypisPopisPredmet vypisPopisPredmet;
         private System.Windows.Forms.Button bt_zobrazDGar;
-        private Komponenty.VypisGarant vypisGarantMain;
         private System.Windows.Forms.Label l_s8;
         private System.Windows.Forms.Label l_s12;
         private System.Windows.Forms.Label l_s11;
@@ -1124,6 +1123,7 @@
         private System.Windows.Forms.ToolTip toolTip_smaz;
         private System.Windows.Forms.ToolTip toolTip_sem;
         private System.Windows.Forms.ToolTip toolTip_garant;
+        private Komponenty.VypisGarant vypisGarantMain;
     }
 }
 

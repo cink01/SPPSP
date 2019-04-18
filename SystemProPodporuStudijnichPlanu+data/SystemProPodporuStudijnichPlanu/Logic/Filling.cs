@@ -386,11 +386,18 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             //vyčištění dat v comboboxu
             cb.DataSource = null;
             cb.Items.Clear();
+            int sirka = 1;
             //pro každou položku v listu se přidá jako item 
             try
             {
                 foreach (Predmet temp in li)
+                {
                     cb.Items.Add(temp.GetNazOb());
+                    int tmp = TextRenderer.MeasureText(temp.GetNazOb(), cb.Font).Width;
+                    if (sirka < tmp)
+                        sirka = tmp;
+                }
+                cb.DropDownWidth = (sirka+20);//+20 na kompenzaci scrolovací lišty
             }
             catch (Exception ex)
             {

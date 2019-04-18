@@ -254,6 +254,7 @@ namespace SystemProPodporuStudijnichPlanu
                 decimal sum = VratNudVal(urceniZvolenehoListu) - Convert.ToDecimal(vypisPopisPredmet.Kredit);
                 MazatZVyberu(VratListBox(urceniZvolenehoListu), id_z, urceniZvolenehoListu, id_o);
                 VyberNudVal(sum, urceniZvolenehoListu);
+                vypisPopisPredmet.Visible = bt_zobrazDGar.Visible = bt_smaz.Visible = false;
             }
             catch (Exception)
             {
