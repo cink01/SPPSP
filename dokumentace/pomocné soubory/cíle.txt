@@ -1,0 +1,96 @@
+Hlavním cílem
+implementace tohoto systému
+Studenti dispozici kompletní seznam předmětů pro toto období 
+mohli by si vybrat předměty, které by chtěli studovat
+
+Aplikace pomáhala při výběru
+kontrolovala výběr předmětů
+počítala jejich kredity
+kontrolovala důležité požadavky
+	počty povinných, povinně-volitelných, volitelných předmětů a sportů
+U předmětů budou uvedeny prerekvizity
+uchovávat i všechny důležité informační milníky
+	praxe
+	závěrečné práce
+	počítání minimálních kreditů v semestru podle studentského řádu
+Celkově by měla aplikace ulehčit dlouhodobou přípravu na studium
+
+dostatečný počet kreditů k dalšímu pokračování ve studiu na škole
+V aplikaci bude možné vytvářet plány 
+délkou studia - dvou do jedenácti semestrů
+
+
+zaver TESTY
+mozna popsat funkci pridavani predmetu do seznamu pro dany semestr
+
+https://is.muni.cz/th/kcokf/
+
+https://is.muni.cz/th/kcokf/
+
+knížka - https://the-eye.eu/public/Books/robot.bolink.org/Learning%20MySQL.pdf
+SQL 
+ER DIAGRAM + https://frankieinguanez.files.wordpress.com/2017/02/erd-notes.pdf
+
+https://isidore.co/calibre/get/pdf/6535
+
+GENNICK, Jonathan a Jonathan GENNICK. SQL pocket guide. 2nd ed. Farnham: O'Reilly, 2006. ISBN 978-0596526887.
+
+
+UML
+http://ce.sharif.edu/courses/96-97/2/ce418-1/resources/root/Books/UMLDistilled.pdf
+
+FOWLER, Martin. UML distilled: a brief guide to the standard object modeling language. 3rd ed. Boston: Addison-Wesley, c2004. ISBN 978-0321193681.
+
+
+
+vyuzit Rešerše
+
+ISvspj
+IS/STAG
+UIS
+PLANOVAC
+
+
+
+prochazet dokument do doby nez neni na konci po radcich
+kazdejradek nacist do arraylistu a z toho si vybirat veci do isertu do tabulek a toto delat pro kazdy radek
+umozneni neukladani masy dat najdnou ale zpracovani po kouscich
+Zpomaleni opraci celemu????
+umoznit nacist/ulozit podobnou metodou???
+co kdyz vyleze jinej format kvuli vecem co nepotrebuji???
+load by asi sel po overeni ze soubor neni prazdny a ze radek ma pozadovanej pocet ;;??????
+poustet tam jakej koliv sobour a davat try catch erroru a vypsat ze soubor je spatny nebo poskozen
+popsat do dokumentace jak to funguje do implementace s podtitulem naplnìní databáze.
+pøedtím udìlat z modelu funkèní celou databázi v kódu
+nejspíš naèíst na git a pak to možna ignorovat db kvuli neustavajícímu nahravani po kazde zmene?
+nacitat db rucne a neresit git ignorovat zmeny db a commitovat je az bude potreba!!!(mozna nejlepsi reseni)
+
+
+Datový model definuje veškerá data, která jsou nutná pro zajištění požadované funkčnosti aplikace. Podrobný popis potřebných dat je uveden v odstavci „Datový slovník“ (1.2). Protože se předpokládá, že data budou uložena a spravována v relační databázi, byl pro jejich popis zvolen relační ER-diagram, který slouží k popisu relačních tabulek databáze. Každá tabulka je podrobněji popsaná v následujících bodech této kapitoly.
+
+
+Výsledkem je řádek v tabulce Předmět, kde:
+ID: 1610
+Název: Semestrální projekt
+Zkratka: xSP
+Kredity: 4
+Zakončení: ZA
+Rok Předmětu: P-13/14; 5; 35; f; 
+doporučeny Semestr:
+; -; -; 
+zkratka povinnosti: P
+Povinnost: Povinný předmět
+Garant: PaedDr. František Smrčka, Ph.D. 
+Katedra: Katedra technických studií
+zkratka katedra: KTS
+email garanta: smrcka@vspj.cz
+hodiny Přednáška: 0
+hodiny Cvičení: 0
+tutoriál: 1
+kombi CV:
+laboratoře: 1
+typ Předmětu:
+jazyk: Česky
+jazyk[anglicky]: Czech
+název[anglicky]: Semestral Project
+???
