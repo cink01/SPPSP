@@ -89,7 +89,12 @@ namespace SystemProPodporuStudijnichPlanu
         {
             using (IDbConnection connection = new SqlConnection(ConnectionString))
             {
-                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* from [predmet] where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet NOT IN(Select [predmet].id_predmet from ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps WHERE [plansemestr].id_zaznam='{id_z}' AND [plansemestr].sem_ps='{semestr}' )").ToList();
+                List<Predmet> vystup = connection.Query<Predmet>($"Select [predmet].* " +
+                    $"from [predmet] where id_obor='{id_obor}' AND semestr_predmet=0 AND id_predmet " +
+                    $"NOT IN" +
+                    $"(Select [predmet].id_predmet " +
+                    $"from ([predmet] JOIN [vyber] ON [predmet].id_predmet= [vyber].id_predmet) JOIN [plansemestr] ON [plansemestr].id_ps = [vyber].id_ps " +
+                    $"WHERE [plansemestr].id_zaznam='{id_z}' AND [plansemestr].sem_ps='{semestr}' )").ToList();
                 return vystup;
             }
         }
