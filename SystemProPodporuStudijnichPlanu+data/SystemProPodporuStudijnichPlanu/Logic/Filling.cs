@@ -206,7 +206,6 @@ namespace SystemProPodporuStudijnichPlanu.Logic
             catch { }
         }
         public void FillDetail(ListBox LB, VypisPopisPredmet v, List<Predmet> lp)
-        //nepoužívaná metoda
         {
             try
             {
